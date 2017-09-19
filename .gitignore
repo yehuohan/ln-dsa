@@ -1,0 +1,14 @@
+
+
+*.swp
+
+/*
+!/.gitignore
+!/*.md
+!/Doxyfile
+
+!/*.h
+!/*.c
+!/*.cpp
+
+!/examples
