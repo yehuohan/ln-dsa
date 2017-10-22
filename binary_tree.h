@@ -360,13 +360,13 @@ template <typename T, typename VST>
 void traverse_LO(bin_node<T>* node, VST& visit)
 {
     dsa::queue<bin_node<T>*> q;
-    q.push_rear(node);
+    q.enqueue(node);
     while(!q.is_empty())
     {
-        bin_node<T>* x = q.pop_front();
+        bin_node<T>* x = q.dequeue();
         visit(x->data);
-        if(x->left) q.push_rear(x->left);
-        if(x->right) q.push_rear(x->right);
+        if(x->left) q.enqueue(x->left);
+        if(x->right) q.enqueue(x->right);
     }
 }
 
@@ -376,7 +376,7 @@ void traverse_LO(bin_node<T>* node, VST& visit)
  *
  * @param pre: 先序遍历序列
  * @param in: 中序遍历序列
- * @param node: 二叉树子树点
+ * @param node: 二叉树子树节点
  * @return
  * @retval None
  */

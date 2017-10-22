@@ -49,12 +49,14 @@ public:
     /** return the front element */
     T       front() const {return (dsa::list<T>::first())->data;};
     /** pop the element from front */
-    T       pop_front() {return dsa::list<T>::remove(dsa::list<T>::first());}
+    //T       pop_front() {return dsa::list<T>::remove(dsa::list<T>::first());}
+    T       dequeue() {return dsa::list<T>::remove(dsa::list<T>::first());}
 
     /** return the rear element */
     T       rear() const {return dsa::list<T>::last()->data;}
     /** push the element to the rear */
-    void    push_rear(const T& ele) { dsa::list<T>::push_back(ele);}
+    //void    push_rear(const T& ele) { dsa::list<T>::push_back(ele);}
+    void    enqueue(const T& ele) { dsa::list<T>::push_back(ele);}
 };
 
 /*! @} */

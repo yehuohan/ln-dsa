@@ -34,12 +34,16 @@ int main()
     gm.insert_edge(0.37, 30, v0, v3);
     gm.insert_edge(0.99, 40, v2, v3);
 
+    int clock = 0;
+    gm.BFS(v0, clock);
+    gm.DFS(v0, clock);
+
     std::cout << "Edge: \n";
     std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
     std::cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << std::endl;
 
-    std::cout << "v1's first neighbor: " << gm.first_neighbor(v0) << std::endl;
-    std::cout << "v1's next: " << gm.next_neighbor(v0, v2) << std::endl;
+    std::cout << "v1's first neighbor: " << gm.first_nbr(v0) << std::endl;
+    std::cout << "v1's next: " << gm.next_nbr(v0, v2) << std::endl;
 
     gm.remove_edge(v0,v3);
     std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
@@ -102,16 +106,16 @@ int main()
 /* queue test */
 #if(0)
     dsa::queue<int> que_i;
-    que_i.push_rear(12);
-    que_i.push_rear(12392);
-    que_i.push_rear(-19212);
-    que_i.push_rear(-1000);
+    que_i.enqueue(12);
+    que_i.enqueue(12392);
+    que_i.enqueue(-19212);
+    que_i.enqueue(-1000);
 
     std::cout << "Size : " << que_i.size() << std::endl;
     std::cout << "Front: " << que_i.front() << std::endl;
     std::cout << "Rear : " << que_i.rear() << std::endl;
 
-    std::cout << "\n" << que_i.pop_front() << std::endl;
+    std::cout << "\n" << que_i.dequeue() << std::endl;
 
     std::cout << "Size : " << que_i.size() << std::endl;
     std::cout << "Front: " << que_i.front() << std::endl;
