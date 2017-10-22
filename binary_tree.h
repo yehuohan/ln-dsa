@@ -121,9 +121,6 @@ public:
 };
 
 
-/*! @} */
-
-
 /*!
  * @brief 更新node高度
  *
@@ -190,13 +187,6 @@ BinNode<T>* BinTree<T>::insert_right(BinNode<T>* node, const T& ele)
     this->update_height_above(node);
     return node->right;
 }
-
-
-/*!
- * @addtogroup Tree
- * 
- * @{
- */
 
 
 /*!
