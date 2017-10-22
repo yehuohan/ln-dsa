@@ -52,7 +52,7 @@ int main()
 
 /* tree test */
 #if(0)
-    dsa::bin_tree<int> tint(9);
+    dsa::BinTree<int> tint(9);
     tint.insert_left(tint.root(), 5);
     tint.insert_left(tint.root()->left, 1);
     tint.insert_right(tint.root()->left, 7);
@@ -87,10 +87,24 @@ int main()
     std::cout << std::endl;
 
     dsa::vector<int> pre;
-    pre.push_back(9);pre.push_back(5);pre.push_back(1);pre.push_back(7);pre.push_back(6);pre.push_back(18);pre.push_back(12);pre.push_back(28);
+    pre.push_back(9);
+    pre.push_back(5);
+    pre.push_back(1);
+    pre.push_back(7);
+    pre.push_back(6);
+    pre.push_back(18);
+    pre.push_back(12);
+    pre.push_back(28);
     dsa::vector<int> in;
-    in.push_back(1);in.push_back(5);in.push_back(6);in.push_back(7);in.push_back(9);in.push_back(12);in.push_back(18);in.push_back(28);
-    dsa::bin_tree<int> bt;
+    in.push_back(1);
+    in.push_back(5);
+    in.push_back(6);
+    in.push_back(7);
+    in.push_back(9);
+    in.push_back(12);
+    in.push_back(18);
+    in.push_back(28);
+    dsa::BinTree<int> bt;
     construct_bintree(pre, in, bt);
 
     std::cout << "Size: " << bt.root()->size() << std::endl;

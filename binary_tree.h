@@ -29,15 +29,15 @@ namespace dsa
  * @brief 二叉树节点
  *
  */
-template <typename T> struct bin_node
+template <typename T> struct BinNode
 {
-    bin_node<T>* parent;
-    bin_node<T>* left;
-    bin_node<T>* right;
+    BinNode<T>* parent;
+    BinNode<T>* left;
+    BinNode<T>* right;
     T data;
     int height;
 
-    bin_node(const T& e, bin_node<T>* p)
+    BinNode(const T& e, BinNode<T>* p)
     {
         this->data = e;
         this->parent = p;
@@ -49,21 +49,21 @@ template <typename T> struct bin_node
  * @brief 插入左子节点
  *
  * @param e: 节点数据
- * @return bin_node指针
+ * @return BinNode指针
  * @retval None
  */
-    bin_node<T>*     insert_left(const T& e)
-        { return this->left = new bin_node(e, this); }
+    BinNode<T>*     insert_left(const T& e)
+        { return this->left = new BinNode(e, this); }
 
 /*!
  * @brief 插入右子节点
  *
  * @param e: 节点数据
- * @return bin_node指针
+ * @return BinNode指针
  * @retval None
  */
-    bin_node<T>*     insert_right(const T& e)
-        { return this->right = new bin_node(e, this); }
+    BinNode<T>*     insert_right(const T& e)
+        { return this->right = new BinNode(e, this); }
 
 /*!
  * @brief 获取子树节点数量
@@ -87,35 +87,35 @@ template <typename T> struct bin_node
  *
  */
 template <typename T>
-class bin_tree
+class BinTree
 {
 private:
     int             m_size;     /**< 节点数量 */
-    bin_node<T>*     m_root;     /**< 树根节点 */
+    BinNode<T>*     m_root;     /**< 树根节点 */
 
 protected:
-    virtual int update_height(bin_node<T>* node);    /**< 更新node高度 */
-    void        update_height_above(bin_node<T>* node);  /**< 更新node及祖先高度 */
+    virtual int update_height(BinNode<T>* node);    /**< 更新node高度 */
+    void        update_height_above(BinNode<T>* node);  /**< 更新node及祖先高度 */
 
 public:
-    bin_tree()
+    BinTree()
     {
         this->m_size = 0;
         this->m_root = nullptr;
     }
 
-    bin_tree(const T& ele)
+    BinTree(const T& ele)
     {
         this->m_size = 1;
-        this->m_root = new bin_node<T>(ele, nullptr);
+        this->m_root = new BinNode<T>(ele, nullptr);
     }
 
     int     size() const {return this->m_size;}
     bool    is_empty() const {return !this->m_root;}
-    bin_node<T>* create_root(const T& ele) {return this->m_root = new bin_node<T>(ele, nullptr);}
-    bin_node<T>* root() {return this->m_root;}
-    bin_node<T>* insert_left(bin_node<T>* node, const T& ele);
-    bin_node<T>* insert_right(bin_node<T>* node, const T& ele);
+    BinNode<T>* create_root(const T& ele) {return this->m_root = new BinNode<T>(ele, nullptr);}
+    BinNode<T>* root() {return this->m_root;}
+    BinNode<T>* insert_left(BinNode<T>* node, const T& ele);
+    BinNode<T>* insert_right(BinNode<T>* node, const T& ele);
 
     // traverse
 };
@@ -127,12 +127,12 @@ public:
 /*!
  * @brief 更新node高度
  *
- * @param node: bin_node节点
+ * @param node: BinNode节点
  * @return 返回节点高度
  * @retval None
  */
 template <typename T>
-int bin_tree<T>::update_height(bin_node<T>* node)
+int BinTree<T>::update_height(BinNode<T>* node)
 {
     // 叶子结点没有子结点了，其高度为 1 + (-1) = 0
     int a = node->left ? node->left->height : -1;
@@ -143,12 +143,12 @@ int bin_tree<T>::update_height(bin_node<T>* node)
 /*!
  * @brief 更新node及祖先高度
  *
- * @param node: bin_node节点
+ * @param node: BinNode节点
  * @return
  * @retval None
  */
 template <typename T>
-void bin_tree<T>::update_height_above(bin_node<T>* node)
+void BinTree<T>::update_height_above(BinNode<T>* node)
 {
     while(node)
     {
@@ -166,7 +166,7 @@ void bin_tree<T>::update_height_above(bin_node<T>* node)
  * @retval None
  */
 template <typename T>
-bin_node<T>* bin_tree<T>::insert_left(bin_node<T>* node, const T& ele)
+BinNode<T>* BinTree<T>::insert_left(BinNode<T>* node, const T& ele)
 {
     this->m_size ++;
     node->insert_left(ele);
@@ -183,7 +183,7 @@ bin_node<T>* bin_tree<T>::insert_left(bin_node<T>* node, const T& ele)
  * @retval None
  */
 template <typename T>
-bin_node<T>* bin_tree<T>::insert_right(bin_node<T>* node, const T& ele)
+BinNode<T>* BinTree<T>::insert_right(BinNode<T>* node, const T& ele)
 {
     this->m_size ++;
     node->insert_right(ele);
@@ -209,7 +209,7 @@ bin_node<T>* bin_tree<T>::insert_right(bin_node<T>* node, const T& ele)
  * @retval None
  */
 template <typename T, typename VST>
-static void visit_along_left_brach(bin_node<T>* x, VST& visit, dsa::stack<bin_node<T>* >& s)
+static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::stack<BinNode<T>* >& s)
 {
     while(x)
     {
@@ -228,7 +228,7 @@ static void visit_along_left_brach(bin_node<T>* x, VST& visit, dsa::stack<bin_no
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR(bin_node<T>* node, VST& visit)
+void traverse_DLR(BinNode<T>* node, VST& visit)
 {
 #if(0)
     // by recursion
@@ -239,7 +239,7 @@ void traverse_DLR(bin_node<T>* node, VST& visit)
 #else
 
     // by iteration
-    dsa::stack<bin_node<T>*> s;
+    dsa::stack<BinNode<T>*> s;
     while(1)
     {
         visit_along_left_brach(node, visit, s);
@@ -260,7 +260,7 @@ void traverse_DLR(bin_node<T>* node, VST& visit)
  * @retval None
  */
 template <typename T>
-static void go_along_left_branch(bin_node<T>* x, dsa::stack<bin_node<T>*>& s)
+static void go_along_left_branch(BinNode<T>* x, dsa::stack<BinNode<T>*>& s)
 {
     while(x)
     {
@@ -278,7 +278,7 @@ static void go_along_left_branch(bin_node<T>* x, dsa::stack<bin_node<T>*>& s)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR(bin_node<T>* node, VST& visit)
+void traverse_LDR(BinNode<T>* node, VST& visit)
 {
 #if(0)
     // by recursion
@@ -289,7 +289,7 @@ void traverse_LDR(bin_node<T>* node, VST& visit)
 #else
 
     // by iteration
-    dsa::stack<bin_node<T>*> s;
+    dsa::stack<BinNode<T>*> s;
     while(1)
     {
         go_along_left_branch(node, s);
@@ -312,7 +312,7 @@ void traverse_LDR(bin_node<T>* node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD(bin_node<T>* node, VST& visit)
+void traverse_LRD(BinNode<T>* node, VST& visit)
 {
 #if(0)
     // by recursion
@@ -323,8 +323,8 @@ void traverse_LRD(bin_node<T>* node, VST& visit)
 #else
 
     // by iteration
-    dsa::stack<bin_node<T>*> s;
-    bin_node<T>* last_node = nullptr;
+    dsa::stack<BinNode<T>*> s;
+    BinNode<T>* last_node = nullptr;
 
     // 先将左子树节点均入栈
     go_along_left_branch(node, s);
@@ -357,13 +357,13 @@ void traverse_LRD(bin_node<T>* node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LO(bin_node<T>* node, VST& visit)
+void traverse_LO(BinNode<T>* node, VST& visit)
 {
-    dsa::queue<bin_node<T>*> q;
+    dsa::queue<BinNode<T>*> q;
     q.enqueue(node);
     while(!q.is_empty())
     {
-        bin_node<T>* x = q.dequeue();
+        BinNode<T>* x = q.dequeue();
         visit(x->data);
         if(x->left) q.enqueue(x->left);
         if(x->right) q.enqueue(x->right);
@@ -381,7 +381,7 @@ void traverse_LO(bin_node<T>* node, VST& visit)
  * @retval None
  */
 template <typename T>
-static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::bin_node<T>*& node)
+static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::BinNode<T>*& node)
 {
     // 查找子树的根节点
     int d_index = in.find(pre[0], 0, in.size());
@@ -404,13 +404,13 @@ static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vecto
     if(!l_pre.is_empty())
     {
         // 插件子树的根节点
-        dsa::bin_node<T>* left = node->insert_left(l_pre[0]);
+        dsa::BinNode<T>* left = node->insert_left(l_pre[0]);
         // 继续重构左子树与右子树
         construct_bintree_pre_in(l_pre, l_in, left);
     }
     if(!r_pre.is_empty())
     {
-        dsa::bin_node<T>* right = node->insert_right(r_pre[0]);
+        dsa::BinNode<T>* right = node->insert_right(r_pre[0]);
         construct_bintree_pre_in(r_pre, r_in, right);
     }
 }
@@ -429,10 +429,10 @@ static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vecto
  * @retval None
  */
 template <typename T>
-void construct_bintree(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::bin_tree<T>& bt)
+void construct_bintree(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::BinTree<T>& bt)
 {
     bt.create_root(pre[0]);
-    dsa::bin_node<T>* root = bt.root();
+    dsa::BinNode<T>* root = bt.root();
     construct_bintree_pre_in(pre, in, root);
 }
 
