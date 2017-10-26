@@ -11,8 +11,9 @@ void print_node(int data)
 //(int argc, char** argv)
 int main()
 {
+
 /* graph test */
-#if(1)
+#if(0)
     dsa::GraphMatrix<int, float> gm;
 
     int v0 = gm.insert_vertex(100);
@@ -58,6 +59,7 @@ int main()
     tint.insert_right(tint.root()->left, 7);
     tint.insert_left(tint.root()->left->right, 6);
     tint.insert_right(tint.root(), 18);
+
     tint.insert_left(tint.root()->right, 12);
     tint.insert_right(tint.root()->right, 28);
 /*
@@ -71,19 +73,19 @@ int main()
     std::cout << "Is Empty: "<< tint.is_empty() << std::endl;
 
     std::cout << "先序遍历：\n";
-    traverse_DLR(tint.root(), print_node);
+    tint.root()->traverse_DLR(print_node);
     std::cout << std::endl;
 
     std::cout << "中序遍历：\n";
-    traverse_LDR(tint.root(), print_node);
+    tint.root()->traverse_LDR(print_node);
     std::cout << std::endl;
 
     std::cout << "后序遍历：\n";
-    traverse_LRD(tint.root(), print_node);
+    tint.root()->traverse_LRD(print_node);
     std::cout << std::endl;
 
     std::cout << "层次遍历：\n";
-    traverse_LO(tint.root(), print_node);
+    tint.root()->traverse_LO(print_node);
     std::cout << std::endl;
 
     dsa::vector<int> pre;
@@ -109,10 +111,10 @@ int main()
 
     std::cout << "Size: " << bt.root()->size() << std::endl;
     std::cout << "重构后序遍历：\n";
-    traverse_LRD(bt.root(), print_node);
+    bt.root()->traverse_LRD(print_node);
     std::cout << std::endl;
     std::cout << "重构层次遍历：\n";
-    traverse_LO(bt.root(), print_node);
+    bt.root()->traverse_LO(print_node);
     std::cout << std::endl;
 
 #endif

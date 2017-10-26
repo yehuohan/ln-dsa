@@ -12,7 +12,7 @@
 //==============================================================================
 
 #ifndef _BINARY_TREE_H
-#define _BINARY_TREE_H value
+#define _BINARY_TREE_H
 
 #include "stack.h"
 #include "queue.h"
@@ -34,8 +34,8 @@ template <typename T> struct BinNode
     BinNode<T>* parent;
     BinNode<T>* left;
     BinNode<T>* right;
-    T data;
-    int height;
+    T           data;
+    int         height;
 
     BinNode(const T& e, BinNode<T>* p)
     {
@@ -79,8 +79,36 @@ template <typename T> struct BinNode
         if(this->right) sum += this->right->size();
         return sum;
     }
-};
 
+    /*!
+     * @brief 获取中序遍历下当前节点的直接后继节点
+     *
+     * @param None
+     * @return
+     * @retval None
+     */
+    BinNode<T>* successor()
+    {
+        BinNode<T>* s = this;
+        if (this->right)
+        {
+            s = this->right;
+            while(s->left) s = s->left;     //为右子树中最靠左（最小）的节点
+        }
+        else
+        {
+            //或者为“将当前节点包含于其左子树中的最低祖先”
+            if (s->parent && s->parent->right == s) s = s->parent;
+            s = s->parent;
+        }
+        return s;
+    }
+
+    template <typename VST> void traverse_DLR(VST& visit);      // 先序
+    template <typename VST> void traverse_LDR(VST& visit);      // 中序
+    template <typename VST> void traverse_LRD(VST& visit);      // 后序
+    template <typename VST> void traverse_LO(VST& visit);       // 层次
+};
 
 /*!
  * @brief 二叉树类
@@ -89,7 +117,7 @@ template <typename T> struct BinNode
 template <typename T>
 class BinTree
 {
-private:
+protected:
     int             m_size;     /**< 节点数量 */
     BinNode<T>*     m_root;     /**< 树根节点 */
 
@@ -119,6 +147,7 @@ public:
 
     // traverse
 };
+
 
 
 /*!
@@ -189,6 +218,9 @@ BinNode<T>* BinTree<T>::insert_right(BinNode<T>* node, const T& ele)
 }
 
 
+//==============================================================================
+/* Traverse */
+
 /*!
  * @brief 依次仿问所有左子节点
  *
@@ -210,7 +242,9 @@ static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::stack<BinNode
 }
 
 /*!
- * @brief 先序遍历, preorder
+ * @brief 先序(preorder)遍历
+ *
+ * 通过迭代实现
  *
  * @param node: 节点指针
  * @param visit: 遍历函数
@@ -218,17 +252,8 @@ static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::stack<BinNode
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR(BinNode<T>* node, VST& visit)
+void traverse_DLR_iteration(BinNode<T>* node, VST& visit)
 {
-#if(0)
-    // by recursion
-    if(!node) return;
-    visit(node->data);
-    traverse_DLR(node->left, visit);
-    traverse_DLR(node->right, visit);
-#else
-
-    // by iteration
     dsa::stack<BinNode<T>*> s;
     while(1)
     {
@@ -236,7 +261,40 @@ void traverse_DLR(BinNode<T>* node, VST& visit)
         if(s.is_empty()) break;
         node = s.pop();    // pop出右子树，用以visit以右子树为root的左子树
     }
-#endif
+}
+
+/*!
+ * @brief 先序(preorder)遍历
+ *
+ * 通过递归实现
+ *
+ * @param node: 节点指针
+ * @param visit: 遍历函数
+ * @return
+ * @retval None
+ */
+template <typename T, typename VST>
+void traverse_DLR_recursion(BinNode<T>* node, VST& visit)
+{
+    if(!node) return;
+    visit(node->data);
+    traverse_DLR_recursion(node->left, visit);
+    traverse_DLR_recursion(node->right, visit);
+}
+
+/*!
+ * @brief 先序(preorder)遍历接口
+ *
+ * @param visit: 遍历函数
+ * @return
+ * @retval None
+ */
+template <typename T>
+template<typename VST>
+void BinNode<T>::traverse_DLR(VST& visit)
+{
+    traverse_DLR_recursion(this, visit);
+    traverse_DLR_iteration(this, visit);
 }
 
 
@@ -268,17 +326,8 @@ static void go_along_left_branch(BinNode<T>* x, dsa::stack<BinNode<T>*>& s)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR(BinNode<T>* node, VST& visit)
+void traverse_LDR_iteration(BinNode<T>* node, VST& visit)
 {
-#if(0)
-    // by recursion
-    if(!node) return;
-    traverse_LDR(node->left, visit);
-    visit(node->data);
-    traverse_LDR(node->right, visit);
-#else
-
-    // by iteration
     dsa::stack<BinNode<T>*> s;
     while(1)
     {
@@ -288,40 +337,62 @@ void traverse_LDR(BinNode<T>* node, VST& visit)
         visit(node->data);
         // right为null，在go_along_left_branch会直接跳出，下一次将visit LDR中的D
         // right不为null，则下一次将visit LDR中的R
-        node = node->right;     
+        node = node->right;
     }
-#endif
+}
+
+/*!
+ * @brief 中序(inorder)遍历
+ *
+ * @param node: 节点指针
+ * @param visit: 遍历函数
+ * @return
+ * @retval None
+ */
+template <typename T, typename VST>
+void traverse_LDR_recursion(BinNode<T>* node, VST& visit)
+{
+    if(!node) return;
+    traverse_LDR_recursion(node->left, visit);
+    visit(node->data);
+    traverse_LDR_recursion(node->right, visit);
+}
+
+/*!
+ * @brief 中序(inorder)遍历
+ *
+ * @param visit: 遍历函数
+ * @return
+ * @retval None
+ */
+template <typename T>
+template<typename VST>
+void BinNode<T>::traverse_LDR(VST& visit)
+{
+    traverse_LDR_recursion(this, visit);
+    traverse_LDR_iteration(this, visit);
 }
 
 
 /*!
- * @brief 后序遍历, postorder
+ * @brief 后序(postorder)遍历
  *
  * @param node: 节点指针
  * @param visit: 遍历函数
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD(BinNode<T>* node, VST& visit)
+void traverse_LRD_iteration(BinNode<T>* node, VST& visit)
 {
-#if(0)
-    // by recursion
-    if(!node) return;
-    traverse_LRD(node->left, visit);
-    traverse_LRD(node->right, visit);
-    visit(node->data);
-#else
-
-    // by iteration
     dsa::stack<BinNode<T>*> s;
     BinNode<T>* last_node = nullptr;
 
     // 先将左子树节点均入栈
     go_along_left_branch(node, s);
-    while(!s.is_empty()) 
+    while(!s.is_empty())
     {
         node = s.pop();
-        // LRD中的D节点能被访问的前提是：无右子树或右子树已被访问过 
+        // LRD中的D节点能被访问的前提是：无右子树或右子树已被访问过
         if(!node->right || node->right == last_node)
         {
             visit(node->data);
@@ -331,26 +402,57 @@ void traverse_LRD(BinNode<T>* node, VST& visit)
         {
             // 将LRD中的D重新入栈，等待右子树被访问完
             s.push(node);
-            node = node->right;     
+            node = node->right;
             go_along_left_branch(node, s);
         }
     }
-#endif
 }
 
 /*!
- * @brief 层次遍历(LayerOrder)
+ * @brief 后序(postorder)遍历
  *
  * @param node: 节点指针
+ * @param visit: 遍历函数
+ * @retval None
+ */
+template <typename T, typename VST>
+void traverse_LRD_recursion(BinNode<T>* node, VST& visit)
+{
+    if(!node) return;
+    traverse_LRD_recursion(node->left, visit);
+    traverse_LRD_recursion(node->right, visit);
+    visit(node->data);
+}
+
+/*!
+ * @brief 后序(postorder)遍历
+ *
  * @param visit: 遍历函数
  * @return
  * @retval None
  */
-template <typename T, typename VST>
-void traverse_LO(BinNode<T>* node, VST& visit)
+template <typename T>
+template <typename VST>
+void BinNode<T>::traverse_LRD(VST& visit)
+{
+    traverse_LRD_recursion(this, visit);
+    traverse_LRD_iteration(this, visit);
+}
+
+
+/*!
+ * @brief 层次遍历(LayerOrder)
+ *
+ * @param visit: 遍历函数
+ * @return
+ * @retval None
+ */
+template <typename T>
+template <typename VST>
+void BinNode<T>::traverse_LO(VST& visit)
 {
     dsa::queue<BinNode<T>*> q;
-    q.enqueue(node);
+    q.enqueue(this);
     while(!q.is_empty())
     {
         BinNode<T>* x = q.dequeue();
@@ -359,6 +461,9 @@ void traverse_LO(BinNode<T>* node, VST& visit)
         if(x->right) q.enqueue(x->right);
     }
 }
+
+/* Traverse End */
+//==============================================================================
 
 
 /*!
@@ -384,7 +489,7 @@ static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vecto
         l_pre.push_back(pre[k+1]);    // 转移左子树先序
         l_in.push_back(in[k]);        // 转移左子树中序
     }
-    for(int k = d_index+1; k < in.size(); k++) 
+    for(int k = d_index+1; k < in.size(); k++)
     {
         r_pre.push_back(pre[k]);      // 转移右子树先序
         r_in.push_back(in[k]);        // 转移右子树中序
