@@ -8,78 +8,139 @@ void print_node(int data)
     std::cout << data << "    ";
 }
 
+void test_vector();
+void test_list();
+void test_stack();
+void test_queue();
+void test_bt();
+void test_graph();
+void test_bst();
+
 //(int argc, char** argv)
 int main()
 {
+    test_bst();
+    //test_graph();
+    //test_bt();
+    //test_queue();
+    //test_stack();
+    //test_list();
+    //test_vector();
 
-/* binary search tree */
-#if(1)
-    //dsa::BinSearchTree<dsa::Entry<int, char> > bst;
-    dsa::BinSearchTree<int> bst;
-    bst.insert(1);
-    bst.insert(10);
-    bst.insert(980);
-    bst.insert(128);
-    bst.insert(-31);
+    return 0;
+}
 
-    dsa::BinNode<int>* r = bst.search(10);
-    if (r)
+
+void test_vector()
+{
+    dsa::vector<int> vec_i;
+    vec_i.push_back(-121);
+    vec_i.push_back(10);
+    vec_i.push_back(10);
+    vec_i.push_back(10);
+    vec_i.push_back(123);
+    vec_i.push_back(238);
+    vec_i.push_back(8009);
+    vec_i.push_back(13);
+    vec_i.push_back(80);
+    vec_i.push_back(123);
+    vec_i.push_back(123);
+    vec_i.push_back(238);
+    vec_i.push_back(8009);
+    vec_i.push_back(238);
+    vec_i.push_back(80);
+    vec_i.push_back(80);
+    vec_i.push_back(8009);
+    vec_i.push_back(8009);
+    vec_i.push_back(13);
+    vec_i.push_back(13);
+    vec_i.push_back(8009);
+    vec_i[0] = -99999999;
+    vec_i.insert(1, -3952);
+
+    std::cout << "Find: " << vec_i.find(-3953,0, vec_i.size()) << std::endl;
+
+    vec_i.merge_sort(0, vec_i.size());
+    //vec_i.bubble_sort(0, vec_i.size());
+    vec_i.uniquify();
+
+    std::cout << "Print:\n";
+    for(unsigned int k = 0; k < vec_i.size(); k ++)
     {
-        std::cout << r->data << std::endl;
+        std::cout << vec_i[k] << std::endl;
     }
-    if (bst.remove(10))
+    std::cout << "search:\n";
+    std::cout << vec_i.bin_search(8009, 0, vec_i.size()) << std::endl;
+}
+
+void test_list()
+{
+    dsa::list<int> lst_i;
+    lst_i.push_front(1000);
+    lst_i.insert_before(lst_i.first(), -1000);
+    lst_i.push_back(-1);
+    lst_i.push_back(20);
+    lst_i.push_back(-20);
+    lst_i.push_back(920);
+    lst_i.push_back(9020);
+
+    lst_i.remove(lst_i.first());
+    //lst_i.selection_sort(lst_i.first(), lst_i.size());
+    lst_i.insertion_sort(lst_i.first(), lst_i.size());
+
+    std::cout << "Iterator: \n";
+    dsa::list<int>::iterator iter = lst_i.begin();
+    std::cout << *iter << std::endl;
+    iter++;
+    std::cout << *iter << std::endl << std::endl;
+
+    std::cout << "Size: " << lst_i.size() << std::endl;
+
+    dsa::list_node<int>* p = lst_i.first();
+    while(p->next)
     {
-        std::cout << "Remove 10\n";
+        std::cout << p->data << std::endl;
+        p = p->next;
     }
-    if (!bst.remove(10))
-    {
-        std::cout << "Remove nothing\n";
-    }
+}
 
+void test_stack()
+{
+    dsa::stack<int> sta_i;
+    if(sta_i.is_empty())
+        std::cout << "Is empty" << std::endl;
+    sta_i.push(100);
+    sta_i.push(999);
+    sta_i.push(-10000);
+    std::cout << sta_i.size() << std::endl;
+    std::cout << sta_i.top() << std::endl;
+    std::cout << sta_i.pop() << std::endl;
+    sta_i.clear();
+    if(sta_i.is_empty())
+        std::cout << "Is empty" << std::endl;
+}
 
-#endif
+void test_queue()
+{
+    dsa::queue<int> que_i;
+    que_i.enqueue(12);
+    que_i.enqueue(12392);
+    que_i.enqueue(-19212);
+    que_i.enqueue(-1000);
 
-/* graph test */
-#if(0)
-    dsa::GraphMatrix<int, float> gm;
+    std::cout << "Size : " << que_i.size() << std::endl;
+    std::cout << "Front: " << que_i.front() << std::endl;
+    std::cout << "Rear : " << que_i.rear() << std::endl;
 
-    int v0 = gm.insert_vertex(100);
-    int v1 = gm.insert_vertex(700);
-    int v2 = gm.insert_vertex(900);
-    gm.remove_vertex(v2);
-    v2 = gm.insert_vertex(1200);
-    int v3 = gm.insert_vertex(9999);
-    
-    std::cout << "Vertex: \n";
-    std::cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
-    std::cout << gm.get_vertex_data(v0) << std::endl;
-    std::cout << gm.get_vertex_data(v1) << std::endl;
-    std::cout << gm.get_vertex_data(v2) << std::endl;
-    std::cout << gm.get_vertex_data(v3) << std::endl;
+    std::cout << "\n" << que_i.dequeue() << std::endl;
 
-    gm.insert_edge(0.13, 10, v0, v1);
-    gm.insert_edge(0.25, 20, v0, v2);
-    gm.insert_edge(0.37, 30, v0, v3);
-    gm.insert_edge(0.99, 40, v2, v3);
+    std::cout << "Size : " << que_i.size() << std::endl;
+    std::cout << "Front: " << que_i.front() << std::endl;
+    std::cout << "Rear : " << que_i.rear() << std::endl;
+}
 
-    int clock = 0;
-    gm.BFS(v0, clock);
-    gm.DFS(v0, clock);
-
-    std::cout << "Edge: \n";
-    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
-    std::cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << std::endl;
-
-    std::cout << "v1's first neighbor: " << gm.first_nbr(v0) << std::endl;
-    std::cout << "v1's next: " << gm.next_nbr(v0, v2) << std::endl;
-
-    gm.remove_edge(v0,v3);
-    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
-
-#endif
-
-/* tree test */
-#if(0)
+void test_bt()
+{
     dsa::BinTree<int> tint(9);
     tint.insert_left(tint.root(), 5);
     tint.insert_left(tint.root()->left, 1);
@@ -143,119 +204,67 @@ int main()
     std::cout << "重构层次遍历：\n";
     bt.root()->traverse_LO(print_node);
     std::cout << std::endl;
+}
 
-#endif
+void test_graph()
+{
+    dsa::GraphMatrix<int, float> gm;
 
-/* queue test */
-#if(0)
-    dsa::queue<int> que_i;
-    que_i.enqueue(12);
-    que_i.enqueue(12392);
-    que_i.enqueue(-19212);
-    que_i.enqueue(-1000);
+    int v0 = gm.insert_vertex(100);
+    int v1 = gm.insert_vertex(700);
+    int v2 = gm.insert_vertex(900);
+    gm.remove_vertex(v2);
+    v2 = gm.insert_vertex(1200);
+    int v3 = gm.insert_vertex(9999);
+    
+    std::cout << "Vertex: \n";
+    std::cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
+    std::cout << gm.get_vertex_data(v0) << std::endl;
+    std::cout << gm.get_vertex_data(v1) << std::endl;
+    std::cout << gm.get_vertex_data(v2) << std::endl;
+    std::cout << gm.get_vertex_data(v3) << std::endl;
 
-    std::cout << "Size : " << que_i.size() << std::endl;
-    std::cout << "Front: " << que_i.front() << std::endl;
-    std::cout << "Rear : " << que_i.rear() << std::endl;
+    gm.insert_edge(0.13, 10, v0, v1);
+    gm.insert_edge(0.25, 20, v0, v2);
+    gm.insert_edge(0.37, 30, v0, v3);
+    gm.insert_edge(0.99, 40, v2, v3);
 
-    std::cout << "\n" << que_i.dequeue() << std::endl;
+    int clock = 0;
+    gm.BFS(v0, clock);
+    gm.DFS(v0, clock);
 
-    std::cout << "Size : " << que_i.size() << std::endl;
-    std::cout << "Front: " << que_i.front() << std::endl;
-    std::cout << "Rear : " << que_i.rear() << std::endl;
-#endif
+    std::cout << "Edge: \n";
+    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
+    std::cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << std::endl;
 
-/* stack test */
-#if(0)
-    dsa::stack<int> sta_i;
-    if(sta_i.is_empty())
-        std::cout << "Is empty" << std::endl;
-    sta_i.push(100);
-    sta_i.push(999);
-    sta_i.push(-10000);
-    std::cout << sta_i.size() << std::endl;
-    std::cout << sta_i.top() << std::endl;
-    std::cout << sta_i.pop() << std::endl;
-    sta_i.clear();
-    if(sta_i.is_empty())
-        std::cout << "Is empty" << std::endl;
-#endif
+    std::cout << "v1's first neighbor: " << gm.first_nbr(v0) << std::endl;
+    std::cout << "v1's next: " << gm.next_nbr(v0, v2) << std::endl;
 
-/* list test */
-#if(0)
-    dsa::list<int> lst_i;
-    lst_i.push_front(1000);
-    lst_i.insert_before(lst_i.first(), -1000);
-    lst_i.push_back(-1);
-    lst_i.push_back(20);
-    lst_i.push_back(-20);
-    lst_i.push_back(920);
-    lst_i.push_back(9020);
+    gm.remove_edge(v0,v3);
+    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
+}
 
-    lst_i.remove(lst_i.first());
-    //lst_i.selection_sort(lst_i.first(), lst_i.size());
-    lst_i.insertion_sort(lst_i.first(), lst_i.size());
+void test_bst()
+{
+    //dsa::BinSearchTree<dsa::Entry<int, char> > bst;
+    dsa::BinSearchTree<int> bst;
+    bst.insert(1);
+    bst.insert(10);
+    bst.insert(980);
+    bst.insert(128);
+    bst.insert(-31);
 
-    std::cout << "Iterator: \n";
-    dsa::list<int>::iterator iter = lst_i.begin();
-    std::cout << *iter << std::endl;
-    iter++;
-    std::cout << *iter << std::endl << std::endl;
-
-    std::cout << "Size: " << lst_i.size() << std::endl;
-
-    dsa::list_node<int>* p = lst_i.first();
-    while(p->next)
+    dsa::BinNode<int>* r = bst.search(10);
+    if (r)
     {
-        std::cout << p->data << std::endl;
-        p = p->next;
+        std::cout << r->data << std::endl;
     }
-
-    return 0;
-#endif
-
-/* vector test */
-#if(0)
-    dsa::vector<int> vec_i;
-    vec_i.push_back(-121);
-    vec_i.push_back(10);
-    vec_i.push_back(10);
-    vec_i.push_back(10);
-    vec_i.push_back(123);
-    vec_i.push_back(238);
-    vec_i.push_back(8009);
-    vec_i.push_back(13);
-    vec_i.push_back(80);
-    vec_i.push_back(123);
-    vec_i.push_back(123);
-    vec_i.push_back(238);
-    vec_i.push_back(8009);
-    vec_i.push_back(238);
-    vec_i.push_back(80);
-    vec_i.push_back(80);
-    vec_i.push_back(8009);
-    vec_i.push_back(8009);
-    vec_i.push_back(13);
-    vec_i.push_back(13);
-    vec_i.push_back(8009);
-    vec_i[0] = -99999999;
-    vec_i.insert(1, -3952);
-
-    std::cout << "Find: " << vec_i.find(-3953,0, vec_i.size()) << std::endl;
-
-    vec_i.merge_sort(0, vec_i.size());
-    //vec_i.bubble_sort(0, vec_i.size());
-    vec_i.uniquify();
-
-    std::cout << "Print:\n";
-    for(unsigned int k = 0; k < vec_i.size(); k ++)
+    if (bst.remove(10))
     {
-        std::cout << vec_i[k] << std::endl;
+        std::cout << "Remove 10\n";
     }
-    std::cout << "search:\n";
-    std::cout << vec_i.bin_search(8009, 0, vec_i.size()) << std::endl;
-
-    return 0;
-#endif
-
+    if (!bst.remove(10))
+    {
+        std::cout << "Remove nothing\n";
+    }
 }
