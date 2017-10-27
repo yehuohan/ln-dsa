@@ -67,6 +67,7 @@ DSALib是数据结构与算法的学习过程。
 #include "queue.h"
 #include "binary_node.h"
 #include "binary_tree.h"
+#include "binary_search_tree.h"
 #include "graph.h"
 
 #endif /* ifndef _DASLIB_H */

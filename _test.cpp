@@ -12,6 +12,33 @@ void print_node(int data)
 int main()
 {
 
+/* binary search tree */
+#if(1)
+    //dsa::BinSearchTree<dsa::Entry<int, char> > bst;
+    dsa::BinSearchTree<int> bst;
+    bst.insert(1);
+    bst.insert(10);
+    bst.insert(980);
+    bst.insert(128);
+    bst.insert(-31);
+
+    dsa::BinNode<int>* r = bst.search(10);
+    if (r)
+    {
+        std::cout << r->data << std::endl;
+    }
+    if (bst.remove(10))
+    {
+        std::cout << "Remove 10\n";
+    }
+    if (!bst.remove(10))
+    {
+        std::cout << "Remove nothing\n";
+    }
+
+
+#endif
+
 /* graph test */
 #if(0)
     dsa::GraphMatrix<int, float> gm;
