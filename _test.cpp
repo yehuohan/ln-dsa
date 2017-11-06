@@ -15,11 +15,13 @@ void test_queue();
 void test_bt();
 void test_graph();
 void test_bst();
+void test_avl();
 
 //(int argc, char** argv)
 int main()
 {
-    test_bst();
+    test_avl();
+    //test_bst();
     //test_graph();
     //test_bt();
     //test_queue();
@@ -253,6 +255,11 @@ void test_bst()
     bst.insert(980);
     bst.insert(128);
     bst.insert(-31);
+    bst.insert(69);
+    bst.insert(-870);
+    bst.insert(370);
+    bst.insert(1370);
+    bst.insert(-80);
 
     dsa::BinNode<int>* r = bst.search(10);
     if (r)
@@ -267,4 +274,22 @@ void test_bst()
     {
         std::cout << "Remove nothing\n";
     }
+
+    bst.root()->traverse_LDR(print_node);
+}
+
+void test_avl()
+{
+    dsa::AvlTree<int> at;
+    at.insert(9);
+    at.insert(-13);
+    at.insert(-610);
+    at.insert(379);
+    at.insert(129);
+    at.insert(180);
+    at.insert(-80);
+    at.insert(-300);
+    at.insert(999);
+
+    at.root()->traverse_LDR(print_node);
 }

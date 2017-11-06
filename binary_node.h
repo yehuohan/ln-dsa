@@ -25,7 +25,27 @@ namespace dsa
  * @{
  */
 
-#define BinNode_Stature(p) ((p) ? (p)->height : -1)     //节点高度（与“空树高度为-1”的约定相统一）
+/*!
+ * @name 节点相关宏
+ * @{
+ */
+
+#define BN_Stature(x)       ((x) ? (x)->height : -1)     //节点高度（与“空树高度为-1”的约定相统一）
+#define BN_IsRoot(x)        (!((x).parent))
+#define BN_IsLeftChild(x)   (((x).parent) && (&(x)==(x).parent->left))
+#define BN_IsRightChild(x)  (((x).parent) && (&(x)==(x).parent->right))
+#define BN_IsLeaf           (!((x).left) && !((x).right))
+#define BN_HasParent(x)     ((x).parent)
+#define BN_HasLeftChild(x)  ((x).left)
+#define BN_HasRightChild(x) ((x).right)
+#define BN_HasChild(x)      ((x).left || (x).right)
+#define BN_HasBothChild(x)  ((x).left && (x).right)
+
+/** 获取父节点的孩子节点指针，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
+#define PtrChildOfParent(x)     (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
+
+/*! @} */
+
 
 /*!
  * @brief 二叉树节点
@@ -117,6 +137,9 @@ template <typename T> struct BinNode
     bool operator> ( BinNode const& bn ) { return data > bn.data; }
     bool operator== ( BinNode const& bn ) { return data == bn.data; }
     bool operator!= ( BinNode const& bn ) { return data != bn.data; }
+
+    //BinNode<T>* zig();                  // 顺时针旋转
+    //BinNode<T>* zag();                  // 逆时针旋转
 };
 
 
@@ -192,7 +215,7 @@ template <typename T>
 template<typename VST>
 void BinNode<T>::traverse_DLR(VST& visit)
 {
-    traverse_DLR_recursion(this, visit);
+    //traverse_DLR_recursion(this, visit);
     traverse_DLR_iteration(this, visit);
 }
 
@@ -268,7 +291,7 @@ template <typename T>
 template<typename VST>
 void BinNode<T>::traverse_LDR(VST& visit)
 {
-    traverse_LDR_recursion(this, visit);
+    //traverse_LDR_recursion(this, visit);
     traverse_LDR_iteration(this, visit);
 }
 
@@ -334,7 +357,7 @@ template <typename T>
 template <typename VST>
 void BinNode<T>::traverse_LRD(VST& visit)
 {
-    traverse_LRD_recursion(this, visit);
+    //traverse_LRD_recursion(this, visit);
     traverse_LRD_iteration(this, visit);
 }
 
@@ -360,8 +383,6 @@ void BinNode<T>::traverse_LO(VST& visit)
         if(x->right) q.enqueue(x->right);
     }
 }
-
-
 
 
 /*! @} */

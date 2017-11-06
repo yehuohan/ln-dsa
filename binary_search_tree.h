@@ -185,6 +185,121 @@ bool BinSearchTree<T>::remove(const T& e)
     return true;
 }
 
+
+/*!
+ * @brief 树结点联接
+ *
+ * <pre>
+ * 最终的树如下所示：
+ *       b
+ *     /   \
+ *    a     c
+ *   / \   / \
+ *  T0 T1 T2 T3
+ *
+ * </pre>
+ * 
+ * @param None
+ * @return 子树的根节点
+ * @retval None
+ */
+template <typename T>
+BinNode<T>* BinSearchTree<T>::connect34(
+        BinNode<T>* a, BinNode<T>* b, BinNode<T>* c,
+        BinNode<T>* T0, BinNode<T>* T1, BinNode<T>* T2, BinNode<T>* T3)
+{
+    a->left = T0;
+    a->right = T1;
+    if (T0) T0->parent = a;
+    if (T1) T1->parent = a;
+    this->update_height(a);
+
+    c->left = T2;
+    c->right = T3;
+    if (T2) T2->parent = c;
+    if (T3) T3->parent = c;
+    this->update_height(c);
+
+    b->left = a;  a->parent = b;
+    b->right = c; c->parent = b;
+    this->update_height(b);
+
+    return b;
+}
+
+/*!
+ * @brief 节点旋转调整
+ *
+ * <pre>
+ * 示意图如下(包括对称情况)：
+ * zag-zag                           | zig-zig
+ * 单旋:                             |  单旋:
+ *   g                       p       |      g                       p
+ * /   \                   /   \     |    /   \                   /   \
+ * T0  p        =>        g     v    |    p   T3       =>        v     g
+ *    / \                / \   / \   |   / \                    / \   / \
+ *   T1 v               T0 T1 T2 T3  |   v T2                  T0 T1 T2 T3
+ *     / \                           |  / \
+ *    T2 T3                          | T0 T1
+ *                                   |
+ * zag-zig                           | zig-zag
+ * 双旋:                             |  双旋:
+ *   g                       v       |      g                       v
+ * /   \                   /   \     |    /   \                   /   \
+ * T0   p                 g     p    |   p    T3                 p     g
+ *    /   \              / \   / \   | /   \                    / \   / \
+ *   v    T3    =>      T0 T1 T2 T3  | T0   v          =>      T0 T1 T2 T3
+ *  / \                              |     / \
+ * T1 T2                             |    T1 T2
+ *                                   |
+ * </pre>
+ *
+ * @param v 调整的节点(子树(如图)中高度最低的节点)
+ * @return 子树的根节点
+ * @retval None
+ */
+template <typename T>
+BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
+{
+    BinNode<T>* p = v->parent;
+    BinNode<T>* g = p->parent;
+    if (BN_IsLeftChild(*p))
+    {
+        if (BN_IsLeftChild(*v))
+        {
+            // zig-zig 单旋
+            p->parent = g->parent;      // 设置子树根节点的父节点
+            return this->connect34(v, p, g,
+                    v->left, v->right, p->right, g->right);
+        }
+        else
+        {
+            // zig-zag 双旋
+            v->parent = g->parent;      // 设置子树根节点的父节点
+            return this->connect34(p, v, g,
+                    p->left, v->left, v->right, g->right);
+        }
+    }
+    else if (BN_IsRightChild(*p))
+    {
+        if (BN_IsLeftChild(*v))
+        {
+            // zag-zig 双旋
+            v->parent = g->parent;      // 设置子树根节点的父节点
+            return this->connect34(g, v, p,
+                    g->left, v->left, v->right, p->right);
+        }
+        else
+        {
+            // zag-zag 单旋
+            p->parent = g->parent;      // 设置子树根节点的父节点
+            return this->connect34(g, p, v,
+                    g->left, p->left, v->left, v->right);
+        }
+    }
+}
+
+
 /*! @} */
 
 // namespace dsa end
