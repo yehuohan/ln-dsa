@@ -25,10 +25,10 @@ namespace dsa
  */
 
 /*!
- * @name 
+ * @name
  * @{
  */
-    
+
 /** 理想平衡 */
 #define Balanced(v)         (BN_Stature((v).left) == BN_Stature((v).right))
 /** 平衡因子 */
@@ -36,7 +36,33 @@ namespace dsa
 /** AVL平衡 */
 #define AVL_Balanced(v)     ((-2 < AVL_BalFac(v)) && (AVL_BalFac(v) < 2))
 
-/** 左右子树中较高的节点，才包含了引起失衡的节点 */
+/*!
+ * @brief 获取左右子树中较高的节点，以便获取最低层的节点(如图中节点v)
+ *
+ * <pre>
+ *
+ * 插入T2或T3时，会引起g失衡
+ * 删除T0时(没有T2和T3)，会引起g失衡
+ *   g
+ * /   \
+ * T0  p
+ *    / \
+ *   T1 v
+ *     / \
+ *    T2 T3
+ *
+ * 插入T1或T2时，会引起g失衡
+ * 删除T0时(没有T1和T2)，会引起g失衡
+ *   g
+ * /   \
+ * T0   p
+ *    /   \
+ *   v    T3
+ *  / \
+ * T1 T2
+ *
+ * </pre>
+ */
 #define AVL_TallerChild(x) ( \
     BN_Stature((x)->left) > BN_Stature((x)->right) ? (x)->left : (      /*左高*/ \
         BN_Stature((x)->left) < BN_Stature((x)->right) ? (x)->right : ( /*右高*/ \
@@ -107,6 +133,22 @@ BinNode<T>* AvlTree<T>::insert(const T& e)
 template <typename T>
 bool AvlTree<T>::remove(const T& e)
 {
+    BinNode<T>*& x = this->search(e);
+    if (!x) return false;
+    remove_at(x, this->m_hot);
+    this->m_size--;
+
+    for (BinNode<T>* g = this->m_hot; g; g = g->parent)
+    {
+        if (!AVL_Balanced(*g))
+        {
+            BinNode<T>* sub_node = PtrChildOfParent(*g);
+            g = sub_node = this->rotate_at(AVL_TallerChild(AVL_TallerChild(g)));
+        }
+        this->update_height(g);
+    }
+
+    return true;
 }
 
 /*! @} */

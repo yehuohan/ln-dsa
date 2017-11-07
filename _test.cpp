@@ -292,4 +292,10 @@ void test_avl()
     at.insert(999);
 
     at.root()->traverse_LDR(print_node);
+    std::cout << "\n";
+
+    at.remove(-13);
+    at.remove(-80);
+
+    at.root()->traverse_LDR(print_node);
 }

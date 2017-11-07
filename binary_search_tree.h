@@ -122,6 +122,29 @@ BinNode<T>* BinSearchTree<T>::insert(const T& e)
 /*!
  * @brief 删除节点
  *
+ * <pre>
+ *
+ * 单分支删除d节点：
+ *   a                a
+ *  / \              / \
+ * T0  b            T0  b
+ *    / \     =>       / \
+ *   T1  c            T1  d (c)
+ *      /
+ *     d
+ *
+ * 双分支删除d节点：
+ *    d                  c
+ *  /   \              /   \
+ * T0    b            T0    b
+ *     /   \     =>       /   \
+ *    c     T1           d     T1
+ *     \   / \            \   / \
+ *      a T2 T3            a T2 T3
+ * 节点c为节点d直接后继，交换c和d，然后按单分支情况删除d
+ *
+ * </pre>
+ *
  * @param node: 待删除的目标节点
  * @param hot: 目标节点的父节点
  * @return
@@ -198,7 +221,7 @@ bool BinSearchTree<T>::remove(const T& e)
  *  T0 T1 T2 T3
  *
  * </pre>
- * 
+ *
  * @param None
  * @return 子树的根节点
  * @retval None
