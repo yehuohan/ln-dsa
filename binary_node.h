@@ -59,9 +59,18 @@ template <typename T> struct BinNode
     T           data;
     int         height;
 
+    BinNode() 
+    {
+        this->height = 0;
+        this->parent = nullptr;
+        this->left = nullptr;
+        this->right = nullptr;
+    }
+
     BinNode(const T& e, BinNode<T>* p)
     {
         this->data = e;
+        this->height = 0;
         this->parent = p;
         this->left = nullptr;
         this->right = nullptr;
