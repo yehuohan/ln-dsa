@@ -255,7 +255,7 @@ BinNode<T>* BinSearchTree<T>::connect34(
  *
  * <pre>
  * 示意图如下(包括对称情况)：
- * zag-zag                           | zig-zig
+ * zag-zag(先旋转pv，再旋转gv)       | zig-zig(先旋转pv，再旋转gv)
  * 单旋:                             |  单旋:
  *   g                       p       |      g                       p
  * /   \                   /   \     |    /   \                   /   \
@@ -265,7 +265,7 @@ BinNode<T>* BinSearchTree<T>::connect34(
  *     / \                           |  / \
  *    T2 T3                          | T0 T1
  *                                   |
- * zag-zig                           | zig-zag
+ * zag-zig(先旋转pv，再旋转gv)       | zig-zag(先旋转pv，再旋转gv)
  * 双旋:                             |  双旋:
  *   g                       v       |      g                       v
  * /   \                   /   \     |    /   \                   /   \

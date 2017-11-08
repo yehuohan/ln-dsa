@@ -16,11 +16,13 @@ void test_bt();
 void test_graph();
 void test_bst();
 void test_avl();
+void test_splay();
 
 //(int argc, char** argv)
 int main()
 {
-    test_avl();
+    test_splay();
+    //test_avl();
     //test_bst();
     //test_graph();
     //test_bt();
@@ -218,7 +220,7 @@ void test_graph()
     gm.remove_vertex(v2);
     v2 = gm.insert_vertex(1200);
     int v3 = gm.insert_vertex(9999);
-    
+
     std::cout << "Vertex: \n";
     std::cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
     std::cout << gm.get_vertex_data(v0) << std::endl;
@@ -298,4 +300,11 @@ void test_avl()
     at.remove(-80);
 
     at.root()->traverse_LDR(print_node);
+}
+
+void test_splay()
+{
+    dsa::SplayTree<int> st;
+
+    st.root()->traverse_LDR(print_node);
 }
