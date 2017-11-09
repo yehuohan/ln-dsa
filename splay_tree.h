@@ -40,24 +40,6 @@ protected:
     BinNode<T>* splay(BinNode<T>*);
 };
 
-template <typename T>
-BinNode<T>*& SplayTree<T>::search(const T& e)
-{
-    BinNode<T>* x;
-    return x;
-}
-
-template <typename T>
-BinNode<T>* SplayTree<T>::insert(const T& e)
-{
-    return nullptr;
-}
-
-template <typename T>
-bool SplayTree<T>::remove(const T& e)
-{
-    return true;
-}
 
 /*!
  * @brief 添加左子节点
@@ -88,6 +70,71 @@ inline void attach_right(BinNode<T>* p, BinNode<T>* c)
     p->right = c;
     if (c)
         c->parent = p;
+}
+
+/*!
+ * @brief 查找节点。
+ *
+ * @param e: 查找目标。
+ * @return 返回经过伸展后的树根节点。返回nullptr的唯一情况：树没有任何节点，即空树。
+ * @retval None
+ */
+template <typename T>
+BinNode<T>*& SplayTree<T>::search(const T& e)
+{
+    BinNode<T>* p = search_in(this->m_root, e, this->m_hot = nullptr);
+    // 无论是否找到节点，均会进行伸展操作，即没有找到目标节点，也将靠近目标的节点移到树根
+    this->m_root = this->splay(p ? p : this->m_hot);
+    // 若m_root为nullptr（即没有查找到目标e，且m_hot也为nullptr）
+    // 则一定是空树的情况（非空树，即使没有查找到目录，m_hot也不会为nullptr）
+    return this->m_root;
+}
+
+/*!
+ * @brief 插入节点
+ *
+ * @param e: 待插入目标。
+ * @return
+ * @retval None
+ */
+template <typename T>
+BinNode<T>* SplayTree<T>::insert(const T& e)
+{
+    BinNode<T>* x = this->search(e);
+
+    // 目标e存在，且为根节点(x经过splay后在根节点)
+    if (x && x->data == e)
+        return this->m_root;
+
+
+    BinNode<T>* node = new BinNode<T>(e, nullptr);
+
+    if (x)
+    {
+        if (e < x->data)
+        {
+            attach_left(node, x->left);
+            attach_right(node, x);
+            x->parent = node;
+            x->left = nullptr;
+
+        }
+        else if (x->data < e)
+        {
+            attach_right(node, x->right);
+            attach_left(node, x);
+            x->parent = node;
+            x->right = nullptr;
+        }
+    }
+
+    return (this->m_root = node);
+}
+
+template <typename T>
+bool SplayTree<T>::remove(const T& e)
+{
+    return true;
 }
 
 /*!

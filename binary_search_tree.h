@@ -69,8 +69,8 @@ protected:
  *
  * @param node: 从根结点node开始查找。
  * @param e: 查找目标。
- * @param hot: 指向命中节点的父节点。
- * @return 返回命中节点，命中节点可能为nullptr，也可能为目标节点。
+ * @param hot: 指向命中节点的父节点。hot为nullptr的两中情况：树中没有一个节点，或者查找的node正好是root节点
+ * @return 返回命中节点，命中节点可能为nullptr(即未查找到目标)，也可能为目标节点。
  * @retval None
  */
 template <typename T>

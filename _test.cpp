@@ -306,5 +306,19 @@ void test_splay()
 {
     dsa::SplayTree<int> st;
 
+    st.insert(10);
+    st.insert(82);
+    st.insert(-7);
+    st.insert(270);
+    st.insert(39);
+    st.insert(-99);
+
+    st.search(-7);      // 找到目标会进行splay
+    std::cout << st.root()->data << std::endl;
+    st.search(88);       // 没有找到目标同样会进行splay
+    std::cout << st.root()->data << std::endl;
+
     st.root()->traverse_LDR(print_node);
+    std::cout << std::endl;
+    std::cout << st.root()->data << std::endl;
 }
