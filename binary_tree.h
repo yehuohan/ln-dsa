@@ -25,7 +25,6 @@ namespace dsa
  * @{
  */
 
-
 /*!
  * @brief 二叉树类
  *
@@ -38,24 +37,17 @@ protected:
     BinNode<T>*     m_root;     /**< 树根节点 */
 
 protected:
-    virtual int update_height(BinNode<T>* node);    /**< 更新node高度 */
-    void        update_height_above(BinNode<T>* node);  /**< 更新node及祖先高度 */
+    virtual int update_height(BinNode<T>* node);
+    void        update_height_above(BinNode<T>* node);
 
 public:
-    BinTree()
-    {
-        this->m_size = 0;
-        this->m_root = nullptr;
-    }
-
-    BinTree(const T& ele)
-    {
-        this->m_size = 1;
-        this->m_root = new BinNode<T>(ele, nullptr);
-    }
+    BinTree() : m_size(0), m_root(nullptr) {}
+    BinTree(const T& ele) : m_size(1) { this->m_root = new BinNode<T>(ele, nullptr); }
+    ~BinTree() {if (m_root) this->remove(m_root);}
 
     int     size() const {return this->m_size;}
     bool    is_empty() const {return !this->m_root;}
+    int     remove(BinNode<T>*);
     BinNode<T>* create_root(const T& ele) {return this->m_root = new BinNode<T>(ele, nullptr);}
     BinNode<T>* root() {return this->m_root;}
     BinNode<T>* insert_left(BinNode<T>* node, const T& ele);
@@ -96,6 +88,45 @@ void BinTree<T>::update_height_above(BinNode<T>* node)
         update_height(node);
         node = node->parent;
     }
+}
+
+/*!
+ * @brief 删除以位置node处节点为根的子树
+ *
+ * @param node: 待删除节点
+ * @return 返回删除的节点总数
+ * @retval None
+ */
+template <typename T>
+static int remove_at(BinNode<T>* node)
+{
+    if (!node) return 0;
+    int n = 1 + remove_at(node->left) + remove_at(node->right);
+    delete node;
+    return n;
+
+}
+
+/*!
+ * @brief 删除以位置node处节点为根的子树
+ *
+ * @param node: 子树根节点
+ * @return 返回该子树原先的规模
+ * @retval None
+ */
+template <typename T>
+int BinTree<T>::remove(BinNode<T>* node)
+{
+    BinNode<T>* p = node->parent;
+    if (p)
+    {
+        if (p->left == node) p->left = nullptr;
+        else p->right = nullptr;
+    }
+    this->update_height_above(p);
+    int n = remove_at(node);
+    this->m_size -= n;
+    return n;
 }
 
 /*!
