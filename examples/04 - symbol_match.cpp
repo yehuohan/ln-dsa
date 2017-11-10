@@ -30,7 +30,7 @@
 //==============================================================================
 bool match_parenthness(const char expr[], int lo, int hi)
 {
-    dsa::stack<char> s;
+    dsa::Stack<char> s;
     for(int k = lo; k < hi; k++)
     {
         if('(' == expr[k])
@@ -99,7 +99,7 @@ bool is_match(char a, char b)
 //==============================================================================
 bool match_symbol(const char expr[], int lo, int hi)
 {
-    dsa::stack<char> s;
+    dsa::Stack<char> s;
     for(int k = lo; k < hi; k++)
     {
         if(is_match_left(expr[k]))

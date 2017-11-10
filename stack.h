@@ -2,7 +2,7 @@
 //==============================================================================
 /*!
  * @file stack.h
- * @brief stack struct
+ * @brief Stack struct
  *
  * @date
  * @version
@@ -22,27 +22,27 @@ namespace dsa
 
 /*!
  * @addtogroup  Linear
- * 
+ *
  * @{
  */
 
 //==============================================================================
 /*!
- * @brief stack class 
+ * @brief Stack class
  *
  * inheriting from vector and take vector-end as stack-top
  *
  */
 //==============================================================================
 template <typename T>
-class stack : private dsa::vector<T>
+class Stack : private dsa::Vector<T>
 {
 public:
-    stack() {dsa::vector<T>();}
+    Stack() {dsa::Vector<T>();}
 
-    bool            is_empty() const {return dsa::vector<T>::is_empty();}
-    unsigned int    size() const {return dsa::vector<T>::size();}
-    void            clear(){dsa::vector<T>::clear();}
+    bool            is_empty() const {return dsa::Vector<T>::is_empty();}
+    unsigned int    size() const {return dsa::Vector<T>::size();}
+    void            clear(){dsa::Vector<T>::clear();}
 
     /** push data to stack */
     void            push(const T& e) {this->push_back(e);}
@@ -56,10 +56,10 @@ public:
 
 
 template <typename T>
-class stack_list : private dsa::list<T>
+class StackList : private dsa::List<T>
 {
 public:
-    stack_list() {list<T>::list();}
+    StackList() {List<T>::List();}
 };
 
 /*! @} */

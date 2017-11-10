@@ -2,7 +2,7 @@
 //==============================================================================
 /*!
  * @file queue.h
- * @brief queue struct 
+ * @brief Queue struct
  *
  * @date
  * @version
@@ -23,40 +23,40 @@ namespace dsa
 
 /*!
  * @addtogroup Linear
- * 
+ *
  * @{
  */
 
 //==============================================================================
 /*!
- * @brief queue class 
+ * @brief Queue class
  *
- * inheriting from list 
- * taking list-head and queue-front and list-tail as queue-rear 
+ * inheriting from list
+ * taking list-head and queue-front and list-tail as queue-rear
  *
  */
 //==============================================================================
 template <typename T>
-class queue : private dsa::list<T>
+class Queue : private dsa::List<T>
 {
 public:
-    queue(){dsa::list<T>();}
+    Queue(){dsa::List<T>();}
 
-    bool    is_empty() const {return dsa::list<T>::is_empty();}
-    unsigned int size() const {return dsa::list<T>::size();}
+    bool    is_empty() const {return dsa::List<T>::is_empty();}
+    unsigned int size() const {return dsa::List<T>::size();}
 
     // 尾进头出
     /** return the front element */
-    T       front() const {return (dsa::list<T>::first())->data;};
+    T       front() const {return (dsa::List<T>::first())->data;};
     /** pop the element from front */
-    //T       pop_front() {return dsa::list<T>::remove(dsa::list<T>::first());}
-    T       dequeue() {return dsa::list<T>::remove(dsa::list<T>::first());}
+    //T       pop_front() {return dsa::List<T>::remove(dsa::List<T>::first());}
+    T       dequeue() {return dsa::List<T>::remove(dsa::List<T>::first());}
 
     /** return the rear element */
-    T       rear() const {return dsa::list<T>::last()->data;}
+    T       rear() const {return dsa::List<T>::last()->data;}
     /** push the element to the rear */
-    //void    push_rear(const T& ele) { dsa::list<T>::push_back(ele);}
-    void    enqueue(const T& ele) { dsa::list<T>::push_back(ele);}
+    //void    push_rear(const T& ele) { dsa::List<T>::push_back(ele);}
+    void    enqueue(const T& ele) { dsa::List<T>::push_back(ele);}
 };
 
 /*! @} */

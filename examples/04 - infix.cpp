@@ -69,8 +69,8 @@ float read_number(char*& str)
 //==============================================================================
 float evaluate_infix(char* str)
 {
-    dsa::stack<float> opnd;     // 运算数 operand
-    dsa::stack<char>  optr;     // 运算符 operator
+    dsa::Stack<float> opnd;     // 运算数 operand
+    dsa::Stack<char>  optr;     // 运算符 operator
 
     optr.push('\0');
     while(!optr.is_empty())     // 当运算符为空时，即已完成所有运算
@@ -138,7 +138,7 @@ float evaluate_infix(char* str)
 //==============================================================================
 void convert_notation(char* str, char*& rpn)
 {
-    dsa::stack<char>  optr;     // 运算符 operator
+    dsa::Stack<char>  optr;     // 运算符 operator
 
     optr.push('\0');
     while(!optr.is_empty()) 
@@ -181,7 +181,7 @@ void convert_notation(char* str, char*& rpn)
 //==============================================================================
 float evaluate_rpn(char* str)
 {
-    dsa::stack<float>  s;
+    dsa::Stack<float>  s;
     while(*str != '\0')
     {
         if(is_digit(*str))

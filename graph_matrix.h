@@ -35,8 +35,8 @@ template <typename Tv, typename Te>
 class GraphMatrix : public Graph<Tv, Te>
 {
 private:
-    dsa::vector<Vertex<Tv>* > m_V;                  /**< 顶点集 */
-    dsa::vector<dsa::vector<Edge<Te>*> > m_E;       /**< 边集 */
+    dsa::Vector<Vertex<Tv>* > m_V;                  /**< 顶点集 */
+    dsa::Vector<dsa::Vector<Edge<Te>*> > m_E;       /**< 边集 */
 
 public:
     GraphMatrix()
@@ -183,7 +183,7 @@ int GraphMatrix<Tv,Te>::insert_vertex(const Tv& vertex)
     // 顶点数量加1
     this->m_vnum++;
     // 邻接矩阵插入一行
-    this->m_E.push_back(dsa::vector<Edge<Te>* >(this->m_vnum,this->m_vnum, nullptr));
+    this->m_E.push_back(dsa::Vector<Edge<Te>* >(this->m_vnum,this->m_vnum, nullptr));
     // 插入顶点
     Vertex<Tv>* vt = new Vertex<Tv>(vertex);
     return this->m_V.push_back(vt);
@@ -245,7 +245,7 @@ void GraphMatrix<Tv,Te>::BFS(int vindex, int& clock)
 {
     this->m_V[vindex]->status = VStatus::Discovered;
 
-    queue<int> q;
+    dsa::Queue<int> q;
     q.enqueue(vindex);
     while(!q.is_empty())
     {
@@ -300,7 +300,7 @@ void GraphMatrix<Tv,Te>::DFS(int vindex, int& clock)
                 this->m_E[vindex][k]->status = EStatus::Backward;
                 break;
             case VStatus::Visited:
-                this->m_E[vindex][k]->status = (this->m_V[vindex]->d_time < this->m_V[k]->d_time) ? 
+                this->m_E[vindex][k]->status = (this->m_V[vindex]->d_time < this->m_V[k]->d_time) ?
                                             EStatus::Forward : EStatus::Cross;
                 break;
         }

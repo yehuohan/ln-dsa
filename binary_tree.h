@@ -143,12 +143,12 @@ BinNode<T>* BinTree<T>::insert_right(BinNode<T>* node, const T& ele)
  * @retval None
  */
 template <typename T>
-static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::BinNode<T>*& node)
+static void construct_bintree_pre_in(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, dsa::BinNode<T>*& node)
 {
     // 查找子树的根节点
     int d_index = in.find(pre[0], 0, in.size());
-    dsa::vector<T> l_pre, l_in;        // 左子树先序与中序序列
-    dsa::vector<T> r_pre, r_in;        // 右子树先序与中序序列
+    dsa::Vector<T> l_pre, l_in;        // 左子树先序与中序序列
+    dsa::Vector<T> r_pre, r_in;        // 右子树先序与中序序列
 
     // 转移子树的先序与中序，先序与中序长度一样
     for(int k = 0; k < d_index; k ++)
@@ -191,7 +191,7 @@ static void construct_bintree_pre_in(const dsa::vector<T>& pre, const dsa::vecto
  * @retval None
  */
 template <typename T>
-void construct_bintree(const dsa::vector<T>& pre, const dsa::vector<T>& in, dsa::BinTree<T>& bt)
+void construct_bintree(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, dsa::BinTree<T>& bt)
 {
     bt.create_root(pre[0]);
     dsa::BinNode<T>* root = bt.root();

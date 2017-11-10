@@ -1,9 +1,9 @@
 //==============================================================================
 /*!
  * @file list.h
- * @brief list struct
+ * @brief List struct
  *
- * list implementation with some basic functions and advanced 
+ * List implementation with some basic functions and advanced
  *         functions such as find, search, sort and so on.
  *
  * @date
@@ -22,39 +22,39 @@ namespace dsa
 
 /*!
  * @addtogroup Linear
- * 
+ *
  * @{
  */
 
 /*!
- * @brief list_node struct
+ * @brief ListNode struct
  *
  * contain prev node and next node.
  *
  */
 template <typename T>
-struct list_node
+struct ListNode
 {
     T   data;
-    list_node<T>*   prev;
-    list_node<T>*   next;
+    ListNode<T>*   prev;
+    ListNode<T>*   next;
 
-    list_node() {}
-    list_node(T ele, list_node<T>* p = nullptr, list_node<T>* n = nullptr)
+    ListNode() {}
+    ListNode(T ele, ListNode<T>* p = nullptr, ListNode<T>* n = nullptr)
         :data(ele), prev(p), next(n){}
 
-    list_node<T>* insert_prev(const T& ele)
+    ListNode<T>* insert_prev(const T& ele)
     {
-        list_node<T>* node = new list_node(ele);
+        ListNode<T>* node = new ListNode(ele);
         node->prev = this->prev;
         node->next = this;
         this->prev->next = node;
         this->prev = node;
         return node;
     }
-    list_node<T>* insert_next(const T& ele)
+    ListNode<T>* insert_next(const T& ele)
     {
-        list_node<T>* node = new list_node(ele);
+        ListNode<T>* node = new ListNode(ele);
         node->prev = this;
         node->next = this->next;
         this->next->prev = node;
@@ -65,22 +65,22 @@ struct list_node
 
 
 /*!
- * @brief list class
+ * @brief List class
  *
  */
 template <typename T>
-class list
+class List
 {
 public:
 
 /*!
- * @brief list iterator class
+ * @brief List iterator class
  *
  */
     class iterator
     {
     public:
-        iterator(list_node<T>* node = nullptr){this->m_cur = node;}
+        iterator(ListNode<T>* node = nullptr){this->m_cur = node;}
 
         T operator*(){return this->m_cur->data;}
 
@@ -93,35 +93,35 @@ public:
         iterator operator--(int){iterator old = *this; this->m_cur = this->m_cur->prev; return old;}
 
     private:
-        list_node<T>* m_cur;
+        ListNode<T>* m_cur;
     };
 
 public:
-    list();
-    ~list(){ this->clear(); delete this->header; delete this->trailer;};
+    List();
+    ~List(){ this->clear(); delete this->header; delete this->trailer;};
 
     // basic
     int             clear();
     bool            is_empty() const {return !bool(this->m_size);}
     unsigned int    size() const {return this->m_size;}
 
-    T               remove(list_node<T>* p);
-    iterator        begin(){return list<T>::iterator(this->first());}
-    iterator        end(){return list<T>::iterator(this->last());}
-    list_node<T>*   first() const {return this->header->next;}
-    list_node<T>*   last() const {return this->trailer->prev;}
-    list_node<T>*   push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
-    list_node<T>*   push_back(const T& ele){this->m_size++; return this->trailer->insert_prev(ele);}
+    T               remove(ListNode<T>* p);
+    iterator        begin(){return List<T>::iterator(this->first());}
+    iterator        end(){return List<T>::iterator(this->last());}
+    ListNode<T>*   first() const {return this->header->next;}
+    ListNode<T>*   last() const {return this->trailer->prev;}
+    ListNode<T>*   push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
+    ListNode<T>*   push_back(const T& ele){this->m_size++; return this->trailer->insert_prev(ele);}
 
-    list_node<T>*   insert_before(list_node<T>* p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
-    list_node<T>*   insert_after(list_node<T>* p, const T& ele) {this->m_size++; return p->insert_next(ele);}
+    ListNode<T>*   insert_before(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
+    ListNode<T>*   insert_after(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_next(ele);}
 
     T& operator[](int index) const;
 
     // find
-    list_node<T>*   find(const T& ele, int n, list_node<T>* p) const;
+    ListNode<T>*   find(const T& ele, int n, ListNode<T>* p) const;
     // search
-    list_node<T>*   search(const T& ele, int n, list_node<T>* p) const;
+    ListNode<T>*   search(const T& ele, int n, ListNode<T>* p) const;
 
     // deduplicate
     int             deduplicate();
@@ -129,17 +129,17 @@ public:
     int             uniquify();
 
     // sort
-    void            selection_sort(list_node<T>* p, int n);
-    list_node<T>*   select_max(list_node<T>* p, int n);
-    void            insertion_sort(list_node<T>* p , int n);
+    void            selection_sort(ListNode<T>* p, int n);
+    ListNode<T>*   select_max(ListNode<T>* p, int n);
+    void            insertion_sort(ListNode<T>* p , int n);
 
 
 protected:
 
 private:
     int     m_size;
-    list_node<T>* header;
-    list_node<T>* trailer;
+    ListNode<T>* header;
+    ListNode<T>* trailer;
 
 };
 
@@ -155,10 +155,10 @@ private:
  * @retval None
  */
 template <typename T>
-list<T>::list()
+List<T>::List()
 {
-    this->header = new list_node<T>;
-    this->trailer = new list_node<T>;
+    this->header = new ListNode<T>;
+    this->trailer = new ListNode<T>;
     this->header->next = this->trailer;
     this->header->prev = nullptr;
     this->trailer->prev = this->header;
@@ -174,7 +174,7 @@ list<T>::list()
  * @retval None
  */
 template <typename T>
-int list<T>::clear()
+int List<T>::clear()
 {
     int old_size = this->m_size;
     while(this->m_size > 0)
@@ -186,11 +186,11 @@ int list<T>::clear()
  * @brief: remove one node
  *
  * @param None
- * @return the deleted element 
+ * @return the deleted element
  * @retval None
  */
 template <typename T>
-T list<T>::remove(list_node<T>* p)
+T List<T>::remove(ListNode<T>* p)
 {
     T data = p->data;
     p->next->prev = p->prev;
@@ -208,9 +208,9 @@ T list<T>::remove(list_node<T>* p)
  * @retval None
  */
 template <typename T>
-T& list<T>::operator[](int index) const
+T& List<T>::operator[](int index) const
 {
-    list_node<T>* p = this->header;
+    ListNode<T>* p = this->header;
     while(index-- > 0) p = p->next;
     return p->data;
 }
@@ -227,7 +227,7 @@ T& list<T>::operator[](int index) const
  * @retval None
  */
 template <typename T>
-list_node<T>* list<T>::find(const T& ele, int n, list_node<T>* p) const
+ListNode<T>* List<T>::find(const T& ele, int n, ListNode<T>* p) const
 {
     while(n-- > 0)
         if (ele == (p = p->prev)->data) return p;
@@ -246,7 +246,7 @@ list_node<T>* list<T>::find(const T& ele, int n, list_node<T>* p) const
  * @retval None
  */
 template <typename T>
-list_node<T>* list<T>::search(const T& ele, int n, list_node<T>* p) const
+ListNode<T>* List<T>::search(const T& ele, int n, ListNode<T>* p) const
 {
     while( 0 <= n--)
     {
@@ -263,7 +263,7 @@ list_node<T>* list<T>::search(const T& ele, int n, list_node<T>* p) const
  * @retval None
  */
 template <typename T>
-int list<T>::deduplicate()
+int List<T>::deduplicate()
 {
 }
 
@@ -275,7 +275,7 @@ int list<T>::deduplicate()
  * @retval None
  */
 template <typename T>
-int list<T>::uniquify()
+int List<T>::uniquify()
 {
 }
 
@@ -290,17 +290,17 @@ int list<T>::uniquify()
  * @retval None
  */
 template <typename T>
-void list<T>::selection_sort(list_node<T>* p, int n)
+void List<T>::selection_sort(ListNode<T>* p, int n)
 {
     // 待排序区间(head, tail)
-    list_node<T>* head = p->prev;
-    list_node<T>* tail = p;
+    ListNode<T>* head = p->prev;
+    ListNode<T>* tail = p;
     for(int i = 0; i < n; i ++) tail = tail->next;
 
     while(1 < n)
     {
-        this->insert_before( 
-                tail, 
+        this->insert_before(
+                tail,
                 this->remove(this->select_max(head->next, n)));
 
         // 有序区间 +1
@@ -314,16 +314,16 @@ void list<T>::selection_sort(list_node<T>* p, int n)
  *
  * 选出从p开始的n个元素中的最大者
  *
- * @param p : node 
+ * @param p : node
  * @param n : node p开始的n个元素
  * @return
  * @retval None
  */
 template <typename T>
-list_node<T>* list<T>::select_max(list_node<T>* p, int n)
+ListNode<T>* List<T>::select_max(ListNode<T>* p, int n)
 {
-    list_node<T>* max = p;
-    for( list_node<T>* cur = p; 1 < n; n--)
+    ListNode<T>* max = p;
+    for( ListNode<T>* cur = p; 1 < n; n--)
     {
         // 应该由用户提供比较函数
         if((cur=cur->next)->data >= max->data)
@@ -343,7 +343,7 @@ list_node<T>* list<T>::select_max(list_node<T>* p, int n)
  * @retval None
  */
 template <typename T>
-void list<T>::insertion_sort(list_node<T>* p , int n)
+void List<T>::insertion_sort(ListNode<T>* p , int n)
 {
     for(int r = 0; r < n; r++)
     {

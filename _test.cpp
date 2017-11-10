@@ -17,11 +17,13 @@ void test_graph();
 void test_bst();
 void test_avl();
 void test_splay();
+void test_btree();
 
 //(int argc, char** argv)
 int main()
 {
-    test_splay();
+    test_btree();
+    //test_splay();
     //test_avl();
     //test_bst();
     //test_graph();
@@ -37,7 +39,7 @@ int main()
 
 void test_vector()
 {
-    dsa::vector<int> vec_i;
+    dsa::Vector<int> vec_i;
     vec_i.push_back(-121);
     vec_i.push_back(10);
     vec_i.push_back(10);
@@ -79,7 +81,7 @@ void test_vector()
 
 void test_list()
 {
-    dsa::list<int> lst_i;
+    dsa::List<int> lst_i;
     lst_i.push_front(1000);
     lst_i.insert_before(lst_i.first(), -1000);
     lst_i.push_back(-1);
@@ -93,14 +95,14 @@ void test_list()
     lst_i.insertion_sort(lst_i.first(), lst_i.size());
 
     std::cout << "Iterator: \n";
-    dsa::list<int>::iterator iter = lst_i.begin();
+    dsa::List<int>::iterator iter = lst_i.begin();
     std::cout << *iter << std::endl;
     iter++;
     std::cout << *iter << std::endl << std::endl;
 
     std::cout << "Size: " << lst_i.size() << std::endl;
 
-    dsa::list_node<int>* p = lst_i.first();
+    dsa::ListNode<int>* p = lst_i.first();
     while(p->next)
     {
         std::cout << p->data << std::endl;
@@ -110,7 +112,7 @@ void test_list()
 
 void test_stack()
 {
-    dsa::stack<int> sta_i;
+    dsa::Stack<int> sta_i;
     if(sta_i.is_empty())
         std::cout << "Is empty" << std::endl;
     sta_i.push(100);
@@ -126,7 +128,7 @@ void test_stack()
 
 void test_queue()
 {
-    dsa::queue<int> que_i;
+    dsa::Queue<int> que_i;
     que_i.enqueue(12);
     que_i.enqueue(12392);
     que_i.enqueue(-19212);
@@ -180,7 +182,7 @@ void test_bt()
     tint.root()->traverse_LO(print_node);
     std::cout << std::endl;
 
-    dsa::vector<int> pre;
+    dsa::Vector<int> pre;
     pre.push_back(9);
     pre.push_back(5);
     pre.push_back(1);
@@ -189,7 +191,7 @@ void test_bt()
     pre.push_back(18);
     pre.push_back(12);
     pre.push_back(28);
-    dsa::vector<int> in;
+    dsa::Vector<int> in;
     in.push_back(1);
     in.push_back(5);
     in.push_back(6);
@@ -327,4 +329,9 @@ void test_splay()
     st.root()->traverse_LDR(print_node);
     std::cout << std::endl;
     std::cout << st.root()->data << std::endl;
+}
+
+void test_btree()
+{
+
 }

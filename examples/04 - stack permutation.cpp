@@ -48,7 +48,7 @@ bool is_sp_enumeration(int a[], int b[], int n)
 //==============================================================================
 bool is_sp_simulation(int a[], int b[], int n)
 {
-    dsa::stack<int> s;
+    dsa::Stack<int> s;
 
     int k = 0, i = 0;
     while(k < n)

@@ -183,7 +183,7 @@ BinNode<T>* BinNode<T>::successor()
  * @retval None
  */
 template <typename T, typename VST>
-static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::stack<BinNode<T>* >& s)
+static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::Stack<BinNode<T>* >& s)
 {
     while(x)
     {
@@ -206,7 +206,7 @@ static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::stack<BinNode
 template <typename T, typename VST>
 void traverse_DLR_iteration(BinNode<T>* node, VST& visit)
 {
-    dsa::stack<BinNode<T>*> s;
+    dsa::Stack<BinNode<T>*> s;
     while(1)
     {
         visit_along_left_brach(node, visit, s);
@@ -260,7 +260,7 @@ void BinNode<T>::traverse_DLR(VST& visit)
  * @retval None
  */
 template <typename T>
-static void go_along_left_branch(BinNode<T>* x, dsa::stack<BinNode<T>*>& s)
+static void go_along_left_branch(BinNode<T>* x, dsa::Stack<BinNode<T>*>& s)
 {
     while(x)
     {
@@ -280,7 +280,7 @@ static void go_along_left_branch(BinNode<T>* x, dsa::stack<BinNode<T>*>& s)
 template <typename T, typename VST>
 void traverse_LDR_iteration(BinNode<T>* node, VST& visit)
 {
-    dsa::stack<BinNode<T>*> s;
+    dsa::Stack<BinNode<T>*> s;
     while(1)
     {
         go_along_left_branch(node, s);
@@ -336,7 +336,7 @@ void BinNode<T>::traverse_LDR(VST& visit)
 template <typename T, typename VST>
 void traverse_LRD_iteration(BinNode<T>* node, VST& visit)
 {
-    dsa::stack<BinNode<T>*> s;
+    dsa::Stack<BinNode<T>*> s;
     BinNode<T>* last_node = nullptr;
 
     // 先将左子树节点均入栈
@@ -403,7 +403,7 @@ template <typename T>
 template <typename VST>
 void BinNode<T>::traverse_LO(VST& visit)
 {
-    dsa::queue<BinNode<T>*> q;
+    dsa::Queue<BinNode<T>*> q;
     q.enqueue(this);
     while(!q.is_empty())
     {

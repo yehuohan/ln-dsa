@@ -1,9 +1,9 @@
 //==============================================================================
 /*!
  * @file vector.h
- * @brief vector struct
+ * @brief Vector struct
  *
- * vector implementation with some basic functions and advanced 
+ * Vector implementation with some basic functions and advanced
  * functions such as find, search, sort and so on.
  *
  * @date
@@ -20,25 +20,25 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Linear 
- * 
+ * @addtogroup Linear
+ *
  * @{
  */
 
 #define CAPACITY    50
 
 template <typename T>
-class vector
+class Vector
 {
 public:
     /*!
-     * @brief vector构造函数
+     * @brief Vector构造函数
      *
      * @param None
      * @return
      * @retval None
      */
-    vector()
+    Vector()
     {
         this->m_size = 0;
         this->m_capacity = CAPACITY;
@@ -46,13 +46,13 @@ public:
     }
 
     /*!
-     * @brief vector构造函数
+     * @brief Vector构造函数
      * 初始化数据内容均为ele
      * @param None
      * @return
      * @retval None
      */
-    vector(int size, int capacity, const T& ele)
+    Vector(int size, int capacity, const T& ele)
     {
         this->m_size = size;
         this->m_capacity = capacity;
@@ -69,10 +69,10 @@ public:
      * @return
      * @retval None
      */
-    vector(const vector<T>& V) {this->copy_from(V.m_ar, 0, V.m_size );}
+    Vector(const Vector<T>& V) {this->copy_from(V.m_ar, 0, V.m_size );}
 
-    ~vector()
-    { 
+    ~Vector()
+    {
         delete[] this->m_ar;
     }
 
@@ -86,7 +86,7 @@ public:
     unsigned int size() const {return this->m_size;}
 
     T& operator[](int index) const {return  this->m_ar[index];}
-    vector<T>& operator=(const vector<T>& V);
+    Vector<T>& operator=(const Vector<T>& V);
 
     // find
     int     find(const T& ele, int lo, int hi) const;
@@ -128,7 +128,7 @@ private:
  * @retval None
  */
 template <typename T>
-vector<T>& vector<T>::operator=(const vector<T>& V)
+Vector<T>& Vector<T>::operator=(const Vector<T>& V)
 {
     if(this->m_ar) delete[] this->m_ar;
     this->copy_from(V.m_ar, 0, V.size());
@@ -144,7 +144,7 @@ vector<T>& vector<T>::operator=(const vector<T>& V)
  * @retval None
  */
 template <typename T>
-void vector<T>::copy_from(T const* A, int lo, int hi )
+void Vector<T>::copy_from(T const* A, int lo, int hi )
 {
     this->m_ar = new T[this->m_capacity = 2*(hi-lo)];
     this->m_size = 0;
@@ -160,7 +160,7 @@ void vector<T>::copy_from(T const* A, int lo, int hi )
  * @retval None
  */
 template <typename T>
-int vector<T>::push_back(const T& ele)
+int Vector<T>::push_back(const T& ele)
 {
     if(this->m_size >= this->m_capacity)
     {
@@ -181,7 +181,7 @@ int vector<T>::push_back(const T& ele)
  * @retval None
  */
 template <typename T>
-int vector<T>::insert(int index, const T& ele)
+int Vector<T>::insert(int index, const T& ele)
 {
     if(this->m_size >= this->m_capacity)
     {
@@ -204,9 +204,9 @@ int vector<T>::insert(int index, const T& ele)
  * @retval None
  */
 template <typename T>
-T vector<T>::remove(int index)
+T Vector<T>::remove(int index)
 {
-    // delete interval (r, r+1) to delelte single element 
+    // delete interval (r, r+1) to delelte single element
     T ele = this->m_ar[index];
     this->remove(index, index+1);
     return ele;
@@ -229,7 +229,7 @@ T vector<T>::remove(int index)
  * @retval None
  */
 template <typename T>
-int vector<T>::remove(int lo, int hi)
+int Vector<T>::remove(int lo, int hi)
 {
     if(lo == hi) return 0;
     while(hi < this->m_size) this->m_ar[lo++] = this->m_ar[hi++];
@@ -245,7 +245,7 @@ int vector<T>::remove(int lo, int hi)
  * @retval None
  */
 template <typename T>
-void vector<T>::expand()
+void Vector<T>::expand()
 {
     T* old_ar = this->m_ar;         // save the old pointer to m_ar
     this->m_capacity *= 2;
@@ -267,7 +267,7 @@ void vector<T>::expand()
  * @retval None
  */
 template <typename T>
-int vector<T>::find(const T& ele, int lo, int hi) const
+int Vector<T>::find(const T& ele, int lo, int hi) const
 {
     while((lo < hi--) && (ele != this->m_ar[hi]));  // compare ele and m_ar[hi] after hi--
     return hi;
@@ -283,7 +283,7 @@ int vector<T>::find(const T& ele, int lo, int hi) const
  * @retval None
  */
 template <typename T>
-int vector<T>::bin_search(const T& ele, int lo, int hi) const
+int Vector<T>::bin_search(const T& ele, int lo, int hi) const
 {
     // iteration
 #if(0)
@@ -311,8 +311,8 @@ int vector<T>::bin_search(const T& ele, int lo, int hi) const
     {
         int mi = (lo + hi)/2;
         ele < this->m_ar[mi] ? hi = mi : lo = mi + 1;
-        // m_ar[lo] <= ele all the time and 
-        // m_ar[hi] > ele all the time 
+        // m_ar[lo] <= ele all the time and
+        // m_ar[hi] > ele all the time
     }
     // 返回不大于ele的最大元素下标
     return --lo;
@@ -336,7 +336,7 @@ int vector<T>::bin_search(const T& ele, int lo, int hi) const
  * @retval None
  */
 template <typename T>
-int vector<T>::fib_search(const T& ele, int lo, int hi) const
+int Vector<T>::fib_search(const T& ele, int lo, int hi) const
 {
     return 0;
 }
@@ -349,14 +349,14 @@ int vector<T>::fib_search(const T& ele, int lo, int hi) const
  * @retval None
  */
 template <typename T>
-int vector<T>::deduplicate()
+int Vector<T>::deduplicate()
 {
     int oldsize = this->m_size;
     int k = 1;
     while(k < this->m_size)
     {
         // 在前缀区间[0, k查找m_ar[k]
-        (this->find(this->m_ar[k], 0, k) < 0) ? 
+        (this->find(this->m_ar[k], 0, k) < 0) ?
             k ++
             : this->remove(k);
     }
@@ -371,7 +371,7 @@ int vector<T>::deduplicate()
  * @retval None
  */
 template <typename T>
-int vector<T>::uniquify()
+int Vector<T>::uniquify()
 {
 /* 低效版 */
 #if(0)
@@ -409,7 +409,7 @@ int vector<T>::uniquify()
  * @retval None
  */
 template <typename T>
-void vector<T>::bubble_sort(int lo, int hi)
+void Vector<T>::bubble_sort(int lo, int hi)
 {
 #if(0)
     while(!this->bubble(lo, hi--));
@@ -418,7 +418,7 @@ void vector<T>::bubble_sort(int lo, int hi)
 #endif
 }
 template <typename T>
-int vector<T>::bubble(int lo, int hi)
+int Vector<T>::bubble(int lo, int hi)
 {
 /* 改进版一 */
 #if(0)
@@ -465,7 +465,7 @@ int vector<T>::bubble(int lo, int hi)
  * @retval None
  */
 template <typename T>
-void vector<T>::merge_sort(int lo, int hi)
+void Vector<T>::merge_sort(int lo, int hi)
 {
     if(hi - lo < 2) return;
     int mi = (lo + hi) / 2;
@@ -474,7 +474,7 @@ void vector<T>::merge_sort(int lo, int hi)
     merge(lo, mi, hi);
 }
 template <typename T>
-void vector<T>::merge(int lo, int mi, int hi)
+void Vector<T>::merge(int lo, int mi, int hi)
 {
     /* merge [lo, mi) and [mi, hi) */
     T* p = this->m_ar + lo;
@@ -497,7 +497,7 @@ void vector<T>::merge(int lo, int mi, int hi)
         {
             p[k++] = right[j++];
         }
-    }    
+    }
     while(i < mi -lo)
     {
         p[k++] = left[i++];
