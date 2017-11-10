@@ -109,29 +109,7 @@ template <typename T> struct BinNode
         return sum;
     }
 
-    /*!
-     * @brief 获取中序遍历下当前节点的直接后继节点
-     *
-     * @param None
-     * @return
-     * @retval None
-     */
-    BinNode<T>* successor()
-    {
-        BinNode<T>* s = this;
-        if (this->right)
-        {
-            s = this->right;
-            while(s->left) s = s->left;     //为右子树中最靠左（最小）的节点
-        }
-        else
-        {
-            //或者为“将当前节点包含于其左子树中的最低祖先”
-            if (s->parent && s->parent->right == s) s = s->parent;
-            s = s->parent;
-        }
-        return s;
-    }
+    BinNode<T>* successor();
 
     // 遍历算法
     template <typename VST> void traverse_DLR(VST& visit);      // 先序
@@ -148,6 +126,51 @@ template <typename T> struct BinNode
     //BinNode<T>* zig();                  // 顺时针旋转
     //BinNode<T>* zag();                  // 逆时针旋转
 };
+
+/*!
+ * @brief 获取中序遍历下当前节点的直接后继节点
+ *
+ * 有右子树：r为当前节点，d为r的直接后继
+ *    r
+ *   / \
+ *  L   a
+ *     / \
+ *    b   c
+ *     \
+ *      d
+ *
+ * 无右子树：r为当前节点，d为r的直接后继
+ *        e
+ *       / \
+ *      d  R
+ *     / \
+ *    b   c
+ *   / \
+ *  a   r
+ *     /
+ *    L
+ *
+ * @param None
+ * @return 返回直接后继节点
+ * @retval None
+ */
+template <typename T>
+BinNode<T>* BinNode<T>::successor()
+{
+    BinNode<T>* s = this;
+    if (this->right)
+    {
+        s = this->right;
+        while(s->left) s = s->left;     //为右子树中最靠左（最小）的节点
+    }
+    else
+    {
+        //或者为“将当前节点包含于其左子树中的最低祖先”
+        if (s->parent && s->parent->right == s) s = s->parent;
+        s = s->parent;
+    }
+    return s;
+}
 
 
 /*!
