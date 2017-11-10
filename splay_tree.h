@@ -100,40 +100,91 @@ BinNode<T>*& SplayTree<T>::search(const T& e)
 template <typename T>
 BinNode<T>* SplayTree<T>::insert(const T& e)
 {
-    BinNode<T>* x = this->search(e);
-
-    // 目标e存在，且为根节点(x经过splay后在根节点)
-    if (x && x->data == e)
-        return this->m_root;
-
-
-    BinNode<T>* node = new BinNode<T>(e, nullptr);
-
-    if (x)
+    // 如果是空树，直接插入节点即可
+    if (!this->m_root)
     {
-        if (e < x->data)
-        {
-            attach_left(node, x->left);
-            attach_right(node, x);
-            x->parent = node;
-            x->left = nullptr;
-
-        }
-        else if (x->data < e)
-        {
-            attach_right(node, x->right);
-            attach_left(node, x);
-            x->parent = node;
-            x->right = nullptr;
-        }
+        this->m_size++;
+        this->m_root = new BinNode<T>(e, nullptr);
+        return this->m_root;
     }
 
-    return (this->m_root = node);
+    // 因为不是空树,返回的x不可以为nullptr
+    // search 返回经过伸展后的树根节点
+    if (this->search(e)->data == e) return this->m_root;
+
+    BinNode<T>* r = this->m_root;
+    this->m_root = new BinNode<T>(e, nullptr);
+    this->m_size++;
+
+    // 确定新插入节点的位置
+    if (e < r->data)
+    {
+        attach_left(this->m_root, r->left);
+        attach_right(this->m_root, r);
+        r->parent = this->m_root;
+        r->left = nullptr;
+
+    }
+    else if (r->data < e)
+    {
+        attach_right(this->m_root, r->right);
+        attach_left(this->m_root, r);
+        r->parent = this->m_root;
+        r->right = nullptr;
+    }
+    this->update_height_above(r);
+
+    return this->m_root;
 }
 
+/*!
+ * @brief 删除节点。
+ *
+ * @param e: 删除目标。
+ * @return
+ * @retval None
+ */
 template <typename T>
 bool SplayTree<T>::remove(const T& e)
 {
+    // 空树直接返回
+    if (!this->m_root) return false;
+    // 没有找到目标
+    if (this->search(e)->data != e) return false;
+
+    // 删除目标节点（经过伸展，已经移到了根节点）
+    BinNode<T>* s = this->m_root;
+    if (!BN_HasLeftChild(*this->m_root))
+    {
+        this->m_root = this->m_root->right;
+        if (this->m_root) this->m_root->parent = nullptr;
+    }
+    else if (!BN_HasRightChild(*this->m_root))
+    {
+        this->m_root = this->m_root->left;
+        if (this->m_root) this->m_root = nullptr;
+    }
+    else
+    {
+        BinNode<T>* lt = this->m_root->left;
+        // 暂时分离左子树
+        this->m_root->left = nullptr;
+        lt->parent = nullptr;
+        // 只保留右子树
+        this->m_root = this->m_root->right;
+        this->m_root->parent = nullptr;
+        // 以原树根为目标，在原右子树做一次（必定失败的）查找，
+        // 原右子树中的最大值经过伸展后，会移到原右子树的根节点
+        this->search(s->data);
+        // 再将原左子树连接到根节点
+        this->m_root->left = lt;
+        lt->parent = this->m_root;
+    }
+
+    delete s;
+    this->m_size--;
+    if (this->m_root) this->update_height(this->m_root);
+
     return true;
 }
 

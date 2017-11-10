@@ -313,11 +313,17 @@ void test_splay()
     st.insert(39);
     st.insert(-99);
 
-    st.search(-7);      // 找到目标会进行splay
+    st.search(-7);       // 找到目标会进行splay
     std::cout << st.root()->data << std::endl;
     st.search(88);       // 没有找到目标同样会进行splay
     std::cout << st.root()->data << std::endl;
 
+    st.remove(-7);
+    std::cout << st.root()->data << std::endl;
+    st.remove(88);
+    std::cout << st.root()->data << std::endl;
+
+    std::cout << "中序遍历:" << std::endl;
     st.root()->traverse_LDR(print_node);
     std::cout << std::endl;
     std::cout << st.root()->data << std::endl;
