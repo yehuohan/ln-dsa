@@ -62,6 +62,7 @@ public:
             this->m_ar[k] = ele;
         }
     }
+
     /*!
      * @brief 拷贝构造函数
      *
@@ -91,6 +92,8 @@ public:
     // find
     int     find(const T& ele, int lo, int hi) const;
     // search
+    int     search(const T& ele) {return this->search(ele, 0, this->m_size); };
+    int     search(const T& ele, int lo, int hi) {return this->bin_search(ele, lo, hi);};
     int     bin_search(const T& ele, int lo, int hi) const;
     int     fib_search(const T& ele, int lo, int hi) const;
 
