@@ -78,6 +78,7 @@ public:
     }
 
     // basic
+    int     push_front(const T& ele);
     int     push_back(const T& ele);
     int     insert(int index, const T& ele);
     T       remove(int index);
@@ -153,6 +154,19 @@ void Vector<T>::copy_from(T const* A, int lo, int hi )
     this->m_size = 0;
     while(lo < hi)
         this->m_ar[this->m_size++] = A[lo++];
+}
+
+/*!
+ * @brief insert element to the front(first) position.
+ *
+ * @param ele: the element to be insert
+ * @return
+ * @retval None
+ */
+template <typename T>
+inline int Vector<T>::push_front(const T& ele)
+{
+    this->insert(0, ele);
 }
 
 /*!
