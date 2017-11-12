@@ -70,6 +70,8 @@ DSALib是数据结构与算法的学习过程。
 #include "binary_search_tree.h"
 #include "avl_tree.h"
 #include "splay_tree.h"
+#include "b_node.h"
+#include "b_tree.h"
 #include "graph.h"
 #include "graph_matrix.h"
 

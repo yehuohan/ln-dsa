@@ -333,5 +333,22 @@ void test_splay()
 
 void test_btree()
 {
+    dsa::BTree<unsigned int> bt(3);
 
+    //        *20*77*
+    // *2*10*   *28*   *90*203*
+    bt.insert(10);
+    bt.insert(20);
+    bt.insert(28);
+    bt.insert(2);
+    bt.insert(90);
+    bt.insert(77);
+    bt.insert(203);
+
+    dsa::BTNode<unsigned int>* node = bt.search(90);
+    if (node)
+    {
+        for (int k = 0; k < node->key.size(); k++)
+            std::cout << node->key[k] << std::endl;
+    }
 }
