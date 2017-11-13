@@ -335,20 +335,56 @@ void test_btree()
 {
     dsa::BTree<unsigned int> bt(3);
 
-    //        *20*77*
-    // *2*10*   *28*   *90*203*
-    bt.insert(10);
-    bt.insert(20);
-    bt.insert(28);
-    bt.insert(2);
-    bt.insert(90);
-    bt.insert(77);
-    bt.insert(203);
+    //            *77*
+    //      *20*        *203*
+    // *2*10*  *28*  *90*   *303*
+    bt.insert(10) ; bt.insert(20) ; bt.insert(28);
+    bt.insert(2)  ; bt.insert(90) ; bt.insert(77);
+    bt.insert(203); bt.insert(303);
 
     dsa::BTNode<unsigned int>* node = bt.search(90);
     if (node)
     {
         for (int k = 0; k < node->key.size(); k++)
             std::cout << node->key[k] << std::endl;
+    }
+
+#if (1)
+    //        *20*77*
+    // *2*10*  *28*  *203*303*
+    bt.remove(90);
+
+    //     *10*77*
+    // *2*  *20*  *203*303*
+    bt.remove(28);
+
+    //     *10*203*
+    // *2*  *77*  *303*
+    bt.remove(20);
+#endif
+
+    std::cout << "Print" << std::endl;
+    dsa::Queue<dsa::BTNode<unsigned int>*> qn;
+    qn.enqueue(bt.root());
+    int num[10] = {1};
+    int idx = 0, cnt = 0;
+    while(!qn.is_empty())
+    {
+        dsa::BTNode<unsigned int>* x = qn.dequeue();
+        for (int k = 0; k < x->key.size(); k++)
+            std::cout << "  " << x->key[k];
+        std::cout << "[" << x->key.size() << "-" << x->child.size() << "] ";
+        for (int k = 0; k < x->child.size(); k++)
+            if (x->child[k])
+                qn.enqueue(x->child[k]);
+
+        num[idx+1] += x->child.size();  // 输出当前层节点x时，同时累加下一层的节点数
+        cnt++;
+        if (cnt >= num[idx])
+        {
+            std::cout << std::endl;
+            idx++;
+            cnt = 0;
+        }
     }
 }

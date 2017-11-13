@@ -72,10 +72,7 @@ public:
      */
     Vector(const Vector<T>& V) {this->copy_from(V.m_ar, 0, V.m_size );}
 
-    ~Vector()
-    {
-        delete[] this->m_ar;
-    }
+    ~Vector() { delete[] this->m_ar; }
 
     // basic
     int     push_front(const T& ele);
@@ -91,10 +88,11 @@ public:
     Vector<T>& operator=(const Vector<T>& V);
 
     // find
+    int     find(const T& ele) const {return this->find(ele, 0, this->m_size);};
     int     find(const T& ele, int lo, int hi) const;
     // search
-    int     search(const T& ele) {return this->search(ele, 0, this->m_size); };
-    int     search(const T& ele, int lo, int hi) {return this->bin_search(ele, lo, hi);};
+    int     search(const T& ele) const {return this->search(ele, 0, this->m_size); };
+    int     search(const T& ele, int lo, int hi) const {return this->bin_search(ele, lo, hi);};
     int     bin_search(const T& ele, int lo, int hi) const;
     int     fib_search(const T& ele, int lo, int hi) const;
 
@@ -255,7 +253,7 @@ int Vector<T>::remove(int lo, int hi)
 }
 
 /*!
- * @brief expamd vector capacity
+ * @brief expand vector capacity
  *
  * @param None
  * @return
