@@ -18,11 +18,13 @@ void test_bst();
 void test_avl();
 void test_splay();
 void test_btree();
+void test_redblack();
 
 //(int argc, char** argv)
 int main()
 {
-    test_btree();
+    test_redblack();
+    //test_btree();
     //test_splay();
     //test_avl();
     //test_bst();
@@ -35,7 +37,6 @@ int main()
 
     return 0;
 }
-
 
 void test_vector()
 {
@@ -387,4 +388,9 @@ void test_btree()
             cnt = 0;
         }
     }
+}
+
+void test_redblack()
+{
+    dsa::RedBlackTree<unsigned int> rb;
 }

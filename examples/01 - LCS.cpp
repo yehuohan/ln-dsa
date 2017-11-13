@@ -54,12 +54,14 @@ int lcs_len_recursion(char a[], int n, char b[], int m)
 /*!
  * @brief 通过迭代求解LCS
  *
+ * <pre>
  * iteration algorithm of lcs
       d d a d
     a     1 
     d 1 1   2
     a     2
  * any equalpoint at the right-down of '1' is '2'
+ * </pre>
  *
  * @param a[] 序列a
  * @param n 序列a的长度

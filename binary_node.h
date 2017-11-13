@@ -44,8 +44,17 @@ namespace dsa
 /** 获取父节点的孩子节点指针，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
 #define PtrChildOfParent(x)     (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
 
+#define BN_IsBlack(x)       (!(x) || (RBColor::Black == (x)->color))    // 红黑树external nodes均为黑
+#define BN_IsRed(x)         (!BN_IsBlack(x))        // 非黑即红
+
 /*! @} */
 
+
+typedef enum
+{
+    Red,
+    Black
+} RBColor;
 
 /*!
  * @brief 二叉树节点
@@ -58,6 +67,7 @@ template <typename T> struct BinNode
     BinNode<T>* right;
     T           data;
     int         height;
+    RBColor     color;
 
     BinNode() : height(0), parent(nullptr), left(nullptr), right(nullptr) {}
     BinNode(const T& e, BinNode<T>* p = nullptr) : data(e), parent(p), height(0),left(nullptr), right(nullptr) {}
