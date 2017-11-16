@@ -129,9 +129,9 @@ BinNode<T>* BinSearchTree<T>::insert(const T& e)
  *  / \              / \
  * T0  b            T0  b
  *    / \     =>       / \
- *   T1  c            T1  d (c)
+ *   T1  d            T1  c (d)
  *      /
- *     d
+ *     c
  *
  * 双分支删除d节点：
  *    d                  c
@@ -147,7 +147,7 @@ BinNode<T>* BinSearchTree<T>::insert(const T& e)
  *
  * @param node: 待删除的目标节点
  * @param hot: 目标节点的父节点
- * @return
+ * @return 返回被删除节点位置的新节点
  * @retval None
  */
 template <typename T>
@@ -157,7 +157,7 @@ static BinNode<T>* remove_at(
 {
     BinNode<T>* w = node;
     BinNode<T>* succ = nullptr;
-    // 只有右子树
+    // 只有右子树(或左右子树均没有，则返回nullptr，即被删除节点位置没有新节点)
     if(!node->left) succ = node = node->right;
     // 只有左子树
     else if(!node->right) succ = node = node->left;
@@ -255,7 +255,7 @@ BinNode<T>* BinSearchTree<T>::connect34(
  *
  * <pre>
  * 示意图如下(包括对称情况)：
- * zag-zag(先旋转pv，再旋转gv)       | zig-zig(先旋转pv，再旋转gv)
+ * zag(旋转gp)                       | zig(旋转gp)
  * 单旋:                             |  单旋:
  *   g                       p       |      g                       p
  * /   \                   /   \     |    /   \                   /   \
@@ -265,7 +265,7 @@ BinNode<T>* BinSearchTree<T>::connect34(
  *     / \                           |  / \
  *    T2 T3                          | T0 T1
  *                                   |
- * zag-zig(先旋转pv，再旋转gv)       | zig-zag(先旋转pv，再旋转gv)
+ * zag-zig(先zig旋转pv，再zag旋转gv) | zig-zag(先zag旋转pv，再zig旋转gv)
  * 双旋:                             |  双旋:
  *   g                       v       |      g                       v
  * /   \                   /   \     |    /   \                   /   \
@@ -290,7 +290,7 @@ BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
     {
         if (BN_IsLeftChild(*v))
         {
-            // zig-zig 单旋
+            // zig 单旋
             p->parent = g->parent;      // 设置子树根节点的父节点
             return this->connect34(v, p, g,
                     v->left, v->right, p->right, g->right);
@@ -314,7 +314,7 @@ BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
         }
         else
         {
-            // zag-zag 单旋
+            // zag 单旋
             p->parent = g->parent;      // 设置子树根节点的父节点
             return this->connect34(g, p, v,
                     g->left, p->left, v->left, v->right);

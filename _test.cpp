@@ -393,4 +393,52 @@ void test_btree()
 void test_redblack()
 {
     dsa::RedBlackTree<unsigned int> rb;
+    rb.insert(100);
+    rb.insert(200);
+    rb.insert(73);
+    rb.insert(39);
+    rb.insert(139);
+    rb.insert(988);
+    rb.insert(772);
+    rb.insert(9);
+    rb.insert(18);
+    rb.insert(1008);
+
+    std::cout << "Size: " << rb.size() << std::endl;
+
+    std::cout << "LDR: " << std::endl;
+    rb.root()->traverse_LDR(print_node);
+    std::cout << std::endl;
+
+#if 1
+    //rb.remove(18);
+#endif
+
+    // 输出二叉树结构
+    std::cout << "Print:" << std::endl;
+    dsa::Queue<dsa::BinNode<unsigned int>*> qn;
+    qn.enqueue(rb.root());
+    int num[10] = {1};
+    int idx = 0, cnt = 1;
+    while(!qn.is_empty())
+    {
+        dsa::BinNode<unsigned int>* x = qn.dequeue();
+        std::cout << x->data
+                  << ((BN_IsBlack(x)) ? "-B-" : "-R-")
+                  << x->height << "   ";
+
+        if (x->left)
+        { num[idx+1] ++; qn.enqueue(x->left); }
+        if (x->right)
+        { num[idx+1] ++; qn.enqueue(x->right); }
+
+        cnt ++;
+        if (cnt >= num[idx])
+        {
+            std::cout << std::endl;
+            idx++;
+            cnt = 0;
+        }
+    }
+
 }

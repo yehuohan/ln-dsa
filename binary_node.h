@@ -41,14 +41,13 @@ namespace dsa
 #define BN_HasChild(x)      ((x).left || (x).right)
 #define BN_HasBothChild(x)  ((x).left && (x).right)
 
-/** 获取父节点的孩子节点指针，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
+/** 获取节点在父节点中的孩子节点指针，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
 #define PtrChildOfParent(x)     (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
 
-#define BN_IsBlack(x)       (!(x) || (RBColor::Black == (x)->color))    // 红黑树external nodes均为黑
+#define BN_IsBlack(x)       (!(x) || (dsa::RBColor::Black == (x)->color))    // 红黑树external nodes均为黑
 #define BN_IsRed(x)         (!BN_IsBlack(x))        // 非黑即红
 
 /*! @} */
-
 
 typedef enum
 {
@@ -69,8 +68,11 @@ template <typename T> struct BinNode
     int         height;
     RBColor     color;
 
-    BinNode() : height(0), parent(nullptr), left(nullptr), right(nullptr) {}
-    BinNode(const T& e, BinNode<T>* p = nullptr) : data(e), parent(p), height(0),left(nullptr), right(nullptr) {}
+    BinNode()
+        : parent(nullptr), left(nullptr), right(nullptr), height(0), color(RBColor::Red) {}
+    BinNode(const T& e, BinNode<T>* p = nullptr, BinNode<T>* ll = nullptr, BinNode<T>* rr = nullptr,
+            int h = 0, RBColor c = RBColor::Red)
+        : data(e), parent(p), left(ll), right(rr), height(h),color(c) {}
 
     /*!
      * @brief 插入左子节点
