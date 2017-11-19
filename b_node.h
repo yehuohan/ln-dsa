@@ -19,7 +19,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TBTree
  * @{
  */
 

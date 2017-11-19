@@ -21,7 +21,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TBinaryTree
  * @{
  */
 
@@ -131,6 +131,13 @@ template <typename T> struct BinNode
     //BinNode<T>* zig();                  // 顺时针旋转
     //BinNode<T>* zag();                  // 逆时针旋转
 };
+
+
+template <typename T, typename VST> static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::Stack<BinNode<T>* >& s);
+template <typename T> static void go_along_left_branch(BinNode<T>* x, dsa::Stack<BinNode<T>*>& s);
+
+/*! @} */
+
 
 /*!
  * @brief 获取中序遍历下当前节点的直接后继节点
@@ -419,8 +426,6 @@ void BinNode<T>::traverse_LO(VST& visit)
     }
 }
 
-
-/*! @} */
 
 // namespace dsa end
 }

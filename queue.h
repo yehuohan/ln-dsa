@@ -22,12 +22,11 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Linear
+ * @addtogroup LQueue
  *
  * @{
  */
 
-//==============================================================================
 /*!
  * @brief Queue class
  *
@@ -35,7 +34,6 @@ namespace dsa
  * taking list-head and queue-front and list-tail as queue-rear
  *
  */
-//==============================================================================
 template <typename T>
 class Queue : private dsa::List<T>
 {

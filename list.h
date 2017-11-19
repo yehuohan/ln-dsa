@@ -21,7 +21,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Linear
+ * @addtogroup LList
  *
  * @{
  */

@@ -21,19 +21,17 @@ namespace dsa
 {
 
 /*!
- * @addtogroup  Linear
+ * @addtogroup  LStack
  *
  * @{
  */
 
-//==============================================================================
 /*!
  * @brief Stack class
  *
  * inheriting from vector and take vector-end as stack-top
  *
  */
-//==============================================================================
 template <typename T>
 class Stack : private dsa::Vector<T>
 {
@@ -51,8 +49,6 @@ public:
     /** return top-data */
     T               top() const {return (*this)[this->size()-1];}
 };
-
-
 
 
 template <typename T>

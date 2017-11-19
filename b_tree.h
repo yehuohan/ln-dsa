@@ -19,7 +19,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TBTree
  * @{
  */
 
@@ -64,6 +64,8 @@ public:
 
     BTNode<T>*  root(){return this->m_root;};
 };
+
+/*! @} */
 
 
 /*!
@@ -411,7 +413,6 @@ bool BTree<T>::remove(const T& e)
     return true;
 }
 
-/*! @} */
 } /* dsa */
 
 #endif /* ifndef _B_TREE_H */

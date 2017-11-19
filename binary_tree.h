@@ -21,7 +21,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TBinaryTree
  * @{
  */
 
@@ -55,6 +55,12 @@ public:
 
     // traverse
 };
+
+template <typename T> static int remove_at(BinNode<T>* node);
+template <typename T> static void construct_bintree_pre_in(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, dsa::BinNode<T>*& node);
+template <typename T> void construct_bintree(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, dsa::BinTree<T>& bt);
+
+/*! @} */
 
 
 /*!
@@ -228,9 +234,6 @@ void construct_bintree(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, dsa:
     dsa::BinNode<T>* root = bt.root();
     construct_bintree_pre_in(pre, in, root);
 }
-
-
-/*! @} */
 
 // namespace dsa end
 }

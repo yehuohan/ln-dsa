@@ -79,6 +79,8 @@ public:
     void    DFS(int vindex, int& clock);
 };
 
+/*! @} */
+
 
 /*!
  * @brief 枚举顶点i的所有邻接顶点
@@ -310,10 +312,6 @@ void GraphMatrix<Tv,Te>::DFS(int vindex, int& clock)
     this->m_V[vindex]->f_time = ++clock;
 }
 
-
-
-
-/*! @} */
 }
 
 #endif /* ifndef _GRAPH_MATRIX_H */

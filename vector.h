@@ -20,7 +20,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Linear
+ * @addtogroup LVector
  *
  * @{
  */
@@ -111,13 +111,12 @@ protected:
     void    copy_from (const T* A, int lo, int hi );
     void    expand();
 
-private:
+protected:
     unsigned int m_capacity;
     unsigned int m_size;
     T*  m_ar;
 
 };
-
 
 /*! @} */
 

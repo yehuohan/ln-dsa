@@ -18,6 +18,12 @@ namespace dsa
 {
 
 /*!
+ * @addtogroup LPQ
+ *
+ * @{
+ */
+
+/*!
  * @brief 优先级队列接口抽象类
  *
  */
@@ -29,6 +35,8 @@ public:
     virtual T get_max() = 0;
     virtual T del_max() = 0;
 };
+
+/*! @} */
     
 } /* dsa */ 
 

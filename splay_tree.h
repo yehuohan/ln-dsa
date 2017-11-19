@@ -20,7 +20,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TSplayTree
  * @{
  */
 
@@ -41,6 +41,8 @@ public:
 protected:
     BinNode<T>* splay(BinNode<T>*);
 };
+
+/*! @} */
 
 
 /*!
@@ -304,8 +306,6 @@ BinNode<T>* SplayTree<T>::splay(BinNode<T>* v)
     v->parent = nullptr;
     return v;
 }
-
-/*! @} */
 
 // namespace dsa end
 }

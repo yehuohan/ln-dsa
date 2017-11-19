@@ -20,7 +20,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TBinarySearchTree
  * @{
  */
 
@@ -65,6 +65,8 @@ protected:
             BinNode<T>*, BinNode<T>*, BinNode<T>*, BinNode<T>*);
     BinNode<T>*     rotate_at(BinNode<T>*);
 };
+
+/*! @} */
 
 
 /*!
@@ -327,8 +329,6 @@ BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
     }
 }
 
-
-/*! @} */
 
 // namespace dsa end
 }

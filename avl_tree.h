@@ -22,7 +22,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TAvlTree
  * @{
  */
 
@@ -90,6 +90,9 @@ public:
     bool            remove(const T&);
 };
 
+/*! @} */
+
+
 /*!
  * @brief AVL平衡二叉树的插入操作
  *
@@ -154,8 +157,6 @@ bool AvlTree<T>::remove(const T& e)
 
     return true;
 }
-
-/*! @} */
 
 // namespace dsa end
 }

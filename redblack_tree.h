@@ -20,7 +20,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Tree
+ * @addtogroup TRedBlackTree
  *
  * @{
  */
@@ -52,6 +52,8 @@ protected:
     void        solve_double_black(BinNode<T>*);
     int         update_height(BinNode<T>*);
 };
+
+/*! @} */
 
 
 /*!
@@ -396,9 +398,6 @@ bool RedBlackTree<T>::remove(const T& e)
     solve_double_black(r);
     return true;
 }
-
-
-/*! @} */
 
 } /* dsa */
 
