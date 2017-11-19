@@ -60,7 +60,7 @@ DSAS是数据结构与算法的学习过程。
  */
 /*!
  * @defgroup LPQ Priority Queue
- *
+ * 优先级队列
  * @{
  * @}
  */

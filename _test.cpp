@@ -18,11 +18,13 @@ void test_avl();
 void test_splay();
 void test_btree();
 void test_redblack();
+void test_pq();
 
 //(int argc, char** argv)
 int main()
 {
-    test_redblack();
+    test_pq();
+    //test_redblack();
     //test_btree();
     //test_splay();
     //test_avl();
@@ -447,4 +449,35 @@ void test_redblack()
         }
     }
 
+}
+
+void test_pq()
+{
+    dsa::PqComplHeap<unsigned int> pq;
+
+    pq.insert(10);
+    pq.insert(18);
+    pq.insert(38);
+    pq.insert(8);
+    pq.insert(27);
+    pq.insert(2);
+    pq.insert(83);
+    pq.insert(103);
+    pq.insert(1008);
+
+#if 1
+    pq.del_max();
+#endif
+
+    std::cout << "Print:\n";
+    int n = 0;
+    for (int k = 0; k < pq.size(); k ++)
+    {
+        std::cout << pq[k] << "  ";
+        if (k+1 >= n)
+        {
+            std::cout << std::endl;
+            n += 2<<k;
+        }
+    }
 }
