@@ -38,7 +38,6 @@ namespace dsa
 #define PQ_RightChild(i)    ((1 + (i)) << 1)    /**< i的右孩子，即 (2*i+2) */
 #define PQ_LeftChildValid(n, i)     PQ_InHeap(n, PQ_LeftChild(i))  /**< 判断i是否有一个（左）孩子 */
 #define PQ_RightChildValid(n, i)    PQ_InHeap(n, PQ_RightChild(i)) /**< 判断i是否有两个孩子，对于完全二叉堆，有右孩子，必有左孩子*/
-
 /*! @} */
 
 
@@ -49,9 +48,9 @@ namespace dsa
  * 如图所示：只需要保证完全二叉堆的根是最大值，其余只要保证堆序性；
  * 完全二叉堆的节点数为n，则树高度h，可控制在O(log(n))。
  *
- * 堆序性：H[i] <= H[parent(i)]
+ * 堆序性：H[i] <= H[parent(i)]，任一节点不大于父节点
  *
- *          15 
+ *          15
  *       /      \
  *      13      10
  *    /   \   /   \
@@ -199,6 +198,18 @@ void PqComplHeap<T>::insert(const T& e)
 /*!
  * @brief 删除最大值元素，最优先级最高的元素
  *
+ * 将最未位置节点移到根节点，然后进行下滤处理：
+ *          15                        3
+ *       /      \                 /      \
+ *      13      10               13      10
+ *    /   \   /   \            /   \   /   \
+ *   7    5  6    9    =>     7    5  6    9
+ *  / \  /                   / \
+ * 2  0 3                   2  0
+ *                          --------  ------
+ *                             L        R
+ * percolate_down也可看成将L和R两个子堆合并成一个完全二叉堆。
+ *
  * @param None
  * @return
  * @retval None
@@ -212,8 +223,46 @@ T PqComplHeap<T>::del_max()
     return max_elem;
 }
 
+/*!
+ * @brief 批量建立完全二叉堆
+ *
+ * this->m_ar有n个节点，但不一定满足堆序性，
+ * 此函数就是使这n个节点满足堆序性。
+ *
+ * @param n: 堆的节点数
+ * @return
+ * @retval None
+ */
+template <typename T>
+void PqComplHeap<T>::heapify(int n)
+{
+#if(0)
+    // 按自上而下的顺序上滤
+    // 效率太低：对所有节点的深度求和
+    // 越往堆底，深度越大，节点数越多
+    // Sum[depth(i)] = O(nlog(n))
+    for (int k = 1; k < n; k ++)
+    {
+        this->percolate_up(k);
+    }
+#endif
 
-} /* dsa */ 
+#if(1)
+    // 按自下而上的顺序下滤
+    // PQ_Parent(n-1) ：最后一个内部节点，也即末节点的父亲
+    // 效率较高： 对所有节点的高度求和
+    // 越往堆底，高度越小，节点数越多
+    // Sum[height(i)] = O(n)
+    for(int k = PQ_Parent(n-1); k >= 0; k--)
+    {
+        this->percolate_down(n, k);
+    }
+#endif
+
+}
+
+
+} /* dsa */
 
 #endif /* ifndef _PQ_COMPLETE_HEAP_H */
 
