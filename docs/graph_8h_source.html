@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: graph.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">graph.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="graph_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef GRAPH_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define GRAPH_H</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define INI_MAX</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="group___graph.html#ga1defbb21ddc4f52a36976e1d33b59dd1">   34</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> { UnDiscovered, Discovered, Visited } <a class="code" href="group___graph.html#ga1defbb21ddc4f52a36976e1d33b59dd1">VStatus</a>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="group___graph.html#ga31de4b012c792e6a98c7a89e6417f956">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> { UnDetermined, Tree, Cross, Forward, Backward } <a class="code" href="group___graph.html#ga31de4b012c792e6a98c7a89e6417f956">EStatus</a>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tv&gt;</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structdsa_1_1_vertex.html">   47</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdsa_1_1_vertex.html">Vertex</a></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    Tv data;</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structdsa_1_1_vertex.html#a2bc22469ef2fed015d14afa9ddcc5834">   50</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdsa_1_1_vertex.html#a2bc22469ef2fed015d14afa9ddcc5834">in_deg</a>;             </div><div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92">   51</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92">out_deg</a>;            </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    VStatus status;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> d_time, f_time;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> parent;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> priority;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="structdsa_1_1_vertex.html">Vertex</a>(<span class="keyword">const</span> Tv&amp; d):</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        data(d), in_deg(0), out_deg(0), status(UnDiscovered),</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        d_time(-1), f_time(-1),parent(-1),</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        priority(INI_MAX)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {}</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Te&gt;</div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structdsa_1_1_edge.html">   69</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdsa_1_1_edge.html">Edge</a></div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div><div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structdsa_1_1_edge.html#a4b4064e3735deed1d457a57f0d27f32f">   71</a></span>&#160;    Te <a class="code" href="structdsa_1_1_edge.html#a4b4064e3735deed1d457a57f0d27f32f">data</a>;            </div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structdsa_1_1_edge.html#a7858dfda97e0d18ae48946dd5539e1eb">   72</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdsa_1_1_edge.html#a7858dfda97e0d18ae48946dd5539e1eb">weight</a>;         </div><div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structdsa_1_1_edge.html#a906553d6fcfe1c472baedf1bb94e0696">   73</a></span>&#160;    EStatus <a class="code" href="structdsa_1_1_edge.html#a906553d6fcfe1c472baedf1bb94e0696">status</a>;     </div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="structdsa_1_1_edge.html">Edge</a>(<span class="keyword">const</span> Te&amp; d, <span class="keywordtype">int</span> w):</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        data(d), weight(w), status(UnDetermined)</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {}</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tv, <span class="keyword">typename</span> Te&gt;</div><div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classdsa_1_1_graph.html">   86</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdsa_1_1_graph.html">Graph</a></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> reset(){}</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classdsa_1_1_graph.html#adaf2aa430974839e054c6874e1ce6aa2">   92</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdsa_1_1_graph.html#adaf2aa430974839e054c6874e1ce6aa2">m_vnum</a>;         </div><div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classdsa_1_1_graph.html#a6ba66fbbab5b6ae7977384ff1d004124">   93</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdsa_1_1_graph.html#a6ba66fbbab5b6ae7977384ff1d004124">m_enum</a>;         </div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef GRAPH_H */</span><span class="preprocessor"></span></div><div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> avl_tree.h:21</div></div>
+<div class="ttc" id="classdsa_1_1_graph_html_adaf2aa430974839e054c6874e1ce6aa2"><div class="ttname"><a href="classdsa_1_1_graph.html#adaf2aa430974839e054c6874e1ce6aa2">dsa::Graph::m_vnum</a></div><div class="ttdeci">int m_vnum</div><div class="ttdef"><b>Definition:</b> graph.h:92</div></div>
+<div class="ttc" id="group___graph_html_ga1defbb21ddc4f52a36976e1d33b59dd1"><div class="ttname"><a href="group___graph.html#ga1defbb21ddc4f52a36976e1d33b59dd1">dsa::VStatus</a></div><div class="ttdeci">VStatus</div><div class="ttdoc">顶点状态 </div><div class="ttdef"><b>Definition:</b> graph.h:34</div></div>
+<div class="ttc" id="classdsa_1_1_graph_html"><div class="ttname"><a href="classdsa_1_1_graph.html">dsa::Graph</a></div><div class="ttdoc">图类 </div><div class="ttdef"><b>Definition:</b> graph.h:86</div></div>
+<div class="ttc" id="group___graph_html_ga31de4b012c792e6a98c7a89e6417f956"><div class="ttname"><a href="group___graph.html#ga31de4b012c792e6a98c7a89e6417f956">dsa::EStatus</a></div><div class="ttdeci">EStatus</div><div class="ttdoc">边状态 </div><div class="ttdef"><b>Definition:</b> graph.h:40</div></div>
+<div class="ttc" id="structdsa_1_1_edge_html_a7858dfda97e0d18ae48946dd5539e1eb"><div class="ttname"><a href="structdsa_1_1_edge.html#a7858dfda97e0d18ae48946dd5539e1eb">dsa::Edge::weight</a></div><div class="ttdeci">int weight</div><div class="ttdef"><b>Definition:</b> graph.h:72</div></div>
+<div class="ttc" id="structdsa_1_1_edge_html_a4b4064e3735deed1d457a57f0d27f32f"><div class="ttname"><a href="structdsa_1_1_edge.html#a4b4064e3735deed1d457a57f0d27f32f">dsa::Edge::data</a></div><div class="ttdeci">Te data</div><div class="ttdef"><b>Definition:</b> graph.h:71</div></div>
+<div class="ttc" id="structdsa_1_1_vertex_html_a2bc22469ef2fed015d14afa9ddcc5834"><div class="ttname"><a href="structdsa_1_1_vertex.html#a2bc22469ef2fed015d14afa9ddcc5834">dsa::Vertex::in_deg</a></div><div class="ttdeci">int in_deg</div><div class="ttdef"><b>Definition:</b> graph.h:50</div></div>
+<div class="ttc" id="classdsa_1_1_graph_html_a6ba66fbbab5b6ae7977384ff1d004124"><div class="ttname"><a href="classdsa_1_1_graph.html#a6ba66fbbab5b6ae7977384ff1d004124">dsa::Graph::m_enum</a></div><div class="ttdeci">int m_enum</div><div class="ttdef"><b>Definition:</b> graph.h:93</div></div>
+<div class="ttc" id="structdsa_1_1_edge_html"><div class="ttname"><a href="structdsa_1_1_edge.html">dsa::Edge</a></div><div class="ttdoc">边类 </div><div class="ttdef"><b>Definition:</b> graph.h:69</div></div>
+<div class="ttc" id="structdsa_1_1_vertex_html"><div class="ttname"><a href="structdsa_1_1_vertex.html">dsa::Vertex</a></div><div class="ttdoc">顶点类 </div><div class="ttdef"><b>Definition:</b> graph.h:47</div></div>
+<div class="ttc" id="structdsa_1_1_vertex_html_a5edfac0548b275e55a502a6e69dcfa92"><div class="ttname"><a href="structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92">dsa::Vertex::out_deg</a></div><div class="ttdeci">int out_deg</div><div class="ttdef"><b>Definition:</b> graph.h:51</div></div>
+<div class="ttc" id="structdsa_1_1_edge_html_a906553d6fcfe1c472baedf1bb94e0696"><div class="ttname"><a href="structdsa_1_1_edge.html#a906553d6fcfe1c472baedf1bb94e0696">dsa::Edge::status</a></div><div class="ttdeci">EStatus status</div><div class="ttdef"><b>Definition:</b> graph.h:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

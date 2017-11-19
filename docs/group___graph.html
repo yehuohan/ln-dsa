@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: Graph Struct</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle">
+<div class="title">Graph Struct</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_vertex.html">dsa::Vertex&lt; Tv &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">顶点类  <a href="structdsa_1_1_vertex.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_edge.html">dsa::Edge&lt; Te &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">边类  <a href="structdsa_1_1_edge.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph.html">dsa::Graph&lt; Tv, Te &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">图类  <a href="classdsa_1_1_graph.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix&lt; Tv, Te &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">邻接矩阵类  <a href="classdsa_1_1_graph_matrix.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ga1defbb21ddc4f52a36976e1d33b59dd1"><td class="memItemLeft" align="right" valign="top"><a id="ga1defbb21ddc4f52a36976e1d33b59dd1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga1defbb21ddc4f52a36976e1d33b59dd1">dsa::VStatus</a> { <b>UnDiscovered</b>, 
+<b>Discovered</b>, 
+<b>Visited</b>
+ }<tr class="memdesc:ga1defbb21ddc4f52a36976e1d33b59dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">顶点状态 <br /></td></tr>
+</td></tr>
+<tr class="separator:ga1defbb21ddc4f52a36976e1d33b59dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31de4b012c792e6a98c7a89e6417f956"><td class="memItemLeft" align="right" valign="top"><a id="ga31de4b012c792e6a98c7a89e6417f956"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga31de4b012c792e6a98c7a89e6417f956">dsa::EStatus</a> { <br />
+&#160;&#160;<b>UnDetermined</b>, 
+<b>Tree</b>, 
+<b>Cross</b>, 
+<b>Forward</b>, 
+<br />
+&#160;&#160;<b>Backward</b>
+<br />
+ }<tr class="memdesc:ga31de4b012c792e6a98c7a89e6417f956"><td class="mdescLeft">&#160;</td><td class="mdescRight">边状态 <br /></td></tr>
+</td></tr>
+<tr class="separator:ga31de4b012c792e6a98c7a89e6417f956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gae6eae7520b55eb488b1f5585099733ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#gae6eae7520b55eb488b1f5585099733ea">dsa::GraphMatrix&lt; Tv, Te &gt;::next_nbr</a> (int i, int j)</td></tr>
+<tr class="memdesc:gae6eae7520b55eb488b1f5585099733ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">枚举顶点i的所有邻接顶点  <a href="#gae6eae7520b55eb488b1f5585099733ea">更多...</a><br /></td></tr>
+<tr class="separator:gae6eae7520b55eb488b1f5585099733ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7408f78494cb7c0f63c2ee6275901a90"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga7408f78494cb7c0f63c2ee6275901a90">dsa::GraphMatrix&lt; Tv, Te &gt;::first_nbr</a> (int i)</td></tr>
+<tr class="memdesc:ga7408f78494cb7c0f63c2ee6275901a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取顶点i的第一个有效邻接顶点  <a href="#ga7408f78494cb7c0f63c2ee6275901a90">更多...</a><br /></td></tr>
+<tr class="separator:ga7408f78494cb7c0f63c2ee6275901a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaaa60609dd9835240b986ae0d7fb8bdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#gaaaa60609dd9835240b986ae0d7fb8bdf">dsa::GraphMatrix&lt; Tv, Te &gt;::exist_edge</a> (int i, int j)</td></tr>
+<tr class="memdesc:gaaaa60609dd9835240b986ae0d7fb8bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断两个顶点间的边是否存在  <a href="#gaaaa60609dd9835240b986ae0d7fb8bdf">更多...</a><br /></td></tr>
+<tr class="separator:gaaaa60609dd9835240b986ae0d7fb8bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf28887e0e4b12359f6b96cd4ffe628d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#gaf28887e0e4b12359f6b96cd4ffe628d0">dsa::GraphMatrix&lt; Tv, Te &gt;::insert_edge</a> (const Te &amp;edge, int w, int i, int j)</td></tr>
+<tr class="memdesc:gaf28887e0e4b12359f6b96cd4ffe628d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入边  <a href="#gaf28887e0e4b12359f6b96cd4ffe628d0">更多...</a><br /></td></tr>
+<tr class="separator:gaf28887e0e4b12359f6b96cd4ffe628d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e724aa34a70f0b1c85076ed075fe7c7"><td class="memItemLeft" align="right" valign="top">Te&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga8e724aa34a70f0b1c85076ed075fe7c7">dsa::GraphMatrix&lt; Tv, Te &gt;::remove_edge</a> (int i, int j)</td></tr>
+<tr class="memdesc:ga8e724aa34a70f0b1c85076ed075fe7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除边  <a href="#ga8e724aa34a70f0b1c85076ed075fe7c7">更多...</a><br /></td></tr>
+<tr class="separator:ga8e724aa34a70f0b1c85076ed075fe7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc53b1b2fcab4d8664c70f6a797abe4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#gabc53b1b2fcab4d8664c70f6a797abe4a">dsa::GraphMatrix&lt; Tv, Te &gt;::insert_vertex</a> (const Tv &amp;vertex)</td></tr>
+<tr class="memdesc:gabc53b1b2fcab4d8664c70f6a797abe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入顶点，返加编号  <a href="#gabc53b1b2fcab4d8664c70f6a797abe4a">更多...</a><br /></td></tr>
+<tr class="separator:gabc53b1b2fcab4d8664c70f6a797abe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad56dbf3535380ad240e48c65f0a9eb3a"><td class="memItemLeft" align="right" valign="top">Tv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#gad56dbf3535380ad240e48c65f0a9eb3a">dsa::GraphMatrix&lt; Tv, Te &gt;::remove_vertex</a> (int i)</td></tr>
+<tr class="memdesc:gad56dbf3535380ad240e48c65f0a9eb3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除顶点  <a href="#gad56dbf3535380ad240e48c65f0a9eb3a">更多...</a><br /></td></tr>
+<tr class="separator:gad56dbf3535380ad240e48c65f0a9eb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga627714debcc0a352404866379f1eb3c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga627714debcc0a352404866379f1eb3c3">dsa::GraphMatrix&lt; Tv, Te &gt;::BFS</a> (int vindex, int &amp;clock)</td></tr>
+<tr class="memdesc:ga627714debcc0a352404866379f1eb3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">广度优先搜索  <a href="#ga627714debcc0a352404866379f1eb3c3">更多...</a><br /></td></tr>
+<tr class="separator:ga627714debcc0a352404866379f1eb3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a48fef6692ac321f295b877f9c26767"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___graph.html#ga8a48fef6692ac321f295b877f9c26767">dsa::GraphMatrix&lt; Tv, Te &gt;::DFS</a> (int vindex, int &amp;clock)</td></tr>
+<tr class="memdesc:ga8a48fef6692ac321f295b877f9c26767"><td class="mdescLeft">&#160;</td><td class="mdescRight">深度优先搜索  <a href="#ga8a48fef6692ac321f295b877f9c26767">更多...</a><br /></td></tr>
+<tr class="separator:ga8a48fef6692ac321f295b877f9c26767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>图结构模块。 </p>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga627714debcc0a352404866379f1eb3c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga627714debcc0a352404866379f1eb3c3">&#9670;&nbsp;</a></span>BFS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::BFS </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vindex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>clock</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>广度优先搜索 </p>
+<p>通过BFS，最后会标记出一棵Tree。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vindex</td><td>顶点下标。 </td></tr>
+    <tr><td class="paramname">clock</td><td>时间标签，用于读取时间。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8a48fef6692ac321f295b877f9c26767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a48fef6692ac321f295b877f9c26767">&#9670;&nbsp;</a></span>DFS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::DFS </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vindex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>clock</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>深度优先搜索 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vindex</td><td>The index of vertex. </td></tr>
+    <tr><td class="paramname">clock</td><td>时间标签，用于读取时间。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaaaa60609dd9835240b986ae0d7fb8bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaaa60609dd9835240b986ae0d7fb8bdf">&#9670;&nbsp;</a></span>exist_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::exist_edge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断两个顶点间的边是否存在 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i,j</td><td>尾部顶点i(起点)和头部顶点j(终点) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7408f78494cb7c0f63c2ee6275901a90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7408f78494cb7c0f63c2ee6275901a90">&#9670;&nbsp;</a></span>first_nbr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::first_nbr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取顶点i的第一个有效邻接顶点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>顶点i </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>顶点i的第一个有效邻接顶点 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf28887e0e4b12359f6b96cd4ffe628d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf28887e0e4b12359f6b96cd4ffe628d0">&#9670;&nbsp;</a></span>insert_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::insert_edge </td>
+          <td>(</td>
+          <td class="paramtype">const Te &amp;&#160;</td>
+          <td class="paramname"><em>edge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>插入边 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edge</td><td>边数据 </td></tr>
+    <tr><td class="paramname">w</td><td>权重 </td></tr>
+    <tr><td class="paramname">i,j</td><td>尾部顶点i(起点)和头部顶点j(终点) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabc53b1b2fcab4d8664c70f6a797abe4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabc53b1b2fcab4d8664c70f6a797abe4a">&#9670;&nbsp;</a></span>insert_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::insert_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const Tv &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>插入顶点，返加编号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>顶点数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回编号 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae6eae7520b55eb488b1f5585099733ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6eae7520b55eb488b1f5585099733ea">&#9670;&nbsp;</a></span>next_nbr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::next_nbr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>枚举顶点i的所有邻接顶点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>顶点i </td></tr>
+    <tr><td class="paramname">j</td><td>开始枚举的顶点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回与顶点i邻接的顶点下标，如果不存在，则返回-1 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8e724aa34a70f0b1c85076ed075fe7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8e724aa34a70f0b1c85076ed075fe7c7">&#9670;&nbsp;</a></span>remove_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Te <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::remove_edge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>删除边 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i,j</td><td>尾部顶点i(起点)和头部顶点j(终点) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>边数据 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad56dbf3535380ad240e48c65f0a9eb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad56dbf3535380ad240e48c65f0a9eb3a">&#9670;&nbsp;</a></span>remove_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Tv <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::remove_vertex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>删除顶点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>顶点编号 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回顶点值 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
