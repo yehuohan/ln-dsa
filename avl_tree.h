@@ -4,6 +4,8 @@
  * @file avl_tree.h
  * @brief AVL平衡二叉树
  *
+ * 平衡二叉树：Balance Binary Search Tree
+ *
  * @date
  * @version
  * @author
@@ -75,7 +77,9 @@ namespace dsa
 /*!
  * @brief Avl平衡二叉树类
  *
- * 继承自二叉搜索树(BST)，沿用BST的search函数
+ * 继承自二叉搜索树(BST)，沿用BST的search函数；
+ * 需要借助avl平衡因子，实现平衡；
+ * search, insert, remove在最坏情况下需要O(logh)时间。
  *
  */
 template <typename T>

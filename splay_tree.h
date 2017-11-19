@@ -27,6 +27,8 @@ namespace dsa
 /*!
  * @brief 伸展树类
  *
+ * 局部性：刚被访问的过的数据，极有可能很快现次被访问；
+ *
  */
 template <typename T>
 class SplayTree : public BinSearchTree<T>

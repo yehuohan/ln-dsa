@@ -46,6 +46,9 @@ template <typename K, typename V> struct Entry
 /*!
  * @brief 二叉搜索树类模板
  *
+ * 树高度:h
+ * search, insert, remove在最坏情况下需要O(h)时间。
+ *
  */
 template <typename T>
 class BinSearchTree : public BinTree<T>
