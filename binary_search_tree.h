@@ -46,7 +46,8 @@ template <typename K, typename V> struct Entry
 /*!
  * @brief 二叉搜索树类模板
  *
- * 树高度:h
+ * 节点数: n
+ * 树高度: h，最坏情况下为n
  * search, insert, remove在最坏情况下需要O(h)时间。
  *
  */

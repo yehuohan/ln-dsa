@@ -79,7 +79,10 @@ namespace dsa
  *
  * 继承自二叉搜索树(BST)，沿用BST的search函数；
  * 需要借助avl平衡因子，实现平衡；
- * search, insert, remove在最坏情况下需要O(logh)时间。
+ *
+ * 节点数: n
+ * 树高度: h，可控制为O(log(n))
+ * search, insert, remove在最坏情况下需要O(log(n))时间。
  *
  */
 template <typename T>
