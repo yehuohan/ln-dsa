@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next_5fnbr',['next_nbr',['../group___graph.html#gae6eae7520b55eb488b1f5585099733ea',1,'dsa::GraphMatrix']]]
+  ['merge_5fsort',['merge_sort',['../classdsa_1_1_vector.html#a65701e2930f81d4b548048756eb70642',1,'dsa::Vector']]]
 ];

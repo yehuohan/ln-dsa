@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: Avl Tree</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a>  </div>
+  <div class="headertitle">
+<div class="title">Avl Tree<div class="ingroups"><a class="el" href="group___tree.html">Tree Struct</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_avl_tree.html">dsa::AvlTree&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avl平衡二叉树类  <a href="classdsa_1_1_avl_tree.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266">Balanced</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) == BN_Stature((v).right))</td></tr>
+<tr class="separator:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) - BN_Stature((v).right))</td></tr>
+<tr class="separator:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb3c60d1760598ab80a52f84775176fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#gafb3c60d1760598ab80a52f84775176fa">AVL_Balanced</a>(v)&#160;&#160;&#160;((-2 &lt; <a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)) &amp;&amp; (<a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v) &lt; 2))</td></tr>
+<tr class="separator:gafb3c60d1760598ab80a52f84775176fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9210eed3ff9f828c333ec2ddf069fe8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga9210eed3ff9f828c333ec2ddf069fe8d">AVL_TallerChild</a>(x)</td></tr>
+<tr class="memdesc:ga9210eed3ff9f828c333ec2ddf069fe8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取左右子树中较高的节点，以便获取最低层的节点(如图中节点v)  <a href="#ga9210eed3ff9f828c333ec2ddf069fe8d">更多...</a><br /></td></tr>
+<tr class="separator:ga9210eed3ff9f828c333ec2ddf069fe8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>Avl平衡二叉搜索树 </p>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="gafb3c60d1760598ab80a52f84775176fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafb3c60d1760598ab80a52f84775176fa">&#9670;&nbsp;</a></span>AVL_Balanced</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVL_Balanced</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v</td><td>)</td>
+          <td>&#160;&#160;&#160;((-2 &lt; <a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)) &amp;&amp; (<a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v) &lt; 2))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AVL平衡 </p>
+
+</div>
+</div>
+<a id="ga52ec68e2518b8f73a8e27f3a1aa7d8d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">&#9670;&nbsp;</a></span>AVL_BalFac</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVL_BalFac</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v</td><td>)</td>
+          <td>&#160;&#160;&#160;(BN_Stature((v).left) - BN_Stature((v).right))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>平衡因子 </p>
+
+</div>
+</div>
+<a id="ga9210eed3ff9f828c333ec2ddf069fe8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9210eed3ff9f828c333ec2ddf069fe8d">&#9670;&nbsp;</a></span>AVL_TallerChild</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVL_TallerChild</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">    BN_Stature((x)-&gt;left) &gt; BN_Stature((x)-&gt;right) ? (x)-&gt;left : (      <span class="comment">/*左高*/</span> \</div><div class="line">        BN_Stature((x)-&gt;left) &lt; BN_Stature((x)-&gt;right) ? (x)-&gt;right : ( <span class="comment">/*右高*/</span> \</div><div class="line">            BN_IsLeftChild(*(x)) ? (x)-&gt;left : (x)-&gt;right               <span class="comment">/*等高：与x父节点同侧者（zIg-zIg或zAg-zAg）优先*/</span> \</div><div class="line">    )))</div></div><!-- fragment -->
+<p>获取左右子树中较高的节点，以便获取最低层的节点(如图中节点v) </p>
+<pre></pre><pre>插入T2或T3时，会引起g失衡
+删除T0时(没有T2和T3)，会引起g失衡
+  g
+/   \
+T0  p
+   / \
+  T1 v
+    / \
+   T2 T3</pre><pre>插入T1或T2时，会引起g失衡
+删除T0时(没有T1和T2)，会引起g失衡
+  g
+/   \
+T0   p
+   /   \
+  v    T3
+ / \
+T1 T2</pre><pre></pre> 
+</div>
+</div>
+<a id="ga63bd10f4e2e3a8acfd598e1312939266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga63bd10f4e2e3a8acfd598e1312939266">&#9670;&nbsp;</a></span>Balanced</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Balanced</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v</td><td>)</td>
+          <td>&#160;&#160;&#160;(BN_Stature((v).left) == BN_Stature((v).right))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>理想平衡 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

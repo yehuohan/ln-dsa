@@ -59,7 +59,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle">
 <div class="title">binary_search_tree.h 文件参考</div>  </div>
 </div><!--header-->
@@ -79,6 +80,17 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_search_tree.html">dsa::BinSearchTree&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">二叉搜索树类模板  <a href="classdsa_1_1_bin_search_tree.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:aac2c146d767c5f1d6f81982bf755674b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aac2c146d767c5f1d6f81982bf755674b"><td class="memTemplItemLeft" align="right" valign="top">static BinNode&lt; T &gt; *&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#aac2c146d767c5f1d6f81982bf755674b">dsa::search_in</a> (BinNode&lt; T &gt; *&amp;node, const T &amp;e, BinNode&lt; T &gt; *&amp;hot)</td></tr>
+<tr class="memdesc:aac2c146d767c5f1d6f81982bf755674b"><td class="mdescLeft">&#160;</td><td class="mdescRight">递归实现查找。  <a href="binary__search__tree_8h.html#aac2c146d767c5f1d6f81982bf755674b">更多...</a><br /></td></tr>
+<tr class="separator:aac2c146d767c5f1d6f81982bf755674b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7cd4fc2267878bf8f671597a447f684"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac7cd4fc2267878bf8f671597a447f684"><td class="memTemplItemLeft" align="right" valign="top">static BinNode&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684">dsa::remove_at</a> (BinNode&lt; T &gt; *&amp;node, BinNode&lt; T &gt; *&amp;hot)</td></tr>
+<tr class="memdesc:ac7cd4fc2267878bf8f671597a447f684"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除节点  <a href="binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684">更多...</a><br /></td></tr>
+<tr class="separator:ac7cd4fc2267878bf8f671597a447f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>二叉搜索树(BST) </p>
@@ -86,7 +98,138 @@ $(function() {
 <dl class="section version"><dt>版本</dt><dd></dd></dl>
 <dl class="section author"><dt>作者</dt><dd></dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd></dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">函数说明</h2>
+<a id="file_ac7cd4fc2267878bf8f671597a447f684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_ac7cd4fc2267878bf8f671597a447f684">&#9670;&nbsp;</a></span>remove_at()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static BinNode&lt;T&gt;* dsa::remove_at </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>hot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除节点 </p>
+<pre></pre><pre>单分支删除d节点：
+  a                a
+ / \              / \
+T0  b            T0  b
+   / \     =&gt;       / \
+  T1  d            T1  c (d)
+     /
+    c</pre><pre>双分支删除d节点：
+   d                  c
+ /   \              /   \
+T0    b            T0    b
+    /   \     =&gt;       /   \
+   c     T1           d     T1
+    \   / \            \   / \
+     a T2 T3            a T2 T3
+节点c为节点d直接后继，交换c和d，然后按单分支情况删除d</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>待删除的目标节点 </td></tr>
+    <tr><td class="paramname">hot</td><td>目标节点的父节点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回被删除节点位置的新节点，hot为返回节点的父节点 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_aac2c146d767c5f1d6f81982bf755674b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_aac2c146d767c5f1d6f81982bf755674b">&#9670;&nbsp;</a></span>search_in()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static BinNode&lt;T&gt;*&amp; dsa::search_in </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>hot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>递归实现查找。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>从根结点node开始查找。 </td></tr>
+    <tr><td class="paramname">e</td><td>查找目标。 </td></tr>
+    <tr><td class="paramname">hot</td><td>指向命中节点的父节点。hot为nullptr的两中情况：树中没有一个节点，或者查找的node正好是root节点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回命中节点，命中节点可能为nullptr(即未查找到目标)，也可能为目标节点。 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 制作者 &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vector',['Vector',['../classdsa_1_1_vector.html#ade2f26f0e49ba836bbaf14dbb6a690a5',1,'dsa::Vector::Vector()'],['../classdsa_1_1_vector.html#a8e4d88dc26bf744680cabe207dc2f3b4',1,'dsa::Vector::Vector(int size, int capacity, const T &amp;ele)'],['../classdsa_1_1_vector.html#aee05de14f4c160ce2c5bc677ab4ab736',1,'dsa::Vector::Vector(const Vector&lt; T &gt; &amp;V)']]]
+  ['uniquify',['uniquify',['../classdsa_1_1_list.html#ae87e3dcac064f6bd6ef7475bf8e3d4c4',1,'dsa::List::uniquify()'],['../classdsa_1_1_vector.html#adc02312d583722622cba4de9c73fd1fe',1,'dsa::Vector::uniquify()']]],
+  ['update_5fheight',['update_height',['../classdsa_1_1_bin_tree.html#adac98af3b4b5d8fa3e9460da5a34e4e3',1,'dsa::BinTree::update_height()'],['../classdsa_1_1_red_black_tree.html#a87fd5e2f620959c4c778525f8671a93e',1,'dsa::RedBlackTree::update_height()']]],
+  ['update_5fheight_5fabove',['update_height_above',['../classdsa_1_1_bin_tree.html#a1982001e36cfb9b3ebea0e87743b7452',1,'dsa::BinTree']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['priority_20queue',['Priority Queue',['../group___l_p_q.html',1,'']]],
   ['pop',['pop',['../classdsa_1_1_stack.html#ac5dbff686eebd4c0c191e8f28c73afa0',1,'dsa::Stack']]],
   ['pq',['PQ',['../classdsa_1_1_p_q.html',1,'dsa']]],
   ['pq_5fcomplete_5fheap_2eh',['pq_complete_heap.h',['../pq__complete__heap_8h.html',1,'']]],

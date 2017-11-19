@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graph_20struct',['Graph Struct',['../group___graph.html',1,'']]]
+  ['avl_20tree',['Avl Tree',['../group___t_avl_tree.html',1,'']]]
 ];

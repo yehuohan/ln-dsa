@@ -113,7 +113,7 @@ $(function() {
 <tr class="memitem:ga7d8e87950cd6c38a595d30d7d9bb7353"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasBothChild</b>(x)&#160;&#160;&#160;((x).left &amp;&amp; (x).right)</td></tr>
 <tr class="separator:ga7d8e87950cd6c38a595d30d7d9bb7353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga436c887e65e10bcc03d82cf79f1a4553"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___tree.html#ga436c887e65e10bcc03d82cf79f1a4553">RefFromParent</a>(x)&#160;&#160;&#160;(BN_IsRoot(x) ? this-&gt;m_root : (BN_IsLeftChild(x) ? (x).parent-&gt;left : (x).parent-&gt;right))</td></tr>
+<tr class="memitem:ga436c887e65e10bcc03d82cf79f1a4553"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga436c887e65e10bcc03d82cf79f1a4553">RefFromParent</a>(x)&#160;&#160;&#160;(BN_IsRoot(x) ? this-&gt;m_root : (BN_IsLeftChild(x) ? (x).parent-&gt;left : (x).parent-&gt;right))</td></tr>
 <tr class="separator:ga436c887e65e10bcc03d82cf79f1a4553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadde5521cbf6eaa50743cefb8710c5eba"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsBlack</b>(x)&#160;&#160;&#160;(!(x) || (dsa::RBColor::Black == (x)-&gt;color))</td></tr>
@@ -121,7 +121,7 @@ $(function() {
 <tr class="memitem:gad4a0f4be2424554bc03f2c2115f47fbd"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsRed</b>(x)&#160;&#160;&#160;(!BN_IsBlack(x))</td></tr>
 <tr class="separator:gad4a0f4be2424554bc03f2c2115f47fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04af3b58417e618a97da0af2be4db582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___tree.html#ga04af3b58417e618a97da0af2be4db582">BN_BlackHeightUpdated</a>(x)</td></tr>
+<tr class="memitem:ga04af3b58417e618a97da0af2be4db582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga04af3b58417e618a97da0af2be4db582">BN_BlackHeightUpdated</a>(x)</td></tr>
 <tr class="separator:ga04af3b58417e618a97da0af2be4db582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -133,30 +133,38 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga09317dd4ca7bf58d84ed91d283349182"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:ga09317dd4ca7bf58d84ed91d283349182"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#ga09317dd4ca7bf58d84ed91d283349182">dsa::traverse_DLR_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:ga09317dd4ca7bf58d84ed91d283349182"><td class="mdescLeft">&#160;</td><td class="mdescRight">先序(preorder)遍历  <a href="group___tree.html#ga09317dd4ca7bf58d84ed91d283349182">更多...</a><br /></td></tr>
-<tr class="separator:ga09317dd4ca7bf58d84ed91d283349182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0397419c9a29143fb8475eb3e5daae89"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:ga0397419c9a29143fb8475eb3e5daae89"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#ga0397419c9a29143fb8475eb3e5daae89">dsa::traverse_DLR_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:ga0397419c9a29143fb8475eb3e5daae89"><td class="mdescLeft">&#160;</td><td class="mdescRight">先序(preorder)遍历  <a href="group___tree.html#ga0397419c9a29143fb8475eb3e5daae89">更多...</a><br /></td></tr>
-<tr class="separator:ga0397419c9a29143fb8475eb3e5daae89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc54f7e462852146537f27a1db41b9bd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:gadc54f7e462852146537f27a1db41b9bd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#gadc54f7e462852146537f27a1db41b9bd">dsa::traverse_LDR_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:gadc54f7e462852146537f27a1db41b9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序遍历, inorder  <a href="group___tree.html#gadc54f7e462852146537f27a1db41b9bd">更多...</a><br /></td></tr>
-<tr class="separator:gadc54f7e462852146537f27a1db41b9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:gad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#gad686a2e90d2b5efd7ce80eb6d9d68bb6">dsa::traverse_LDR_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:gad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序(inorder)遍历  <a href="group___tree.html#gad686a2e90d2b5efd7ce80eb6d9d68bb6">更多...</a><br /></td></tr>
-<tr class="separator:gad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52280878c57a3acf1e76b483436d40b2"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:ga52280878c57a3acf1e76b483436d40b2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#ga52280878c57a3acf1e76b483436d40b2">dsa::traverse_LRD_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:ga52280878c57a3acf1e76b483436d40b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历  <a href="group___tree.html#ga52280878c57a3acf1e76b483436d40b2">更多...</a><br /></td></tr>
-<tr class="separator:ga52280878c57a3acf1e76b483436d40b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9786b50facd4467c60364ff0e2073f5c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:ga9786b50facd4467c60364ff0e2073f5c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___tree.html#ga9786b50facd4467c60364ff0e2073f5c">dsa::traverse_LRD_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
-<tr class="memdesc:ga9786b50facd4467c60364ff0e2073f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历  <a href="group___tree.html#ga9786b50facd4467c60364ff0e2073f5c">更多...</a><br /></td></tr>
-<tr class="separator:ga9786b50facd4467c60364ff0e2073f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">dsa::visit_along_left_brach</a> (BinNode&lt; T &gt; *x, VST &amp;visit, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; BinNode&lt; T &gt; *&gt; &amp;s)</td></tr>
+<tr class="memdesc:ga4df3420726423a967d1f7d4844161402"><td class="mdescLeft">&#160;</td><td class="mdescRight">依次仿问所有左子节点  <a href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">更多...</a><br /></td></tr>
+<tr class="separator:ga4df3420726423a967d1f7d4844161402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">dsa::go_along_left_branch</a> (BinNode&lt; T &gt; *x, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; BinNode&lt; T &gt; * &gt; &amp;s)</td></tr>
+<tr class="memdesc:ga49c45e57f9a6304e18c5f098215f5665"><td class="mdescLeft">&#160;</td><td class="mdescRight">沿着左子树，将左子树顺序入栈 经过此函数，最后入栈节点的左子树一定为nullptr  <a href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">更多...</a><br /></td></tr>
+<tr class="separator:ga49c45e57f9a6304e18c5f098215f5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09317dd4ca7bf58d84ed91d283349182"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:a09317dd4ca7bf58d84ed91d283349182"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#a09317dd4ca7bf58d84ed91d283349182">dsa::traverse_DLR_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:a09317dd4ca7bf58d84ed91d283349182"><td class="mdescLeft">&#160;</td><td class="mdescRight">先序(preorder)遍历  <a href="binary__node_8h.html#a09317dd4ca7bf58d84ed91d283349182">更多...</a><br /></td></tr>
+<tr class="separator:a09317dd4ca7bf58d84ed91d283349182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0397419c9a29143fb8475eb3e5daae89"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:a0397419c9a29143fb8475eb3e5daae89"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#a0397419c9a29143fb8475eb3e5daae89">dsa::traverse_DLR_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:a0397419c9a29143fb8475eb3e5daae89"><td class="mdescLeft">&#160;</td><td class="mdescRight">先序(preorder)遍历  <a href="binary__node_8h.html#a0397419c9a29143fb8475eb3e5daae89">更多...</a><br /></td></tr>
+<tr class="separator:a0397419c9a29143fb8475eb3e5daae89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc54f7e462852146537f27a1db41b9bd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:adc54f7e462852146537f27a1db41b9bd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#adc54f7e462852146537f27a1db41b9bd">dsa::traverse_LDR_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:adc54f7e462852146537f27a1db41b9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序遍历, inorder  <a href="binary__node_8h.html#adc54f7e462852146537f27a1db41b9bd">更多...</a><br /></td></tr>
+<tr class="separator:adc54f7e462852146537f27a1db41b9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:ad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#ad686a2e90d2b5efd7ce80eb6d9d68bb6">dsa::traverse_LDR_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:ad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序(inorder)遍历  <a href="binary__node_8h.html#ad686a2e90d2b5efd7ce80eb6d9d68bb6">更多...</a><br /></td></tr>
+<tr class="separator:ad686a2e90d2b5efd7ce80eb6d9d68bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52280878c57a3acf1e76b483436d40b2"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:a52280878c57a3acf1e76b483436d40b2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#a52280878c57a3acf1e76b483436d40b2">dsa::traverse_LRD_iteration</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:a52280878c57a3acf1e76b483436d40b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历  <a href="binary__node_8h.html#a52280878c57a3acf1e76b483436d40b2">更多...</a><br /></td></tr>
+<tr class="separator:a52280878c57a3acf1e76b483436d40b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9786b50facd4467c60364ff0e2073f5c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:a9786b50facd4467c60364ff0e2073f5c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__node_8h.html#a9786b50facd4467c60364ff0e2073f5c">dsa::traverse_LRD_recursion</a> (BinNode&lt; T &gt; *node, VST &amp;visit)</td></tr>
+<tr class="memdesc:a9786b50facd4467c60364ff0e2073f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历  <a href="binary__node_8h.html#a9786b50facd4467c60364ff0e2073f5c">更多...</a><br /></td></tr>
+<tr class="separator:a9786b50facd4467c60364ff0e2073f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>二叉结点类 </p>
@@ -164,7 +172,284 @@ $(function() {
 <dl class="section version"><dt>版本</dt><dd></dd></dl>
 <dl class="section author"><dt>作者</dt><dd></dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd></dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">函数说明</h2>
+<a id="file_a09317dd4ca7bf58d84ed91d283349182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a09317dd4ca7bf58d84ed91d283349182">&#9670;&nbsp;</a></span>traverse_DLR_iteration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_DLR_iteration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>先序(preorder)遍历 </p>
+<p>通过迭代实现</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_a0397419c9a29143fb8475eb3e5daae89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a0397419c9a29143fb8475eb3e5daae89">&#9670;&nbsp;</a></span>traverse_DLR_recursion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_DLR_recursion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>先序(preorder)遍历 </p>
+<p>通过递归实现</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_adc54f7e462852146537f27a1db41b9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_adc54f7e462852146537f27a1db41b9bd">&#9670;&nbsp;</a></span>traverse_LDR_iteration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_LDR_iteration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中序遍历, inorder </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_ad686a2e90d2b5efd7ce80eb6d9d68bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_ad686a2e90d2b5efd7ce80eb6d9d68bb6">&#9670;&nbsp;</a></span>traverse_LDR_recursion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_LDR_recursion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中序(inorder)遍历 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_a52280878c57a3acf1e76b483436d40b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a52280878c57a3acf1e76b483436d40b2">&#9670;&nbsp;</a></span>traverse_LRD_iteration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_LRD_iteration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>后序(postorder)遍历 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_a9786b50facd4467c60364ff0e2073f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a9786b50facd4467c60364ff0e2073f5c">&#9670;&nbsp;</a></span>traverse_LRD_recursion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::traverse_LRD_recursion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>后序(postorder)遍历 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 制作者 &#160;<a href="http://www.doxygen.org/index.html">

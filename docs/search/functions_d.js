@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['search',['search',['../group___tree.html#ga20a5de7ce7d811412903e9c6602d4fde',1,'dsa::BTree::search()'],['../group___tree.html#gae8eae77354fa2cfd45908d82cae1bc07',1,'dsa::BinSearchTree::search()'],['../classdsa_1_1_list.html#a24a59ac1729f8817532b1f32bc00b638',1,'dsa::List::search()'],['../group___tree.html#ga76b3186828ad795dcbfae5b00f2d1168',1,'dsa::SplayTree::search()']]],
-  ['select_5fmax',['select_max',['../classdsa_1_1_list.html#a993badb9de27c4a52b3eff06b243f859',1,'dsa::List']]],
-  ['selection_5fsort',['selection_sort',['../classdsa_1_1_list.html#a787eba2b5dd3fb6580c05a8dafe80bf6',1,'dsa::List']]],
-  ['size',['size',['../structdsa_1_1_bin_node.html#a035ae452e90d5885288ffc426aadd241',1,'dsa::BinNode']]],
-  ['solve_5fdouble_5fblack',['solve_double_black',['../group___tree.html#gaaa1216c04bb66a72016cc42914b21b05',1,'dsa::RedBlackTree']]],
-  ['solve_5fdouble_5fred',['solve_double_red',['../group___tree.html#ga8024b09c643dff9b8e3e1abf50b3e930',1,'dsa::RedBlackTree']]],
-  ['solve_5foverflow',['solve_overflow',['../group___tree.html#ga69cd041d1fa69d23e60f3278e5adcdf4',1,'dsa::BTree']]],
-  ['solve_5funderflow',['solve_underflow',['../group___tree.html#ga1e2cec0b3387a19dc5475a60637cc7b4',1,'dsa::BTree']]],
-  ['splay',['splay',['../group___tree.html#gacd299dbc99fca6abc0824d2e0e6504d0',1,'dsa::SplayTree']]],
-  ['successor',['successor',['../group___tree.html#gaca51ef386ba4be9ee2b7d1d0a816d95e',1,'dsa::BinNode']]]
+  ['rear',['rear',['../classdsa_1_1_queue.html#a3f5bbe391d4f98429384deb4e5687caf',1,'dsa::Queue']]],
+  ['remove',['remove',['../classdsa_1_1_avl_tree.html#a130c5b9bf2ffa489c3e0f4571270cdeb',1,'dsa::AvlTree::remove()'],['../classdsa_1_1_b_tree.html#a4f20b78ecf0e8bfbe69e8d39ad3e9f40',1,'dsa::BTree::remove()'],['../classdsa_1_1_bin_search_tree.html#a6117501ae65292977b745047316508f3',1,'dsa::BinSearchTree::remove()'],['../classdsa_1_1_bin_tree.html#a34a2fe586c902e6fe23458350719d559',1,'dsa::BinTree::remove()'],['../classdsa_1_1_list.html#ac0f188f895217f25b21d98c926eba822',1,'dsa::List::remove()'],['../classdsa_1_1_red_black_tree.html#a59b2701ea0e05e7a35703d75d1af11fe',1,'dsa::RedBlackTree::remove()'],['../classdsa_1_1_splay_tree.html#ad5ade0d041d2feb89a561a51ae4830a5',1,'dsa::SplayTree::remove()'],['../classdsa_1_1_vector.html#ab16c56c8d4e3e1a9c59a5a42d045e9b0',1,'dsa::Vector::remove(int index)'],['../classdsa_1_1_vector.html#ad6b75b9323068d2df1d343f0ccd510c1',1,'dsa::Vector::remove(int lo, int hi)']]],
+  ['remove_5fat',['remove_at',['../binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684',1,'dsa::remove_at(BinNode&lt; T &gt; *&amp;node, BinNode&lt; T &gt; *&amp;hot)'],['../group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7',1,'dsa::remove_at(BinNode&lt; T &gt; *node)']]],
+  ['remove_5fedge',['remove_edge',['../classdsa_1_1_graph_matrix.html#a8e724aa34a70f0b1c85076ed075fe7c7',1,'dsa::GraphMatrix']]],
+  ['remove_5fvertex',['remove_vertex',['../classdsa_1_1_graph_matrix.html#ad56dbf3535380ad240e48c65f0a9eb3a',1,'dsa::GraphMatrix']]],
+  ['rotate_5fat',['rotate_at',['../classdsa_1_1_bin_search_tree.html#a16515780b0970f4335e4ac0fa611348d',1,'dsa::BinSearchTree']]]
 ];

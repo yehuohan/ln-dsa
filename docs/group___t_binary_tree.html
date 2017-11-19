@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: Binary Tree</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle">
+<div class="title">Binary Tree<div class="ingroups"><a class="el" href="group___tree.html">Tree Struct</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">二叉树节点  <a href="structdsa_1_1_bin_node.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">二叉树类  <a href="classdsa_1_1_bin_tree.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ga5f847f09d817710bbf7a817762be9df5"><td class="memItemLeft" align="right" valign="top"><a id="ga5f847f09d817710bbf7a817762be9df5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>RBColor</b> { <b>Red</b>, 
+<b>Black</b>
+ }</td></tr>
+<tr class="separator:ga5f847f09d817710bbf7a817762be9df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">dsa::visit_along_left_brach</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *x, VST &amp;visit, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&gt; &amp;s)</td></tr>
+<tr class="memdesc:ga4df3420726423a967d1f7d4844161402"><td class="mdescLeft">&#160;</td><td class="mdescRight">依次仿问所有左子节点  <a href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">更多...</a><br /></td></tr>
+<tr class="separator:ga4df3420726423a967d1f7d4844161402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">dsa::go_along_left_branch</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *x, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; * &gt; &amp;s)</td></tr>
+<tr class="memdesc:ga49c45e57f9a6304e18c5f098215f5665"><td class="mdescLeft">&#160;</td><td class="mdescRight">沿着左子树，将左子树顺序入栈 经过此函数，最后入栈节点的左子树一定为nullptr  <a href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">更多...</a><br /></td></tr>
+<tr class="separator:ga49c45e57f9a6304e18c5f098215f5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memTemplItemLeft" align="right" valign="top">static int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">dsa::remove_at</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node)</td></tr>
+<tr class="memdesc:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除以位置node处节点为根的子树  <a href="group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">更多...</a><br /></td></tr>
+<tr class="separator:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga334ab2781669e17c3a65d5a1265c7540"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga334ab2781669e17c3a65d5a1265c7540"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga334ab2781669e17c3a65d5a1265c7540">dsa::construct_bintree_pre_in</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode</a>&lt; T &gt; *&amp;node)</td></tr>
+<tr class="memdesc:ga334ab2781669e17c3a65d5a1265c7540"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树的子树  <a href="group___t_binary_tree.html#ga334ab2781669e17c3a65d5a1265c7540">更多...</a><br /></td></tr>
+<tr class="separator:ga334ab2781669e17c3a65d5a1265c7540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12cf145bec00b6327b966c71f9c4c633"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga12cf145bec00b6327b966c71f9c4c633"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga12cf145bec00b6327b966c71f9c4c633">dsa::construct_bintree</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree</a>&lt; T &gt; &amp;bt)</td></tr>
+<tr class="memdesc:ga12cf145bec00b6327b966c71f9c4c633"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树  <a href="group___t_binary_tree.html#ga12cf145bec00b6327b966c71f9c4c633">更多...</a><br /></td></tr>
+<tr class="separator:ga12cf145bec00b6327b966c71f9c4c633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+节点相关宏</h2></td></tr>
+<tr class="memitem:gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><td class="memItemLeft" align="right" valign="top"><a id="gae5da833c17ce3b2dfc2aa7ca2f2f91d6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_Stature</b>(x)&#160;&#160;&#160;((x) ? (x)-&gt;height : -1)</td></tr>
+<tr class="separator:gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6235b1702ffb3beae1c06d6f85934ea5"><td class="memItemLeft" align="right" valign="top"><a id="ga6235b1702ffb3beae1c06d6f85934ea5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsRoot</b>(x)&#160;&#160;&#160;(!((x).parent))</td></tr>
+<tr class="separator:ga6235b1702ffb3beae1c06d6f85934ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga053721453c775803fb04604b9d757b05"><td class="memItemLeft" align="right" valign="top"><a id="ga053721453c775803fb04604b9d757b05"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsLeftChild</b>(x)&#160;&#160;&#160;(((x).parent) &amp;&amp; (&amp;(x)==(x).parent-&gt;left))</td></tr>
+<tr class="separator:ga053721453c775803fb04604b9d757b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1de5a8f815fca3a8a88f6ba4c7f62274"><td class="memItemLeft" align="right" valign="top"><a id="ga1de5a8f815fca3a8a88f6ba4c7f62274"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsRightChild</b>(x)&#160;&#160;&#160;(((x).parent) &amp;&amp; (&amp;(x)==(x).parent-&gt;right))</td></tr>
+<tr class="separator:ga1de5a8f815fca3a8a88f6ba4c7f62274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bb9ae6a4d7fa291a8145c3f01818157"><td class="memItemLeft" align="right" valign="top"><a id="ga8bb9ae6a4d7fa291a8145c3f01818157"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsLeaf</b>&#160;&#160;&#160;(!((x).left) &amp;&amp; !((x).right))</td></tr>
+<tr class="separator:ga8bb9ae6a4d7fa291a8145c3f01818157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b4450eb0f5e405c8a21cc703f2a6f4d"><td class="memItemLeft" align="right" valign="top"><a id="ga8b4450eb0f5e405c8a21cc703f2a6f4d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasParent</b>(x)&#160;&#160;&#160;((x).parent)</td></tr>
+<tr class="separator:ga8b4450eb0f5e405c8a21cc703f2a6f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ca26f22be41a44b56b4a7f94e699ba9"><td class="memItemLeft" align="right" valign="top"><a id="ga0ca26f22be41a44b56b4a7f94e699ba9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasLeftChild</b>(x)&#160;&#160;&#160;((x).left)</td></tr>
+<tr class="separator:ga0ca26f22be41a44b56b4a7f94e699ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga425f99a1178fa42a08ca084a0d1b7441"><td class="memItemLeft" align="right" valign="top"><a id="ga425f99a1178fa42a08ca084a0d1b7441"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasRightChild</b>(x)&#160;&#160;&#160;((x).right)</td></tr>
+<tr class="separator:ga425f99a1178fa42a08ca084a0d1b7441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e14bb78c350efbd46f53084eb16cccb"><td class="memItemLeft" align="right" valign="top"><a id="ga0e14bb78c350efbd46f53084eb16cccb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasChild</b>(x)&#160;&#160;&#160;((x).left || (x).right)</td></tr>
+<tr class="separator:ga0e14bb78c350efbd46f53084eb16cccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d8e87950cd6c38a595d30d7d9bb7353"><td class="memItemLeft" align="right" valign="top"><a id="ga7d8e87950cd6c38a595d30d7d9bb7353"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_HasBothChild</b>(x)&#160;&#160;&#160;((x).left &amp;&amp; (x).right)</td></tr>
+<tr class="separator:ga7d8e87950cd6c38a595d30d7d9bb7353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga436c887e65e10bcc03d82cf79f1a4553"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga436c887e65e10bcc03d82cf79f1a4553">RefFromParent</a>(x)&#160;&#160;&#160;(BN_IsRoot(x) ? this-&gt;m_root : (BN_IsLeftChild(x) ? (x).parent-&gt;left : (x).parent-&gt;right))</td></tr>
+<tr class="separator:ga436c887e65e10bcc03d82cf79f1a4553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadde5521cbf6eaa50743cefb8710c5eba"><td class="memItemLeft" align="right" valign="top"><a id="gadde5521cbf6eaa50743cefb8710c5eba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsBlack</b>(x)&#160;&#160;&#160;(!(x) || (dsa::RBColor::Black == (x)-&gt;color))</td></tr>
+<tr class="separator:gadde5521cbf6eaa50743cefb8710c5eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4a0f4be2424554bc03f2c2115f47fbd"><td class="memItemLeft" align="right" valign="top"><a id="gad4a0f4be2424554bc03f2c2115f47fbd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsRed</b>(x)&#160;&#160;&#160;(!BN_IsBlack(x))</td></tr>
+<tr class="separator:gad4a0f4be2424554bc03f2c2115f47fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04af3b58417e618a97da0af2be4db582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga04af3b58417e618a97da0af2be4db582">BN_BlackHeightUpdated</a>(x)</td></tr>
+<tr class="separator:ga04af3b58417e618a97da0af2be4db582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>二叉树 </p>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="ga04af3b58417e618a97da0af2be4db582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04af3b58417e618a97da0af2be4db582">&#9670;&nbsp;</a></span>BN_BlackHeightUpdated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BN_BlackHeightUpdated</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">   ( BN_Stature((x).left) == BN_Stature((x).right)) &amp;&amp; \</div><div class="line">   ((x).height == ( BN_IsRed(&amp;x) ? BN_Stature((x).left) : BN_Stature((x).left )+1)))</div></div><!-- fragment --><p>检测黑高度是否正确 </p>
+
+</div>
+</div>
+<a id="ga436c887e65e10bcc03d82cf79f1a4553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga436c887e65e10bcc03d82cf79f1a4553">&#9670;&nbsp;</a></span>RefFromParent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RefFromParent</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;(BN_IsRoot(x) ? this-&gt;m_root : (BN_IsLeftChild(x) ? (x).parent-&gt;left : (x).parent-&gt;right))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>获取节点x在父节点中的孩子节点指针引用，用于设置父节点的孩子节点，m_root为BinTree中的根节点 </p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga12cf145bec00b6327b966c71f9c4c633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12cf145bec00b6327b966c71f9c4c633">&#9670;&nbsp;</a></span>construct_bintree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::construct_bintree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>bt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据先序与中序序列重构二叉树 </p>
+<p>可以重构二叉树的条件： (1).已知先序或后序 + 中序 (2).已知先序或后序 + 为真二叉树(节点有0或2个子节点，或节点出度为偶数)</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pre</td><td>先序遍历序列 </td></tr>
+    <tr><td class="paramname">in</td><td>中序遍历序列 </td></tr>
+    <tr><td class="paramname">bt</td><td>二叉树 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga334ab2781669e17c3a65d5a1265c7540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga334ab2781669e17c3a65d5a1265c7540">&#9670;&nbsp;</a></span>construct_bintree_pre_in()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void dsa::construct_bintree_pre_in </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>根据先序与中序序列重构二叉树的子树 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pre</td><td>先序遍历序列 </td></tr>
+    <tr><td class="paramname">in</td><td>中序遍历序列 </td></tr>
+    <tr><td class="paramname">node</td><td>二叉树子树节点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga49c45e57f9a6304e18c5f098215f5665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga49c45e57f9a6304e18c5f098215f5665">&#9670;&nbsp;</a></span>go_along_left_branch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void dsa::go_along_left_branch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>沿着左子树，将左子树顺序入栈 经过此函数，最后入栈节点的左子树一定为nullptr </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">s</td><td>栈，用于保存右子树 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">&#9670;&nbsp;</a></span>remove_at()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int dsa::remove_at </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除以位置node处节点为根的子树 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>待删除节点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回删除的节点总数 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4df3420726423a967d1f7d4844161402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4df3420726423a967d1f7d4844161402">&#9670;&nbsp;</a></span>visit_along_left_brach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename VST &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void dsa::visit_along_left_brach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>依次仿问所有左子节点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>节点指针 </td></tr>
+    <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
+    <tr><td class="paramname">s</td><td>栈，用于保存右子树 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
