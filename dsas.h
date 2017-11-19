@@ -35,11 +35,10 @@ DSAS是数据结构与算法的学习过程。
  * @}
  */
 
-
 /*!
  * @defgroup Tree Tree Struct
  *
- * 二叉树模块，包括二叉树相关的遍历等算法。
+ * 树模块，包括二叉树、b-树等相关算法。
  *
  * @{
  * @}
@@ -58,13 +57,14 @@ DSAS是数据结构与算法的学习过程。
 
 
 
-#ifndef _DASLIB_H
-#define _DASLIB_H
+#ifndef _DSAS_H
+#define _DSAS_H
 
 #include "vector.h"
 #include "list.h"
 #include "stack.h"
 #include "queue.h"
+
 #include "binary_node.h"
 #include "binary_tree.h"
 #include "binary_search_tree.h"
@@ -73,7 +73,8 @@ DSAS是数据结构与算法的学习过程。
 #include "b_node.h"
 #include "b_tree.h"
 #include "redblack_tree.h"
+
 #include "graph.h"
 #include "graph_matrix.h"
 
-#endif /* ifndef _DASLIB_H */
+#endif /* ifndef _DSAS_H */
