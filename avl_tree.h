@@ -110,7 +110,7 @@ BinNode<T>* AvlTree<T>::insert(const T& e)
     {
         if(!AVL_Balanced(*g))               // 所有失衡节点中的最低点
         {
-            BinNode<T>* sub_node = PtrChildOfParent(*g);
+            BinNode<T>*& sub_node = RefFromParent(*g);
                                             // 获取g在父节点的孩子节点指针
             sub_node = this->rotate_at(AVL_TallerChild(AVL_TallerChild(g)));
                                             // 将rotate_at返回子树的根节点添加到Avl树中
@@ -142,7 +142,7 @@ bool AvlTree<T>::remove(const T& e)
     {
         if (!AVL_Balanced(*g))
         {
-            BinNode<T>* sub_node = PtrChildOfParent(*g);
+            BinNode<T>*& sub_node = RefFromParent(*g);
             g = sub_node = this->rotate_at(AVL_TallerChild(AVL_TallerChild(g)));
         }
         this->update_height(g);

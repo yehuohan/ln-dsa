@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include "dsas.h"
 
@@ -403,16 +402,23 @@ void test_redblack()
     rb.insert(9);
     rb.insert(18);
     rb.insert(1008);
-
-    std::cout << "Size: " << rb.size() << std::endl;
-
-    std::cout << "LDR: " << std::endl;
-    rb.root()->traverse_LDR(print_node);
-    std::cout << std::endl;
+    rb.insert(8);
+    rb.insert(81);
+    rb.insert(281);
+    rb.insert(188);
 
 #if 1
-    //rb.remove(18);
+    rb.remove(18);
+    rb.remove(281);
+    rb.remove(100);
+    rb.remove(8);
+    rb.remove(9);
 #endif
+
+    std::cout << "Size: " << rb.size() << std::endl;
+    std::cout << "LDR: ";
+    rb.root()->traverse_LDR(print_node);
+    std::cout << std::endl;
 
     // 输出二叉树结构
     std::cout << "Print:" << std::endl;
@@ -424,7 +430,7 @@ void test_redblack()
     {
         dsa::BinNode<unsigned int>* x = qn.dequeue();
         std::cout << x->data
-                  << ((BN_IsBlack(x)) ? "-B-" : "-R-")
+                  << ((BN_IsBlack(x)) ? "_B_" : "_R_")
                   << x->height << "   ";
 
         if (x->left)

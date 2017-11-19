@@ -147,7 +147,7 @@ BinNode<T>* BinSearchTree<T>::insert(const T& e)
  *
  * @param node: 待删除的目标节点
  * @param hot: 目标节点的父节点
- * @return 返回被删除节点位置的新节点
+ * @return 返回被删除节点位置的新节点，hot为返回节点的父节点
  * @retval None
  */
 template <typename T>
@@ -184,6 +184,8 @@ static BinNode<T>* remove_at(
     }
 
     hot = w->parent;                // 待删除节点的父节点
+    // succ不为nullptr，则hot为succ的父节点
+    // succ为nullptr，则hot的子节点w被删除后，也为nullptr
     if (succ) succ->parent = hot;   // 设置接替节点的父节点
     delete w;                       // 删除节点
 

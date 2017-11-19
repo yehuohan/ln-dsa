@@ -41,11 +41,16 @@ namespace dsa
 #define BN_HasChild(x)      ((x).left || (x).right)
 #define BN_HasBothChild(x)  ((x).left && (x).right)
 
-/** 获取节点在父节点中的孩子节点指针，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
-#define PtrChildOfParent(x)     (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
+/** 获取节点x在父节点中的孩子节点指针引用，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
+#define RefFromParent(x)    (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
 
 #define BN_IsBlack(x)       (!(x) || (dsa::RBColor::Black == (x)->color))    // 红黑树external nodes均为黑
 #define BN_IsRed(x)         (!BN_IsBlack(x))        // 非黑即红
+
+/** 检测黑高度是否正确 */
+#define BN_BlackHeightUpdated(x) ( \
+   ( BN_Stature((x).left) == BN_Stature((x).right)) && \
+   ((x).height == ( BN_IsRed(&x) ? BN_Stature((x).left) : BN_Stature((x).left )+1)))
 
 /*! @} */
 
