@@ -19,11 +19,13 @@ void test_splay();
 void test_btree();
 void test_redblack();
 void test_pq();
+void test_leftpq();
 
 //(int argc, char** argv)
 int main()
 {
-    test_pq();
+    test_leftpq();
+    //test_pq();
     //test_redblack();
     //test_btree();
     //test_splay();
@@ -478,6 +480,50 @@ void test_pq()
         {
             std::cout << std::endl;
             n += 2<<k;
+        }
+    }
+}
+
+void test_leftpq()
+{
+    dsa::PqLeftHeap<int> lh;
+    lh.insert(10);
+    lh.insert(100);
+    lh.insert(-100);
+    lh.insert(-180);
+    lh.insert(128);
+    lh.insert(25);
+    lh.insert(555);
+    lh.insert(-321);
+    lh.insert(777);
+
+    lh.del_max();
+    lh.del_max();
+
+    // 输出二叉树结构
+    std::cout << "Print:" << std::endl;
+    dsa::Queue<dsa::BinNode<int>*> qn;
+    qn.enqueue(lh.root());
+    int num[10] = {1};
+    int idx = 0, cnt = 1;
+    while(!qn.is_empty())
+    {
+        dsa::BinNode<int>* x = qn.dequeue();
+        std::cout << x->data
+                  <<  " - "
+                  << x->npl << "   ";
+
+        if (x->left)
+        { num[idx+1] ++; qn.enqueue(x->left); }
+        if (x->right)
+        { num[idx+1] ++; qn.enqueue(x->right); }
+
+        cnt ++;
+        if (cnt >= num[idx])
+        {
+            std::cout << std::endl;
+            idx++;
+            cnt = 0;
         }
     }
 }

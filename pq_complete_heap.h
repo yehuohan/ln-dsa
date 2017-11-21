@@ -75,6 +75,14 @@ protected:
 
 public:
     PqComplHeap() {}
+    /*!
+     * @brief 从向量建立完全二叉堆
+     *
+     * @param A: 向量指针
+     * @param n: 向量元素数量
+     * @return
+     * @retval None
+     */
     PqComplHeap(const T* A, int n) : PQ<T>(), Vector<T>()
     {
         this->copy_from(A, 0, n);

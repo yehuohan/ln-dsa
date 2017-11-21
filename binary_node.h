@@ -71,13 +71,14 @@ template <typename T> struct BinNode
     BinNode<T>* right;
     T           data;
     int         height;
+    int         npl;        /**< Null Path Length */
     RBColor     color;
 
     BinNode()
-        : parent(nullptr), left(nullptr), right(nullptr), height(0), color(RBColor::Red) {}
+        : parent(nullptr), left(nullptr), right(nullptr), height(0), npl(1),color(RBColor::Red) {}
     BinNode(const T& e, BinNode<T>* p = nullptr, BinNode<T>* ll = nullptr, BinNode<T>* rr = nullptr,
-            int h = 0, RBColor c = RBColor::Red)
-        : data(e), parent(p), left(ll), right(rr), height(h),color(c) {}
+            int h = 0, int n = 1, RBColor c = RBColor::Red)
+        : data(e), parent(p), left(ll), right(rr), height(h), npl(n), color(c) {}
 
     /*!
      * @brief 插入左子节点
