@@ -64,6 +64,12 @@ DSAS是数据结构与算法的学习过程。
  * @{
  * @}
  */
+/*!
+ * @defgroup LString String
+ * 串结构
+ * @{
+ * @}
+ */
 
 /*!
  * @}
@@ -144,6 +150,8 @@ DSAS是数据结构与算法的学习过程。
 #include "priority_queue.h"
 #include "pq_complete_heap.h"
 #include "pq_left_heap.h"
+
+#include "string.h"
 
 #include "binary_node.h"
 #include "binary_tree.h"

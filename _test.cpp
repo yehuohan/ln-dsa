@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <iomanip>
 #include "dsas.h"
 
 void print_node(int data)
@@ -20,11 +21,13 @@ void test_btree();
 void test_redblack();
 void test_pq();
 void test_leftpq();
+void test_string();
 
 //(int argc, char** argv)
 int main()
 {
-    test_leftpq();
+    test_string();
+    //test_leftpq();
     //test_pq();
     //test_redblack();
     //test_btree();
@@ -526,4 +529,31 @@ void test_leftpq()
             cnt = 0;
         }
     }
+}
+
+void test_string()
+{
+    char txt[] = "adoifeachilaiehchixxxchixxxchillldoivja";
+    char pat[] =                      "chixxxchilll";
+    char* T = &txt[0];
+    char* P = &pat[0];
+
+    int* next = dsa::build_next(P);
+    int* next_im = dsa::build_next_improved(P);
+
+    for (int k = 0; k < dsa::strlen(P); k++)
+        std::cout << std::setw(2) << P[k] << " ";
+    std::cout << std::endl;
+    for (int k = 0; k < dsa::strlen(P); k++)
+        std::cout << std::setw(2) << next[k] << " ";
+    std::cout << std::endl;
+    for (int k = 0; k < dsa::strlen(P); k++)
+        std::cout << std::setw(2) << next_im[k] << " ";
+    std::cout << std::endl;
+    delete next;
+    delete next_im;
+
+    std::cout << "Match: \n";
+    std::cout << "bf1: " << dsa::match_bf1(P, T) << "   bf2: " << dsa::match_bf2(P, T) << std::endl;
+    std::cout << "kmp: " << dsa::match_kmp(P, T) << std::endl;
 }
