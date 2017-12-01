@@ -533,27 +533,45 @@ void test_leftpq()
 
 void test_string()
 {
-    char txt[] = "adoifeachilaiehchixxxchixxxchillldoivja";
-    char pat[] =                      "chixxxchilll";
+    char txt[] = "adoifeachilaiehchixxxabcxxxchiabcdoivja";
+    char pat[] =                      "abcxxxchiabc";
+    //char pat[] = "ABABxyzABAB";
     char* T = &txt[0];
     char* P = &pat[0];
 
-    int* next = dsa::build_next(P);
+    int* next    = dsa::build_next(P);
     int* next_im = dsa::build_next_improved(P);
+    int* bm      = dsa::build_bc(P);
+    int* gs      = dsa::build_gs(P);
 
+    std::cout << "pat:     ";
     for (int k = 0; k < dsa::strlen(P); k++)
         std::cout << std::setw(2) << P[k] << " ";
     std::cout << std::endl;
+    std::cout << "next:    ";
     for (int k = 0; k < dsa::strlen(P); k++)
         std::cout << std::setw(2) << next[k] << " ";
     std::cout << std::endl;
+    std::cout << "next_im: ";
     for (int k = 0; k < dsa::strlen(P); k++)
         std::cout << std::setw(2) << next_im[k] << " ";
     std::cout << std::endl;
-    delete next;
-    delete next_im;
+    std::cout << "bm:      ";
+    for (int k = 0; k < dsa::strlen(P); k++)
+        std::cout << std::setw(2) << bm[(unsigned int)P[k]] << " ";
+    std::cout << std::endl;
+    std::cout << "gs:      ";
+    for (int k = 0; k < dsa::strlen(P); k++)
+        std::cout << std::setw(2) << gs[k] << " ";
+    std::cout << std::endl;
+    delete[] next;
+    delete[] next_im;
+    delete[] bm;
+    delete[] gs;
 
     std::cout << "Match: \n";
-    std::cout << "bf1: " << dsa::match_bf1(P, T) << "   bf2: " << dsa::match_bf2(P, T) << std::endl;
-    std::cout << "kmp: " << dsa::match_kmp(P, T) << std::endl;
+    std::cout << "bf1:   " << dsa::match_bf1(P, T) << "   bf2:  " << dsa::match_bf2(P, T) << std::endl;
+    std::cout << "kmp:   " << dsa::match_kmp(P, T) << std::endl;
+    std::cout << "bc:    " << dsa::match_bm_bc(P, T) << std::endl;
+    std::cout << "bcgs:  " << dsa::match_bm_bcgs(P, T) << std::endl;
 }
