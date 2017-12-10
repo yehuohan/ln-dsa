@@ -185,4 +185,6 @@ DSAS是数据结构与算法的学习过程。
 #include "graph.h"
 #include "graph_matrix.h"
 
+#include "hash.h"
+
 #endif /* ifndef _DSAS_H */

@@ -19,6 +19,7 @@ void test_avl();
 void test_splay();
 void test_btree();
 void test_redblack();
+void test_hash();
 void test_pq();
 void test_leftpq();
 void test_string();
@@ -26,9 +27,10 @@ void test_string();
 //(int argc, char** argv)
 int main()
 {
-    test_string();
+    //test_string();
     //test_leftpq();
     //test_pq();
+    test_hash();
     //test_redblack();
     //test_btree();
     //test_splay();
@@ -394,6 +396,11 @@ void test_btree()
             cnt = 0;
         }
     }
+}
+
+void test_hash()
+{
+    dsa::HashTable<int, int> hash;
 }
 
 void test_redblack()
