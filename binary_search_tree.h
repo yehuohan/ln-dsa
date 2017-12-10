@@ -26,24 +26,6 @@ namespace dsa
 
 
 /*!
- * @brief 词条类，实现元素的比较
- *
- */
-template <typename K, typename V> struct Entry
-{
-    K key;
-    V value;
-
-    Entry(K _key = K(), V _value = V()) : key(_key), value(_value) {}
-    Entry(const Entry<K,V>& e): key(e.key), value(e.value) {}
-
-    bool operator< (const Entry<K,V>& e) const {return key < e.key;}
-    bool operator> (const Entry<K,V>& e) const {return key > e.key;}
-    bool operator== (const Entry<K,V>& e) const {return key == e.key;}
-    bool operator!= (const Entry<K,V>& e) const {return key != e.key;}
-};
-
-/*!
  * @brief 二叉搜索树类模板
  *
  * 节点数: n

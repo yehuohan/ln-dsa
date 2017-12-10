@@ -13,6 +13,6 @@
 !/*.h
 !/*.c
 !/*.cpp
-
+!/share
 !/examples
 !/dsas-code

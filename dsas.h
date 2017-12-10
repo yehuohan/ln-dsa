@@ -135,6 +135,26 @@ DSAS是数据结构与算法的学习过程。
  * @}
  */
 
+
+/*!
+ * @defgroup Hash Hash Struct
+ *
+ * 散列结构
+ *
+ * @{
+ * @}
+ */
+
+
+/*!
+ * @defgroup Share Share Data and Struct
+ *
+ * 共享类和数据
+ *
+ * @{
+ * @}
+ */
+
 //==============================================================================
 
 
@@ -164,6 +184,5 @@ DSAS是数据结构与算法的学习过程。
 
 #include "graph.h"
 #include "graph_matrix.h"
-
 
 #endif /* ifndef _DSAS_H */
