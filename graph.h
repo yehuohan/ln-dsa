@@ -42,6 +42,27 @@ typedef enum { UnDetermined, Tree, Cross, Forward, Backward } EStatus;
 /*!
  * @brief 顶点类
  *
+ * <pre>
+ *
+ * G = (V, E)，图为顶点和边的集合
+ * n = |V|，顶点数
+ * e = |E|，边数
+ *
+ * 邻接关系：v与v之间
+ * 关联关系：v与e之间
+ *
+ * 无向边：A---B---C
+ * 有向边：A<---B<--->C
+ *
+ * 有向图：所有边为有向边
+ * 无向图：所有边为无向边
+ * 混合图：既有有向边，也有无向边
+ *
+ * 路径：一系列顶点构成的序列 P = <v0,v1,v2,v3,...vk>
+ * 路径长度：|P|=k
+ * 环路：v0 = vk
+ *
+ * </pre>
  */
 template<typename Tv>
 struct Vertex
