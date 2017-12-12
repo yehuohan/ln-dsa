@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: dsas-src/hash.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_86ca03496c3367737f13231e04e93fdd.html">dsas-src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">hash.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="hash_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef _HASH_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define _HASH_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entry_8h.html">share/entry.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structdsa_1_1_dict.html">   33</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdsa_1_1_dict.html">Dict</a></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> size() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> put(K, V) = 0;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> V* <span class="keyword">get</span>(K) = 0;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <span class="keyword">remove</span>(K) = 0;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdsa_1_1_hash_table.html">HashTable</a> : <span class="keyword">public</span> <a class="code" href="structdsa_1_1_dict.html">Dict</a>&lt;K, V&gt;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a19906f3c567f488c980280c41bf4d85e">   52</a></span>&#160;    <a class="code" href="structdsa_1_1_entry.html">Entry&lt;K,V&gt;</a>** <a class="code" href="classdsa_1_1_hash_table.html#a19906f3c567f488c980280c41bf4d85e">ht</a>;    </div><div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a6a88c62d635ecabf91c21d1b02085329">   53</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdsa_1_1_hash_table.html#a6a88c62d635ecabf91c21d1b02085329">m_M</a>;            </div><div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a98d06707a85e3c823e3714219c6693a3">   54</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdsa_1_1_hash_table.html#a98d06707a85e3c823e3714219c6693a3">m_N</a>;            </div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classdsa_1_1_hash_table.html">HashTable</a>(<span class="keywordtype">int</span> c = 5);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ~<a class="code" href="classdsa_1_1_hash_table.html">HashTable</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a2a829dcab4eca82dd75120fed53210af">   64</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdsa_1_1_hash_table.html#a2a829dcab4eca82dd75120fed53210af">size</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_N;}</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> put(K, V);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    V* <span class="keyword">get</span>(K);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> <span class="keyword">remove</span>(K);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#ace860a6df7b69caa6eb4394d96b10e12">   81</a></span>&#160;<a class="code" href="classdsa_1_1_hash_table.html#ace860a6df7b69caa6eb4394d96b10e12">HashTable&lt;K,V&gt;::HashTable</a>(<span class="keywordtype">int</span> c)</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;m_N = 0;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="classdsa_1_1_hash_table.html">HashTable&lt;K,V&gt;::~HashTable</a>()</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#acfa7a0138f9f56e3375e987991a33213">  101</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classdsa_1_1_hash_table.html#acfa7a0138f9f56e3375e987991a33213">HashTable&lt;K,V&gt;::put</a>(K key, V val)</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a5049fe6b35bb1eae0204fbe7bb8f6448">  114</a></span>&#160;V* <a class="code" href="classdsa_1_1_hash_table.html#a5049fe6b35bb1eae0204fbe7bb8f6448">HashTable&lt;K,V&gt;::get</a>(K key)</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div><div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classdsa_1_1_hash_table.html#a20ba9c379237f6e600ae051d293d6ab8">  127</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classdsa_1_1_hash_table.html#a20ba9c379237f6e600ae051d293d6ab8">HashTable&lt;K,V&gt;::remove</a>(K key)</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef _HASH_H */</span><span class="preprocessor"></span></div><div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> avl_tree.h:21</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a98d06707a85e3c823e3714219c6693a3"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a98d06707a85e3c823e3714219c6693a3">dsa::HashTable::m_N</a></div><div class="ttdeci">int m_N</div><div class="ttdef"><b>Definition:</b> hash.h:54</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a2a829dcab4eca82dd75120fed53210af"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a2a829dcab4eca82dd75120fed53210af">dsa::HashTable::size</a></div><div class="ttdeci">int size() const</div><div class="ttdoc">获取键值对数量 </div><div class="ttdef"><b>Definition:</b> hash.h:64</div></div>
+<div class="ttc" id="structdsa_1_1_dict_html"><div class="ttname"><a href="structdsa_1_1_dict.html">dsa::Dict</a></div><div class="ttdoc">字典接口类 </div><div class="ttdef"><b>Definition:</b> hash.h:33</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a5049fe6b35bb1eae0204fbe7bb8f6448"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a5049fe6b35bb1eae0204fbe7bb8f6448">dsa::HashTable::get</a></div><div class="ttdeci">V * get(K)</div><div class="ttdoc">根据键获取值 </div><div class="ttdef"><b>Definition:</b> hash.h:114</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a6a88c62d635ecabf91c21d1b02085329"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a6a88c62d635ecabf91c21d1b02085329">dsa::HashTable::m_M</a></div><div class="ttdeci">int m_M</div><div class="ttdef"><b>Definition:</b> hash.h:53</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a19906f3c567f488c980280c41bf4d85e"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a19906f3c567f488c980280c41bf4d85e">dsa::HashTable::ht</a></div><div class="ttdeci">Entry&lt; K, V &gt; ** ht</div><div class="ttdef"><b>Definition:</b> hash.h:52</div></div>
+<div class="ttc" id="entry_8h_html"><div class="ttname"><a href="entry_8h.html">entry.h</a></div><div class="ttdoc">词条类 </div></div>
+<div class="ttc" id="structdsa_1_1_entry_html"><div class="ttname"><a href="structdsa_1_1_entry.html">dsa::Entry</a></div><div class="ttdoc">词条类，实现元素的比较 </div><div class="ttdef"><b>Definition:</b> entry.h:31</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_ace860a6df7b69caa6eb4394d96b10e12"><div class="ttname"><a href="classdsa_1_1_hash_table.html#ace860a6df7b69caa6eb4394d96b10e12">dsa::HashTable::HashTable</a></div><div class="ttdeci">HashTable(int c=5)</div><div class="ttdoc">创建散列表 </div><div class="ttdef"><b>Definition:</b> hash.h:81</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_a20ba9c379237f6e600ae051d293d6ab8"><div class="ttname"><a href="classdsa_1_1_hash_table.html#a20ba9c379237f6e600ae051d293d6ab8">dsa::HashTable::remove</a></div><div class="ttdeci">bool remove(K)</div><div class="ttdoc">根据键删除值 </div><div class="ttdef"><b>Definition:</b> hash.h:127</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html"><div class="ttname"><a href="classdsa_1_1_hash_table.html">dsa::HashTable</a></div><div class="ttdoc">散列表模板类 </div><div class="ttdef"><b>Definition:</b> hash.h:49</div></div>
+<div class="ttc" id="classdsa_1_1_hash_table_html_acfa7a0138f9f56e3375e987991a33213"><div class="ttname"><a href="classdsa_1_1_hash_table.html#acfa7a0138f9f56e3375e987991a33213">dsa::HashTable::put</a></div><div class="ttdeci">bool put(K, V)</div><div class="ttdoc">插入字典键-值对 </div><div class="ttdef"><b>Definition:</b> hash.h:101</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

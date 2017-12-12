@@ -83,6 +83,7 @@ $(function() {
   <img src="classdsa_1_1_bin_tree.png" usemap="#dsa::BinTree_3C_20T_20_3E_map" alt=""/>
   <map id="dsa::BinTree_3C_20T_20_3E_map" name="dsa::BinTree_3C_20T_20_3E_map">
 <area href="classdsa_1_1_bin_search_tree.html" title="二叉搜索树类模板 " alt="dsa::BinSearchTree&lt; T &gt;" shape="rect" coords="164,56,318,80"/>
+<area href="classdsa_1_1_pq_left_heap.html" title="左式堆模板类 " alt="dsa::PqLeftHeap&lt; T &gt;" shape="rect" coords="328,56,482,80"/>
 <area href="classdsa_1_1_avl_tree.html" title="Avl平衡二叉树类 " alt="dsa::AvlTree&lt; T &gt;" shape="rect" coords="0,112,154,136"/>
 <area href="classdsa_1_1_red_black_tree.html" title="红黑树类 " alt="dsa::RedBlackTree&lt; T &gt;" shape="rect" coords="164,112,318,136"/>
 <area href="classdsa_1_1_splay_tree.html" title="伸展树类 " alt="dsa::SplayTree&lt; T &gt;" shape="rect" coords="328,112,482,136"/>
@@ -137,7 +138,20 @@ Protected 属性</h2></td></tr>
 class dsa::BinTree&lt; T &gt;</h3>
 
 <p>二叉树类 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
+<pre>
+(1) 基本概念
+--------------&mdash; r      ---&mdash;
+                 /depth(v)        .                *
+               / \
+-------&mdash;    v  ...      height(r)
+             / \
+height(v)   .-------&mdash;  .
+           / \             .           ---&mdash;</pre><pre>v的深度：depth(v)，指子树根节点v的深度
+根节点深度为0</pre><pre>v的高度：height(v)，指子树根节点v的高度
+空树高度取为-1</pre><pre>叶子节点：没有后代(子节点)的节点</pre><pre>(2) 二叉树：节点度数&lt;=2的树
+对于深度为k的节点，数量至多为2^k个；</pre><pre>含n个节点，高度为h的二叉树： h &lt; n &lt; 2^(h+1)
+n = h+1时，树成为单链
+n = 2^(h+1)-1时，二叉树为满树</pre><pre></pre> </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a4014fcb4d5b14a0f968fa75eadce02ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4014fcb4d5b14a0f968fa75eadce02ad">&#9670;&nbsp;</a></span>insert_left()</h2>
 
@@ -405,7 +419,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li><a class="el" href="binary__tree_8h_source.html">binary_tree.h</a></li>
+<li>dsas-src/<a class="el" href="binary__tree_8h_source.html">binary_tree.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

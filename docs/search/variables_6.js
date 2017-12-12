@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status',['status',['../structdsa_1_1_edge.html#a906553d6fcfe1c472baedf1bb94e0696',1,'dsa::Edge']]]
+  ['npl',['npl',['../structdsa_1_1_bin_node.html#aeebaecca40d483dc77902b89a44585bd',1,'dsa::BinNode']]]
 ];

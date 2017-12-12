@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue',['Queue',['../classdsa_1_1_queue.html',1,'dsa']]]
+  ['iterator',['iterator',['../classdsa_1_1_list_1_1iterator.html',1,'dsa::List']]]
 ];

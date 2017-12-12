@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['in_5fdeg',['in_deg',['../structdsa_1_1_vertex.html#a2bc22469ef2fed015d14afa9ddcc5834',1,'dsa::Vertex']]]
+  ['ht',['ht',['../classdsa_1_1_hash_table.html#a19906f3c567f488c980280c41bf4d85e',1,'dsa::HashTable']]]
 ];

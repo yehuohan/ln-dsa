@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['top',['top',['../classdsa_1_1_stack.html#a3cfcab2b1e29d5660b08b734976b5212',1,'dsa::Stack']]],
-  ['traverse_5fdlr',['traverse_DLR',['../structdsa_1_1_bin_node.html#a1fe3c66b3083d318dc78dcc6ea8ba118',1,'dsa::BinNode']]],
-  ['traverse_5fdlr_5fiteration',['traverse_DLR_iteration',['../binary__node_8h.html#a09317dd4ca7bf58d84ed91d283349182',1,'dsa']]],
-  ['traverse_5fdlr_5frecursion',['traverse_DLR_recursion',['../binary__node_8h.html#a0397419c9a29143fb8475eb3e5daae89',1,'dsa']]],
-  ['traverse_5fldr',['traverse_LDR',['../structdsa_1_1_bin_node.html#a06cdd73a382b3bc8c7979fdd703f6242',1,'dsa::BinNode']]],
-  ['traverse_5fldr_5fiteration',['traverse_LDR_iteration',['../binary__node_8h.html#adc54f7e462852146537f27a1db41b9bd',1,'dsa']]],
-  ['traverse_5fldr_5frecursion',['traverse_LDR_recursion',['../binary__node_8h.html#ad686a2e90d2b5efd7ce80eb6d9d68bb6',1,'dsa']]],
-  ['traverse_5flo',['traverse_LO',['../structdsa_1_1_bin_node.html#a402b6ca94a935a8200b521a48fe1d2e0',1,'dsa::BinNode']]],
-  ['traverse_5flrd',['traverse_LRD',['../structdsa_1_1_bin_node.html#a0bf1d66eaefce783853879157ffbdf8c',1,'dsa::BinNode']]],
-  ['traverse_5flrd_5fiteration',['traverse_LRD_iteration',['../binary__node_8h.html#a52280878c57a3acf1e76b483436d40b2',1,'dsa']]],
-  ['traverse_5flrd_5frecursion',['traverse_LRD_recursion',['../binary__node_8h.html#a9786b50facd4467c60364ff0e2073f5c',1,'dsa']]],
-  ['tree_20struct',['Tree Struct',['../group___tree.html',1,'']]]
+  ['rear',['rear',['../classdsa_1_1_queue.html#a3f5bbe391d4f98429384deb4e5687caf',1,'dsa::Queue']]],
+  ['redblack_5ftree_2eh',['redblack_tree.h',['../redblack__tree_8h.html',1,'']]],
+  ['redblacktree',['RedBlackTree',['../classdsa_1_1_red_black_tree.html',1,'dsa']]],
+  ['reffromparent',['RefFromParent',['../group___t_binary_tree.html#ga436c887e65e10bcc03d82cf79f1a4553',1,'binary_node.h']]],
+  ['remove',['remove',['../classdsa_1_1_avl_tree.html#a130c5b9bf2ffa489c3e0f4571270cdeb',1,'dsa::AvlTree::remove()'],['../classdsa_1_1_b_tree.html#a4f20b78ecf0e8bfbe69e8d39ad3e9f40',1,'dsa::BTree::remove()'],['../classdsa_1_1_bin_search_tree.html#a6117501ae65292977b745047316508f3',1,'dsa::BinSearchTree::remove()'],['../classdsa_1_1_bin_tree.html#a34a2fe586c902e6fe23458350719d559',1,'dsa::BinTree::remove()'],['../classdsa_1_1_hash_table.html#a20ba9c379237f6e600ae051d293d6ab8',1,'dsa::HashTable::remove()'],['../classdsa_1_1_list.html#ac0f188f895217f25b21d98c926eba822',1,'dsa::List::remove()'],['../classdsa_1_1_red_black_tree.html#a59b2701ea0e05e7a35703d75d1af11fe',1,'dsa::RedBlackTree::remove()'],['../classdsa_1_1_splay_tree.html#ad5ade0d041d2feb89a561a51ae4830a5',1,'dsa::SplayTree::remove()'],['../classdsa_1_1_vector.html#ab16c56c8d4e3e1a9c59a5a42d045e9b0',1,'dsa::Vector::remove(int index)'],['../classdsa_1_1_vector.html#ad6b75b9323068d2df1d343f0ccd510c1',1,'dsa::Vector::remove(int lo, int hi)']]],
+  ['remove_5fat',['remove_at',['../binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684',1,'dsa::remove_at(BinNode&lt; T &gt; *&amp;node, BinNode&lt; T &gt; *&amp;hot)'],['../group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7',1,'dsa::remove_at(BinNode&lt; T &gt; *node)']]],
+  ['remove_5fedge',['remove_edge',['../classdsa_1_1_graph_matrix.html#a8e724aa34a70f0b1c85076ed075fe7c7',1,'dsa::GraphMatrix']]],
+  ['remove_5fvertex',['remove_vertex',['../classdsa_1_1_graph_matrix.html#ad56dbf3535380ad240e48c65f0a9eb3a',1,'dsa::GraphMatrix']]],
+  ['rotate_5fat',['rotate_at',['../classdsa_1_1_bin_search_tree.html#a16515780b0970f4335e4ac0fa611348d',1,'dsa::BinSearchTree']]],
+  ['redblack_20tree',['RedBlack Tree',['../group___t_red_black_tree.html',1,'']]]
 ];

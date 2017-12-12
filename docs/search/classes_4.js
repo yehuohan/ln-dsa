@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['iterator',['iterator',['../classdsa_1_1_list_1_1iterator.html',1,'dsa::List']]]
+  ['edge',['Edge',['../structdsa_1_1_edge.html',1,'dsa']]],
+  ['entry',['Entry',['../structdsa_1_1_entry.html',1,'dsa']]]
 ];

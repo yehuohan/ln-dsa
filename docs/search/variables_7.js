@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weight',['weight',['../structdsa_1_1_edge.html#a7858dfda97e0d18ae48946dd5539e1eb',1,'dsa::Edge']]]
+  ['out_5fdeg',['out_deg',['../structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92',1,'dsa::Vertex']]]
 ];

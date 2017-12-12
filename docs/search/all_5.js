@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['fib_5fsearch',['fib_search',['../classdsa_1_1_vector.html#af1ab670c7e3944524fc7ab673f315408',1,'dsa::Vector']]],
-  ['find',['find',['../classdsa_1_1_list.html#a55ff132f7600d33b40b1f6a2c63ac08a',1,'dsa::List::find()'],['../classdsa_1_1_vector.html#a5ea2e424841fa058b63e892424634c3b',1,'dsa::Vector::find()']]],
-  ['first_5fnbr',['first_nbr',['../classdsa_1_1_graph_matrix.html#a7408f78494cb7c0f63c2ee6275901a90',1,'dsa::GraphMatrix']]],
-  ['front',['front',['../classdsa_1_1_queue.html#a4aa09f57da9f3b81bc591accc1300d81',1,'dsa::Queue']]]
+  ['edge',['Edge',['../structdsa_1_1_edge.html',1,'dsa']]],
+  ['enqueue',['enqueue',['../classdsa_1_1_queue.html#aa733ddfc9767d52afd7368f44e5843f2',1,'dsa::Queue']]],
+  ['entry',['Entry',['../structdsa_1_1_entry.html',1,'dsa']]],
+  ['entry_2eh',['entry.h',['../entry_8h.html',1,'']]],
+  ['estatus',['EStatus',['../group___graph.html#ga31de4b012c792e6a98c7a89e6417f956',1,'dsa']]],
+  ['exist_5fedge',['exist_edge',['../classdsa_1_1_graph_matrix.html#aaaa60609dd9835240b986ae0d7fb8bdf',1,'dsa::GraphMatrix']]],
+  ['expand',['expand',['../classdsa_1_1_vector.html#a7464bac5666dbf22686d34dd7616ff68',1,'dsa::Vector']]]
 ];

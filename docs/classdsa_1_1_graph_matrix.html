@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
 <a href="classdsa_1_1_graph_matrix-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">dsa::GraphMatrix&lt; Tv, Te &gt; 模板类 参考<div class="ingroups"><a class="el" href="group___graph.html">Graph Struct</a></div></div>  </div>
@@ -134,6 +135,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>get_edge_weight</b> (i
 <tr class="memitem:a8a48fef6692ac321f295b877f9c26767"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph_matrix.html#a8a48fef6692ac321f295b877f9c26767">DFS</a> (int vindex, int &amp;clock)</td></tr>
 <tr class="memdesc:a8a48fef6692ac321f295b877f9c26767"><td class="mdescLeft">&#160;</td><td class="mdescRight">深度优先搜索  <a href="#a8a48fef6692ac321f295b877f9c26767">更多...</a><br /></td></tr>
 <tr class="separator:a8a48fef6692ac321f295b877f9c26767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a07f0a1a880b060ae6c1f43a93c0ef775"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="structdsa_1_1_vertex.html">Vertex</a>&lt; Tv &gt; *&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph_matrix.html#a07f0a1a880b060ae6c1f43a93c0ef775">m_V</a></td></tr>
+<tr class="separator:a07f0a1a880b060ae6c1f43a93c0ef775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89e3522999a49090c6e1ba5c049f0a79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="structdsa_1_1_edge.html">Edge</a>&lt; Te &gt; * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph_matrix.html#a89e3522999a49090c6e1ba5c049f0a79">m_E</a></td></tr>
+<tr class="separator:a89e3522999a49090c6e1ba5c049f0a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
@@ -542,8 +550,59 @@ template&lt;typename Tv , typename Te &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a89e3522999a49090c6e1ba5c049f0a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e3522999a49090c6e1ba5c049f0a79">&#9670;&nbsp;</a></span>m_E</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt;<a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt;<a class="el" href="structdsa_1_1_edge.html">Edge</a>&lt;Te&gt;*&gt; &gt; <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::m_E</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>边集 </p>
+
+</div>
+</div>
+<a id="a07f0a1a880b060ae6c1f43a93c0ef775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f0a1a880b060ae6c1f43a93c0ef775">&#9670;&nbsp;</a></span>m_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tv , typename Te &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt;<a class="el" href="structdsa_1_1_vertex.html">Vertex</a>&lt;Tv&gt;* &gt; <a class="el" href="classdsa_1_1_graph_matrix.html">dsa::GraphMatrix</a>&lt; Tv, Te &gt;::m_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>顶点集 </p>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li><a class="el" href="graph__matrix_8h_source.html">graph_matrix.h</a></li>
+<li>dsas-src/<a class="el" href="graph__matrix_8h_source.html">graph_matrix.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

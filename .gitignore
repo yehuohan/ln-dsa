@@ -10,9 +10,5 @@
 !/Doxyfile
 !/docs
 
-!/*.h
-!/*.c
-!/*.cpp
-!/share
-!/examples
+!/dsas-src
 !/dsas-code

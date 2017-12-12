@@ -441,7 +441,7 @@ EXTRACT_ALL            = NO
 # be included in the documentation.
 # The default value is: NO.
 
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 
 # If the EXTRACT_PACKAGE tag is set to YES, all members with package or internal
 # scope will be included in the documentation.
@@ -790,7 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = .
+INPUT                  = dsas-src
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -864,7 +864,7 @@ FILE_PATTERNS          = *.c \
 # be searched for input files as well.
 # The default value is: NO.
 
-RECURSIVE              = NO
+RECURSIVE              = YES
 
 # The EXCLUDE tag can be used to specify files and/or directories that should be
 # excluded from the INPUT source files. This way you can easily exclude a
@@ -1069,6 +1069,25 @@ USE_HTAGS              = NO
 # The default value is: YES.
 
 VERBATIM_HEADERS       = YES
+
+# If the CLANG_ASSISTED_PARSING tag is set to YES then doxygen will use the
+# clang parser (see: http://clang.llvm.org/) for more accurate parsing at the
+# cost of reduced performance. This can be particularly helpful with template
+# rich C++ code for which doxygen's built-in parser lacks the necessary type
+# information.
+# Note: The availability of this option depends on whether or not doxygen was
+# generated with the -Duse-libclang=ON option for CMake.
+# The default value is: NO.
+
+CLANG_ASSISTED_PARSING = NO
+
+# If clang assisted parsing is enabled you can provide the compiler with command
+# line options that you would normally use when invoking the compiler. Note that
+# the include paths will already be set by doxygen for the files and directories
+# specified with INPUT and INCLUDE_PATH.
+# This tag requires that the tag CLANG_ASSISTED_PARSING is set to YES.
+
+CLANG_OPTIONS          = 
 
 #---------------------------------------------------------------------------
 # Configuration options related to the alphabetical class index

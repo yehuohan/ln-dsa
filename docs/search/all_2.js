@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['child',['child',['../structdsa_1_1_b_t_node.html#af4b9f33ce5e6b6144559d005beb938fc',1,'dsa::BTNode']]],
-  ['clear',['clear',['../classdsa_1_1_list.html#a408d77016f16b065259e5151cfa8b835',1,'dsa::List']]],
-  ['connect34',['connect34',['../classdsa_1_1_bin_search_tree.html#ac83dface51ff0de18bafe3930e7b7d0e',1,'dsa::BinSearchTree']]],
-  ['construct_5fbintree',['construct_bintree',['../group___t_binary_tree.html#ga12cf145bec00b6327b966c71f9c4c633',1,'dsa']]],
-  ['construct_5fbintree_5fpre_5fin',['construct_bintree_pre_in',['../group___t_binary_tree.html#ga334ab2781669e17c3a65d5a1265c7540',1,'dsa']]],
-  ['copy_5ffrom',['copy_from',['../classdsa_1_1_vector.html#a5a7679a037570096ad19f757f7f2492f',1,'dsa::Vector']]]
+  ['b_5fnode_2eh',['b_node.h',['../b__node_8h.html',1,'']]],
+  ['b_5ftree_2eh',['b_tree.h',['../b__tree_8h.html',1,'']]],
+  ['balanced',['Balanced',['../group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266',1,'avl_tree.h']]],
+  ['bfs',['BFS',['../classdsa_1_1_graph_matrix.html#a627714debcc0a352404866379f1eb3c3',1,'dsa::GraphMatrix']]],
+  ['bin_5fsearch',['bin_search',['../classdsa_1_1_vector.html#acb12eb5886407b8080df64fdf710e87c',1,'dsa::Vector']]],
+  ['binary_5fnode_2eh',['binary_node.h',['../binary__node_8h.html',1,'']]],
+  ['binary_5fsearch_5ftree_2eh',['binary_search_tree.h',['../binary__search__tree_8h.html',1,'']]],
+  ['binary_5ftree_2eh',['binary_tree.h',['../binary__tree_8h.html',1,'']]],
+  ['binnode',['BinNode',['../structdsa_1_1_bin_node.html',1,'dsa']]],
+  ['binsearchtree',['BinSearchTree',['../classdsa_1_1_bin_search_tree.html',1,'dsa']]],
+  ['bintree',['BinTree',['../classdsa_1_1_bin_tree.html',1,'dsa']]],
+  ['bn_5fblackheightupdated',['BN_BlackHeightUpdated',['../group___t_binary_tree.html#ga04af3b58417e618a97da0af2be4db582',1,'binary_node.h']]],
+  ['btnode',['BTNode',['../structdsa_1_1_b_t_node.html',1,'dsa::BTNode&lt; T &gt;'],['../structdsa_1_1_b_t_node.html#a019246cc357499a7c6c2e1ad236adb37',1,'dsa::BTNode::BTNode()'],['../structdsa_1_1_b_t_node.html#aa45c1709832ab81028f24b0df5bcdfea',1,'dsa::BTNode::BTNode(const T &amp;e, BTNode&lt; T &gt; *lc=nullptr, BTNode&lt; T &gt; *rc=nullptr)']]],
+  ['btree',['BTree',['../classdsa_1_1_b_tree.html',1,'dsa']]],
+  ['bubble_5fsort',['bubble_sort',['../classdsa_1_1_vector.html#a036faa29f2c02db2fcaa39c576a7d95f',1,'dsa::Vector']]],
+  ['build_5fbc',['build_bc',['../group___l_string.html#ga0b9f8168f2c4d98d7f046429a4695ca2',1,'dsa']]],
+  ['build_5fgs',['build_gs',['../group___l_string.html#ga50084b5c38e0a5e1edaf0ee7ce1df6b1',1,'dsa']]],
+  ['build_5fnext',['build_next',['../group___l_string.html#ga6172d6a559c55ac355e43342164e8a06',1,'dsa']]],
+  ['build_5fnext_5fimproved',['build_next_improved',['../group___l_string.html#gaaec7b26a216963749bba23d7f58b82e6',1,'dsa']]],
+  ['binary_20search_20tree',['Binary Search Tree',['../group___t_binary_search_tree.html',1,'']]],
+  ['binary_20tree',['Binary Tree',['../group___t_binary_tree.html',1,'']]],
+  ['b_2dtree',['B-Tree',['../group___t_b_tree.html',1,'']]]
 ];

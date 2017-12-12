@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['merge_5fsort',['merge_sort',['../classdsa_1_1_vector.html#a65701e2930f81d4b548048756eb70642',1,'dsa::Vector']]]
+  ['list',['List',['../classdsa_1_1_list.html#a7b486ff7f5314a934bb9295c1e019cbb',1,'dsa::List']]]
 ];

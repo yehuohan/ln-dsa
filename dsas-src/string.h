@@ -69,9 +69,6 @@ int     match_bm_bcgs(char*, char*);
 int*    build_bc(char*);
 int*    build_gs(char*);
 
-/*! @} */
-
-
 /*!
  * @brief 获取字符串长度
  *
@@ -106,7 +103,7 @@ int strlen(const char* str)
  * Text: ------ [           ] X -------------
  * Pattern:     [           ] Y [     ]
  *                            j
- * <pre>
+ * </pre>
  *
  * @param P: Pattern，模式字符，即待匹配的字符
  * @param T: Text，文本字符
@@ -148,7 +145,7 @@ int match_bf1(char* P, char* T)
  * Text: ------ [           ] X -------------
  * Pattern:     [           ] Y [     ]
  *                            j
- * <pre>
+ * </pre>
  *
  * @param P: Pattern，模式字符，即待匹配的字符
  * @param T: Text，文本字符
@@ -691,6 +688,7 @@ int* build_gs(char* P)
     return gs;
 }
 
+/*! @} */
 } /* dsa */
 
 #endif /* ifndef _STRING_H */

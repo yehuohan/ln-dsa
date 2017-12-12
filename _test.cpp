@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "dsas.h"
+#include "dsas-src/dsas.h"
 
 void print_node(int data)
 {
@@ -23,10 +23,12 @@ void test_hash();
 void test_pq();
 void test_leftpq();
 void test_string();
+void test_sort();
 
 //(int argc, char** argv)
 int main()
 {
+    test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
@@ -581,4 +583,24 @@ void test_string()
     std::cout << "kmp:   " << dsa::match_kmp(P, T) << std::endl;
     std::cout << "bc:    " << dsa::match_bm_bc(P, T) << std::endl;
     std::cout << "bcgs:  " << dsa::match_bm_bcgs(P, T) << std::endl;
+}
+
+void test_sort()
+{
+    dsa::Vector<int> vs;
+    vs.push_back(10); vs.push_back(8) ; vs.push_back(12);
+    vs.push_back(72); vs.push_back(28); vs.push_back(1) ;
+    vs.push_back(19); vs.push_back(31); vs.push_back(25);
+    vs.push_back(65); vs.push_back(51); vs.push_back(87);
+
+    for (unsigned int k = 0; k < vs.size(); k++)
+        std::cout << std::setw(2) << vs[k] << "  ";
+
+    //vs.merge_sort(0, vs.size());
+    //vs.bubble_sort(0, vs.size());
+    vs.quick_sort(0, vs.size());
+
+    std::cout << std::endl;
+    for (unsigned int k = 0; k < vs.size(); k++)
+        std::cout << std::setw(2) << vs[k] << "  ";
 }

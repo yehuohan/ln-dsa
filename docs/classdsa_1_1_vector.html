@@ -159,6 +159,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>bubble</b> (int lo, in
 <tr class="memitem:a0a2c1bcd4dc6892a05199e637f342003"><td class="memItemLeft" align="right" valign="top"><a id="a0a2c1bcd4dc6892a05199e637f342003"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>merge</b> (int lo, int mi, int hi)</td></tr>
 <tr class="separator:a0a2c1bcd4dc6892a05199e637f342003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a5c7a3d8deb2a55aba39b32c934accbf6">heap_sort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">利用完全二叉堆对向量区间进行排序  <a href="#a5c7a3d8deb2a55aba39b32c934accbf6">更多...</a><br /></td></tr>
+<tr class="separator:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99097686a953826e9d579b28296b8378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a99097686a953826e9d579b28296b8378">quick_sort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:a99097686a953826e9d579b28296b8378"><td class="mdescLeft">&#160;</td><td class="mdescRight">快速排序  <a href="#a99097686a953826e9d579b28296b8378">更多...</a><br /></td></tr>
+<tr class="separator:a99097686a953826e9d579b28296b8378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
@@ -668,6 +674,55 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a id="a5c7a3d8deb2a55aba39b32c934accbf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7a3d8deb2a55aba39b32c934accbf6">&#9670;&nbsp;</a></span>heap_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::heap_sort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>利用完全二叉堆对向量区间进行排序 </p>
+<pre></pre><pre>元素移动示意图：
+    max -------&gt;
+   /            \
+[ # --- heap --- # --- sorted ---]
+ lo             hi</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[lo,hi)</td><td>待排序区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acd9a59b0207782fddf9aa3e6b58d583b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd9a59b0207782fddf9aa3e6b58d583b">&#9670;&nbsp;</a></span>insert()</h2>
 
@@ -744,6 +799,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>merge sort in [lo, hi) （归并排序） </p>
+<p>排序范围为[lo, hi)</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
@@ -874,6 +930,55 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a id="a99097686a953826e9d579b28296b8378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99097686a953826e9d579b28296b8378">&#9670;&nbsp;</a></span>quick_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::quick_sort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>快速排序 </p>
+<pre>
+排序范围为[lo, hi)
+轴点：左侧元素 &lt;= 轴点元素 &lt;= 右侧元素
+</pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
+    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab16c56c8d4e3e1a9c59a5a42d045e9b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab16c56c8d4e3e1a9c59a5a42d045e9b0">&#9670;&nbsp;</a></span>remove() <span class="overload">[1/2]</span></h2>
 
@@ -990,7 +1095,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li><a class="el" href="vector_8h_source.html">vector.h</a></li>
+<li>dsas-src/<a class="el" href="vector_8h_source.html">vector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

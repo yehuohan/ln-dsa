@@ -112,7 +112,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>priority</b></td></tr>
 struct dsa::Vertex&lt; Tv &gt;</h3>
 
 <p>顶点类 </p>
-</div><h2 class="groupheader">类成员变量说明</h2>
+<pre></pre><pre>G = (V, E)，图为顶点和边的集合
+n = |V|，顶点数
+e = |E|，边数</pre><pre>邻接关系：v与v之间
+关联关系：v与e之间</pre><pre>无向边：A&mdash;B&mdash;C
+有向边：A&lt;&mdash;B&lt;&mdash;&gt;C</pre><pre>有向图：所有边为有向边
+无向图：所有边为无向边
+混合图：既有有向边，也有无向边</pre><pre>路径：一系列顶点构成的序列 P = &lt;v0,v1,v2,v3,...vk&gt;
+路径长度：|P|=k
+环路：v0 = vk</pre><pre></pre> </div><h2 class="groupheader">类成员变量说明</h2>
 <a id="a2bc22469ef2fed015d14afa9ddcc5834"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bc22469ef2fed015d14afa9ddcc5834">&#9670;&nbsp;</a></span>in_deg</h2>
 
@@ -148,7 +156,7 @@ template&lt;typename Tv&gt; </div>
 </div>
 </div>
 <hr/>该结构体的文档由以下文件生成:<ul>
-<li><a class="el" href="graph_8h_source.html">graph.h</a></li>
+<li>dsas-src/<a class="el" href="graph_8h_source.html">graph.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

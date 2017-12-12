@@ -1,6 +1,20 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classdsa_1_1_vector.html#ae5f82b18c10c168deb846dd087004495',1,'dsa::Vector']]],
-  ['operator_5b_5d',['operator[]',['../classdsa_1_1_list.html#abf4293b120dfa2dd4a9cbdb0c9984e3a',1,'dsa::List']]],
-  ['out_5fdeg',['out_deg',['../structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92',1,'dsa::Vertex']]]
+  ['m_5fe',['m_E',['../classdsa_1_1_graph_matrix.html#a89e3522999a49090c6e1ba5c049f0a79',1,'dsa::GraphMatrix']]],
+  ['m_5fenum',['m_enum',['../classdsa_1_1_graph.html#a6ba66fbbab5b6ae7977384ff1d004124',1,'dsa::Graph']]],
+  ['m_5fhot',['m_hot',['../classdsa_1_1_b_tree.html#a21c25d5146e6c00f3d8586ae71e8535a',1,'dsa::BTree']]],
+  ['m_5fm',['m_M',['../classdsa_1_1_hash_table.html#a6a88c62d635ecabf91c21d1b02085329',1,'dsa::HashTable']]],
+  ['m_5fn',['m_N',['../classdsa_1_1_hash_table.html#a98d06707a85e3c823e3714219c6693a3',1,'dsa::HashTable']]],
+  ['m_5forder',['m_order',['../classdsa_1_1_b_tree.html#abe55db6b125b4111228ac795f43100d9',1,'dsa::BTree']]],
+  ['m_5froot',['m_root',['../classdsa_1_1_b_tree.html#aa584c7bb43b2bc434951a1f5b9db96e5',1,'dsa::BTree::m_root()'],['../classdsa_1_1_bin_tree.html#a51bfaea190206f0706a8f395b883f795',1,'dsa::BinTree::m_root()']]],
+  ['m_5fsize',['m_size',['../classdsa_1_1_b_tree.html#ac7637c5e586a8ec37fe6b8847f8da4bc',1,'dsa::BTree::m_size()'],['../classdsa_1_1_bin_tree.html#a90b586c09a8fa5c581fbf9b7dc567ac7',1,'dsa::BinTree::m_size()']]],
+  ['m_5fv',['m_V',['../classdsa_1_1_graph_matrix.html#a07f0a1a880b060ae6c1f43a93c0ef775',1,'dsa::GraphMatrix']]],
+  ['m_5fvnum',['m_vnum',['../classdsa_1_1_graph.html#adaf2aa430974839e054c6874e1ce6aa2',1,'dsa::Graph']]],
+  ['match_5fbf1',['match_bf1',['../group___l_string.html#ga7009fa633463e4403e3cad0478c6910a',1,'dsa']]],
+  ['match_5fbf2',['match_bf2',['../group___l_string.html#ga582dcdb5f9becbf92816d2461abaef4e',1,'dsa']]],
+  ['match_5fbm_5fbc',['match_bm_bc',['../group___l_string.html#gaf6fa260ff01c5f9166d69b5fc81a5ab5',1,'dsa']]],
+  ['match_5fbm_5fbcgs',['match_bm_bcgs',['../group___l_string.html#gac169036d3ff06d936ae8e6c4fe2f98eb',1,'dsa']]],
+  ['match_5fkmp',['match_kmp',['../group___l_string.html#gaf3e734ffbeda146022f684dad29d29c7',1,'dsa']]],
+  ['merge',['merge',['../group___l_p_q.html#ga3e29af5c948f1ef5605af4a259e2e594',1,'dsa']]],
+  ['merge_5fsort',['merge_sort',['../classdsa_1_1_vector.html#a65701e2930f81d4b548048756eb70642',1,'dsa::Vector']]]
 ];

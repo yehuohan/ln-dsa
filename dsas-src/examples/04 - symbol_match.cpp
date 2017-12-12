@@ -1,17 +1,4 @@
 
-//==============================================================================
-/*!
- * @file 04 - symbol_match.cpp
- * @brief match symbol link parenthness
- *
- * @date
- * @version
- * @author
- * @copyright
- */
-//==============================================================================
-
-
 #include <iostream>
 #include "../stack.h"
 

@@ -1,22 +1,10 @@
 
-//==============================================================================
-/*!
- * @file 01 - LCS.cpp
- * @brief longest common subsequence(最长公共子序列)
- *
- * @date
- * @version
- * @author
- * @copyright
- */
-//==============================================================================
-
 #include <iostream>
 
 
 //==============================================================================
 /*!
- * @brief 通过递归求解LCS
+ * @brief 通过递归求解LCS (longest common subsequence(最长公共子序列))
  *
  * no consideration for complex situation
  *

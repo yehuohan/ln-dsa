@@ -16,6 +16,8 @@
 #ifndef _VECTOR_H
 #define _VECTOR_H
 
+//#include "pq_complete_heap.h"
+
 namespace dsa
 {
 
@@ -104,8 +106,13 @@ public:
     // sort
     void    bubble_sort(int lo, int hi);
     int     bubble(int lo, int hi);
+
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
+
+    void    heap_sort(int lo, int hi);
+
+    void    quick_sort(int lo, int hi);
 
 protected:
     void    copy_from (const T* A, int lo, int hi );
@@ -414,6 +421,7 @@ int Vector<T>::uniquify()
 #endif
 }
 
+
 /*!
  * @brief bubble sort between [lo, hi)(冒泡排序改进版)
  *
@@ -470,8 +478,11 @@ int Vector<T>::bubble(int lo, int hi)
 #endif
 }
 
+
 /*!
  * @brief merge sort in [lo, hi) （归并排序）
+ *
+ * 排序范围为[lo, hi)
  *
  * @param lo : range index >= lo
  * @param hi : range index < hi
@@ -521,6 +532,59 @@ void Vector<T>::merge(int lo, int mi, int hi)
         p[k++] = right[j++];
     }
     delete[] left;
+}
+
+
+/*!
+ * @brief 快速排序
+ *
+ * <pre>
+ * 排序范围为[lo, hi)
+ * 轴点：左侧元素 <= 轴点元素 <= 右侧元素
+ * </pre>
+ *
+ * @param lo : range index >= lo
+ * @param hi : range index < hi
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::quick_sort(int lo, int hi)
+{
+    // 只有一个元素
+    if (hi - lo < 2)
+        return;
+    int mi = 0;//partition      // 构造轴点
+    this->quick_sort(lo, mi);
+    this->quick_sort(mi + 1, hi);
+}
+
+/*!
+ * @brief 利用完全二叉堆对向量区间进行排序
+ *
+ * <pre>
+ *
+ * 元素移动示意图：
+ *     max ------->
+ *    /            \
+ * [ # --- heap --- # --- sorted ---]
+ *  lo             hi
+ *
+ * </pre>
+ *
+ * @param [lo, hi): 待排序区间
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::heap_sort(int lo, int hi)
+{
+    //PqComplHeap<T> h(this->m_ar+lo, hi-lo);
+    //while(!h.is_empty())
+    //{
+    //    // 将堆顶元素放入已经排序部分
+    //    this->m_size[--hi] = h.del_max();
+    //}
 }
 
 // namespace dsa end

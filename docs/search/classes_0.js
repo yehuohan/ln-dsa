@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['avltree',['AvlTree',['../classdsa_1_1_avl_tree.html',1,'dsa']]]
+  ['_5fequalpoint',['_EqualPoint',['../struct___equal_point.html',1,'']]]
 ];

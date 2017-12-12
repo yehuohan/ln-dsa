@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: pq_complete_heap.h 文件参考</title>
+<title>DSAS: dsas-src/pq_complete_heap.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,10 +56,15 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_86ca03496c3367737f13231e04e93fdd.html">dsas-src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a>  </div>
   <div class="headertitle">
 <div class="title">pq_complete_heap.h 文件参考</div>  </div>
 </div><!--header-->
@@ -77,6 +82,27 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_pq_compl_heap.html">dsa::PqComplHeap&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">完全二叉堆模板类  <a href="classdsa_1_1_pq_compl_heap.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a29489ea0abacc013ba2b4d21ed96a472"><td class="memItemLeft" align="right" valign="top"><a id="a29489ea0abacc013ba2b4d21ed96a472"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PQ_Bigger</b>(i,  j)&#160;&#160;&#160;(((this-&gt;m_ar[i]) &gt;= (this-&gt;m_ar[j])) ? (i) : (j))</td></tr>
+<tr class="separator:a29489ea0abacc013ba2b4d21ed96a472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">堆节点相关操作</div></td></tr>
+<tr class="memitem:ga8a50ada243f699cbb22b7717a3d55447"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga8a50ada243f699cbb22b7717a3d55447">PQ_InHeap</a>(n,  i)&#160;&#160;&#160;((0 &lt;= (i)) &amp;&amp; ((i) &lt; (n)))</td></tr>
+<tr class="separator:ga8a50ada243f699cbb22b7717a3d55447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a1d0238df0624ecb02fc0e99d5e4681"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga2a1d0238df0624ecb02fc0e99d5e4681">PQ_ParentValid</a>(i)&#160;&#160;&#160;((i) &gt; 0)</td></tr>
+<tr class="separator:ga2a1d0238df0624ecb02fc0e99d5e4681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga938deee5e69e49327664f9031b722417"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga938deee5e69e49327664f9031b722417">PQ_Parent</a>(i)&#160;&#160;&#160;(((i)-1) &gt;&gt; 1)</td></tr>
+<tr class="separator:ga938deee5e69e49327664f9031b722417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03afd4c8e06a50f67000412c3b398f59"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga03afd4c8e06a50f67000412c3b398f59">PQ_LeftChild</a>(i)&#160;&#160;&#160;(1 + ((i) &lt;&lt; 1))</td></tr>
+<tr class="separator:ga03afd4c8e06a50f67000412c3b398f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96895ad8ed3edde159dbdce1818a0b49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga96895ad8ed3edde159dbdce1818a0b49">PQ_RightChild</a>(i)&#160;&#160;&#160;((1 + (i)) &lt;&lt; 1)</td></tr>
+<tr class="separator:ga96895ad8ed3edde159dbdce1818a0b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabeac26fee11534b426d4fbff796590c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#gabeac26fee11534b426d4fbff796590c8">PQ_LeftChildValid</a>(n,  i)&#160;&#160;&#160;<a class="el" href="group___l_p_q.html#ga8a50ada243f699cbb22b7717a3d55447">PQ_InHeap</a>(n, <a class="el" href="group___l_p_q.html#ga03afd4c8e06a50f67000412c3b398f59">PQ_LeftChild</a>(i))</td></tr>
+<tr class="separator:gabeac26fee11534b426d4fbff796590c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1375784a132eee09a220bf691cab6530"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_p_q.html#ga1375784a132eee09a220bf691cab6530">PQ_RightChildValid</a>(n,  i)&#160;&#160;&#160;<a class="el" href="group___l_p_q.html#ga8a50ada243f699cbb22b7717a3d55447">PQ_InHeap</a>(n, <a class="el" href="group___l_p_q.html#ga96895ad8ed3edde159dbdce1818a0b49">PQ_RightChild</a>(i))</td></tr>
+<tr class="separator:ga1375784a132eee09a220bf691cab6530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>完全二叉堆模版类 </p>
