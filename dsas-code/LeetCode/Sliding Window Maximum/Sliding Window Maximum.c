@@ -80,6 +80,7 @@ void mq_print(MonoQueue* mq)
  */
 int* maxSlidingWindow(int* nums, int numsSize, int k, int* returnSize)
 {
+#if(1)
     if(numsSize == 0)
     {
         *returnSize = 0;
@@ -117,6 +118,42 @@ int* maxSlidingWindow(int* nums, int numsSize, int k, int* returnSize)
     mq_free(&mq);
 
     return ret;
+
+#else
+
+    // LeetCode上看到的一个算法，真正的O(n)
+    int n = numsSize;
+    if (n==0)
+    {
+        *returnSize = 0;
+        return NULL;
+    }
+    
+    *returnSize = n-k+1>0 ? n-k+1 : 1;
+    int*ret = (int*)malloc(sizeof(int)*(*returnSize));
+    int left[n], right[n];
+    int i,j;
+    left[0] = nums[0];
+    right[n-1] = nums[n-1];
+    for (i = 1; i < n; i++)
+    {
+        left[i] = (i%k == 0) ? nums[i] : (nums[i]>left[i-1] ? nums[i]:left[i-1]);
+        j = n - i -1;
+        right[j] = (j%k == 0) ? nums[j] : (nums[j]>right[j+1] ? nums[j]:right[j+1]);
+    }
+    for (i = 0; i < *returnSize; i++)
+        ret[i] = right[i] > left[i+k-1] ? right[i] : left[i+k-1];
+
+    printf("\nLeft:\n");
+    for (i = 0; i < n; i++)
+        printf("%2d", left[i]);
+    printf("\nRight:\n");
+    for (i = 0; i < n; i++)
+        printf("%2d", right[i]);
+    printf("\n");
+    
+    return ret;
+#endif
 }
 
 int main(void)
