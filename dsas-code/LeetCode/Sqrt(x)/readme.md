@@ -26,3 +26,5 @@ Explanation: The square root of 8 is 2.82842..., and since we want to return an 
 
 过点`(a, f(a))`，斜率为`2a`的直线，与x轴的交点为`x = (a + n/a) / 2`；
 
+重复以上过程。
+
