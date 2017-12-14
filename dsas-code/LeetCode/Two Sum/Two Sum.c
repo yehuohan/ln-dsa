@@ -20,7 +20,7 @@ typedef struct HashTable
 /*!
  * @brief 初始化HashItem
  */
-void initHashItem(HashItemPtr* hi, int key, int val)
+void hs_init_item(HashItemPtr* hi, int key, int val)
 {
     HashItemPtr x = (HashItemPtr)malloc(sizeof(HashItem));
     x->key = key;
@@ -46,7 +46,7 @@ void initHashItem(HashItemPtr* hi, int key, int val)
 /*!
  * @brief 释放HashItem
  */
-void freeHashItem(HashItemPtr hi)
+void hs_free_item(HashItemPtr hi)
 {
     HashItemPtr n = hi, t;
     while(n)
@@ -60,7 +60,7 @@ void freeHashItem(HashItemPtr hi)
 /*!
  * @brief 初始化HashTable
  */
-void initHash(HashTable* hash)
+void hs_init(HashTable* hash)
 {
     hash->ht = (HashItemPtr*)malloc(sizeof(HashItemPtr) * HASH_SIZE);
     for (int k = 0; k < HASH_SIZE; k ++)
@@ -70,18 +70,18 @@ void initHash(HashTable* hash)
 /*!
  * @brief 释放HashTable
  */
-void freeHash(HashTable* hash)
+void hs_free(HashTable* hash)
 {
     for (int k = 0; k < HASH_SIZE; k ++)
         if (hash->ht[k])
-            freeHashItem(hash->ht[k]);
+            hs_free_item(hash->ht[k]);
     free(hash->ht);
 }
 
 /*!
  * @brief 计算Hash键
  */
-int hashKey(int key)
+int hs_hash_key(int key)
 {
     if (key < 0)
         key = -key;
@@ -91,18 +91,18 @@ int hashKey(int key)
 /*!
  * @brief 添加key-value
  */
-void putKeyVal(HashTable* hash, int key, int val)
+void hs_put_keyval(HashTable* hash, int key, int val)
 {
-    int index = hashKey(key);
-    initHashItem(&hash->ht[index], key, val);
+    int index = hs_hash_key(key);
+    hs_init_item(&hash->ht[index], key, val);
 }
 
 /*!
  * @brief 根据key读取值
  */
-int getVal(HashTable* hash, int key, int* val)
+int hs_get_val(HashTable* hash, int key, int* val)
 {
-    HashItemPtr n = hash->ht[hashKey(key)];
+    HashItemPtr n = hash->ht[hs_hash_key(key)];
     while(n)
     {
         if (n->key == key)
@@ -118,11 +118,30 @@ int getVal(HashTable* hash, int key, int* val)
 /*!
  * @brief 判断是否存在key
  */
-int containVal(HashTable* hash, int key)
+int hs_contain_val(HashTable* hash, int key)
 {
-    if (hash->ht[hashKey(key)])
+    if (hash->ht[hs_hash_key(key)])
         return 1;
     return 0;
+}
+
+/*!
+ * @brief 输出HashTable
+ */
+void hs_print(const HashTable* hash)
+{
+    for (int k = 0; k < HASH_SIZE; k ++)
+    {
+        HashItemPtr n = hash->ht[k];
+        if (n)
+            printf("\n");
+        while (n)
+        {
+            printf("(%d, %d)", n->key, n->val);
+            n = n->next;
+        }
+    }
+    printf("\n");
 }
 
 
@@ -150,20 +169,20 @@ int* twoSum(int* nums, int numsSize, int target)
 #else
     // 哈希表法
     HashTable hash;
-    initHash(&hash);
+    hs_init(&hash);
     for (int k = 0; k < numsSize; k ++)
-        putKeyVal(&hash, nums[k], k);
+        hs_put_keyval(&hash, nums[k], k);
     for (int k = 0; k < numsSize; k ++)
     {
-        if (containVal(&hash, target - nums[k]))
+        if (hs_contain_val(&hash, target - nums[k]))
         {
             ret[0] = k;
-            if (getVal(&hash, target - nums[k], ret+1)
+            if (hs_get_val(&hash, target - nums[k], ret+1)
                     && ret[1] != ret[0])
                     break;
         }
     }
-    freeHash(&hash);
+    hs_free(&hash);
 #endif
     return ret;
 }

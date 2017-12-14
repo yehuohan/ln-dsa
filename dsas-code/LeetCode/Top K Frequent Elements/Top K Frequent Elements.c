@@ -15,7 +15,7 @@ typedef Vector* VectorPtr;
 /*!
  * @brief 初始化Vector
  */
-void initVector(Vector* vec)
+void vec_init(Vector* vec)
 {
     vec->array = (int*)malloc(sizeof(int) * CAP_SIZE);
     vec->size = 0;
@@ -25,7 +25,7 @@ void initVector(Vector* vec)
  * @brief 释放Vector
  *
  */
-void freeVector(Vector* vec)
+void vec_free(Vector* vec)
 {
     free(vec->array);
 }
@@ -34,7 +34,7 @@ void freeVector(Vector* vec)
  * @brief 扩展Vector容量
  *
  */
-void expandVector(Vector* vec)
+void vec_expand(Vector* vec)
 {
     int* t = (int*)malloc(sizeof(int) * vec->size*2);
     for (int k = 0; k < vec->size; k ++)
@@ -47,10 +47,10 @@ void expandVector(Vector* vec)
  * @brief 插入Vector元素
  *
  */
-void pushVector(Vector* vec, int val)
+void vec_push(Vector* vec, int val)
 {
     if (vec->size >= CAP_SIZE)
-        expandVector(vec);
+        vec_expand(vec);
     vec->array[vec->size++] = val;
 }
 
@@ -76,7 +76,7 @@ typedef struct HashTable
 /*!
  * @brief 初始化HashItem
  */
-int initHashItem(HashItemPtr* hi, int key, int val)
+int hs_init_item(HashItemPtr* hi, int key, int val)
 {
     if (!*hi)
     {
@@ -114,7 +114,7 @@ int initHashItem(HashItemPtr* hi, int key, int val)
 /*!
  * @brief 释放HashItem
  */
-void freeHashItem(HashItemPtr hi)
+void hs_free_item(HashItemPtr hi)
 {
     HashItemPtr n = hi, t;
     while(n)
@@ -128,7 +128,7 @@ void freeHashItem(HashItemPtr hi)
 /*!
  * @brief 初始化HashTable
  */
-void initHash(HashTable* hash)
+void hs_init(HashTable* hash)
 {
     hash->ht = (HashItemPtr*)malloc(sizeof(HashItemPtr) * HASH_SIZE);
     for (int k = 0; k < HASH_SIZE; k ++)
@@ -139,18 +139,18 @@ void initHash(HashTable* hash)
 /*!
  * @brief 释放HashTable
  */
-void freeHash(HashTable* hash)
+void hs_free(HashTable* hash)
 {
     for (int k = 0; k < HASH_SIZE; k ++)
         if (hash->ht[k])
-            freeHashItem(hash->ht[k]);
+            hs_free_item(hash->ht[k]);
     free(hash->ht);
 }
 
 /*!
  * @brief 计算Hash键
  */
-int hashKey(int key)
+int hs_hash_key(int key)
 {
     if (key < 0)
         key = -key;
@@ -160,19 +160,19 @@ int hashKey(int key)
 /*!
  * @brief 添加key-value
  */
-void putKeyVal(HashTable* hash, int key, int val)
+void hs_put_keyval(HashTable* hash, int key, int val)
 {
-    int index = hashKey(key);
-    if (initHashItem(&hash->ht[index], key, val))
+    int index = hs_hash_key(key);
+    if (hs_init_item(&hash->ht[index], key, val))
         hash->num ++;
 }
 
 /*!
  * @brief 根据key读取值
  */
-int getVal(HashTable* hash, int key, int* val)
+int hs_get_val(HashTable* hash, int key, int* val)
 {
-    HashItemPtr n = hash->ht[hashKey(key)];
+    HashItemPtr n = hash->ht[hs_hash_key(key)];
     while(n)
     {
         if (n->key == key)
@@ -195,9 +195,9 @@ int getVal(HashTable* hash, int key, int* val)
 /*!
  * @brief 判断是否存在key
  */
-int containVal(HashTable* hash, int key)
+int hs_contain_val(HashTable* hash, int key)
 {
-    if (hash->ht[hashKey(key)])
+    if (hash->ht[hs_hash_key(key)])
         return 1;
     return 0;
 }
@@ -205,7 +205,7 @@ int containVal(HashTable* hash, int key)
 /*!
  * @brief 输出HashTable
  */
-void printHash(const HashTable* hash)
+void hs_print(const HashTable* hash)
 {
     for (int k = 0; k < HASH_SIZE; k ++)
     {
@@ -239,9 +239,9 @@ int* topKFrequent(int* nums, int numsSize, int k, int* returnSize)
     }
 
     HashTable hash;
-    initHash(&hash);
+    hs_init(&hash);
     for (int n = 0; n < numsSize; n ++)
-        putKeyVal(&hash, nums[n], 1);
+        hs_put_keyval(&hash, nums[n], 1);
 
     VectorPtr* sort = (VectorPtr*)malloc(sizeof(VectorPtr) * numsSize);
     int index;
@@ -249,16 +249,16 @@ int* topKFrequent(int* nums, int numsSize, int k, int* returnSize)
         sort[n] = NULL;
     for (int n = 0; n < numsSize; n ++)
     {
-        if (getVal(&hash, nums[n], &index))
+        if (hs_get_val(&hash, nums[n], &index))
         {
             // 下标从0开始，而frequency >= 1
             index--;
             if (!sort[index])
             {
                 sort[index] = (Vector*)malloc(sizeof(Vector));
-                initVector(sort[index]);
+                vec_init(sort[index]);
             }
-            pushVector(sort[index], nums[n]);
+            vec_push(sort[index], nums[n]);
         }
     }
 
@@ -278,10 +278,11 @@ int* topKFrequent(int* nums, int numsSize, int k, int* returnSize)
 LOOP_END:
     for (int n = 0; n < numsSize; n ++)
         if (sort[n])
-            freeVector(sort[n]);
+            vec_free(sort[n]);
     free(sort);
+    hs_free(&hash);
 
-    //printHash(&hash);
+    //hs_print(&hash);
 
     *returnSize = k;
     return ret;
