@@ -98,7 +98,7 @@ public:
      * @return
      * @retval None
      */
-    T get_max() {return this->m_ar[0];};
+    T get_max() {return this->m_array[0];};
     T del_max();
 
 private:
@@ -121,7 +121,7 @@ private:
 template <typename T>
 int PqComplHeap<T>::proper_parent(int n, int i)
 {
-#define PQ_Bigger(i, j)     (((this->m_ar[i]) >= (this->m_ar[j])) ? (i) : (j))
+#define PQ_Bigger(i, j)     (((this->m_array[i]) >= (this->m_array[j])) ? (i) : (j))
     if (PQ_RightChildValid(n, i))
     {
         // i的左右孩子均存在
@@ -147,18 +147,18 @@ int PqComplHeap<T>::proper_parent(int n, int i)
 template <typename T>
 int PqComplHeap<T>::percolate_up(int i)
 {
-    T ele = this->m_ar[i];
+    T ele = this->m_array[i];
     while(PQ_ParentValid(i))
     {
         int j = PQ_Parent(i);
-        if (ele < this->m_ar[j])
+        if (ele < this->m_array[j])
             break;
         // 新插入元素比父元素大，则上滤元素
-        this->m_ar[i] = this->m_ar[j];
+        this->m_array[i] = this->m_array[j];
         i = j;
     }
     // 将新插入元素，放到最终的节点位置
-    this->m_ar[i] = ele;
+    this->m_array[i] = ele;
     return i;
 }
 
@@ -179,9 +179,9 @@ int PqComplHeap<T>::percolate_down(int n, int i)
     while(i!= (j = this->proper_parent(n, i)))
     {
         // i的子节点元比i大，则下滤
-        T tmp = this->m_ar[i];
-        this->m_ar[i] = this->m_ar[j];
-        this->m_ar[j] = tmp;
+        T tmp = this->m_array[i];
+        this->m_array[i] = this->m_array[j];
+        this->m_array[j] = tmp;
         i = j;
     }
     return i;
@@ -225,8 +225,8 @@ void PqComplHeap<T>::insert(const T& e)
 template <typename T>
 T PqComplHeap<T>::del_max()
 {
-    T max_elem = this->m_ar[0];
-    this->m_ar[0] = this->m_ar[--this->m_size];
+    T max_elem = this->m_array[0];
+    this->m_array[0] = this->m_array[--this->m_size];
     this->percolate_down(this->m_size, 0);
     return max_elem;
 }
@@ -234,7 +234,7 @@ T PqComplHeap<T>::del_max()
 /*!
  * @brief 批量建立完全二叉堆
  *
- * this->m_ar有n个节点，但不一定满足堆序性，
+ * this->m_array有n个节点，但不一定满足堆序性，
  * 此函数就是使这n个节点满足堆序性。
  *
  * @param n: 堆的节点数
