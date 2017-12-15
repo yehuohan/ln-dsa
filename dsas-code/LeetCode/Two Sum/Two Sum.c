@@ -32,15 +32,10 @@ void hs_init_item(HashItemPtr* hi, int key, int val)
         *hi = x;
         return;
     }
-
     HashItemPtr n = *hi;
-    HashItemPtr p;
-    while (n)
-    {
-        p = n;
+    while (n->next)
         n = n->next;
-    }
-    p->next = x;
+    n->next = x;
 }
 
 /*!
