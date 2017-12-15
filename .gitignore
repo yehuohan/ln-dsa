@@ -10,5 +10,6 @@
 !/Doxyfile
 !/docs
 
-!/dsas-src
 !/dsas-code
+!/dsas-cpp
+!/dsas-lite-c
