@@ -5,9 +5,11 @@
 
 #define CAP_SIZE        5
 
+typedef int Type;
+
 typedef struct Vector
 {
-    int* array;
+    Type* array;
     int size;
 }Vector;
 typedef Vector* VectorPtr;
@@ -17,7 +19,7 @@ typedef Vector* VectorPtr;
  */
 void vec_init(Vector* vec)
 {
-    vec->array = (int*)malloc(sizeof(int) * CAP_SIZE);
+    vec->array = (Type*)malloc(sizeof(Type) * CAP_SIZE);
     vec->size = 0;
 }
 
@@ -33,7 +35,7 @@ void vec_free(Vector* vec) { free(vec->array); }
  */
 void vec_expand(Vector* vec)
 {
-    int* t = (int*)malloc(sizeof(int) * vec->size*2);
+    Type* t = (Type*)malloc(sizeof(Type) * vec->size*2);
     for (int k = 0; k < vec->size; k ++)
         t[k] = vec->array[k];
     free(vec->array);
