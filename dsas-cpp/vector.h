@@ -85,9 +85,9 @@ public:
     int     remove(int lo, int hi);
     void    clear(){this->m_size = 0;}
     bool    is_empty() const {return !bool(this->m_size);}
-    unsigned int size() const {return this->m_size;}
+    int     size() const {return this->m_size;}
 
-    T& operator[](int index) {return this->m_array[index];}
+    T& operator[](int index) const {return this->m_array[index];}
     Vector<T>& operator=(const Vector<T>& V);
 
     // 查找find
@@ -117,8 +117,8 @@ protected:
     void    expand();
 
 protected:
-    unsigned int m_capacity;
-    unsigned int m_size;
+    int m_capacity;
+    int m_size;
     T*  m_array;
 
 };
@@ -563,13 +563,12 @@ void Vector<T>::quick_sort(int lo, int hi)
  *      L              R
  * 比较候选轴点p和i和j，将i和j不断的归入到L或R中；
  *
- *
  * (2)变种形式
  * [p][      q][i       ][k----------]
  *    --------  --------
  *        L        R
  * 不断的比较候选轴点p和k
- * p < k : k归入R中；
+ * p <= k : k归入R中；
  * p > k : k归入L中，即交换i和k，L的长度+1；
  * 最终交换p和q，q做为最终的轴点。
  *
@@ -583,16 +582,14 @@ void Vector<T>::quick_sort(int lo, int hi)
 template <typename T>
 int Vector<T>::partition(int lo, int hi)
 {
-#if(0)
+#if(1)
     // 基本形式
     T pivot = this->m_array[lo];        // 候选轴点
     while(lo < hi)
     {
-        while(lo < hi && this->m_array[hi] > pivot)
-            hi--;
+        while(lo < hi && this->m_array[hi] >= pivot) hi--;
         this->m_array[lo] = this->m_array[hi];
-        while(lo < hi && this->m_array[lo] < pivot)
-            lo++;
+        while(lo < hi && this->m_array[lo] <= pivot) lo++;
         this->m_array[hi] = this->m_array[lo];
     }
     this->m_array[lo] = pivot;        // 最终轴点
