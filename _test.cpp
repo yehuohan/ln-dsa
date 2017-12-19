@@ -82,7 +82,7 @@ void test_vector()
     vec_i.uniquify();
 
     std::cout << "Print:\n";
-    for(unsigned int k = 0; k < vec_i.size(); k ++)
+    for(int k = 0; k < vec_i.size(); k ++)
     {
         std::cout << vec_i[k] << std::endl;
     }
@@ -592,8 +592,9 @@ void test_sort()
     vs.push_back(72); vs.push_back(28); vs.push_back(1) ;
     vs.push_back(19); vs.push_back(31); vs.push_back(25);
     vs.push_back(65); vs.push_back(51); vs.push_back(87);
+    vs.push_back(65); vs.push_back(51); vs.push_back(87);
 
-    for (unsigned int k = 0; k < vs.size(); k++)
+    for (int k = 0; k < vs.size(); k++)
         std::cout << std::setw(2) << vs[k] << "  ";
 
     //vs.merge_sort(0, vs.size());
@@ -601,6 +602,17 @@ void test_sort()
     vs.quick_sort(0, vs.size());
 
     std::cout << std::endl;
-    for (unsigned int k = 0; k < vs.size(); k++)
+    for (int k = 0; k < vs.size(); k++)
         std::cout << std::setw(2) << vs[k] << "  ";
+
+    std::cout << std::endl;
+    int maj;
+    if (dsa::majority(vs, maj))
+        std::cout << maj << std::endl;
+    else
+        std::cout << "No majority";
+
+    std::cout << std::endl;
+    for (int k = 0; k < vs.size(); k ++)
+        std::cout << std::setw(2) << dsa::quick_select(vs, k) << "  ";
 }
