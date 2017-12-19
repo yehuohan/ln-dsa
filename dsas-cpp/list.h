@@ -103,7 +103,7 @@ public:
     // basic
     int             clear();
     bool            is_empty() const {return !bool(this->m_size);}
-    unsigned int    size() const {return this->m_size;}
+    int             size() const {return this->m_size;}
 
     T               remove(ListNode<T>* p);
     iterator        begin(){return List<T>::iterator(this->first());}

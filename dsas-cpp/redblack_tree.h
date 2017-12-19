@@ -346,7 +346,7 @@ BinNode<T>* RedBlackTree<T>::insert(const T& e)
  *   |           |
  *   xR    =>    r
  *  / \         / \
- * w  r        .....
+ * w   r       .....
  *
  *   p           p
  *   |           |

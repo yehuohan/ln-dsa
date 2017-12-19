@@ -253,9 +253,9 @@ void PqComplHeap<T>::heapify(int n)
     {
         this->percolate_up(k);
     }
-#endif
 
-#if(1)
+#else
+
     // 按自下而上的顺序下滤
     // PQ_Parent(n-1) ：最后一个内部节点，也即末节点的父亲
     // 效率较高： 对所有节点的高度求和

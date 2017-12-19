@@ -33,7 +33,7 @@ namespace dsa
  *
  */
 template <typename T>
-class Stack : private dsa::Vector<T>
+class Stack : protected dsa::Vector<T>
 {
 public:
     Stack() {dsa::Vector<T>();}
@@ -47,7 +47,7 @@ public:
     /** pop data from statck */
     T               pop() {return this->remove(this->size()-1);}
     /** return top-data */
-    T               top() const {return (*this)[this->size()-1];}
+    T               top() const {return this->m_array[this->size()-1];}
 };
 
 
