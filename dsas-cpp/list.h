@@ -39,7 +39,7 @@ struct ListNode
     ListNode<T>*   prev;
     ListNode<T>*   next;
 
-    ListNode() {}
+    ListNode() : prev(nullptr), next(nullptr) {}
     ListNode(T ele, ListNode<T>* p = nullptr, ListNode<T>* n = nullptr)
         :data(ele), prev(p), next(n){}
 
@@ -98,7 +98,7 @@ public:
 
 public:
     List();
-    ~List(){ this->clear(); delete this->header; delete this->trailer;};
+    ~List(){ this->clear(); delete this->header; delete this->tailer;};
 
     // basic
     int             clear();
@@ -108,20 +108,20 @@ public:
     T               remove(ListNode<T>* p);
     iterator        begin(){return List<T>::iterator(this->first());}
     iterator        end(){return List<T>::iterator(this->last());}
-    ListNode<T>*   first() const {return this->header->next;}
-    ListNode<T>*   last() const {return this->trailer->prev;}
-    ListNode<T>*   push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
-    ListNode<T>*   push_back(const T& ele){this->m_size++; return this->trailer->insert_prev(ele);}
+    ListNode<T>*    first() const {return this->header->next;}
+    ListNode<T>*    last() const {return this->tailer->prev;}
+    ListNode<T>*    push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
+    ListNode<T>*    push_back(const T& ele){this->m_size++; return this->tailer->insert_prev(ele);}
 
-    ListNode<T>*   insert_before(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
-    ListNode<T>*   insert_after(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_next(ele);}
+    ListNode<T>*    insert_before(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
+    ListNode<T>*    insert_after(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_next(ele);}
 
     T& operator[](int index) const;
 
     // find
-    ListNode<T>*   find(const T& ele, int n, ListNode<T>* p) const;
+    ListNode<T>*    find(const T& ele, int n, ListNode<T>* p) const;
     // search
-    ListNode<T>*   search(const T& ele, int n, ListNode<T>* p) const;
+    ListNode<T>*    search(const T& ele, int n, ListNode<T>* p) const;
 
     // deduplicate
     int             deduplicate();
@@ -130,17 +130,14 @@ public:
 
     // sort
     void            selection_sort(ListNode<T>* p, int n);
-    ListNode<T>*   select_max(ListNode<T>* p, int n);
+    ListNode<T>*    selection_max(ListNode<T>* p, int n);
     void            insertion_sort(ListNode<T>* p , int n);
 
 
 protected:
-
-private:
-    int     m_size;
-    ListNode<T>* header;
-    ListNode<T>* trailer;
-
+    int             m_size;
+    ListNode<T>*    header;         /**< 头哨兵节点，不存数据 */
+    ListNode<T>*    tailer;        /**< 尾哨兵节点，不存数据 */
 };
 
 
@@ -148,7 +145,7 @@ private:
 
 
 /*!
- * @brief init with null header and trailer
+ * @brief init with null header and tailer
  *
  * @param None
  * @return
@@ -158,16 +155,16 @@ template <typename T>
 List<T>::List()
 {
     this->header = new ListNode<T>;
-    this->trailer = new ListNode<T>;
-    this->header->next = this->trailer;
+    this->tailer = new ListNode<T>;
+    this->header->next = this->tailer;
     this->header->prev = nullptr;
-    this->trailer->prev = this->header;
-    this->trailer->next = nullptr;
+    this->tailer->prev = this->header;
+    this->tailer->next = nullptr;
     this->m_size = 0;
 }
 
 /*!
- * @brief clear all element except header and trailer
+ * @brief clear all element except header and tailer
  *
  * @param None
  * @return the size of list before clear
@@ -218,11 +215,17 @@ T& List<T>::operator[](int index) const
 /*!
  * @brief 查找元素
  *
- * 在p的前n个元素中查找ele
+ * <pre>
+ * 在p的前n个元素，即范围为[p-n, p)，即p-1, p-2 ... p-n；
+ *
+ * 在p的前n个元素中查找ele；
+ * 因为必定会遍历到所有的前n个元素，故find的时间复杂度为O(n)。
+ * 所以返回的结果：要么是找到元素，要么没有找到。
+ * </pre>
  *
  * @param ele : 需要查找的元素
  * @param n : ele的前n个元素范围
- * @param p : 查找的起点
+ * @param p : 查找的起点，可以为tailer
  * @return 找到则返加node，未找到则返加nullptr
  * @retval None
  */
@@ -237,12 +240,17 @@ ListNode<T>* List<T>::find(const T& ele, int n, ListNode<T>* p) const
 /*!
  * @brief 查找元素
  *
- * 在p的前n个元素中查找ele
+ * <pre>
+ * 在p的前n个元素，即范围为[p-n, p)，即p-1, p-2 ... p-n；
  *
- * @param ele : 需要查找的元素
+ * 在p的前n个元素中查找ele；
+ * 因为最后需要返回不大于ele的最大元素，故p的前n个元素必须是有序的。
+ * </pre>
+ *
+ * @param ele : 待查找的元素
  * @param n : ele的前n个元素范围
- * @param p : 查找的起点
- * @return 不大于ele的最后者元素
+ * @param p : 查找的起点，可以为tailer
+ * @return 不大于ele的最大元素，可以为header
  * @retval None
  */
 template <typename T>
@@ -282,10 +290,21 @@ int List<T>::uniquify()
 /*!
  * @brief 选择排序
  *
- * 对位于p的连续n个元素进行选择排序
+ * <pre>
+ * 在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+ * 故p不能为header，p+n可以为tailer；
  *
- * @param p : node
- * @param n : node p开始的n个元素，要求 index(p)+n <= size
+ * 对p的后n个元素进行选择排序；
+ * 排序元素包含p，故p不能为header，且排序元素也不能包含tailer；
+ *
+ * [    m       ][i          ]
+ *  ------------  -----------
+ *  待排序区间W   已排序区间S
+ *  不断的从W中选出最大者m，放入S的第一个位置i处
+ * </pre>
+ *
+ * @param p : 起始节点
+ * @param n : 节点p开始的n个元素，要求 index(p)+n <= size
  * @return
  * @retval None
  */
@@ -295,14 +314,11 @@ void List<T>::selection_sort(ListNode<T>* p, int n)
     // 待排序区间(head, tail)
     ListNode<T>* head = p->prev;
     ListNode<T>* tail = p;
-    for(int i = 0; i < n; i ++) tail = tail->next;
-
+    for(int i = 0; i < n; i ++)
+        tail = tail->next;
     while(1 < n)
     {
-        this->insert_before(
-                tail,
-                this->remove(this->select_max(head->next, n)));
-
+        this->insert_before(tail, this->remove(this->selection_max(head->next, n)));
         // 有序区间 +1
         tail = tail->prev;
         n--;
@@ -312,15 +328,20 @@ void List<T>::selection_sort(ListNode<T>* p, int n)
 /*!
  * @brief 取最大节点
  *
- * 选出从p开始的n个元素中的最大者
+ * <pre>
+ * 在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+ * 故p不能为header，p+n可以为tailer；
  *
- * @param p : node
- * @param n : node p开始的n个元素
+ * 选出从p的后n个元素中的最大者；
+ * </pre>
+ *
+ * @param p : 起始节点
+ * @param n : 节点p开始的n个元素
  * @return
  * @retval None
  */
 template <typename T>
-ListNode<T>* List<T>::select_max(ListNode<T>* p, int n)
+ListNode<T>* List<T>::selection_max(ListNode<T>* p, int n)
 {
     ListNode<T>* max = p;
     for( ListNode<T>* cur = p; 1 < n; n--)
@@ -335,10 +356,23 @@ ListNode<T>* List<T>::select_max(ListNode<T>* p, int n)
 /*!
  * @brief 插入排序
  *
- * 对位于p的连续n个元素进行插入排序
+ * <pre>
+ * 在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+ * 故p不能为header，p+n可以为tailer；
  *
- * @param p : node
- * @param n : node p开始的n个元素，要求 index(p)+n <= size
+ * 对位于p的后n个元素进行插入排序；
+ *
+ * [       i    ][e          ]
+ *  ------------  -----------
+ *  已排序区间S   待排序区间W
+ *
+ * 不断将W中第一个元素e，插入到S中位置i处；
+ * i为S中元素不大于e的最大元素的位置
+ *
+ * </pre>
+ *
+ * @param p : 起始节点
+ * @param n : 节点p开始的n个元素，要求 index(p)+n <= size
  * @return
  * @retval None
  */
@@ -355,8 +389,7 @@ void List<T>::insertion_sort(ListNode<T>* p , int n)
     }
 }
 
-// namespace dsa end
-}
+} /* dsa */
 
 
 #endif /* ifndef _LIST_H */
