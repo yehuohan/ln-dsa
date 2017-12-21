@@ -103,11 +103,17 @@ public:
     int     deduplicate();
     int     uniquify();
 
+    // 乱序unsort
+    void    unsort(int lo, int hi);
+    void    unsort(){this->unsort(0, this->m_size);}
+
     // 排序sort
     void    bubble_sort(int lo, int hi);
     int     bubble(int lo, int hi);
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
+    void    selection_sort(int lo, int hi);
+    int     selection_max(int lo, int hi);
     void    quick_sort(int lo, int hi);
     int     partition(int lo, int hi);
     void    heap_sort(int lo, int hi);
@@ -277,12 +283,14 @@ void Vector<T>::expand()
 }
 
 /*!
- * @brief find ele in [lo, hi)
+ * @brief 在[lo, hi)查找特定元素
  *
- * @param ele : what element to search
- * @param lo : range index >= lo
- * @param hi : range index < hi
- * @return index of the ele found or -1 when ele is not found
+ * 因为是遍历[lo,hi)查找，故时间复杂度为O(n)。
+ * 若找到ele，则返回下标，否则返回-1。
+ *
+ * @param ele : 待查找元素
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return
  * @retval None
  */
 template <typename T>
@@ -293,12 +301,14 @@ int Vector<T>::find(const T& ele, int lo, int hi) const
 }
 
 /*!
- * @brief binary search in [lo, hi)
+ * @brief 二分查找(binary search)
  *
- * @param ele : what element to search
- * @param lo : range index >= lo
- * @param hi : range index < hi
- * @return index of the element that <= ele
+ * 查找范围为[lo, hi)，时间复杂度为O(logn)
+ * 因为最后需要返回不大于ele的最大元素的下标，故查找区间[lo,hi)需要是有序的。
+ *
+ * @param ele : 待查找元素
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return 返回不大于ele的元素的下标
  * @retval None
  */
 template <typename T>
@@ -309,38 +319,35 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
     while(lo < hi)
     {
         // 3个分支判断，[lo, mi) or (mi, hi) or mi
+        // 没法返回不大于ele的最大元素的下标
         int mi = (lo + hi)/2;
         if (ele < this->m_array[mi]) hi = mi;
         else if (ele > this->m_array[mi]) lo = mi + 1;
         else return mi;
     }
     return -1;
-
 #elif(0)
     while(1 < hi - lo)
     {
         // 2个分支判断，[lo, mi) or [mi, hi)
+        // 没法返回不大于ele的最大元素的下标
         int mi = (lo +hi)/2;
         ele < this->m_array[mi] ? hi = mi : lo = mi;
     }
     return (ele == this->m_array[lo] ? lo : -1);
-
 #elif(1)
     while(lo < hi)
     {
+        // 2个分支判断，[lo, mi] or (mi, hi)
+        // ele < m_array[mi]  : [lo, mi)    : hi = mi
+        // ele >= m_array[mi] : [mi+1, hi） : lo = mi+1
+        // (1)可以保证 m_array[lo-1] <= ele 恒成立，
+        // (2)若ele == m_array[mi]，之后的二分，只会使hi不断减，
+        // 综合以上(1)(2)两点，所以最后返回的是 "--lo"，即返回不大于ele的最大元素的下标
         int mi = (lo + hi)/2;
         ele < this->m_array[mi] ? hi = mi : lo = mi + 1;
-        // m_array[lo] <= ele all the time and
-        // m_array[hi] > ele all the time
     }
-    // 返回不大于ele的最大元素下标
     return --lo;
-
-#else
-    return ele < this->m_array[(hi+lo)/2] ?
-        bin_search(ele, lo, (hi+lo)/2)
-        : bin_search(ele, (hi+lo)/2, hi);
-    return 0;
 #endif
 }
 
@@ -420,10 +427,23 @@ int Vector<T>::uniquify()
 
 
 /*!
+ * @brief 对[lo,hi)打乱顺序
+ *
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::unsort(int lo, int hi)
+{
+
+}
+
+
+/*!
  * @brief bubble sort between [lo, hi)(冒泡排序改进版)
  *
- * @param lo : range index >= lo
- * @param hi : range index < hi
+ * @param lo,hi : 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -436,6 +456,16 @@ void Vector<T>::bubble_sort(int lo, int hi)
     while(lo < (hi = this->bubble(lo, hi)));
 #endif
 }
+
+/*!
+ * @brief 冒泡排序实现
+ *
+ * 排序范围为[lo, hi)
+ *
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
 template <typename T>
 int Vector<T>::bubble(int lo, int hi)
 {
@@ -481,15 +511,14 @@ int Vector<T>::bubble(int lo, int hi)
  *
  * 排序范围为[lo, hi)
  *
- * @param lo : range index >= lo
- * @param hi : range index < hi
+ * @param lo,hi : 下标范围[lo, hi)
  * @return
  * @retval None
  */
 template <typename T>
 void Vector<T>::merge_sort(int lo, int hi)
 {
-    if(hi - lo < 2) return;
+    if(hi - lo < 2) return;     // 只有一个元素
     int mi = (lo + hi) / 2;
     merge_sort(lo, mi);
     merge_sort(mi, hi);
@@ -528,12 +557,57 @@ void Vector<T>::merge(int lo, int mi, int hi)
 
 
 /*!
+ * @brief 选择排序
+ *
+ * <pre>
+ * 排序范围为[lo, hi)
+ *
+ * [    m       ][i          ]
+ *  ------------  -----------
+ *  待排序区间W   已排序区间S
+ *  不断的从W中选出最大者m，放入S的第一个位置i处
+ * </pre>
+ *
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::selection_sort(int lo, int hi)
+{
+    while(lo < hi--)
+        swap(this->m_array[selection_max(lo, hi)],
+             this->m_array[hi]);
+}
+
+/*!
+ * @brief 在[lo, hi)取出最大者
+ *
+ * 为保证排序稳定性，若最大值有多个时，返回的一定是最后一个；
+ *
+ * @param lo,hi : 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+int Vector<T>::selection_max(int lo, int hi)
+{
+    int max = hi;
+    while(lo < hi--)
+    {
+        if (this->m_array[hi] > this->m_array[max])
+            max = hi;
+    }
+    return max;
+}
+
+
+/*!
  * @brief 快速排序
  *
  * 排序范围为[lo, hi)
  *
- * @param lo : range index >= lo
- * @param hi : range index < hi
+ * @param lo,hi : 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -555,7 +629,8 @@ void Vector<T>::quick_sort(int lo, int hi)
  * 轴点可选取范围为[lo, hi]，与quick_sort的约定有所不同。
  * 轴点：左侧元素[lo, mi) <= 轴点元素mi <= 右侧元素(mi, hi]
  *
- * 根据轴点的确定过程，可知快速排序前后，可能打乱相同元素间的相对顺序。
+ * 根据轴点的确定过程，可知快速排序前后，可能打乱相同元素间的相对顺序；
+ * 即快速排序是不稳定的。
  *
  * (1)基本形式
  * [p][    ][i     j][    ]
@@ -574,8 +649,7 @@ void Vector<T>::quick_sort(int lo, int hi)
  *
  * </pre>
  *
- * @param lo : range index >= lo
- * @param hi : range index <= hi
+ * @param lo,hi : 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -625,7 +699,7 @@ int Vector<T>::partition(int lo, int hi)
  *
  * </pre>
  *
- * @param [lo, hi): 待排序区间
+ * @param lo,hi : 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -640,7 +714,6 @@ void Vector<T>::heap_sort(int lo, int hi)
     //}
 }
 
-// namespace dsa end
-}
+} /* dsa */
 
 #endif /* ifndef _VECTOR_H */

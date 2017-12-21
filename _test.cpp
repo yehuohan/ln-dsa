@@ -597,10 +597,11 @@ void test_sort()
     for (int k = 0; k < vs.size(); k++)
         std::cout << std::setw(2) << vs[k] << "  ";
 
-    //vs.merge_sort(0, vs.size());
     //vs.bubble_sort(0, vs.size());
-    vs.quick_sort(0, vs.size());
-
+    //vs.merge_sort(0, vs.size());
+    vs.selection_sort(0, vs.size());
+    //vs.quick_sort(0, vs.size());
+    
     std::cout << std::endl;
     for (int k = 0; k < vs.size(); k++)
         std::cout << std::setw(2) << vs[k] << "  ";
