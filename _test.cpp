@@ -467,6 +467,14 @@ void test_redblack()
 
 void test_pq()
 {
+    dsa::PqList<int> pql;
+    pql.insert(10);
+    pql.insert(1);
+    pql.insert(9);
+    std::cout << "pql max:" << pql.get_max() << std::endl;
+    pql.del_max();
+    std::cout << "pql max:" << pql.get_max() << std::endl;
+
     dsa::PqComplHeap<unsigned int> pq;
 
     pq.insert(10);
