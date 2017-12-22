@@ -106,14 +106,14 @@ void test_list()
     lst_i.insertion_sort(lst_i.first(), lst_i.size());
 
     std::cout << "Iterator: \n";
-    dsa::List<int>::iterator iter = lst_i.begin();
+    dsa::ListIterator<int> iter = lst_i.begin();
     std::cout << *iter << std::endl;
     iter++;
     std::cout << *iter << std::endl << std::endl;
 
     std::cout << "Size: " << lst_i.size() << std::endl;
 
-    dsa::ListNode<int>* p = lst_i.first();
+    dsa::ListNodePtr<int> p = lst_i.first();
     while(p->next)
     {
         std::cout << p->data << std::endl;

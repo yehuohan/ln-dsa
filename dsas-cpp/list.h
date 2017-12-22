@@ -1,10 +1,7 @@
 //==============================================================================
 /*!
  * @file list.h
- * @brief List struct
- *
- * List implementation with some basic functions and advanced
- *         functions such as find, search, sort and so on.
+ * @brief 链表结构
  *
  * @date
  * @version
@@ -26,10 +23,23 @@ namespace dsa
  * @{
  */
 
+template <typename T> struct ListNode;
+template <typename T> class List;
+
+/*!
+ * @name 定义类型别名
+ * @{
+ */
+template <typename T>
+using ListNodePtr = dsa::ListNode<T>*;
+
+template <typename T>
+using ListIterator = typename dsa::List<T>::Iterator;
+/*! @} */
+
+
 /*!
  * @brief ListNode struct
- *
- * contain prev node and next node.
  *
  */
 template <typename T>
@@ -43,6 +53,7 @@ struct ListNode
     ListNode(T ele, ListNode<T>* p = nullptr, ListNode<T>* n = nullptr)
         :data(ele), prev(p), next(n){}
 
+    /** 插入一个prev节点 */
     ListNode<T>* insert_prev(const T& ele)
     {
         ListNode<T>* node = new ListNode(ele);
@@ -52,6 +63,8 @@ struct ListNode
         this->prev = node;
         return node;
     }
+
+    /** 插入一个next节点 */
     ListNode<T>* insert_next(const T& ele)
     {
         ListNode<T>* node = new ListNode(ele);
@@ -74,54 +87,55 @@ class List
 public:
 
 /*!
- * @brief List iterator class
+ * @brief List<T>::Iterator class
  *
  */
-    class iterator
-    {
-    public:
-        iterator(ListNode<T>* node = nullptr){this->m_cur = node;}
+class Iterator
+{
+public:
+    Iterator(ListNodePtr<T> node = nullptr){this->m_cur = node;}
 
-        T operator*(){return this->m_cur->data;}
+    T operator*(){return this->m_cur->data;}
 
-        // 前置++/--
-        iterator operator++(){this->m_cur = this->m_cur->next; return *this;}
-        iterator operator--(){this->m_cur = this->m_cur->prev; return *this;}
+    // 前置++/--
+    Iterator operator++(){this->m_cur = this->m_cur->next; return *this;}
+    Iterator operator--(){this->m_cur = this->m_cur->prev; return *this;}
 
-        // 后置++/--
-        iterator operator++(int){iterator old = *this; this->m_cur = this->m_cur->next; return old;}
-        iterator operator--(int){iterator old = *this; this->m_cur = this->m_cur->prev; return old;}
+    // 后置++/--
+    Iterator operator++(int){Iterator old = *this; this->m_cur = this->m_cur->next; return old;}
+    Iterator operator--(int){Iterator old = *this; this->m_cur = this->m_cur->prev; return old;}
 
-    private:
-        ListNode<T>* m_cur;
-    };
+private:
+    ListNodePtr<T> m_cur;
+};
 
 public:
     List();
     ~List(){ this->clear(); delete this->header; delete this->tailer;};
 
-    // basic
     int             clear();
     bool            is_empty() const {return !bool(this->m_size);}
     int             size() const {return this->m_size;}
 
-    T               remove(ListNode<T>* p);
-    iterator        begin(){return List<T>::iterator(this->first());}
-    iterator        end(){return List<T>::iterator(this->last());}
-    ListNode<T>*    first() const {return this->header->next;}
-    ListNode<T>*    last() const {return this->tailer->prev;}
-    ListNode<T>*    push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
-    ListNode<T>*    push_back(const T& ele){this->m_size++; return this->tailer->insert_prev(ele);}
+    T               remove(ListNodePtr<T> p);
+    dsa::ListIterator<T> begin(){return dsa::ListIterator<T>(this->first());}
+    dsa::ListIterator<T> end(){return dsa::ListIterator<T>(this->last());}
+    ListNodePtr<T>  first() const {return this->header->next;}
+    ListNodePtr<T>  last() const {return this->tailer->prev;}
+    ListNodePtr<T>  push_front(const T& ele){this->m_size++; return this->header->insert_next(ele);}
+    ListNodePtr<T>  push_back(const T& ele){this->m_size++; return this->tailer->insert_prev(ele);}
 
-    ListNode<T>*    insert_before(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
-    ListNode<T>*    insert_after(ListNode<T>* p, const T& ele) {this->m_size++; return p->insert_next(ele);}
+    /** 插入到节点的前面 */
+    ListNodePtr<T>  insert_before(ListNodePtr<T> p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
+    /** 插入到节点的后面 */
+    ListNodePtr<T>  insert_after(ListNodePtr<T> p, const T& ele) {this->m_size++; return p->insert_next(ele);}
 
     T& operator[](int index) const;
 
     // find
-    ListNode<T>*    find(const T& ele, int n, ListNode<T>* p) const;
+    ListNodePtr<T>  find(const T& ele, int n, ListNodePtr<T> p) const;
     // search
-    ListNode<T>*    search(const T& ele, int n, ListNode<T>* p) const;
+    ListNodePtr<T>  search(const T& ele, int n, ListNodePtr<T> p) const;
 
     // deduplicate
     int             deduplicate();
@@ -129,15 +143,16 @@ public:
     int             uniquify();
 
     // sort
-    void            selection_sort(ListNode<T>* p, int n);
-    ListNode<T>*    selection_max(ListNode<T>* p, int n);
-    void            insertion_sort(ListNode<T>* p , int n);
-
+    void            selection_sort(ListNodePtr<T> p, int n);
+    ListNodePtr<T>  select_max(ListNodePtr<T> p, int n);
+    /**< 选出整个链表的最大元素 */
+    ListNodePtr<T>  select_max(){this->select_max(this->header->next, this->m_size);}
+    void            insertion_sort(ListNodePtr<T> p , int n);
 
 protected:
     int             m_size;
-    ListNode<T>*    header;         /**< 头哨兵节点，不存数据 */
-    ListNode<T>*    tailer;        /**< 尾哨兵节点，不存数据 */
+    ListNodePtr<T>  header;         /**< 头哨兵节点，不存数据 */
+    ListNodePtr<T>  tailer;         /**< 尾哨兵节点，不存数据 */
 };
 
 
@@ -145,7 +160,7 @@ protected:
 
 
 /*!
- * @brief init with null header and tailer
+ * @brief 初始化链表
  *
  * @param None
  * @return
@@ -164,10 +179,10 @@ List<T>::List()
 }
 
 /*!
- * @brief clear all element except header and tailer
+ * @brief 清除所有节点
  *
  * @param None
- * @return the size of list before clear
+ * @return 返回被清除的节点数
  * @retval None
  */
 template <typename T>
@@ -180,14 +195,14 @@ int List<T>::clear()
 }
 
 /*!
- * @brief: remove one node
+ * @brief 删除一个节点
  *
- * @param None
- * @return the deleted element
+ * @param p: 待删除节点
+ * @return 返回被删除节点的数据
  * @retval None
  */
 template <typename T>
-T List<T>::remove(ListNode<T>* p)
+T List<T>::remove(ListNodePtr<T> p)
 {
     T data = p->data;
     p->next->prev = p->prev;
@@ -198,16 +213,16 @@ T List<T>::remove(ListNode<T>* p)
 }
 
 /*!
- * @brief: access element by operator[]
+ * @brief 重载[]运算符，实现下标索引
  *
- * @param None
- * @return the element of node
+ * @param index: 下标，范围为[0, size)
+ * @return 返回节点数据的引用
  * @retval None
  */
 template <typename T>
 T& List<T>::operator[](int index) const
 {
-    ListNode<T>* p = this->header;
+    ListNodePtr<T> p = this->header;
     while(index-- > 0) p = p->next;
     return p->data;
 }
@@ -230,7 +245,7 @@ T& List<T>::operator[](int index) const
  * @retval None
  */
 template <typename T>
-ListNode<T>* List<T>::find(const T& ele, int n, ListNode<T>* p) const
+ListNodePtr<T> List<T>::find(const T& ele, int n, ListNodePtr<T> p) const
 {
     while(n-- > 0)
         if (ele == (p = p->prev)->data) return p;
@@ -254,7 +269,7 @@ ListNode<T>* List<T>::find(const T& ele, int n, ListNode<T>* p) const
  * @retval None
  */
 template <typename T>
-ListNode<T>* List<T>::search(const T& ele, int n, ListNode<T>* p) const
+ListNodePtr<T> List<T>::search(const T& ele, int n, ListNodePtr<T> p) const
 {
     while( 0 <= n--)
     {
@@ -309,16 +324,16 @@ int List<T>::uniquify()
  * @retval None
  */
 template <typename T>
-void List<T>::selection_sort(ListNode<T>* p, int n)
+void List<T>::selection_sort(ListNodePtr<T> p, int n)
 {
     // 待排序区间(head, tail)
-    ListNode<T>* head = p->prev;
-    ListNode<T>* tail = p;
+    ListNodePtr<T> head = p->prev;
+    ListNodePtr<T> tail = p;
     for(int i = 0; i < n; i ++)
         tail = tail->next;
     while(1 < n)
     {
-        this->insert_before(tail, this->remove(this->selection_max(head->next, n)));
+        this->insert_before(tail, this->remove(this->select_max(head->next, n)));
         // 有序区间 +1
         tail = tail->prev;
         n--;
@@ -341,10 +356,10 @@ void List<T>::selection_sort(ListNode<T>* p, int n)
  * @retval None
  */
 template <typename T>
-ListNode<T>* List<T>::selection_max(ListNode<T>* p, int n)
+ListNodePtr<T> List<T>::select_max(ListNodePtr<T> p, int n)
 {
-    ListNode<T>* max = p;
-    for( ListNode<T>* cur = p; 1 < n; n--)
+    ListNodePtr<T> max = p;
+    for( ListNodePtr<T> cur = p; 1 < n; n--)
     {
         // 应该由用户提供比较函数
         if((cur=cur->next)->data >= max->data)
@@ -377,13 +392,14 @@ ListNode<T>* List<T>::selection_max(ListNode<T>* p, int n)
  * @retval None
  */
 template <typename T>
-void List<T>::insertion_sort(ListNode<T>* p , int n)
+void List<T>::insertion_sort(ListNodePtr<T> p , int n)
 {
     for(int r = 0; r < n; r++)
     {
         // search返回不大于p->data的位置
         // r之前的为有序区间，r之后的为待排序区间
         this->insert_after(this->search(p->data, r, p), p->data);
+        // p已经插入到区间S中，所以p在指下next节点前，要删除原来在区间W中的节点p
         p = p->next;
         this->remove(p->prev);
     }
