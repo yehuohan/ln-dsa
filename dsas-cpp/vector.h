@@ -444,7 +444,9 @@ void Vector<T>::unsort(int lo, int hi)
 
 
 /*!
- * @brief bubble sort between [lo, hi)(冒泡排序改进版)
+ * @brief 冒泡排序改进版
+ *
+ * 排序范围为[lo, hi)
  *
  * @param lo,hi : 下标范围[lo, hi)
  * @return
@@ -456,14 +458,52 @@ void Vector<T>::bubble_sort(int lo, int hi)
 #if(0)
     while(!this->bubble(lo, hi--));
 #else
-    while(lo < (hi = this->bubble(lo, hi)));
+    while(lo < hi) hi = this->bubble(lo, hi);
+
+    // 改进版二的直接实现
+#if(0)
+    while(lo < hi)
+    {
+        int last = lo;
+        int first = lo;
+        while (++first < hi)
+        {
+            if (this->m_array[first-1] > this->m_array[first])
+            {
+                last = first;
+                dsa::swap(this->m_array[first-1], this->m_array[first]);
+            }
+        }
+        hi = last;
+    }
+#endif
 #endif
 }
 
 /*!
  * @brief 冒泡排序实现
  *
- * 排序范围为[lo, hi)
+ * <pre>
+ *
+ * (1)改进版一
+ *  lo            hi
+ * [            ][          ]
+ *  ------------  ---------
+ *  待排序区间W   已排序区间S
+ * bubble_sort(lo,hi) : 不断的对[lo,hi)排序，扩大S区间
+ * bubble(lo,hi)      : 将W中最大元素交换至S中，同时判判W是否为一个有序序列；
+ *                      若W已经为一个有序序列，则排序完成。
+ *
+ * (2)改进版二
+ *  lo            hi
+ * [     k      ][          ]
+ *  ------------  ---------
+ *  待排序区间W   已排序区间S
+ * bubble_sort(lo,hi) : 不断的对[lo,hi)排序，扩大S区间
+ * bubble(lo,hi)      : 将W中最大元素交换至S中，同时判断W的尾部是否有序；
+ *                      若W的[k,hi)已经有序，则下一次对[lo, hi=k)进行排序；
+ *                      若k与lo相同，则与改进版一的情况相同。
+ * </pre>
  *
  * @param lo,hi : 下标范围[lo, hi)
  * @return
@@ -474,17 +514,13 @@ int Vector<T>::bubble(int lo, int hi)
 {
 /* 改进版一 */
 #if(0)
-    // stop continue sorting if [lo, hi] was sorted
     int sorted = 1;
     while(++lo < hi)
     {
-        if(this->m_array[lo-1] > this->m_array[lo])
+        if(this->m_array[lo] < this->m_array[lo-1])
         {
             sorted = 0;
-            // the max will be swaped to the position of hi
-            T tmp = this->m_array[lo - 1];
-            this->m_array[lo - 1] = this->m_array[lo];
-            this->m_array[lo] = tmp;
+            dsa::swap(this->m_array[lo-1], this->m_array[lo]);
         }
     }
     return sorted;
@@ -494,14 +530,11 @@ int Vector<T>::bubble(int lo, int hi)
     int last = lo;
     while(++lo < hi)
     {
-        if(this->m_array[lo - 1] > this->m_array[lo])
+        if(this->m_array[lo] < this->m_array[lo-1])
         {
             // last是右侧已排好序区间的左侧下标
             last = lo;
-            // the max will be swaped to the position of hi
-            T tmp = this->m_array[lo - 1];
-            this->m_array[lo - 1] = this->m_array[lo];
-            this->m_array[lo] = tmp;
+            dsa::swap(this->m_array[lo-1], this->m_array[lo]);
         }
     }
     return last;
