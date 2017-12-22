@@ -17,6 +17,7 @@
 #define _VECTOR_H
 
 #include "share/swap.h"
+#include "share/rand.h"
 //#include "pq_complete_heap.h"
 
 namespace dsa
@@ -436,7 +437,9 @@ int Vector<T>::uniquify()
 template <typename T>
 void Vector<T>::unsort(int lo, int hi)
 {
-
+    T* v = this->m_array + lo;      // v的下标范围为[0, hi-lo)
+    for (int k = hi - lo; k > 0; k--)
+        dsa::swap(v[k-1], v[dsa::rand(k)]);
 }
 
 

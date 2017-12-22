@@ -588,11 +588,9 @@ void test_string()
 void test_sort()
 {
     dsa::Vector<int> vs;
-    vs.push_back(10); vs.push_back(8) ; vs.push_back(12);
-    vs.push_back(72); vs.push_back(28); vs.push_back(1) ;
-    vs.push_back(19); vs.push_back(31); vs.push_back(25);
-    vs.push_back(65); vs.push_back(51); vs.push_back(87);
-    vs.push_back(65); vs.push_back(51); vs.push_back(87);
+    for (int k = 0; k < 12; k++)
+        vs.push_back(k+1);
+    vs.unsort();
 
     for (int k = 0; k < vs.size(); k++)
         std::cout << std::setw(2) << vs[k] << "  ";

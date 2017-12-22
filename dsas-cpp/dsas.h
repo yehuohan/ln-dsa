@@ -191,5 +191,6 @@ DSAS是数据结构与算法的学习过程。
 #include "share/swap.h"
 #include "share/majority.h"
 #include "share/quick_select.h"
+#include "share/rand.h"
 
 #endif /* ifndef _DSAS_H */
