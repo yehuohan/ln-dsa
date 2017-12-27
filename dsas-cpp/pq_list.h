@@ -39,17 +39,14 @@ class PqList : public dsa::PQ<T>, public dsa::List<T>
 {
 public:
     PqList() : dsa::PQ<T>(), dsa::List<T>() {}
-    PqList(const T* A, int n) : dsa::PQ<T>(), dsa::List<T>()
-    {
-        while(n-- > 0) this->push_front(A[n]);
-    }
+    PqList(const T* A, int n) : dsa::PQ<T>(), dsa::List<T>() {while(n-- > 0) this->push_front(A[n]);}
 
     /** 使用List的push_back实现插入，时间复杂弃O(1) */
     void insert(const T& ele) {this->push_back(ele);}
-    /** 使用List的selection_max，时间复杂度O(n) */
-    T get_max() {return this->selection_max()->data;}
-    /** 使用List的selection_max，再remove，时间复杂度O(n)+O(1) */
-    T del_max() {return this->remove(this->selection_max());}
+    /** 使用List的select_max，时间复杂度O(n) */
+    T get_max() {return this->select_max()->data;}
+    /** 使用List的select_max，再remove，时间复杂度O(n)+O(1) */
+    T del_max() {return this->remove(this->select_max());}
 };
     
 /*! @} */

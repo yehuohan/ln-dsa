@@ -503,7 +503,6 @@ void test_pq()
     std::cout << "pql max:" << pql.get_max() << std::endl;
 
     dsa::PqComplHeap<unsigned int> pq;
-
     pq.insert(10);
     pq.insert(18);
     pq.insert(38);
