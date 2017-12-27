@@ -60,7 +60,7 @@ class ArrayQueue
 {
 public:
     ArrayQueue(int cap) : m_capacity(cap), m_head(0), m_tail(-1) {this->m_array = new T[cap];};
-    ~ArrayQueue() {delete this->m_array;};
+    ~ArrayQueue() {delete[] this->m_array;};
 
     /** 返回元素数量 */
     int     size() {return (this->m_tail - this->m_head + 1);}
