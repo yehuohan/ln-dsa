@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -81,19 +87,19 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a019246cc357499a7c6c2e1ad236adb37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a019246cc357499a7c6c2e1ad236adb37">BTNode</a> ()</td></tr>
 <tr class="memdesc:a019246cc357499a7c6c2e1ad236adb37"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#a019246cc357499a7c6c2e1ad236adb37">更多...</a><br /></td></tr>
 <tr class="separator:a019246cc357499a7c6c2e1ad236adb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa45c1709832ab81028f24b0df5bcdfea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#aa45c1709832ab81028f24b0df5bcdfea">BTNode</a> (const T &amp;e, <a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *lc=nullptr, <a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *rc=nullptr)</td></tr>
-<tr class="memdesc:aa45c1709832ab81028f24b0df5bcdfea"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#aa45c1709832ab81028f24b0df5bcdfea">更多...</a><br /></td></tr>
-<tr class="separator:aa45c1709832ab81028f24b0df5bcdfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659947f1d334dfd4b8eeb698a17531e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a659947f1d334dfd4b8eeb698a17531e8">BTNode</a> (const T &amp;e, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; lc=nullptr, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; rc=nullptr)</td></tr>
+<tr class="memdesc:a659947f1d334dfd4b8eeb698a17531e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#a659947f1d334dfd4b8eeb698a17531e8">更多...</a><br /></td></tr>
+<tr class="separator:a659947f1d334dfd4b8eeb698a17531e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:a6aa7d2ef4d7c43ab1fa0e621ed600ea9"><td class="memItemLeft" align="right" valign="top"><a id="a6aa7d2ef4d7c43ab1fa0e621ed600ea9"></a>
-<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
-<tr class="separator:a6aa7d2ef4d7c43ab1fa0e621ed600ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f18aa6413c1cb9906e30cb889619be3"><td class="memItemLeft" align="right" valign="top"><a id="a5f18aa6413c1cb9906e30cb889619be3"></a>
+<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
+<tr class="separator:a5f18aa6413c1cb9906e30cb889619be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a093625508844335ce6bb06b8f32df779"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a093625508844335ce6bb06b8f32df779">key</a></td></tr>
 <tr class="separator:a093625508844335ce6bb06b8f32df779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b9f33ce5e6b6144559d005beb938fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#af4b9f33ce5e6b6144559d005beb938fc">child</a></td></tr>
-<tr class="separator:af4b9f33ce5e6b6144559d005beb938fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5629005d8510f2ce69b18e3d54700c07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a5629005d8510f2ce69b18e3d54700c07">child</a></td></tr>
+<tr class="separator:a5629005d8510f2ce69b18e3d54700c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -151,8 +157,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="aa45c1709832ab81028f24b0df5bcdfea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa45c1709832ab81028f24b0df5bcdfea">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[2/2]</span></h2>
+<a id="a659947f1d334dfd4b8eeb698a17531e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659947f1d334dfd4b8eeb698a17531e8">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,13 +177,13 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>lc</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>rc</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -212,8 +218,8 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
-<a id="af4b9f33ce5e6b6144559d005beb938fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4b9f33ce5e6b6144559d005beb938fc">&#9670;&nbsp;</a></span>child</h2>
+<a id="a5629005d8510f2ce69b18e3d54700c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5629005d8510f2ce69b18e3d54700c07">&#9670;&nbsp;</a></span>child</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +227,7 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt;<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt;T&gt;*&gt; <a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt;::child</td>
+          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt;<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt;T&gt; &gt; <a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt;::child</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -247,7 +253,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>该结构体的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="b__node_8h_source.html">b_node.h</a></li>
+<li>dsas-cpp/<a class="el" href="b__node_8h_source.html">b_node.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

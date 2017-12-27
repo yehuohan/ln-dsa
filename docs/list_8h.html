@@ -5,13 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: dsas-src/list.h 文件参考</title>
+<title>DSAS: dsas-cpp/list.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -58,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_86ca03496c3367737f13231e04e93fdd.html">dsas-src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,9 +75,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>List struct  
+<p>链表结构  
 <a href="#details">更多...</a></p>
-
+<div class="textblock"><code>#include &quot;<a class="el" href="swap_8h_source.html">share/swap.h</a>&quot;</code><br />
+</div>
 <p><a href="list_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -82,13 +89,30 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html">dsa::List&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdsa_1_1_list.html" title="List class ">List</a> class  <a href="classdsa_1_1_list.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list_1_1iterator.html">dsa::List&lt; T &gt;::iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdsa_1_1_list.html" title="List class ">List</a> iterator class  <a href="classdsa_1_1_list_1_1iterator.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_list_node.html">dsa::ListNode&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structdsa_1_1_list_node.html" title="ListNode struct ">ListNode</a> struct  <a href="structdsa_1_1_list_node.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html">dsa::List&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdsa_1_1_list.html" title="List class ">List</a> class  <a href="classdsa_1_1_list.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list_1_1_iterator.html">dsa::List&lt; T &gt;::Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;T&gt;::Iterator class  <a href="classdsa_1_1_list_1_1_iterator.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">定义类型别名</div></td></tr>
+<tr class="memitem:ga498f260e0a97813ee6c789ae56f11eca"><td class="memTemplParams" colspan="2">
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga498f260e0a97813ee6c789ae56f11eca"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::ListNodePtr</b> = <a class="el" href="structdsa_1_1_list_node.html">dsa::ListNode</a>&lt; T &gt; *</td></tr>
+<tr class="separator:ga498f260e0a97813ee6c789ae56f11eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memTemplParams" colspan="2">
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::ListIterator</b> = typename <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::Iterator</td></tr>
+<tr class="separator:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>List struct </p>
-<p>List implementation with some basic functions and advanced functions such as find, search, sort and so on.</p>
+<div class="textblock"><p>链表结构 </p>
 <dl class="section date"><dt>日期</dt><dd></dd></dl>
 <dl class="section version"><dt>版本</dt><dd></dd></dl>
 <dl class="section author"><dt>作者</dt><dd></dd></dl>

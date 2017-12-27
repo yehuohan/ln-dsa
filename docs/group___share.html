@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -59,7 +65,8 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle">
 <div class="title">Share Data and Struct</div>  </div>
 </div><!--header-->
@@ -70,9 +77,312 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry&lt; K, V &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">词条类，实现元素的比较  <a href="structdsa_1_1_entry.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga30f96dc2e76e3fe64a5b4efc3f7c874e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga30f96dc2e76e3fe64a5b4efc3f7c874e"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e">dsa::majority</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;vec, T &amp;maj)</td></tr>
+<tr class="separator:ga30f96dc2e76e3fe64a5b4efc3f7c874e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace06e8353c66fdd16aa3fb5f756d949e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gace06e8353c66fdd16aa3fb5f756d949e"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">dsa::is_majority</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;vec, const T &amp;maj)</td></tr>
+<tr class="memdesc:gace06e8353c66fdd16aa3fb5f756d949e"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否为众数  <a href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">更多...</a><br /></td></tr>
+<tr class="separator:gace06e8353c66fdd16aa3fb5f756d949e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae24fb0c55d7269f34833fe3fcb854b70"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae24fb0c55d7269f34833fe3fcb854b70"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">dsa::maj_candidate</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;vec)</td></tr>
+<tr class="separator:gae24fb0c55d7269f34833fe3fcb854b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2239f0affff0d7da6347bd1b3bc4d1d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf2239f0affff0d7da6347bd1b3bc4d1d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#gaf2239f0affff0d7da6347bd1b3bc4d1d">dsa::quick_select</a> (<a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; vec, int k)</td></tr>
+<tr class="memdesc:gaf2239f0affff0d7da6347bd1b3bc4d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">选取第k大小的元素  <a href="group___share.html#gaf2239f0affff0d7da6347bd1b3bc4d1d">更多...</a><br /></td></tr>
+<tr class="separator:gaf2239f0affff0d7da6347bd1b3bc4d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacba752a0e03cb89109c7a60c426a72c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">dsa::rand_n</a> (int N)</td></tr>
+<tr class="memdesc:gacba752a0e03cb89109c7a60c426a72c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">返一个位于[0,n)随机数  <a href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">更多...</a><br /></td></tr>
+<tr class="separator:gacba752a0e03cb89109c7a60c426a72c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2aae71235e2c01179097f0e3a7720857"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga2aae71235e2c01179097f0e3a7720857"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga2aae71235e2c01179097f0e3a7720857">dsa::swap</a> (T &amp;a, T &amp;b)</td></tr>
+<tr class="memdesc:ga2aae71235e2c01179097f0e3a7720857"><td class="mdescLeft">&#160;</td><td class="mdescRight">交换函数  <a href="group___share.html#ga2aae71235e2c01179097f0e3a7720857">更多...</a><br /></td></tr>
+<tr class="separator:ga2aae71235e2c01179097f0e3a7720857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>共享类和数据 </p>
+<h2 class="groupheader">函数说明</h2>
+<a id="gace06e8353c66fdd16aa3fb5f756d949e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gace06e8353c66fdd16aa3fb5f756d949e">&#9670;&nbsp;</a></span>is_majority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool dsa::is_majority </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>maj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断是否为众数 </p>
+<p>只需要判断一个元素的出现次数的2倍，是否大于了总元素数</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>无序向量序列 </td></tr>
+    <tr><td class="paramname">maj</td><td>待判断的元素 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae24fb0c55d7269f34833fe3fcb854b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae24fb0c55d7269f34833fe3fcb854b70">&#9670;&nbsp;</a></span>maj_candidate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T dsa::maj_candidate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre></pre><pre>O(n)的时间复杂度。</pre><pre>若在向量A中，元素m出现的次数大于一半，即众数为元素m：
+[mmmmmmmm][*****]</pre><pre>(1)无论m和*顺序如何，对任意一个前缀P，取任一个元素进行比较操作，当某个元素x正好占一半时，
+若x==m: 则A-P中，m必定仍仍然大于一半。
+若x!=m: 则A-P中，m必定更加的大于一半。
+[ P  ][   A-P   ]
+剪除P后，对A-P继续进行比较操作，当遍历所元素后，
+最终会得到一个出现次数大于一半的元素x，且必定是众数m。</pre><pre>(2)若在向量A中，没有众数，相同的操作也会得出一个元素x。</pre><pre>所以，对于最后得到的元素x，还需要验证是否为众数。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>无序向量序列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga30f96dc2e76e3fe64a5b4efc3f7c874e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30f96dc2e76e3fe64a5b4efc3f7c874e">&#9670;&nbsp;</a></span>majority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::majority </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>maj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre>
+众数：无序向量中，若有一半以上的元素相同，则称之为众数。
+频繁数：无序向量中，出现次数最多的元素</pre><pre>算法时间复杂度：
+maj_candidate = O(n)
+is_majority   = O(n)</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>无序向量序列 </td></tr>
+    <tr><td class="paramname">maj</td><td>若有众数，则被赋值为众数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf2239f0affff0d7da6347bd1b3bc4d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2239f0affff0d7da6347bd1b3bc4d1d">&#9670;&nbsp;</a></span>quick_select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T dsa::quick_select </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>选取第k大小的元素 </p>
+<p>第k大小的元素，即为有序向量下标为k的元素。 根据快速排序的算法进行构造，迭代的查找轴点，直至轴点下标为k。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>在向量vec中查找第k大小的元素 </td></tr>
+    <tr><td class="paramname">k</td><td>指第k大小的元素，0 &lt;= k &lt; vec.size() </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacba752a0e03cb89109c7a60c426a72c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacba752a0e03cb89109c7a60c426a72c4">&#9670;&nbsp;</a></span>rand_n()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::rand_n </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>N</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>返一个位于[0,n)随机数 </p>
+<p>随机数范围[0, N)；</p>
+<p>这里使用std::rand()来生成随机数，故N的值不能超过std::rand()的范围。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>取模值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2aae71235e2c01179097f0e3a7720857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2aae71235e2c01179097f0e3a7720857">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::swap </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>交换函数 </p>
+<p>交换对像必须有正确的拷贝构造函数</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a,b</td><td>交换对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

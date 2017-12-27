@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -107,7 +113,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>index</b> ()</td></tr
 <p>串</p>
 <p>相等： S[0,n) = T[0,m) 长度相等，且对应的字符相同 子串： substr(i,k) = S[i, i+k), 0&lt;= i &lt; n, 0 &lt;= k 从S[i]起的连续k个字符 前缀： prifix(k) = substr(0,k) = S[0,k), 0 &lt;= k &lt;= n 最靠前k个字符 后缀： suffix(k) = substr(n-k, k) = S[n-k, n), 0 &lt;= k &lt;= n 最靠后的k个字符 空串： S[0, n=0) </p>
 </div><hr/>该类的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="string_8h_source.html">string.h</a></li>
+<li>dsas-cpp/<a class="el" href="string_8h_source.html">string.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

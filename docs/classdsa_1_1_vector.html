@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -78,68 +84,61 @@ $(function() {
   <img src="classdsa_1_1_vector.png" usemap="#dsa::Vector_3C_20T_20_3E_map" alt=""/>
   <map id="dsa::Vector_3C_20T_20_3E_map" name="dsa::Vector_3C_20T_20_3E_map">
 <area href="classdsa_1_1_pq_compl_heap.html" title="完全二叉堆模板类 " alt="dsa::PqComplHeap&lt; T &gt;" shape="rect" coords="0,56,148,80"/>
-<area href="classdsa_1_1_stack.html" title="Stack class " alt="dsa::Stack&lt; T &gt;" shape="rect" coords="158,56,306,80"/>
+<area href="classdsa_1_1_stack.html" title="栈 " alt="dsa::Stack&lt; T &gt;" shape="rect" coords="158,56,306,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ade2f26f0e49ba836bbaf14dbb6a690a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ade2f26f0e49ba836bbaf14dbb6a690a5">Vector</a> ()</td></tr>
-<tr class="memdesc:ade2f26f0e49ba836bbaf14dbb6a690a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector构造函数  <a href="#ade2f26f0e49ba836bbaf14dbb6a690a5">更多...</a><br /></td></tr>
-<tr class="separator:ade2f26f0e49ba836bbaf14dbb6a690a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4d88dc26bf744680cabe207dc2f3b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a8e4d88dc26bf744680cabe207dc2f3b4">Vector</a> (int size, int capacity, const T &amp;ele)</td></tr>
-<tr class="memdesc:a8e4d88dc26bf744680cabe207dc2f3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector构造函数 初始化数据内容均为ele  <a href="#a8e4d88dc26bf744680cabe207dc2f3b4">更多...</a><br /></td></tr>
+<tr class="memitem:a8e4d88dc26bf744680cabe207dc2f3b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a8e4d88dc26bf744680cabe207dc2f3b4">Vector</a> (int <a class="el" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a>, int capacity, const T &amp;ele)</td></tr>
+<tr class="memdesc:a8e4d88dc26bf744680cabe207dc2f3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector构造函数  <a href="#a8e4d88dc26bf744680cabe207dc2f3b4">更多...</a><br /></td></tr>
 <tr class="separator:a8e4d88dc26bf744680cabe207dc2f3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee05de14f4c160ce2c5bc677ab4ab736"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#aee05de14f4c160ce2c5bc677ab4ab736">Vector</a> (const <a class="el" href="classdsa_1_1_vector.html">Vector</a>&lt; T &gt; &amp;V)</td></tr>
 <tr class="memdesc:aee05de14f4c160ce2c5bc677ab4ab736"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝构造函数  <a href="#aee05de14f4c160ce2c5bc677ab4ab736">更多...</a><br /></td></tr>
 <tr class="separator:aee05de14f4c160ce2c5bc677ab4ab736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d603813dd922790af6a110f5faed64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#aa9d603813dd922790af6a110f5faed64">Vector</a> (const <a class="el" href="classdsa_1_1_vector.html">Vector</a>&lt; T &gt; &amp;V, int lo, int hi)</td></tr>
+<tr class="memdesc:aa9d603813dd922790af6a110f5faed64"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝构造函数  <a href="#aa9d603813dd922790af6a110f5faed64">更多...</a><br /></td></tr>
+<tr class="separator:aa9d603813dd922790af6a110f5faed64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19cad78a46f186d1ced8ad72b10e24b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a19cad78a46f186d1ced8ad72b10e24b1">clear</a> ()</td></tr>
+<tr class="separator:a19cad78a46f186d1ced8ad72b10e24b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a380d702b235dccf64943ad7210ae3542"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a380d702b235dccf64943ad7210ae3542">is_empty</a> () const</td></tr>
+<tr class="separator:a380d702b235dccf64943ad7210ae3542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678a27dbc03f408f1e10a327f0c3fb94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a> () const</td></tr>
+<tr class="separator:a678a27dbc03f408f1e10a327f0c3fb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d160ec887db5aa7e8fc301a10c06f70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a0d160ec887db5aa7e8fc301a10c06f70">push_front</a> (const T &amp;ele)</td></tr>
-<tr class="memdesc:a0d160ec887db5aa7e8fc301a10c06f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert element to the front(first) position.  <a href="#a0d160ec887db5aa7e8fc301a10c06f70">更多...</a><br /></td></tr>
+<tr class="memdesc:a0d160ec887db5aa7e8fc301a10c06f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入元素到最前面  <a href="#a0d160ec887db5aa7e8fc301a10c06f70">更多...</a><br /></td></tr>
 <tr class="separator:a0d160ec887db5aa7e8fc301a10c06f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae40586e13d877c3dff0a63bfd07f260b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ae40586e13d877c3dff0a63bfd07f260b">push_back</a> (const T &amp;ele)</td></tr>
-<tr class="memdesc:ae40586e13d877c3dff0a63bfd07f260b"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert element from the back of vector  <a href="#ae40586e13d877c3dff0a63bfd07f260b">更多...</a><br /></td></tr>
+<tr class="memdesc:ae40586e13d877c3dff0a63bfd07f260b"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入元素到最后面  <a href="#ae40586e13d877c3dff0a63bfd07f260b">更多...</a><br /></td></tr>
 <tr class="separator:ae40586e13d877c3dff0a63bfd07f260b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd9a59b0207782fddf9aa3e6b58d583b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#acd9a59b0207782fddf9aa3e6b58d583b">insert</a> (int index, const T &amp;ele)</td></tr>
-<tr class="memdesc:acd9a59b0207782fddf9aa3e6b58d583b"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert element  <a href="#acd9a59b0207782fddf9aa3e6b58d583b">更多...</a><br /></td></tr>
+<tr class="memdesc:acd9a59b0207782fddf9aa3e6b58d583b"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入元素到指定下标位置  <a href="#acd9a59b0207782fddf9aa3e6b58d583b">更多...</a><br /></td></tr>
 <tr class="separator:acd9a59b0207782fddf9aa3e6b58d583b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ab16c56c8d4e3e1a9c59a5a42d045e9b0">remove</a> (int index)</td></tr>
-<tr class="memdesc:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove element in index  <a href="#ab16c56c8d4e3e1a9c59a5a42d045e9b0">更多...</a><br /></td></tr>
+<tr class="memdesc:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除指定下标的元素  <a href="#ab16c56c8d4e3e1a9c59a5a42d045e9b0">更多...</a><br /></td></tr>
 <tr class="separator:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b75b9323068d2df1d343f0ccd510c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ad6b75b9323068d2df1d343f0ccd510c1">remove</a> (int lo, int hi)</td></tr>
-<tr class="memdesc:ad6b75b9323068d2df1d343f0ccd510c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete interval [lo, hi)  <a href="#ad6b75b9323068d2df1d343f0ccd510c1">更多...</a><br /></td></tr>
+<tr class="memdesc:ad6b75b9323068d2df1d343f0ccd510c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除下标在范围[lo,hi)的所有元素  <a href="#ad6b75b9323068d2df1d343f0ccd510c1">更多...</a><br /></td></tr>
 <tr class="separator:ad6b75b9323068d2df1d343f0ccd510c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19cad78a46f186d1ced8ad72b10e24b1"><td class="memItemLeft" align="right" valign="top"><a id="a19cad78a46f186d1ced8ad72b10e24b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr class="separator:a19cad78a46f186d1ced8ad72b10e24b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a380d702b235dccf64943ad7210ae3542"><td class="memItemLeft" align="right" valign="top"><a id="a380d702b235dccf64943ad7210ae3542"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
-<tr class="separator:a380d702b235dccf64943ad7210ae3542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c3c274672d7a9317f887a315bfe1d0d"><td class="memItemLeft" align="right" valign="top"><a id="a6c3c274672d7a9317f887a315bfe1d0d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
-<tr class="separator:a6c3c274672d7a9317f887a315bfe1d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8c89a11e3c4e476ce9fb788d9dee0a6"><td class="memItemLeft" align="right" valign="top"><a id="ae8c89a11e3c4e476ce9fb788d9dee0a6"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index) const</td></tr>
+<tr class="memitem:ae8c89a11e3c4e476ce9fb788d9dee0a6"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ae8c89a11e3c4e476ce9fb788d9dee0a6">operator[]</a> (int index) const</td></tr>
 <tr class="separator:ae8c89a11e3c4e476ce9fb788d9dee0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5f82b18c10c168deb846dd087004495"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ae5f82b18c10c168deb846dd087004495">operator=</a> (const <a class="el" href="classdsa_1_1_vector.html">Vector</a>&lt; T &gt; &amp;V)</td></tr>
-<tr class="memdesc:ae5f82b18c10c168deb846dd087004495"><td class="mdescLeft">&#160;</td><td class="mdescRight">overload operator =  <a href="#ae5f82b18c10c168deb846dd087004495">更多...</a><br /></td></tr>
+<tr class="memdesc:ae5f82b18c10c168deb846dd087004495"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写operator=  <a href="#ae5f82b18c10c168deb846dd087004495">更多...</a><br /></td></tr>
 <tr class="separator:ae5f82b18c10c168deb846dd087004495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2badb6737264ecc43e68a08417be21ac"><td class="memItemLeft" align="right" valign="top"><a id="a2badb6737264ecc43e68a08417be21ac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (const T &amp;ele) const</td></tr>
+<tr class="memitem:a2badb6737264ecc43e68a08417be21ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a2badb6737264ecc43e68a08417be21ac">find</a> (const T &amp;ele) const</td></tr>
 <tr class="separator:a2badb6737264ecc43e68a08417be21ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea2e424841fa058b63e892424634c3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a5ea2e424841fa058b63e892424634c3b">find</a> (const T &amp;ele, int lo, int hi) const</td></tr>
-<tr class="memdesc:a5ea2e424841fa058b63e892424634c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">find ele in [lo, hi)  <a href="#a5ea2e424841fa058b63e892424634c3b">更多...</a><br /></td></tr>
+<tr class="memdesc:a5ea2e424841fa058b63e892424634c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">在[lo, hi)查找特定元素  <a href="#a5ea2e424841fa058b63e892424634c3b">更多...</a><br /></td></tr>
 <tr class="separator:a5ea2e424841fa058b63e892424634c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b175876a4e75e18fe1123cebf818f4c"><td class="memItemLeft" align="right" valign="top"><a id="a6b175876a4e75e18fe1123cebf818f4c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>search</b> (const T &amp;ele) const</td></tr>
+<tr class="memitem:a6b175876a4e75e18fe1123cebf818f4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a6b175876a4e75e18fe1123cebf818f4c">search</a> (const T &amp;ele) const</td></tr>
 <tr class="separator:a6b175876a4e75e18fe1123cebf818f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff4c89ac93d12c1cfa7e91673298d2b1"><td class="memItemLeft" align="right" valign="top"><a id="aff4c89ac93d12c1cfa7e91673298d2b1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>search</b> (const T &amp;ele, int lo, int hi) const</td></tr>
+<tr class="memitem:aff4c89ac93d12c1cfa7e91673298d2b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#aff4c89ac93d12c1cfa7e91673298d2b1">search</a> (const T &amp;ele, int lo, int hi) const</td></tr>
 <tr class="separator:aff4c89ac93d12c1cfa7e91673298d2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb12eb5886407b8080df64fdf710e87c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#acb12eb5886407b8080df64fdf710e87c">bin_search</a> (const T &amp;ele, int lo, int hi) const</td></tr>
-<tr class="memdesc:acb12eb5886407b8080df64fdf710e87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">binary search in [lo, hi)  <a href="#acb12eb5886407b8080df64fdf710e87c">更多...</a><br /></td></tr>
+<tr class="memdesc:acb12eb5886407b8080df64fdf710e87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">二分查找(binary search)  <a href="#acb12eb5886407b8080df64fdf710e87c">更多...</a><br /></td></tr>
 <tr class="separator:acb12eb5886407b8080df64fdf710e87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1ab670c7e3944524fc7ab673f315408"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#af1ab670c7e3944524fc7ab673f315408">fib_search</a> (const T &amp;ele, int lo, int hi) const</td></tr>
-<tr class="memdesc:af1ab670c7e3944524fc7ab673f315408"><td class="mdescLeft">&#160;</td><td class="mdescRight">fibonacci search in [lo, hi)  <a href="#af1ab670c7e3944524fc7ab673f315408">更多...</a><br /></td></tr>
+<tr class="memdesc:af1ab670c7e3944524fc7ab673f315408"><td class="mdescLeft">&#160;</td><td class="mdescRight">fibonacci查找  <a href="#af1ab670c7e3944524fc7ab673f315408">更多...</a><br /></td></tr>
 <tr class="separator:af1ab670c7e3944524fc7ab673f315408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2385dfd3c0bc60627968b757ed34f6f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a2385dfd3c0bc60627968b757ed34f6f3">deduplicate</a> ()</td></tr>
 <tr class="memdesc:a2385dfd3c0bc60627968b757ed34f6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">无序向量去重  <a href="#a2385dfd3c0bc60627968b757ed34f6f3">更多...</a><br /></td></tr>
@@ -147,99 +146,77 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>search</b> (const T &a
 <tr class="memitem:adc02312d583722622cba4de9c73fd1fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#adc02312d583722622cba4de9c73fd1fe">uniquify</a> ()</td></tr>
 <tr class="memdesc:adc02312d583722622cba4de9c73fd1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">有序向量去重  <a href="#adc02312d583722622cba4de9c73fd1fe">更多...</a><br /></td></tr>
 <tr class="separator:adc02312d583722622cba4de9c73fd1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af8ee3c6b577b0b9e1de9d27e26a168"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a8af8ee3c6b577b0b9e1de9d27e26a168">unsort</a> ()</td></tr>
+<tr class="separator:a8af8ee3c6b577b0b9e1de9d27e26a168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1982049bea5e3a061d00123f7eb24e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#abd1982049bea5e3a061d00123f7eb24e">unsort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:abd1982049bea5e3a061d00123f7eb24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">对[lo,hi)打乱顺序  <a href="#abd1982049bea5e3a061d00123f7eb24e">更多...</a><br /></td></tr>
+<tr class="separator:abd1982049bea5e3a061d00123f7eb24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1a5172e3d5191b78a1c52bf3009d0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#adb1a5172e3d5191b78a1c52bf3009d0a">sort</a> ()</td></tr>
+<tr class="separator:adb1a5172e3d5191b78a1c52bf3009d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a036faa29f2c02db2fcaa39c576a7d95f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a036faa29f2c02db2fcaa39c576a7d95f">bubble_sort</a> (int lo, int hi)</td></tr>
-<tr class="memdesc:a036faa29f2c02db2fcaa39c576a7d95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">bubble sort between [lo, hi)(冒泡排序改进版)  <a href="#a036faa29f2c02db2fcaa39c576a7d95f">更多...</a><br /></td></tr>
+<tr class="memdesc:a036faa29f2c02db2fcaa39c576a7d95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">冒泡排序改进版  <a href="#a036faa29f2c02db2fcaa39c576a7d95f">更多...</a><br /></td></tr>
 <tr class="separator:a036faa29f2c02db2fcaa39c576a7d95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab66124774aa869708b012d1ffde4ce12"><td class="memItemLeft" align="right" valign="top"><a id="ab66124774aa869708b012d1ffde4ce12"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>bubble</b> (int lo, int hi)</td></tr>
+<tr class="memitem:ab66124774aa869708b012d1ffde4ce12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ab66124774aa869708b012d1ffde4ce12">bubble</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:ab66124774aa869708b012d1ffde4ce12"><td class="mdescLeft">&#160;</td><td class="mdescRight">冒泡排序实现  <a href="#ab66124774aa869708b012d1ffde4ce12">更多...</a><br /></td></tr>
 <tr class="separator:ab66124774aa869708b012d1ffde4ce12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65701e2930f81d4b548048756eb70642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a65701e2930f81d4b548048756eb70642">merge_sort</a> (int lo, int hi)</td></tr>
 <tr class="memdesc:a65701e2930f81d4b548048756eb70642"><td class="mdescLeft">&#160;</td><td class="mdescRight">merge sort in [lo, hi) （归并排序）  <a href="#a65701e2930f81d4b548048756eb70642">更多...</a><br /></td></tr>
 <tr class="separator:a65701e2930f81d4b548048756eb70642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2c1bcd4dc6892a05199e637f342003"><td class="memItemLeft" align="right" valign="top"><a id="a0a2c1bcd4dc6892a05199e637f342003"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>merge</b> (int lo, int mi, int hi)</td></tr>
+<tr class="memitem:a0a2c1bcd4dc6892a05199e637f342003"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a0a2c1bcd4dc6892a05199e637f342003">merge</a> (int lo, int mi, int hi)</td></tr>
+<tr class="memdesc:a0a2c1bcd4dc6892a05199e637f342003"><td class="mdescLeft">&#160;</td><td class="mdescRight">归并排序的归并操作  <a href="#a0a2c1bcd4dc6892a05199e637f342003">更多...</a><br /></td></tr>
 <tr class="separator:a0a2c1bcd4dc6892a05199e637f342003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a5c7a3d8deb2a55aba39b32c934accbf6">heap_sort</a> (int lo, int hi)</td></tr>
-<tr class="memdesc:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">利用完全二叉堆对向量区间进行排序  <a href="#a5c7a3d8deb2a55aba39b32c934accbf6">更多...</a><br /></td></tr>
-<tr class="separator:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a6b332e834add086a9357a3c5a9745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a20a6b332e834add086a9357a3c5a9745">selection_sort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:a20a6b332e834add086a9357a3c5a9745"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择排序  <a href="#a20a6b332e834add086a9357a3c5a9745">更多...</a><br /></td></tr>
+<tr class="separator:a20a6b332e834add086a9357a3c5a9745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786d6f51f7d7aedb114d44611c05fb6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a786d6f51f7d7aedb114d44611c05fb6f">select_max</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:a786d6f51f7d7aedb114d44611c05fb6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">在[lo, hi)取出最大者  <a href="#a786d6f51f7d7aedb114d44611c05fb6f">更多...</a><br /></td></tr>
+<tr class="separator:a786d6f51f7d7aedb114d44611c05fb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99097686a953826e9d579b28296b8378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a99097686a953826e9d579b28296b8378">quick_sort</a> (int lo, int hi)</td></tr>
 <tr class="memdesc:a99097686a953826e9d579b28296b8378"><td class="mdescLeft">&#160;</td><td class="mdescRight">快速排序  <a href="#a99097686a953826e9d579b28296b8378">更多...</a><br /></td></tr>
 <tr class="separator:a99097686a953826e9d579b28296b8378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8c9548b1fcc3f84f90c742a89d02b79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ae8c9548b1fcc3f84f90c742a89d02b79">partition</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:ae8c9548b1fcc3f84f90c742a89d02b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">快速排序(quick_sort)轴点构造算法  <a href="#ae8c9548b1fcc3f84f90c742a89d02b79">更多...</a><br /></td></tr>
+<tr class="separator:ae8c9548b1fcc3f84f90c742a89d02b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4a71e34656145517f522dd8010dc22e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ae4a71e34656145517f522dd8010dc22e">shell_sort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:ae4a71e34656145517f522dd8010dc22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">希尔排序  <a href="#ae4a71e34656145517f522dd8010dc22e">更多...</a><br /></td></tr>
+<tr class="separator:ae4a71e34656145517f522dd8010dc22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a5c7a3d8deb2a55aba39b32c934accbf6">heap_sort</a> (int lo, int hi)</td></tr>
+<tr class="memdesc:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">利用完全二叉堆对向量区间进行排序  <a href="#a5c7a3d8deb2a55aba39b32c934accbf6">更多...</a><br /></td></tr>
+<tr class="separator:a5c7a3d8deb2a55aba39b32c934accbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132ccae211df8bebb7180d06e674881c"><td class="memTemplParams" colspan="2">template&lt;typename VST &gt; </td></tr>
+<tr class="memitem:a132ccae211df8bebb7180d06e674881c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a132ccae211df8bebb7180d06e674881c">traverse</a> (VST &amp;visit)</td></tr>
+<tr class="memdesc:a132ccae211df8bebb7180d06e674881c"><td class="mdescLeft">&#160;</td><td class="mdescRight">遍历数组  <a href="#a132ccae211df8bebb7180d06e674881c">更多...</a><br /></td></tr>
+<tr class="separator:a132ccae211df8bebb7180d06e674881c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a5a7679a037570096ad19f757f7f2492f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a5a7679a037570096ad19f757f7f2492f">copy_from</a> (const T *A, int lo, int hi)</td></tr>
-<tr class="memdesc:a5a7679a037570096ad19f757f7f2492f"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy from another vector  <a href="#a5a7679a037570096ad19f757f7f2492f">更多...</a><br /></td></tr>
+<tr class="memdesc:a5a7679a037570096ad19f757f7f2492f"><td class="mdescLeft">&#160;</td><td class="mdescRight">复制数组数据到Vector  <a href="#a5a7679a037570096ad19f757f7f2492f">更多...</a><br /></td></tr>
 <tr class="separator:a5a7679a037570096ad19f757f7f2492f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7464bac5666dbf22686d34dd7616ff68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a7464bac5666dbf22686d34dd7616ff68">expand</a> ()</td></tr>
-<tr class="memdesc:a7464bac5666dbf22686d34dd7616ff68"><td class="mdescLeft">&#160;</td><td class="mdescRight">expand vector capacity  <a href="#a7464bac5666dbf22686d34dd7616ff68">更多...</a><br /></td></tr>
+<tr class="memdesc:a7464bac5666dbf22686d34dd7616ff68"><td class="mdescLeft">&#160;</td><td class="mdescRight">扩展Vector容量  <a href="#a7464bac5666dbf22686d34dd7616ff68">更多...</a><br /></td></tr>
 <tr class="separator:a7464bac5666dbf22686d34dd7616ff68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
-<tr class="memitem:a0806bead4d8d01ce2b2204b14c7c109d"><td class="memItemLeft" align="right" valign="top"><a id="a0806bead4d8d01ce2b2204b14c7c109d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_capacity</b></td></tr>
-<tr class="separator:a0806bead4d8d01ce2b2204b14c7c109d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af181fd0405ad1f0d62c5c09eedfc7ed0"><td class="memItemLeft" align="right" valign="top"><a id="af181fd0405ad1f0d62c5c09eedfc7ed0"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_size</b></td></tr>
-<tr class="separator:af181fd0405ad1f0d62c5c09eedfc7ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a81788f565cc0db3071d76416c76c9e"><td class="memItemLeft" align="right" valign="top"><a id="a6a81788f565cc0db3071d76416c76c9e"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>m_ar</b></td></tr>
-<tr class="separator:a6a81788f565cc0db3071d76416c76c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefed8bd7578b55a5223da3bc05794164"><td class="memItemLeft" align="right" valign="top"><a id="aefed8bd7578b55a5223da3bc05794164"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_capacity</b></td></tr>
+<tr class="separator:aefed8bd7578b55a5223da3bc05794164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acccd4f8956deab2136ec525c7ba2d29a"><td class="memItemLeft" align="right" valign="top"><a id="acccd4f8956deab2136ec525c7ba2d29a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_size</b></td></tr>
+<tr class="separator:acccd4f8956deab2136ec525c7ba2d29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224f7f396e85300b4a1141413e444338"><td class="memItemLeft" align="right" valign="top"><a id="a224f7f396e85300b4a1141413e444338"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>m_array</b></td></tr>
+<tr class="separator:a224f7f396e85300b4a1141413e444338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">构造及析构函数说明</h2>
-<a id="ade2f26f0e49ba836bbaf14dbb6a690a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade2f26f0e49ba836bbaf14dbb6a690a5">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::<a class="el" href="classdsa_1_1_vector.html">Vector</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Vector构造函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd></dd></dl>
-<dl class="retval"><dt>返回值</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a8e4d88dc26bf744680cabe207dc2f3b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e4d88dc26bf744680cabe207dc2f3b4">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e4d88dc26bf744680cabe207dc2f3b4">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::<a class="el" href="classdsa_1_1_vector.html">Vector</a> </td>
@@ -265,14 +242,10 @@ template&lt;typename T&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Vector构造函数 初始化数据内容均为ele </p>
+<p>Vector构造函数 </p>
+<p>初始化数据内容均为ele</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -290,15 +263,12 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <a id="aee05de14f4c160ce2c5bc677ab4ab736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee05de14f4c160ce2c5bc677ab4ab736">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee05de14f4c160ce2c5bc677ab4ab736">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::<a class="el" href="classdsa_1_1_vector.html">Vector</a> </td>
@@ -308,17 +278,64 @@ template&lt;typename T&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+<p>拷贝构造函数 </p>
+<p>拷贝构造函数是即类实例化的过程，故不能执行delete[] m_array。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9d603813dd922790af6a110f5faed64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d603813dd922790af6a110f5faed64">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::<a class="el" href="classdsa_1_1_vector.html">Vector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>V</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>拷贝构造函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhs</td><td>引用对象 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>拷贝区间[lo,hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -367,16 +384,77 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>binary search in [lo, hi) </p>
+<p>二分查找(binary search) </p>
+<p>查找范围为[lo, hi)，时间复杂度为O(logn) 因为最后需要返回不大于ele的最大元素的下标，故查找区间[lo,hi)需要是有序的。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>: what element to search </td></tr>
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">ele</td><td>待查找元素 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>index of the element that &lt;= ele </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回不大于ele的元素的下标 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab66124774aa869708b012d1ffde4ce12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66124774aa869708b012d1ffde4ce12">&#9670;&nbsp;</a></span>bubble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::bubble </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>冒泡排序实现 </p>
+<pre></pre><pre>(1)改进版一
+ lo            hi
+[            ][          ]
+ ------------  ---------
+ 待排序区间W   已排序区间S
+bubble_sort(lo,hi) : 不断的对[lo,hi)排序，扩大S区间
+bubble(lo,hi)      : 将W中最大元素交换至S中，同时判判W是否为一个有序序列；
+                     若W已经为一个有序序列，则排序完成。</pre><pre>(2)改进版二
+ lo            hi
+[     k      ][          ]
+ ------------  ---------
+ 待排序区间W   已排序区间S
+bubble_sort(lo,hi) : 不断的对[lo,hi)排序，扩大S区间
+bubble(lo,hi)      : 将W中最大元素交换至S中，同时判断W的尾部是否有序；
+                     若W的[k,hi)已经有序，则下一次对[lo, hi=k)进行排序；
+                     若k与lo相同，则与改进版一的情况相同。
+</pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -414,11 +492,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>bubble sort between [lo, hi)(冒泡排序改进版) </p>
+<p>冒泡排序改进版 </p>
+<p>排序范围为[lo, hi)</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -429,6 +507,34 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a19cad78a46f186d1ced8ad72b10e24b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19cad78a46f186d1ced8ad72b10e24b1">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>清空数据 </p>
 
 </div>
 </div>
@@ -474,11 +580,12 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>copy from another vector </p>
+<p>复制数组数据到Vector </p>
+<p>直接申请数组资源，若原先已申请数组资源，需要在调用copy_from前释放。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">A</td><td>vector copying from </td></tr>
-    <tr><td class="paramname">lo,hi</td><td>copying range </td></tr>
+    <tr><td class="paramname">A</td><td>目标数组 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo,hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -551,7 +658,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>expand vector capacity </p>
+<p>扩展Vector容量 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -602,16 +709,16 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>fibonacci search in [lo, hi) </p>
+<p>fibonacci查找 </p>
+<p>查找范围为[lo, hi)</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>: what element to search </td></tr>
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">ele</td><td>待查找元素 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回不大于ele的元素的下标 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -621,8 +728,37 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a id="a2badb6737264ecc43e68a08417be21ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2badb6737264ecc43e68a08417be21ac">&#9670;&nbsp;</a></span>find() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::find </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>在整个Vector中查找 </p>
+
+</div>
+</div>
 <a id="a5ea2e424841fa058b63e892424634c3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ea2e424841fa058b63e892424634c3b">&#9670;&nbsp;</a></span>find()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea2e424841fa058b63e892424634c3b">&#9670;&nbsp;</a></span>find() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,16 +791,16 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>find ele in [lo, hi) </p>
+<p>在[lo, hi)查找特定元素 </p>
+<p>因为是遍历[lo,hi)查找，故时间复杂度为O(n)。 若找到ele，则返回下标，否则返回-1。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>: what element to search </td></tr>
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">ele</td><td>待查找元素 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>index of the ele found or -1 when ele is not found </dd></dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -709,7 +845,7 @@ template&lt;typename T &gt; </div>
 [ # --- heap --- # --- sorted ---]
  lo             hi</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[lo,hi)</td><td>待排序区间 </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -751,16 +887,94 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>insert element </p>
-<p>insert element in index, meaning that [index] = element</p>
+<p>插入元素到指定下标位置 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>where to insert </td></tr>
-    <tr><td class="paramname">ele</td><td>the element to insert </td></tr>
+    <tr><td class="paramname">index</td><td>指定的插入下标位置 </td></tr>
+    <tr><td class="paramname">ele</td><td>待插入的元素 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>index of inserted element </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回新插入元素的拉置 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a380d702b235dccf64943ad7210ae3542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a380d702b235dccf64943ad7210ae3542">&#9670;&nbsp;</a></span>is_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::is_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>判断是否为空 </p>
+
+</div>
+</div>
+<a id="a0a2c1bcd4dc6892a05199e637f342003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a2c1bcd4dc6892a05199e637f342003">&#9670;&nbsp;</a></span>merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::merge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>归并排序的归并操作 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,mi,hi</td><td>将[lo,mi)和[mi, hi)进行合并 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -802,8 +1016,7 @@ template&lt;typename T &gt; </div>
 <p>排序范围为[lo, hi)</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -835,14 +1048,103 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>overload operator = </p>
+<p>重写operator= </p>
+<p>使用operator=赋值，说明左值已实例化，故需要先释放原的m_array。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">V</td><td>the value to set by operator = </td></tr>
+    <tr><td class="paramname">V</td><td>目标Vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>reference of this vector </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回当前Vector的引用 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae8c89a11e3c4e476ce9fb788d9dee0a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c89a11e3c4e476ce9fb788d9dee0a6">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>下标索引重写 </p>
+
+</div>
+</div>
+<a id="ae8c9548b1fcc3f84f90c742a89d02b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c9548b1fcc3f84f90c742a89d02b79">&#9670;&nbsp;</a></span>partition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::partition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>快速排序(quick_sort)轴点构造算法 </p>
+<pre>
+轴点可选取范围为[lo, hi]，与quick_sort的约定有所不同。
+轴点：左侧元素[lo, mi) &lt;= 轴点元素mi &lt;= 右侧元素(mi, hi]</pre><pre>根据轴点的确定过程，可知快速排序前后，可能打乱相同元素间的相对顺序；
+即快速排序是不稳定的。</pre><pre>(1)基本形式
+[p][    ][i     j][    ]
+    ----           ----
+     L              R
+比较候选轴点p和i和j，将i和j不断的归入到L或R中；</pre><pre>(2)变种形式
+[p][      q][i       ][k----------]
+   --------  --------
+       L        R
+不断的比较候选轴点p和k
+p &lt;= k : k归入R中；
+p &gt; k : k归入L中，即交换i和k，L的长度+1；
+最终交换p和q，q做为最终的轴点。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi]，注意，这里可以取到hi </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -870,14 +1172,14 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>insert element from the back of vector </p>
+<p>插入元素到最后面 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>the element to be insert </td></tr>
+    <tr><td class="paramname">ele</td><td>待插入的元素 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>index of inserted element </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回新插入元素的下标 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -894,9 +1196,6 @@ template&lt;typename T&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::push_front </td>
@@ -906,17 +1205,12 @@ template&lt;typename T&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>insert element to the front(first) position. </p>
+<p>插入元素到最前面 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>the element to be insert </td></tr>
+    <tr><td class="paramname">ele</td><td>待插入的元素 </td></tr>
   </table>
   </dd>
 </dl>
@@ -959,13 +1253,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>快速排序 </p>
-<pre>
-排序范围为[lo, hi)
-轴点：左侧元素 &lt;= 轴点元素 &lt;= 右侧元素
-</pre><dl class="params"><dt>参数</dt><dd>
+<p>排序范围为[lo, hi)</p>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
   </dd>
 </dl>
@@ -997,14 +1288,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>remove element in index </p>
+<p>删除指定下标的元素 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>: index of element to be removed </td></tr>
+    <tr><td class="paramname">index</td><td>指定的删除下标位置 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>the value had been removed </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回被删除的元素 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -1042,15 +1333,338 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>delete interval [lo, hi) </p>
+<p>删除下标在范围[lo,hi)的所有元素 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lo</td><td>: range index &gt;= lo </td></tr>
-    <tr><td class="paramname">hi</td><td>: range index &lt; hi </td></tr>
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo,hi) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>the number of element been removed </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回删除的元素总数量 </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b175876a4e75e18fe1123cebf818f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b175876a4e75e18fe1123cebf818f4c">&#9670;&nbsp;</a></span>search() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::search </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>在整个Vector中搜索 </p>
+
+</div>
+</div>
+<a id="aff4c89ac93d12c1cfa7e91673298d2b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4c89ac93d12c1cfa7e91673298d2b1">&#9670;&nbsp;</a></span>search() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::search </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>在区间内搜索 </p>
+
+</div>
+</div>
+<a id="a786d6f51f7d7aedb114d44611c05fb6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786d6f51f7d7aedb114d44611c05fb6f">&#9670;&nbsp;</a></span>select_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::select_max </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在[lo, hi)取出最大者 </p>
+<p>为保证排序稳定性，若最大值有多个时，返回的一定是最后一个；</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a20a6b332e834add086a9357a3c5a9745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a6b332e834add086a9357a3c5a9745">&#9670;&nbsp;</a></span>selection_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::selection_sort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>选择排序 </p>
+<pre>
+排序范围为[lo, hi)</pre><pre>[    m       ][i          ]
+ ------------  -----------
+ 待排序区间W   已排序区间S
+ 不断的从W中选出最大者m，放入S的第一个位置i处
+</pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae4a71e34656145517f522dd8010dc22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a71e34656145517f522dd8010dc22e">&#9670;&nbsp;</a></span>shell_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::shell_sort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>希尔排序 </p>
+<p>排序范围为[lo, hi)</p>
+<pre></pre><pre>(1) 希尔排序过程
+将整个序列视作一个矩阵，逐列各自排序w-sorting (w为矩阵列数)</pre><pre>排序序列:  8 1 5 6 9 4 3 7 2
+步长序列: [1, 2, 3, 5]
+5-sorting : 8 1 5 6 9  =&gt;  4 1 5 2 9  =&gt;  4 1 5 2 9 8 3 7 6
+            4 3 7 2        8 3 7 6</pre><pre>3-sorting : 4 1 5  =&gt;  2 1 5  =&gt;  2 1 5 3 7 6 4 9 8
+            2 9 8      3 7 6
+            3 7 6      4 9 8</pre><pre>2-sorting : 2 1  =&gt;  2 1 =&gt; 2 1 4 3 5 6 7 9 8
+            5 3      4 3
+            7 6      5 6
+            4 9      7 9
+            8        8</pre><pre>1-sorting : 1 2 3 4 5 6 7 8 9</pre><pre>(2) 线性组合
+f=ma+nb : a,b的线性组合（m和n为自然数）
+N(a,b) : 对任意整数 m,n，所有满足 f!= ma + nb 的f的集合
+max(N(a,b)) = (a-1)(b-a)-1 = ab-a-b</pre><pre>(3) 间隔有序
+h-ordered : 序列s[0,n)对于任何 0&lt;= i &lt; n-h，都有s[i] &lt;= s[i+h]；</pre><pre>任一个序列进行h-sorting后，必定是h-ordered；
+若一个序列同时为g-ordered和g-ordered，则序列也为(mg+nh)-ordered，m和n为自然数；</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a678a27dbc03f408f1e10a327f0c3fb94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678a27dbc03f408f1e10a327f0c3fb94">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回元素数量 </p>
+
+</div>
+</div>
+<a id="adb1a5172e3d5191b78a1c52bf3009d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb1a5172e3d5191b78a1c52bf3009d0a">&#9670;&nbsp;</a></span>sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::sort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>对所有Vector元素排序 </p>
+
+</div>
+</div>
+<a id="a132ccae211df8bebb7180d06e674881c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132ccae211df8bebb7180d06e674881c">&#9670;&nbsp;</a></span>traverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::traverse </td>
+          <td>(</td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>遍历数组 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visit</td><td>访问函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -1094,8 +1708,81 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a8af8ee3c6b577b0b9e1de9d27e26a168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af8ee3c6b577b0b9e1de9d27e26a168">&#9670;&nbsp;</a></span>unsort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::unsort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>打乱整个Vector的顺序 </p>
+
+</div>
+</div>
+<a id="abd1982049bea5e3a061d00123f7eb24e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1982049bea5e3a061d00123f7eb24e">&#9670;&nbsp;</a></span>unsort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::unsort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对[lo,hi)打乱顺序 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="vector_8h_source.html">vector.h</a></li>
+<li>dsas-cpp/<a class="el" href="vector_8h_source.html">vector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

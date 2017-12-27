@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -70,9 +76,9 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_avl_tree.html">dsa::AvlTree&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avl平衡二叉树类  <a href="classdsa_1_1_avl_tree.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266">Balanced</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) == BN_Stature((v).right))</td></tr>
+<tr class="memitem:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266">Balanced</a>(v)&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) == <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td></tr>
 <tr class="separator:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) - BN_Stature((v).right))</td></tr>
+<tr class="memitem:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) - <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td></tr>
 <tr class="separator:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafb3c60d1760598ab80a52f84775176fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#gafb3c60d1760598ab80a52f84775176fa">AVL_Balanced</a>(v)&#160;&#160;&#160;((-2 &lt; <a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)) &amp;&amp; (<a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v) &lt; 2))</td></tr>
 <tr class="separator:gafb3c60d1760598ab80a52f84775176fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,7 +119,7 @@ $(function() {
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">v</td><td>)</td>
-          <td>&#160;&#160;&#160;(BN_Stature((v).left) - BN_Stature((v).right))</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) - <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -136,7 +142,8 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">    BN_Stature((x)-&gt;left) &gt; BN_Stature((x)-&gt;right) ? (x)-&gt;left : (      <span class="comment">/*左高*/</span> \</div><div class="line">        BN_Stature((x)-&gt;left) &lt; BN_Stature((x)-&gt;right) ? (x)-&gt;right : ( <span class="comment">/*右高*/</span> \</div><div class="line">            BN_IsLeftChild(*(x)) ? (x)-&gt;left : (x)-&gt;right               <span class="comment">/*等高：与x父节点同侧者（zIg-zIg或zAg-zAg）优先*/</span> \</div><div class="line">    )))</div></div><!-- fragment -->
+<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">    BN_Stature((x)-&gt;left) &gt; <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x)-&gt;right) ? (x)-&gt;left : (      <span class="comment">/*左高*/</span> \</div><div class="line">        <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x)-&gt;left) &lt; <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x)-&gt;right) ? (x)-&gt;right : ( <span class="comment">/*右高*/</span> \</div><div class="line">            BN_IsLeftChild(*(x)) ? (x)-&gt;left : (x)-&gt;right               <span class="comment">/*等高：与x父节点同侧者（zIg-zIg或zAg-zAg）优先*/</span> \</div><div class="line">    )))</div><div class="ttc" id="group___t_binary_tree_html_gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><div class="ttname"><a href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a></div><div class="ttdeci">#define BN_Stature(x)</div><div class="ttdef"><b>Definition:</b> binary_node.h:33</div></div>
+</div><!-- fragment -->
 <p>获取左右子树中较高的节点，以便获取最低层的节点(如图中节点v) </p>
 <pre></pre><pre>插入T2或T3时，会引起g失衡
 删除T0时(没有T2和T3)，会引起g失衡
@@ -168,7 +175,7 @@ T1 T2</pre><pre></pre>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">v</td><td>)</td>
-          <td>&#160;&#160;&#160;(BN_Stature((v).left) == BN_Stature((v).right))</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) == <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td>
         </tr>
       </table>
 </div><div class="memdoc">

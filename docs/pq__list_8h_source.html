@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: dsas-cpp/pq_list.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">pq_list.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pq__list_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef _PQ_LIST_H</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define _PQ_LIST_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="priority__queue_8h.html">priority_queue.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="list_8h.html">list.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classdsa_1_1_pq_list.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdsa_1_1_pq_list.html">PqList</a> : <span class="keyword">public</span> <a class="code" href="classdsa_1_1_p_q.html">dsa::PQ</a>&lt;T&gt;, <span class="keyword">public</span> <a class="code" href="classdsa_1_1_list.html">dsa::List</a>&lt;T&gt;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classdsa_1_1_pq_list.html">PqList</a>() : <a class="code" href="classdsa_1_1_p_q.html">dsa::PQ&lt;T&gt;</a>(), <a class="code" href="classdsa_1_1_list.html">dsa::List&lt;T&gt;</a>() {}</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classdsa_1_1_pq_list.html#a9b87af8083d4c74c7a5e8dd9f8f79259">   43</a></span>&#160;    <a class="code" href="classdsa_1_1_pq_list.html#a9b87af8083d4c74c7a5e8dd9f8f79259">PqList</a>(<span class="keyword">const</span> T* A, <span class="keywordtype">int</span> n) : <a class="code" href="namespacedsa.html">dsa</a>::<a class="code" href="classdsa_1_1_p_q.html">PQ</a>&lt;T&gt;(), <a class="code" href="namespacedsa.html">dsa</a>::<a class="code" href="classdsa_1_1_list.html">List</a>&lt;T&gt;() {<span class="keywordflow">while</span>(n-- &gt; 0) this-&gt;<a class="code" href="classdsa_1_1_list.html#a58a93dc265640c842413fc1e4d52af4b">push_front</a>(A[n]);}</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classdsa_1_1_pq_list.html#a7b9ad72c985faad0104dd25d82f06590">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdsa_1_1_pq_list.html#a7b9ad72c985faad0104dd25d82f06590">insert</a>(<span class="keyword">const</span> T&amp; ele) {this-&gt;<a class="code" href="classdsa_1_1_list.html#a4e88b46e1fef97c9e83ce6f3a7c3f5c2">push_back</a>(ele);}</div><div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classdsa_1_1_pq_list.html#a7ae35775e25fe70c7f1ead62e1f802c7">   48</a></span>&#160;    T <a class="code" href="classdsa_1_1_pq_list.html#a7ae35775e25fe70c7f1ead62e1f802c7">get_max</a>() {<span class="keywordflow">return</span> this-&gt;<a class="code" href="classdsa_1_1_list.html#a2c35bd2c80c832d4fabe049c71f51526">select_max</a>()-&gt;data;}</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classdsa_1_1_pq_list.html#a3f9870ef844be382173e94cd1faf3f62">   50</a></span>&#160;    T <a class="code" href="classdsa_1_1_pq_list.html#a3f9870ef844be382173e94cd1faf3f62">del_max</a>() {<span class="keywordflow">return</span> this-&gt;<span class="keyword">remove</span>(this-&gt;<a class="code" href="classdsa_1_1_list.html#a2c35bd2c80c832d4fabe049c71f51526">select_max</a>());}</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef _PQ_LIST_H */</span><span class="preprocessor"></span></div><div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> avl_tree.h:21</div></div>
+<div class="ttc" id="classdsa_1_1_list_html_a58a93dc265640c842413fc1e4d52af4b"><div class="ttname"><a href="classdsa_1_1_list.html#a58a93dc265640c842413fc1e4d52af4b">dsa::List::push_front</a></div><div class="ttdeci">ListNodePtr&lt; T &gt; push_front(const T &amp;ele)</div><div class="ttdef"><b>Definition:</b> list.h:135</div></div>
+<div class="ttc" id="classdsa_1_1_p_q_html"><div class="ttname"><a href="classdsa_1_1_p_q.html">dsa::PQ</a></div><div class="ttdoc">优先级队列接口抽象类 </div><div class="ttdef"><b>Definition:</b> priority_queue.h:31</div></div>
+<div class="ttc" id="priority__queue_8h_html"><div class="ttname"><a href="priority__queue_8h.html">priority_queue.h</a></div><div class="ttdoc">优先级队列接口抽象类 </div></div>
+<div class="ttc" id="classdsa_1_1_pq_list_html_a7ae35775e25fe70c7f1ead62e1f802c7"><div class="ttname"><a href="classdsa_1_1_pq_list.html#a7ae35775e25fe70c7f1ead62e1f802c7">dsa::PqList::get_max</a></div><div class="ttdeci">T get_max()</div><div class="ttdef"><b>Definition:</b> pq_list.h:48</div></div>
+<div class="ttc" id="classdsa_1_1_list_html"><div class="ttname"><a href="classdsa_1_1_list.html">dsa::List</a></div><div class="ttdoc">List class </div><div class="ttdef"><b>Definition:</b> list.h:29</div></div>
+<div class="ttc" id="list_8h_html"><div class="ttname"><a href="list_8h.html">list.h</a></div><div class="ttdoc">链表结构 </div></div>
+<div class="ttc" id="classdsa_1_1_pq_list_html"><div class="ttname"><a href="classdsa_1_1_pq_list.html">dsa::PqList</a></div><div class="ttdoc">使用List建立优先级队列。 </div><div class="ttdef"><b>Definition:</b> pq_list.h:38</div></div>
+<div class="ttc" id="classdsa_1_1_list_html_a2c35bd2c80c832d4fabe049c71f51526"><div class="ttname"><a href="classdsa_1_1_list.html#a2c35bd2c80c832d4fabe049c71f51526">dsa::List::select_max</a></div><div class="ttdeci">ListNodePtr&lt; T &gt; select_max()</div><div class="ttdef"><b>Definition:</b> list.h:153</div></div>
+<div class="ttc" id="classdsa_1_1_pq_list_html_a7b9ad72c985faad0104dd25d82f06590"><div class="ttname"><a href="classdsa_1_1_pq_list.html#a7b9ad72c985faad0104dd25d82f06590">dsa::PqList::insert</a></div><div class="ttdeci">void insert(const T &amp;ele)</div><div class="ttdef"><b>Definition:</b> pq_list.h:46</div></div>
+<div class="ttc" id="classdsa_1_1_pq_list_html_a3f9870ef844be382173e94cd1faf3f62"><div class="ttname"><a href="classdsa_1_1_pq_list.html#a3f9870ef844be382173e94cd1faf3f62">dsa::PqList::del_max</a></div><div class="ttdeci">T del_max()</div><div class="ttdef"><b>Definition:</b> pq_list.h:50</div></div>
+<div class="ttc" id="classdsa_1_1_pq_list_html_a9b87af8083d4c74c7a5e8dd9f8f79259"><div class="ttname"><a href="classdsa_1_1_pq_list.html#a9b87af8083d4c74c7a5e8dd9f8f79259">dsa::PqList::PqList</a></div><div class="ttdeci">PqList(const T *A, int n)</div><div class="ttdef"><b>Definition:</b> pq_list.h:43</div></div>
+<div class="ttc" id="classdsa_1_1_list_html_a4e88b46e1fef97c9e83ce6f3a7c3f5c2"><div class="ttname"><a href="classdsa_1_1_list.html#a4e88b46e1fef97c9e83ce6f3a7c3f5c2">dsa::List::push_back</a></div><div class="ttdeci">ListNodePtr&lt; T &gt; push_back(const T &amp;ele)</div><div class="ttdef"><b>Definition:</b> list.h:137</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

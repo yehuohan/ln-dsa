@@ -5,13 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: dsas-src/avl_tree.h 文件参考</title>
+<title>DSAS: dsas-cpp/avl_tree.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -58,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_86ca03496c3367737f13231e04e93fdd.html">dsas-src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,9 +90,9 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 宏定义</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266">Balanced</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) == BN_Stature((v).right))</td></tr>
+<tr class="memitem:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga63bd10f4e2e3a8acfd598e1312939266">Balanced</a>(v)&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) == <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td></tr>
 <tr class="separator:ga63bd10f4e2e3a8acfd598e1312939266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)&#160;&#160;&#160;(BN_Stature((v).left) - BN_Stature((v).right))</td></tr>
+<tr class="memitem:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)&#160;&#160;&#160;(<a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).left) - <a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((v).right))</td></tr>
 <tr class="separator:ga52ec68e2518b8f73a8e27f3a1aa7d8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafb3c60d1760598ab80a52f84775176fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_avl_tree.html#gafb3c60d1760598ab80a52f84775176fa">AVL_Balanced</a>(v)&#160;&#160;&#160;((-2 &lt; <a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v)) &amp;&amp; (<a class="el" href="group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4">AVL_BalFac</a>(v) &lt; 2))</td></tr>
 <tr class="separator:gafb3c60d1760598ab80a52f84775176fa"><td class="memSeparator" colspan="2">&#160;</td></tr>

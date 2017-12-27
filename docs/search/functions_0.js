@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['attach_5fleft',['attach_left',['../splay__tree_8h.html#a14aa1405c79f5f86c88782830ec8a85d',1,'dsa']]],
-  ['attach_5fright',['attach_right',['../splay__tree_8h.html#a3d3a9d819da9abb669b5f0d218d1914e',1,'dsa']]]
+  ['attach_5fleft',['attach_left',['../splay__tree_8h.html#a2a70335dc7e751453843ed89f12c8a78',1,'dsa']]],
+  ['attach_5fright',['attach_right',['../splay__tree_8h.html#a87de8214539795df540e5d8d017d129d',1,'dsa']]]
 ];

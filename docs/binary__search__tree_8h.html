@@ -5,13 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: dsas-src/binary_search_tree.h 文件参考</title>
+<title>DSAS: dsas-cpp/binary_search_tree.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -58,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_86ca03496c3367737f13231e04e93fdd.html">dsas-src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,6 +79,7 @@ $(function() {
 <p>二叉搜索树(BST)  
 <a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="binary__tree_8h_source.html">binary_tree.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="swap_8h_source.html">share/swap.h</a>&quot;</code><br />
 </div>
 <p><a href="binary__search__tree_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
@@ -84,14 +91,14 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:aac2c146d767c5f1d6f81982bf755674b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aac2c146d767c5f1d6f81982bf755674b"><td class="memTemplItemLeft" align="right" valign="top">static BinNode&lt; T &gt; *&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#aac2c146d767c5f1d6f81982bf755674b">dsa::search_in</a> (BinNode&lt; T &gt; *&amp;node, const T &amp;e, BinNode&lt; T &gt; *&amp;hot)</td></tr>
-<tr class="memdesc:aac2c146d767c5f1d6f81982bf755674b"><td class="mdescLeft">&#160;</td><td class="mdescRight">递归实现查找。  <a href="binary__search__tree_8h.html#aac2c146d767c5f1d6f81982bf755674b">更多...</a><br /></td></tr>
-<tr class="separator:aac2c146d767c5f1d6f81982bf755674b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7cd4fc2267878bf8f671597a447f684"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac7cd4fc2267878bf8f671597a447f684"><td class="memTemplItemLeft" align="right" valign="top">static BinNode&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684">dsa::remove_at</a> (BinNode&lt; T &gt; *&amp;node, BinNode&lt; T &gt; *&amp;hot)</td></tr>
-<tr class="memdesc:ac7cd4fc2267878bf8f671597a447f684"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除节点  <a href="binary__search__tree_8h.html#ac7cd4fc2267878bf8f671597a447f684">更多...</a><br /></td></tr>
-<tr class="separator:ac7cd4fc2267878bf8f671597a447f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2830c2a538f53082581f44c07b6af976"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2830c2a538f53082581f44c07b6af976"><td class="memTemplItemLeft" align="right" valign="top">static BinNodePtr&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#a2830c2a538f53082581f44c07b6af976">dsa::search_in</a> (BinNodePtr&lt; T &gt; &amp;node, const T &amp;e, BinNodePtr&lt; T &gt; &amp;hot)</td></tr>
+<tr class="memdesc:a2830c2a538f53082581f44c07b6af976"><td class="mdescLeft">&#160;</td><td class="mdescRight">递归实现查找。  <a href="binary__search__tree_8h.html#a2830c2a538f53082581f44c07b6af976">更多...</a><br /></td></tr>
+<tr class="separator:a2830c2a538f53082581f44c07b6af976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5133d63b0884d952fbaf0d7eb23bf9f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab5133d63b0884d952fbaf0d7eb23bf9f"><td class="memTemplItemLeft" align="right" valign="top">static BinNodePtr&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="binary__search__tree_8h.html#ab5133d63b0884d952fbaf0d7eb23bf9f">dsa::remove_at</a> (BinNodePtr&lt; T &gt; &amp;node, BinNodePtr&lt; T &gt; &amp;hot)</td></tr>
+<tr class="memdesc:ab5133d63b0884d952fbaf0d7eb23bf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除节点  <a href="binary__search__tree_8h.html#ab5133d63b0884d952fbaf0d7eb23bf9f">更多...</a><br /></td></tr>
+<tr class="separator:ab5133d63b0884d952fbaf0d7eb23bf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>二叉搜索树(BST) </p>
@@ -100,8 +107,8 @@ $(function() {
 <dl class="section author"><dt>作者</dt><dd></dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd></dd></dl>
 </div><h2 class="groupheader">函数说明</h2>
-<a id="file_ac7cd4fc2267878bf8f671597a447f684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_ac7cd4fc2267878bf8f671597a447f684">&#9670;&nbsp;</a></span>remove_at()</h2>
+<a id="file_ab5133d63b0884d952fbaf0d7eb23bf9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_ab5133d63b0884d952fbaf0d7eb23bf9f">&#9670;&nbsp;</a></span>remove_at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,15 +119,15 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static BinNode&lt;T&gt;* dsa::remove_at </td>
+          <td class="memname">static BinNodePtr&lt;T&gt; dsa::remove_at </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>hot</em>&#160;</td>
         </tr>
         <tr>
@@ -169,8 +176,8 @@ T0    b            T0    b
 
 </div>
 </div>
-<a id="file_aac2c146d767c5f1d6f81982bf755674b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_aac2c146d767c5f1d6f81982bf755674b">&#9670;&nbsp;</a></span>search_in()</h2>
+<a id="file_a2830c2a538f53082581f44c07b6af976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a2830c2a538f53082581f44c07b6af976">&#9670;&nbsp;</a></span>search_in()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,9 +188,9 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static BinNode&lt;T&gt;*&amp; dsa::search_in </td>
+          <td class="memname">static BinNodePtr&lt;T&gt;&amp; dsa::search_in </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
@@ -195,7 +202,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>hot</em>&#160;</td>
         </tr>
         <tr>

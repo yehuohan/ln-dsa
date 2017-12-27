@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -69,11 +75,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_vertex.html">dsa::Vertex&lt; Tv &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">顶点类  <a href="structdsa_1_1_vertex.html#details">更多...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_edge.html">dsa::Edge&lt; Te &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">边类  <a href="structdsa_1_1_edge.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_vertex.html">dsa::Vertex&lt; Tv &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">顶点类  <a href="structdsa_1_1_vertex.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_graph.html">dsa::Graph&lt; Tv, Te &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">图类  <a href="classdsa_1_1_graph.html#details">更多...</a><br /></td></tr>
@@ -101,6 +107,25 @@ $(function() {
  }<tr class="memdesc:ga31de4b012c792e6a98c7a89e6417f956"><td class="mdescLeft">&#160;</td><td class="mdescRight">边状态 <br /></td></tr>
 </td></tr>
 <tr class="separator:ga31de4b012c792e6a98c7a89e6417f956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+定义类型别名</h2></td></tr>
+<tr class="memitem:ga52d9da9f3ebd7ad06f63e0597b9d9718"><td class="memTemplParams" colspan="2"><a id="ga52d9da9f3ebd7ad06f63e0597b9d9718"></a>
+template&lt;typename Te &gt; </td></tr>
+<tr class="memitem:ga52d9da9f3ebd7ad06f63e0597b9d9718"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::EdgePtr</b> = struct <a class="el" href="structdsa_1_1_edge.html">Edge</a>&lt; Te &gt; *</td></tr>
+<tr class="separator:ga52d9da9f3ebd7ad06f63e0597b9d9718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3eec971f8d2748dc6020f5c5b3fe647"><td class="memTemplParams" colspan="2"><a id="gad3eec971f8d2748dc6020f5c5b3fe647"></a>
+template&lt;typename Tv &gt; </td></tr>
+<tr class="memitem:gad3eec971f8d2748dc6020f5c5b3fe647"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::VertexPtr</b> = struct <a class="el" href="structdsa_1_1_vertex.html">Vertex</a>&lt; Tv &gt; *</td></tr>
+<tr class="separator:gad3eec971f8d2748dc6020f5c5b3fe647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga498f260e0a97813ee6c789ae56f11eca"><td class="memTemplParams" colspan="2"><a id="ga498f260e0a97813ee6c789ae56f11eca"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga498f260e0a97813ee6c789ae56f11eca"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::ListNodePtr</b> = <a class="el" href="structdsa_1_1_list_node.html">dsa::ListNode</a>&lt; T &gt; *</td></tr>
+<tr class="separator:ga498f260e0a97813ee6c789ae56f11eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memTemplParams" colspan="2"><a id="ga9ed90ae98286cbde9bfa4f1d0b588e8a"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::ListIterator</b> = typename <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::Iterator</td></tr>
+<tr class="separator:ga9ed90ae98286cbde9bfa4f1d0b588e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>图结构模块。 </p>

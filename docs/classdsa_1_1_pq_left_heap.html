@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -106,36 +112,34 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td>
 <tr class="memitem:a888215b389d0da666b559bb11b862798 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a id="a888215b389d0da666b559bb11b862798"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
 <tr class="separator:a888215b389d0da666b559bb11b862798 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a2fe586c902e6fe23458350719d559 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a34a2fe586c902e6fe23458350719d559">remove</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *)</td></tr>
-<tr class="memdesc:a34a2fe586c902e6fe23458350719d559 inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除以位置node处节点为根的子树  <a href="classdsa_1_1_bin_tree.html#a34a2fe586c902e6fe23458350719d559">更多...</a><br /></td></tr>
-<tr class="separator:a34a2fe586c902e6fe23458350719d559 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3504b39a5589287447b33ea9d311a2a4 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a id="a3504b39a5589287447b33ea9d311a2a4"></a>
-<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>create_root</b> (const T &amp;ele)</td></tr>
-<tr class="separator:a3504b39a5589287447b33ea9d311a2a4 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5de306df6b4484aebc02be5ea5e9c4ae inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a id="a5de306df6b4484aebc02be5ea5e9c4ae"></a>
-<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>root</b> ()</td></tr>
-<tr class="separator:a5de306df6b4484aebc02be5ea5e9c4ae inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4014fcb4d5b14a0f968fa75eadce02ad inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a4014fcb4d5b14a0f968fa75eadce02ad">insert_left</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node, const T &amp;ele)</td></tr>
-<tr class="memdesc:a4014fcb4d5b14a0f968fa75eadce02ad inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入左子结点  <a href="classdsa_1_1_bin_tree.html#a4014fcb4d5b14a0f968fa75eadce02ad">更多...</a><br /></td></tr>
-<tr class="separator:a4014fcb4d5b14a0f968fa75eadce02ad inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a5fb2b70b26683637dd8672bf488b6c inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a0a5fb2b70b26683637dd8672bf488b6c">insert_right</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node, const T &amp;ele)</td></tr>
-<tr class="memdesc:a0a5fb2b70b26683637dd8672bf488b6c inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入右子结点  <a href="classdsa_1_1_bin_tree.html#a0a5fb2b70b26683637dd8672bf488b6c">更多...</a><br /></td></tr>
-<tr class="separator:a0a5fb2b70b26683637dd8672bf488b6c inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951421bda59da340812520481145d755 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a951421bda59da340812520481145d755">remove</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a951421bda59da340812520481145d755 inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除以位置node处节点为根的子树  <a href="classdsa_1_1_bin_tree.html#a951421bda59da340812520481145d755">更多...</a><br /></td></tr>
+<tr class="separator:a951421bda59da340812520481145d755 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a783a9411242d8d598ca655af7d9b8a35 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a783a9411242d8d598ca655af7d9b8a35">root</a> ()</td></tr>
+<tr class="separator:a783a9411242d8d598ca655af7d9b8a35 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e74774ffcb476e901f5f821ae7f421a inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a2e74774ffcb476e901f5f821ae7f421a">insert_root</a> (const T &amp;ele)</td></tr>
+<tr class="separator:a2e74774ffcb476e901f5f821ae7f421a inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f236019639c5ee23a3da8ee74147c24 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a4f236019639c5ee23a3da8ee74147c24">insert_left</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; node, const T &amp;ele)</td></tr>
+<tr class="memdesc:a4f236019639c5ee23a3da8ee74147c24 inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入左子结点  <a href="classdsa_1_1_bin_tree.html#a4f236019639c5ee23a3da8ee74147c24">更多...</a><br /></td></tr>
+<tr class="separator:a4f236019639c5ee23a3da8ee74147c24 inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4cdbb27fc04279f4f0918f8214a99e inherit pub_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a1f4cdbb27fc04279f4f0918f8214a99e">insert_right</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; node, const T &amp;ele)</td></tr>
+<tr class="memdesc:a1f4cdbb27fc04279f4f0918f8214a99e inherit pub_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入右子结点  <a href="classdsa_1_1_bin_tree.html#a1f4cdbb27fc04279f4f0918f8214a99e">更多...</a><br /></td></tr>
+<tr class="separator:a1f4cdbb27fc04279f4f0918f8214a99e inherit pub_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pro_methods_classdsa_1_1_bin_tree"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdsa_1_1_bin_tree')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree&lt; T &gt;</a></td></tr>
-<tr class="memitem:adac98af3b4b5d8fa3e9460da5a34e4e3 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#adac98af3b4b5d8fa3e9460da5a34e4e3">update_height</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node)</td></tr>
-<tr class="memdesc:adac98af3b4b5d8fa3e9460da5a34e4e3 inherit pro_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新node高度  <a href="classdsa_1_1_bin_tree.html#adac98af3b4b5d8fa3e9460da5a34e4e3">更多...</a><br /></td></tr>
-<tr class="separator:adac98af3b4b5d8fa3e9460da5a34e4e3 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1982001e36cfb9b3ebea0e87743b7452 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a1982001e36cfb9b3ebea0e87743b7452">update_height_above</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node)</td></tr>
-<tr class="memdesc:a1982001e36cfb9b3ebea0e87743b7452 inherit pro_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新node及祖先高度  <a href="classdsa_1_1_bin_tree.html#a1982001e36cfb9b3ebea0e87743b7452">更多...</a><br /></td></tr>
-<tr class="separator:a1982001e36cfb9b3ebea0e87743b7452 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66331d619974d912856b1f57e8aa5cba inherit pro_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a66331d619974d912856b1f57e8aa5cba">update_height</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; node)</td></tr>
+<tr class="memdesc:a66331d619974d912856b1f57e8aa5cba inherit pro_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新node高度  <a href="classdsa_1_1_bin_tree.html#a66331d619974d912856b1f57e8aa5cba">更多...</a><br /></td></tr>
+<tr class="separator:a66331d619974d912856b1f57e8aa5cba inherit pro_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aaec34641c9911200d8a54a76e33a94 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a8aaec34641c9911200d8a54a76e33a94">update_height_above</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; node)</td></tr>
+<tr class="memdesc:a8aaec34641c9911200d8a54a76e33a94 inherit pro_methods_classdsa_1_1_bin_tree"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新node及祖先高度  <a href="classdsa_1_1_bin_tree.html#a8aaec34641c9911200d8a54a76e33a94">更多...</a><br /></td></tr>
+<tr class="separator:a8aaec34641c9911200d8a54a76e33a94 inherit pro_methods_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classdsa_1_1_bin_tree"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classdsa_1_1_bin_tree')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree&lt; T &gt;</a></td></tr>
 <tr class="memitem:a90b586c09a8fa5c581fbf9b7dc567ac7 inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a90b586c09a8fa5c581fbf9b7dc567ac7">m_size</a></td></tr>
 <tr class="separator:a90b586c09a8fa5c581fbf9b7dc567ac7 inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51bfaea190206f0706a8f395b883f795 inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a51bfaea190206f0706a8f395b883f795">m_root</a></td></tr>
-<tr class="separator:a51bfaea190206f0706a8f395b883f795 inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5b1bf42756406645f28fe6da9ed48d inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_bin_tree.html#a3a5b1bf42756406645f28fe6da9ed48d">m_root</a></td></tr>
+<tr class="separator:a3a5b1bf42756406645f28fe6da9ed48d inherit pro_attribs_classdsa_1_1_bin_tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -239,7 +243,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="pq__left__heap_8h_source.html">pq_left_heap.h</a></li>
+<li>dsas-cpp/<a class="el" href="pq__left__heap_8h_source.html">pq_left_heap.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

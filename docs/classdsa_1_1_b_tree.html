@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -82,27 +88,38 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a1aec646d14589e044094131d9b691b27"><td class="memItemLeft" align="right" valign="top"><a id="a1aec646d14589e044094131d9b691b27"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BTree</b> (int order=3)</td></tr>
 <tr class="separator:a1aec646d14589e044094131d9b691b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20a5de7ce7d811412903e9c6602d4fde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a20a5de7ce7d811412903e9c6602d4fde">search</a> (const T &amp;e)</td></tr>
-<tr class="memdesc:a20a5de7ce7d811412903e9c6602d4fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree查找  <a href="#a20a5de7ce7d811412903e9c6602d4fde">更多...</a><br /></td></tr>
-<tr class="separator:a20a5de7ce7d811412903e9c6602d4fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6259838f0252ee49544389ec97bc03"><td class="memItemLeft" align="right" valign="top"><a id="aec6259838f0252ee49544389ec97bc03"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>order</b> () const</td></tr>
+<tr class="separator:aec6259838f0252ee49544389ec97bc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6061e10c94873ba52f45725f6b753221"><td class="memItemLeft" align="right" valign="top"><a id="a6061e10c94873ba52f45725f6b753221"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:a6061e10c94873ba52f45725f6b753221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41fc8a7d078564acc2d30a8f7c8848bf"><td class="memItemLeft" align="right" valign="top"><a id="a41fc8a7d078564acc2d30a8f7c8848bf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
+<tr class="separator:a41fc8a7d078564acc2d30a8f7c8848bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fc0d7be561086c3528ab0bbc0088e20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a1fc0d7be561086c3528ab0bbc0088e20">root</a> ()</td></tr>
+<tr class="separator:a1fc0d7be561086c3528ab0bbc0088e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d7a7bd0c3f6ef476ea4e278ae141bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a15d7a7bd0c3f6ef476ea4e278ae141bb">search</a> (const T &amp;e)</td></tr>
+<tr class="memdesc:a15d7a7bd0c3f6ef476ea4e278ae141bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree查找  <a href="#a15d7a7bd0c3f6ef476ea4e278ae141bb">更多...</a><br /></td></tr>
+<tr class="separator:a15d7a7bd0c3f6ef476ea4e278ae141bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eb705bbcc108c26cf74c0d3e8ebc7f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a6eb705bbcc108c26cf74c0d3e8ebc7f1">insert</a> (const T &amp;e)</td></tr>
 <tr class="memdesc:a6eb705bbcc108c26cf74c0d3e8ebc7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入节点  <a href="#a6eb705bbcc108c26cf74c0d3e8ebc7f1">更多...</a><br /></td></tr>
 <tr class="separator:a6eb705bbcc108c26cf74c0d3e8ebc7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f20b78ecf0e8bfbe69e8d39ad3e9f40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a4f20b78ecf0e8bfbe69e8d39ad3e9f40">remove</a> (const T &amp;e)</td></tr>
 <tr class="memdesc:a4f20b78ecf0e8bfbe69e8d39ad3e9f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除节点  <a href="#a4f20b78ecf0e8bfbe69e8d39ad3e9f40">更多...</a><br /></td></tr>
 <tr class="separator:a4f20b78ecf0e8bfbe69e8d39ad3e9f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a492cfd9b83787c5d8bced33cbc4413e1"><td class="memItemLeft" align="right" valign="top"><a id="a492cfd9b83787c5d8bced33cbc4413e1"></a>
-<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>root</b> ()</td></tr>
-<tr class="separator:a492cfd9b83787c5d8bced33cbc4413e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:a69cd041d1fa69d23e60f3278e5adcdf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a69cd041d1fa69d23e60f3278e5adcdf4">solve_overflow</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *)</td></tr>
-<tr class="memdesc:a69cd041d1fa69d23e60f3278e5adcdf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用分裂修复上溢  <a href="#a69cd041d1fa69d23e60f3278e5adcdf4">更多...</a><br /></td></tr>
-<tr class="separator:a69cd041d1fa69d23e60f3278e5adcdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e2cec0b3387a19dc5475a60637cc7b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a1e2cec0b3387a19dc5475a60637cc7b4">solve_underflow</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *)</td></tr>
-<tr class="memdesc:a1e2cec0b3387a19dc5475a60637cc7b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">修复下溢  <a href="#a1e2cec0b3387a19dc5475a60637cc7b4">更多...</a><br /></td></tr>
-<tr class="separator:a1e2cec0b3387a19dc5475a60637cc7b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#aa0d0d30edc9b8acb9e37ef96475fd011">delete_node</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放以r为节点的子树资源，用于移除所有节点  <a href="#aa0d0d30edc9b8acb9e37ef96475fd011">更多...</a><br /></td></tr>
+<tr class="separator:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7184409ce458f99d8eecfe57a5ce9e44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a7184409ce458f99d8eecfe57a5ce9e44">solve_overflow</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a7184409ce458f99d8eecfe57a5ce9e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用分裂修复上溢  <a href="#a7184409ce458f99d8eecfe57a5ce9e44">更多...</a><br /></td></tr>
+<tr class="separator:a7184409ce458f99d8eecfe57a5ce9e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fe243c0334e472c9affc431c6019af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a73fe243c0334e472c9affc431c6019af">solve_underflow</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a73fe243c0334e472c9affc431c6019af"><td class="mdescLeft">&#160;</td><td class="mdescRight">修复下溢  <a href="#a73fe243c0334e472c9affc431c6019af">更多...</a><br /></td></tr>
+<tr class="separator:a73fe243c0334e472c9affc431c6019af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -110,10 +127,10 @@ Protected 属性</h2></td></tr>
 <tr class="separator:ac7637c5e586a8ec37fe6b8847f8da4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe55db6b125b4111228ac795f43100d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#abe55db6b125b4111228ac795f43100d9">m_order</a></td></tr>
 <tr class="separator:abe55db6b125b4111228ac795f43100d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa584c7bb43b2bc434951a1f5b9db96e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#aa584c7bb43b2bc434951a1f5b9db96e5">m_root</a></td></tr>
-<tr class="separator:aa584c7bb43b2bc434951a1f5b9db96e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c25d5146e6c00f3d8586ae71e8535a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a21c25d5146e6c00f3d8586ae71e8535a">m_hot</a></td></tr>
-<tr class="separator:a21c25d5146e6c00f3d8586ae71e8535a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ec2609c3bf61a8e66f24bc6f11cbb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a61ec2609c3bf61a8e66f24bc6f11cbb5">m_root</a></td></tr>
+<tr class="separator:a61ec2609c3bf61a8e66f24bc6f11cbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab119b55aa60721c3a5704ceb64312540"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#ab119b55aa60721c3a5704ceb64312540">m_hot</a></td></tr>
+<tr class="separator:ab119b55aa60721c3a5704ceb64312540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -133,6 +150,49 @@ child  [0]  [1]  [2]  [3]  [4]   -&gt; 叶节点的子节点为external nodes，
 </h2>
 </pre><pre>
 </pre> </div><h2 class="groupheader">成员函数说明</h2>
+<a id="aa0d0d30edc9b8acb9e37ef96475fd011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d0d30edc9b8acb9e37ef96475fd011">&#9670;&nbsp;</a></span>delete_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::delete_node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>释放以r为节点的子树资源，用于移除所有节点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>子树节点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6eb705bbcc108c26cf74c0d3e8ebc7f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6eb705bbcc108c26cf74c0d3e8ebc7f1">&#9670;&nbsp;</a></span>insert()</h2>
 
@@ -210,8 +270,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a20a5de7ce7d811412903e9c6602d4fde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20a5de7ce7d811412903e9c6602d4fde">&#9670;&nbsp;</a></span>search()</h2>
+<a id="a1fc0d7be561086c3528ab0bbc0088e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc0d7be561086c3528ab0bbc0088e20">&#9670;&nbsp;</a></span>root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt;T&gt;&amp; <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::root </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回根节点 </p>
+
+</div>
+</div>
+<a id="a15d7a7bd0c3f6ef476ea4e278ae141bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15d7a7bd0c3f6ef476ea4e278ae141bb">&#9670;&nbsp;</a></span>search()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +307,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; * <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::search </td>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::search </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
@@ -254,8 +342,8 @@ child  [c]  [c]  [c]  [c]
 
 </div>
 </div>
-<a id="a69cd041d1fa69d23e60f3278e5adcdf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69cd041d1fa69d23e60f3278e5adcdf4">&#9670;&nbsp;</a></span>solve_overflow()</h2>
+<a id="a7184409ce458f99d8eecfe57a5ce9e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7184409ce458f99d8eecfe57a5ce9e44">&#9670;&nbsp;</a></span>solve_overflow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +356,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::solve_overflow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -316,8 +404,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a1e2cec0b3387a19dc5475a60637cc7b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e2cec0b3387a19dc5475a60637cc7b4">&#9670;&nbsp;</a></span>solve_underflow()</h2>
+<a id="a73fe243c0334e472c9affc431c6019af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fe243c0334e472c9affc431c6019af">&#9670;&nbsp;</a></span>solve_underflow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +418,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::solve_underflow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -380,8 +468,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
-<a id="a21c25d5146e6c00f3d8586ae71e8535a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21c25d5146e6c00f3d8586ae71e8535a">&#9670;&nbsp;</a></span>m_hot</h2>
+<a id="ab119b55aa60721c3a5704ceb64312540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab119b55aa60721c3a5704ceb64312540">&#9670;&nbsp;</a></span>m_hot</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,7 +480,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt;T&gt;* <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::m_hot</td>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::m_hot</td>
         </tr>
       </table>
   </td>
@@ -430,8 +518,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aa584c7bb43b2bc434951a1f5b9db96e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa584c7bb43b2bc434951a1f5b9db96e5">&#9670;&nbsp;</a></span>m_root</h2>
+<a id="a61ec2609c3bf61a8e66f24bc6f11cbb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61ec2609c3bf61a8e66f24bc6f11cbb5">&#9670;&nbsp;</a></span>m_root</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -442,7 +530,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt;T&gt;* <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::m_root</td>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::m_root</td>
         </tr>
       </table>
   </td>
@@ -481,7 +569,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="b__tree_8h_source.html">b_tree.h</a></li>
+<li>dsas-cpp/<a class="el" href="b__tree_8h_source.html">b_tree.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

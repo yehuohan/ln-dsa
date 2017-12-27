@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operatorcalc_2eh',['OperatorCalc.h',['../_operator_calc_8h.html',1,'']]]
+  ['majority_2eh',['majority.h',['../majority_8h.html',1,'']]]
 ];

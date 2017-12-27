@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -65,7 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classdsa_1_1_list-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">dsa::List&lt; T &gt; 模板类 参考<div class="ingroups"><a class="el" href="group___linear.html">Linear Struct</a> &raquo; <a class="el" href="group___l_list.html">List</a></div></div>  </div>
@@ -82,94 +88,104 @@ $(function() {
  <div class="center">
   <img src="classdsa_1_1_list.png" usemap="#dsa::List_3C_20T_20_3E_map" alt=""/>
   <map id="dsa::List_3C_20T_20_3E_map" name="dsa::List_3C_20T_20_3E_map">
-<area href="classdsa_1_1_queue.html" title="Queue class " alt="dsa::Queue&lt; T &gt;" shape="rect" coords="0,56,119,80"/>
-<area href="classdsa_1_1_stack_list.html" alt="dsa::StackList&lt; T &gt;" shape="rect" coords="129,56,248,80"/>
+<area href="classdsa_1_1_pq_list.html" title="使用List建立优先级队列。 " alt="dsa::PqList&lt; T &gt;" shape="rect" coords="0,56,119,80"/>
+<area href="classdsa_1_1_queue.html" title="队列类 " alt="dsa::Queue&lt; T &gt;" shape="rect" coords="129,56,248,80"/>
+<area href="classdsa_1_1_stack_list.html" title="栈 " alt="dsa::StackList&lt; T &gt;" shape="rect" coords="258,56,377,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list_1_1iterator.html">iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdsa_1_1_list.html" title="List class ">List</a> iterator class  <a href="classdsa_1_1_list_1_1iterator.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;T&gt;::Iterator class  <a href="classdsa_1_1_list_1_1_iterator.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a7b486ff7f5314a934bb9295c1e019cbb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a7b486ff7f5314a934bb9295c1e019cbb">List</a> ()</td></tr>
-<tr class="memdesc:a7b486ff7f5314a934bb9295c1e019cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">init with null header and trailer  <a href="#a7b486ff7f5314a934bb9295c1e019cbb">更多...</a><br /></td></tr>
+<tr class="memdesc:a7b486ff7f5314a934bb9295c1e019cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化链表  <a href="#a7b486ff7f5314a934bb9295c1e019cbb">更多...</a><br /></td></tr>
 <tr class="separator:a7b486ff7f5314a934bb9295c1e019cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a408d77016f16b065259e5151cfa8b835"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a408d77016f16b065259e5151cfa8b835">clear</a> ()</td></tr>
-<tr class="memdesc:a408d77016f16b065259e5151cfa8b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear all element except header and trailer  <a href="#a408d77016f16b065259e5151cfa8b835">更多...</a><br /></td></tr>
+<tr class="memdesc:a408d77016f16b065259e5151cfa8b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">清除所有节点  <a href="#a408d77016f16b065259e5151cfa8b835">更多...</a><br /></td></tr>
 <tr class="separator:a408d77016f16b065259e5151cfa8b835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d73e621bf12416c8ce8932c6975813"><td class="memItemLeft" align="right" valign="top"><a id="ae2d73e621bf12416c8ce8932c6975813"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:ae2d73e621bf12416c8ce8932c6975813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3223835a10bb34e8f26beae02f0f0422"><td class="memItemLeft" align="right" valign="top"><a id="a3223835a10bb34e8f26beae02f0f0422"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
 <tr class="separator:a3223835a10bb34e8f26beae02f0f0422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f1ef82ddac50658077b6aca4292324"><td class="memItemLeft" align="right" valign="top"><a id="a80f1ef82ddac50658077b6aca4292324"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
-<tr class="separator:a80f1ef82ddac50658077b6aca4292324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0f188f895217f25b21d98c926eba822"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ac0f188f895217f25b21d98c926eba822">remove</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p)</td></tr>
-<tr class="memdesc:ac0f188f895217f25b21d98c926eba822"><td class="mdescLeft">&#160;</td><td class="mdescRight">: remove one node  <a href="#ac0f188f895217f25b21d98c926eba822">更多...</a><br /></td></tr>
-<tr class="separator:ac0f188f895217f25b21d98c926eba822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a042dde854464a20013e11e0d336c6c71"><td class="memItemLeft" align="right" valign="top"><a id="a042dde854464a20013e11e0d336c6c71"></a>
-<a class="el" href="classdsa_1_1_list_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
-<tr class="separator:a042dde854464a20013e11e0d336c6c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7380ccc9dac667c4eab8f722f12cc9b9"><td class="memItemLeft" align="right" valign="top"><a id="a7380ccc9dac667c4eab8f722f12cc9b9"></a>
-<a class="el" href="classdsa_1_1_list_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
-<tr class="separator:a7380ccc9dac667c4eab8f722f12cc9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae39e783b42b1f1080f2489829c3a4f6e"><td class="memItemLeft" align="right" valign="top"><a id="ae39e783b42b1f1080f2489829c3a4f6e"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> () const</td></tr>
-<tr class="separator:ae39e783b42b1f1080f2489829c3a4f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89978b2652b0cd1f89f2a3edce26c85a"><td class="memItemLeft" align="right" valign="top"><a id="a89978b2652b0cd1f89f2a3edce26c85a"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>last</b> () const</td></tr>
-<tr class="separator:a89978b2652b0cd1f89f2a3edce26c85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be46af4588ad1b36aa733bbb85869be"><td class="memItemLeft" align="right" valign="top"><a id="a7be46af4588ad1b36aa733bbb85869be"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>push_front</b> (const T &amp;ele)</td></tr>
-<tr class="separator:a7be46af4588ad1b36aa733bbb85869be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a080647b74cfdd4de85ec02529a2221fd"><td class="memItemLeft" align="right" valign="top"><a id="a080647b74cfdd4de85ec02529a2221fd"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (const T &amp;ele)</td></tr>
-<tr class="separator:a080647b74cfdd4de85ec02529a2221fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab421d025fd7a410bd9866d499311e677"><td class="memItemLeft" align="right" valign="top"><a id="ab421d025fd7a410bd9866d499311e677"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>insert_before</b> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p, const T &amp;ele)</td></tr>
-<tr class="separator:ab421d025fd7a410bd9866d499311e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b61e6e022221318cc54702317e60247"><td class="memItemLeft" align="right" valign="top"><a id="a8b61e6e022221318cc54702317e60247"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>insert_after</b> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p, const T &amp;ele)</td></tr>
-<tr class="separator:a8b61e6e022221318cc54702317e60247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae524a50303a42ce19c28f067cabc40a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ae524a50303a42ce19c28f067cabc40a2">is_valid</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p) const</td></tr>
+<tr class="separator:ae524a50303a42ce19c28f067cabc40a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03224a5c583e646a23fde01b80567d3"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ae03224a5c583e646a23fde01b80567d3">remove</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p)</td></tr>
+<tr class="memdesc:ae03224a5c583e646a23fde01b80567d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除一个节点  <a href="#ae03224a5c583e646a23fde01b80567d3">更多...</a><br /></td></tr>
+<tr class="separator:ae03224a5c583e646a23fde01b80567d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa27865a319caab4d1416f0e0debcfa66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#aa27865a319caab4d1416f0e0debcfa66">remove</a> (int n, <a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p)</td></tr>
+<tr class="memdesc:aa27865a319caab4d1416f0e0debcfa66"><td class="mdescLeft">&#160;</td><td class="mdescRight">移除p前面的n个元素  <a href="#aa27865a319caab4d1416f0e0debcfa66">更多...</a><br /></td></tr>
+<tr class="separator:aa27865a319caab4d1416f0e0debcfa66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b678374f04d204c2a88ba6eb0ad45c"><td class="memItemLeft" align="right" valign="top">ListIterator&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ab8b678374f04d204c2a88ba6eb0ad45c">begin</a> ()</td></tr>
+<tr class="separator:ab8b678374f04d204c2a88ba6eb0ad45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c964f2967e203488a38b4573f1fdd7"><td class="memItemLeft" align="right" valign="top">ListIterator&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a30c964f2967e203488a38b4573f1fdd7">end</a> ()</td></tr>
+<tr class="separator:a30c964f2967e203488a38b4573f1fdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8e14f251d032f4c8139604e696e0283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ab8e14f251d032f4c8139604e696e0283">front</a> () const</td></tr>
+<tr class="separator:ab8e14f251d032f4c8139604e696e0283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd32bfaba4b6b859b6de617f9681126"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#adbd32bfaba4b6b859b6de617f9681126">back</a> () const</td></tr>
+<tr class="separator:adbd32bfaba4b6b859b6de617f9681126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a93dc265640c842413fc1e4d52af4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a58a93dc265640c842413fc1e4d52af4b">push_front</a> (const T &amp;ele)</td></tr>
+<tr class="separator:a58a93dc265640c842413fc1e4d52af4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e88b46e1fef97c9e83ce6f3a7c3f5c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a4e88b46e1fef97c9e83ce6f3a7c3f5c2">push_back</a> (const T &amp;ele)</td></tr>
+<tr class="separator:a4e88b46e1fef97c9e83ce6f3a7c3f5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080083b81f25b0892cb130d5aadb0b6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a080083b81f25b0892cb130d5aadb0b6a">insert_before</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p, const T &amp;ele)</td></tr>
+<tr class="separator:a080083b81f25b0892cb130d5aadb0b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13d087dd166838b84d65ae484a2873b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ae13d087dd166838b84d65ae484a2873b">insert_after</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p, const T &amp;ele)</td></tr>
+<tr class="separator:ae13d087dd166838b84d65ae484a2873b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf4293b120dfa2dd4a9cbdb0c9984e3a"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#abf4293b120dfa2dd4a9cbdb0c9984e3a">operator[]</a> (int index) const</td></tr>
-<tr class="memdesc:abf4293b120dfa2dd4a9cbdb0c9984e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">: access element by operator[]  <a href="#abf4293b120dfa2dd4a9cbdb0c9984e3a">更多...</a><br /></td></tr>
+<tr class="memdesc:abf4293b120dfa2dd4a9cbdb0c9984e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">重载[]运算符，实现下标索引  <a href="#abf4293b120dfa2dd4a9cbdb0c9984e3a">更多...</a><br /></td></tr>
 <tr class="separator:abf4293b120dfa2dd4a9cbdb0c9984e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55ff132f7600d33b40b1f6a2c63ac08a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a55ff132f7600d33b40b1f6a2c63ac08a">find</a> (const T &amp;ele, int n, <a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p) const</td></tr>
-<tr class="memdesc:a55ff132f7600d33b40b1f6a2c63ac08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找元素  <a href="#a55ff132f7600d33b40b1f6a2c63ac08a">更多...</a><br /></td></tr>
-<tr class="separator:a55ff132f7600d33b40b1f6a2c63ac08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24a59ac1729f8817532b1f32bc00b638"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a24a59ac1729f8817532b1f32bc00b638">search</a> (const T &amp;ele, int n, <a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p) const</td></tr>
-<tr class="memdesc:a24a59ac1729f8817532b1f32bc00b638"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找元素  <a href="#a24a59ac1729f8817532b1f32bc00b638">更多...</a><br /></td></tr>
-<tr class="separator:a24a59ac1729f8817532b1f32bc00b638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7e5ac42606e85bad2fac25de806543f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ae7e5ac42606e85bad2fac25de806543f">find</a> (const T &amp;ele, int n, <a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p) const</td></tr>
+<tr class="memdesc:ae7e5ac42606e85bad2fac25de806543f"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找元素  <a href="#ae7e5ac42606e85bad2fac25de806543f">更多...</a><br /></td></tr>
+<tr class="separator:ae7e5ac42606e85bad2fac25de806543f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13459f49f6eaca4949cdca0ead9fce8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ad13459f49f6eaca4949cdca0ead9fce8">search</a> (const T &amp;ele, int n, <a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p) const</td></tr>
+<tr class="memdesc:ad13459f49f6eaca4949cdca0ead9fce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找元素  <a href="#ad13459f49f6eaca4949cdca0ead9fce8">更多...</a><br /></td></tr>
+<tr class="separator:ad13459f49f6eaca4949cdca0ead9fce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeced419bac2f37268299187da4d62ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#aaeced419bac2f37268299187da4d62ae">deduplicate</a> ()</td></tr>
 <tr class="memdesc:aaeced419bac2f37268299187da4d62ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">无序列表唯一化，思路和无序向量唯一化相同  <a href="#aaeced419bac2f37268299187da4d62ae">更多...</a><br /></td></tr>
 <tr class="separator:aaeced419bac2f37268299187da4d62ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87e3dcac064f6bd6ef7475bf8e3d4c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#ae87e3dcac064f6bd6ef7475bf8e3d4c4">uniquify</a> ()</td></tr>
 <tr class="memdesc:ae87e3dcac064f6bd6ef7475bf8e3d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">有序列表唯一化，思路和有序向量唯一化相同  <a href="#ae87e3dcac064f6bd6ef7475bf8e3d4c4">更多...</a><br /></td></tr>
 <tr class="separator:ae87e3dcac064f6bd6ef7475bf8e3d4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787eba2b5dd3fb6580c05a8dafe80bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a787eba2b5dd3fb6580c05a8dafe80bf6">selection_sort</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p, int n)</td></tr>
-<tr class="memdesc:a787eba2b5dd3fb6580c05a8dafe80bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择排序  <a href="#a787eba2b5dd3fb6580c05a8dafe80bf6">更多...</a><br /></td></tr>
-<tr class="separator:a787eba2b5dd3fb6580c05a8dafe80bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a993badb9de27c4a52b3eff06b243f859"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a993badb9de27c4a52b3eff06b243f859">select_max</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p, int n)</td></tr>
-<tr class="memdesc:a993badb9de27c4a52b3eff06b243f859"><td class="mdescLeft">&#160;</td><td class="mdescRight">取最大节点  <a href="#a993badb9de27c4a52b3eff06b243f859">更多...</a><br /></td></tr>
-<tr class="separator:a993badb9de27c4a52b3eff06b243f859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81970b0d8d3aa1d1c54f9b2b019f849e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a81970b0d8d3aa1d1c54f9b2b019f849e">insertion_sort</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *p, int n)</td></tr>
-<tr class="memdesc:a81970b0d8d3aa1d1c54f9b2b019f849e"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入排序  <a href="#a81970b0d8d3aa1d1c54f9b2b019f849e">更多...</a><br /></td></tr>
-<tr class="separator:a81970b0d8d3aa1d1c54f9b2b019f849e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c35bd2c80c832d4fabe049c71f51526"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a2c35bd2c80c832d4fabe049c71f51526">select_max</a> ()</td></tr>
+<tr class="separator:a2c35bd2c80c832d4fabe049c71f51526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89e0ef292f4743638fe88755d8f87ffd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a89e0ef292f4743638fe88755d8f87ffd">select_max</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p, int n)</td></tr>
+<tr class="memdesc:a89e0ef292f4743638fe88755d8f87ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">取最大节点  <a href="#a89e0ef292f4743638fe88755d8f87ffd">更多...</a><br /></td></tr>
+<tr class="separator:a89e0ef292f4743638fe88755d8f87ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88577d3b97e5e1519167b89cedbdb648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a88577d3b97e5e1519167b89cedbdb648">sort</a> ()</td></tr>
+<tr class="separator:a88577d3b97e5e1519167b89cedbdb648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060b1f4ab79c042815d42f4bf4672771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a060b1f4ab79c042815d42f4bf4672771">selection_sort</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p, int n)</td></tr>
+<tr class="memdesc:a060b1f4ab79c042815d42f4bf4672771"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择排序  <a href="#a060b1f4ab79c042815d42f4bf4672771">更多...</a><br /></td></tr>
+<tr class="separator:a060b1f4ab79c042815d42f4bf4672771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124c53bc7e6c0e16a59f1d6113095e7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a124c53bc7e6c0e16a59f1d6113095e7f">insertion_sort</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; p, int n)</td></tr>
+<tr class="memdesc:a124c53bc7e6c0e16a59f1d6113095e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入排序  <a href="#a124c53bc7e6c0e16a59f1d6113095e7f">更多...</a><br /></td></tr>
+<tr class="separator:a124c53bc7e6c0e16a59f1d6113095e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fca2d667c04319d5852f712b581b18b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a2fca2d667c04319d5852f712b581b18b">quick_sort</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;, <a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a2fca2d667c04319d5852f712b581b18b"><td class="mdescLeft">&#160;</td><td class="mdescRight">快速排序  <a href="#a2fca2d667c04319d5852f712b581b18b">更多...</a><br /></td></tr>
+<tr class="separator:a2fca2d667c04319d5852f712b581b18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d31474cbd89492e37c4d86cd122972c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a2d31474cbd89492e37c4d86cd122972c">partition</a> (<a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;, <a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a2d31474cbd89492e37c4d86cd122972c"><td class="mdescLeft">&#160;</td><td class="mdescRight">快速排序(quick_sort)轴点构造算法  <a href="#a2d31474cbd89492e37c4d86cd122972c">更多...</a><br /></td></tr>
+<tr class="separator:a2d31474cbd89492e37c4d86cd122972c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24109558645bbd34012968d77b9f3f28"><td class="memTemplParams" colspan="2">template&lt;typename VST &gt; </td></tr>
+<tr class="memitem:a24109558645bbd34012968d77b9f3f28"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a24109558645bbd34012968d77b9f3f28">traverse</a> (VST &amp;visit)</td></tr>
+<tr class="memdesc:a24109558645bbd34012968d77b9f3f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">遍历List  <a href="#a24109558645bbd34012968d77b9f3f28">更多...</a><br /></td></tr>
+<tr class="separator:a24109558645bbd34012968d77b9f3f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private 属性</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
 <tr class="memitem:a77d680ab54c77249bba7ba516627fa27"><td class="memItemLeft" align="right" valign="top"><a id="a77d680ab54c77249bba7ba516627fa27"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>m_size</b></td></tr>
 <tr class="separator:a77d680ab54c77249bba7ba516627fa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b8631d62db5b4ad5da843683f34758f"><td class="memItemLeft" align="right" valign="top"><a id="a7b8631d62db5b4ad5da843683f34758f"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>header</b></td></tr>
-<tr class="separator:a7b8631d62db5b4ad5da843683f34758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5d22ce5b5079d16f7ff95dd0c58273"><td class="memItemLeft" align="right" valign="top"><a id="acd5d22ce5b5079d16f7ff95dd0c58273"></a>
-<a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>trailer</b></td></tr>
-<tr class="separator:acd5d22ce5b5079d16f7ff95dd0c58273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656804a39791711d0f4f08f11e7f154d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#a656804a39791711d0f4f08f11e7f154d">header</a></td></tr>
+<tr class="separator:a656804a39791711d0f4f08f11e7f154d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe8e4d1ba218c350537cb26ec890170c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_list.html#abe8e4d1ba218c350537cb26ec890170c">tailer</a></td></tr>
+<tr class="separator:abe8e4d1ba218c350537cb26ec890170c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -194,7 +210,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>init with null header and trailer </p>
+<p>初始化链表 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -212,6 +228,62 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="adbd32bfaba4b6b859b6de617f9681126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd32bfaba4b6b859b6de617f9681126">&#9670;&nbsp;</a></span>back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>最后一个节点 </p>
+
+</div>
+</div>
+<a id="ab8b678374f04d204c2a88ba6eb0ad45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8b678374f04d204c2a88ba6eb0ad45c">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ListIterator&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>第一个节点的Iterator </p>
+
+</div>
+</div>
 <a id="a408d77016f16b065259e5151cfa8b835"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a408d77016f16b065259e5151cfa8b835">&#9670;&nbsp;</a></span>clear()</h2>
 
@@ -229,14 +301,15 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>clear all element except header and trailer </p>
+<p>清除所有节点 </p>
+<p>这里根据m_size来删除所有节点，故m_size一定得准确。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>the size of list before clear </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回被清除的节点数 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -270,7 +343,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回重复的元素总数 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -280,8 +353,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a55ff132f7600d33b40b1f6a2c63ac08a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55ff132f7600d33b40b1f6a2c63ac08a">&#9670;&nbsp;</a></span>find()</h2>
+<a id="a30c964f2967e203488a38b4573f1fdd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c964f2967e203488a38b4573f1fdd7">&#9670;&nbsp;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ListIterator&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>尾部哨兵节点的Iterator </p>
+
+</div>
+</div>
+<a id="ae7e5ac42606e85bad2fac25de806543f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e5ac42606e85bad2fac25de806543f">&#9670;&nbsp;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +390,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; * <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::find </td>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::find </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>ele</em>, </td>
@@ -303,7 +404,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -315,16 +416,19 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>查找元素 </p>
-<p>在p的前n个元素中查找ele</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+在p的前n个元素，即范围为[p-n, p)，即p-1, p-2 ... p-n；</pre><pre>在p的前n个元素中查找ele；
+因为必定会遍历到所有的前n个元素，故find的时间复杂度为O(n)。
+所以返回的结果：要么是找到元素，要么没有找到。
+</pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>: 需要查找的元素 </td></tr>
-    <tr><td class="paramname">n</td><td>: ele的前n个元素范围 </td></tr>
-    <tr><td class="paramname">p</td><td>: 查找的起点 </td></tr>
+    <tr><td class="paramname">ele</td><td>需要查找的元素 </td></tr>
+    <tr><td class="paramname">n</td><td>ele的前n个元素范围，0 &lt;= n &lt;= size </td></tr>
+    <tr><td class="paramname">p</td><td>查找的起点，可以为tailer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>找到则返加node，未找到则返加nullptr </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>找到则返回node，未找到则返回nullptr </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -334,8 +438,114 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a81970b0d8d3aa1d1c54f9b2b019f849e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81970b0d8d3aa1d1c54f9b2b019f849e">&#9670;&nbsp;</a></span>insertion_sort()</h2>
+<a id="ab8e14f251d032f4c8139604e696e0283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8e14f251d032f4c8139604e696e0283">&#9670;&nbsp;</a></span>front()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>第一个节点 </p>
+
+</div>
+</div>
+<a id="ae13d087dd166838b84d65ae484a2873b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13d087dd166838b84d65ae484a2873b">&#9670;&nbsp;</a></span>insert_after()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::insert_after </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>插入到节点的后面 </p>
+
+</div>
+</div>
+<a id="a080083b81f25b0892cb130d5aadb0b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080083b81f25b0892cb130d5aadb0b6a">&#9670;&nbsp;</a></span>insert_before()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::insert_before </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>插入到节点的前面 </p>
+
+</div>
+</div>
+<a id="a124c53bc7e6c0e16a59f1d6113095e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a124c53bc7e6c0e16a59f1d6113095e7f">&#9670;&nbsp;</a></span>insertion_sort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +555,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::insertion_sort </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
@@ -363,11 +573,15 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>插入排序 </p>
-<p>对位于p的连续n个元素进行插入排序</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+故p不能为header，p+n可以为tailer；</pre><pre>对位于p的后n个元素进行插入排序；</pre><pre>[       i    ][e          ]
+ ------------  -----------
+ 已排序区间S   待排序区间W</pre><pre>不断将W中第一个元素e，插入到S中位置i处；
+i为S中元素不大于e的最大元素的位置</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>: node </td></tr>
-    <tr><td class="paramname">n</td><td>: node p开始的n个元素，要求 index(p)+n &lt;= size </td></tr>
+    <tr><td class="paramname">p</td><td>起始节点 </td></tr>
+    <tr><td class="paramname">n</td><td>节点p开始的n个元素，要求 index(p)+n &lt;= size </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,6 +592,35 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ae524a50303a42ce19c28f067cabc40a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae524a50303a42ce19c28f067cabc40a2">&#9670;&nbsp;</a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::is_valid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>判断节点p是否可以合法访问 </p>
 
 </div>
 </div>
@@ -399,14 +642,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>: access element by operator[] </p>
+<p>重载[]运算符，实现下标索引 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">index</td><td>下标，范围为[0, size) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>the element of node </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回节点数据的引用 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -416,8 +659,170 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ac0f188f895217f25b21d98c926eba822"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0f188f895217f25b21d98c926eba822">&#9670;&nbsp;</a></span>remove()</h2>
+<a id="a2d31474cbd89492e37c4d86cd122972c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d31474cbd89492e37c4d86cd122972c">&#9670;&nbsp;</a></span>partition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::partition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>ne</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>快速排序(quick_sort)轴点构造算法 </p>
+<pre>
+轴点可选取范围为[lo, hi]，与quick_sort的约定有所不同。
+轴点：左侧元素[lo, mi) &lt;= 轴点元素mi &lt;= 右侧元素(mi, hi]</pre><pre>根据轴点的确定过程，可知快速排序前后，可能打乱相同元素间的相对顺序；
+即快速排序是不稳定的。</pre><pre>(1)基本形式
+[p][    ][i     j][    ]
+    ----           ----
+     L              R
+比较候选轴点p和i和j，将i和j不断的归入到L或R中；</pre><pre>(2)变种形式
+[p][      q][i       ][k----------]
+   --------  --------
+       L        R
+不断的比较候选轴点p和k
+p &lt;= k : k归入R中；
+p &gt; k : k归入L中，即交换i和k，L的长度+1；
+最终交换p和q，q做为最终的轴点。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ns,ne</td><td>轴点查找范围，为[ns,ne] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e88b46e1fef97c9e83ce6f3a7c3f5c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e88b46e1fef97c9e83ce6f3a7c3f5c2">&#9670;&nbsp;</a></span>push_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>插入元素到最后一个节点 </p>
+
+</div>
+</div>
+<a id="a58a93dc265640c842413fc1e4d52af4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a93dc265640c842413fc1e4d52af4b">&#9670;&nbsp;</a></span>push_front()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::push_front </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>插入元素到第一个节点 </p>
+
+</div>
+</div>
+<a id="a2fca2d667c04319d5852f712b581b18b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fca2d667c04319d5852f712b581b18b">&#9670;&nbsp;</a></span>quick_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::quick_sort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>ns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>ne</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>快速排序 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ns,ne</td><td>排序的起始点和结束点，排序范围[ns,ne) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae03224a5c583e646a23fde01b80567d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03224a5c583e646a23fde01b80567d3">&#9670;&nbsp;</a></span>remove() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,21 +832,21 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>: remove one node </p>
+<p>删除一个节点 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">p</td><td>待删除节点 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>the deleted element </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回被删除节点的数据 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -451,8 +856,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a24a59ac1729f8817532b1f32bc00b638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24a59ac1729f8817532b1f32bc00b638">&#9670;&nbsp;</a></span>search()</h2>
+<a id="aa27865a319caab4d1416f0e0debcfa66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27865a319caab4d1416f0e0debcfa66">&#9670;&nbsp;</a></span>remove() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,7 +865,54 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; * <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::search </td>
+          <td class="memname">int <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移除p前面的n个元素 </p>
+<p>在p的前n个元素，即范围为[p-n, p)，即p-1, p-2 ... p-n；</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>要移除的元素个数，0 &lt;= n &lt;= size </td></tr>
+    <tr><td class="paramname">p</td><td>查找的起点，可以为tailer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad13459f49f6eaca4949cdca0ead9fce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad13459f49f6eaca4949cdca0ead9fce8">&#9670;&nbsp;</a></span>search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::search </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>ele</em>, </td>
@@ -474,7 +926,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -486,16 +938,18 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>查找元素 </p>
-<p>在p的前n个元素中查找ele</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+在p的前n个元素，即范围为[p-n, p)，即p-1, p-2 ... p-n；</pre><pre>在p的前n个元素中查找ele；
+因为最后需要返回不大于ele的最大元素，故p的前n个元素必须是有序的。</pre><pre>返回的值可以为header，即List中没有不大于ele的元素。
+</pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ele</td><td>: 需要查找的元素 </td></tr>
-    <tr><td class="paramname">n</td><td>: ele的前n个元素范围 </td></tr>
-    <tr><td class="paramname">p</td><td>: 查找的起点 </td></tr>
+    <tr><td class="paramname">ele</td><td>待查找的元素 </td></tr>
+    <tr><td class="paramname">n</td><td>ele的前n个元素范围，0 &lt;= n &lt;= size </td></tr>
+    <tr><td class="paramname">p</td><td>查找的起点，可以为tailer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>不大于ele的最后者元素 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>不大于ele的最大元素，可以为header </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -505,8 +959,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a993badb9de27c4a52b3eff06b243f859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a993badb9de27c4a52b3eff06b243f859">&#9670;&nbsp;</a></span>select_max()</h2>
+<a id="a2c35bd2c80c832d4fabe049c71f51526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c35bd2c80c832d4fabe049c71f51526">&#9670;&nbsp;</a></span>select_max() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::select_max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>选出整个链表的最大元素 </p>
+
+</div>
+</div>
+<a id="a89e0ef292f4743638fe88755d8f87ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e0ef292f4743638fe88755d8f87ffd">&#9670;&nbsp;</a></span>select_max() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,9 +996,9 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; * <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::select_max </td>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::select_max </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
@@ -534,11 +1016,13 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>取最大节点 </p>
-<p>选出从p开始的n个元素中的最大者</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+故p不能为header，p+n可以为tailer；</pre><pre>选出从p的后n个元素中的最大者；
+</pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>: node </td></tr>
-    <tr><td class="paramname">n</td><td>: node p开始的n个元素 </td></tr>
+    <tr><td class="paramname">p</td><td>起始节点 </td></tr>
+    <tr><td class="paramname">n</td><td>节点p开始的n个元素 </td></tr>
   </table>
   </dd>
 </dl>
@@ -552,8 +1036,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a787eba2b5dd3fb6580c05a8dafe80bf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a787eba2b5dd3fb6580c05a8dafe80bf6">&#9670;&nbsp;</a></span>selection_sort()</h2>
+<a id="a060b1f4ab79c042815d42f4bf4672771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a060b1f4ab79c042815d42f4bf4672771">&#9670;&nbsp;</a></span>selection_sort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -563,7 +1047,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::selection_sort </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
@@ -581,11 +1065,82 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>选择排序 </p>
-<p>对位于p的连续n个元素进行选择排序</p>
+<pre>
+在p的后n个元素，即范围为[p, p+n)，即p+0, p+1 ... p+n-1；
+故p不能为header，p+n可以为tailer；</pre><pre>对p的后n个元素进行选择排序；
+排序元素包含p，故p不能为header，且排序元素也不能包含tailer；</pre><pre>[    m       ][i          ]
+ ------------  -----------
+ 待排序区间W   已排序区间S
+ 不断的从W中选出最大者m，放入S的第一个位置i处
+</pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>起始节点 </td></tr>
+    <tr><td class="paramname">n</td><td>节点p开始的n个元素，要求 index(p)+n &lt;= size </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a88577d3b97e5e1519167b89cedbdb648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88577d3b97e5e1519167b89cedbdb648">&#9670;&nbsp;</a></span>sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::sort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>对所有元素排序 </p>
+
+</div>
+</div>
+<a id="a24109558645bbd34012968d77b9f3f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24109558645bbd34012968d77b9f3f28">&#9670;&nbsp;</a></span>traverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename VST &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::traverse </td>
+          <td>(</td>
+          <td class="paramtype">VST &amp;&#160;</td>
+          <td class="paramname"><em>visit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>遍历List </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>: node </td></tr>
-    <tr><td class="paramname">n</td><td>: node p开始的n个元素，要求 index(p)+n &lt;= size </td></tr>
+    <tr><td class="paramname">visit</td><td>访问函数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -623,7 +1178,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回重复的元素总数 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -633,8 +1188,59 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a656804a39791711d0f4f08f11e7f154d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656804a39791711d0f4f08f11e7f154d">&#9670;&nbsp;</a></span>header</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::header</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>头哨兵节点，不存数据 </p>
+
+</div>
+</div>
+<a id="abe8e4d1ba218c350537cb26ec890170c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe8e4d1ba218c350537cb26ec890170c">&#9670;&nbsp;</a></span>tailer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_list_node.html">ListNodePtr</a>&lt;T&gt; <a class="el" href="classdsa_1_1_list.html">dsa::List</a>&lt; T &gt;::tailer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>尾哨兵节点，不存数据 </p>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>dsas-src/<a class="el" href="list_8h_source.html">list.h</a></li>
+<li>dsas-cpp/<a class="el" href="list_8h_source.html">list.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

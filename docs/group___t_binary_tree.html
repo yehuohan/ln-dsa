@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -60,7 +66,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#enum-members">枚举</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle">
 <div class="title">Binary Tree<div class="ingroups"><a class="el" href="group___tree.html">Tree Struct</a></div></div>  </div>
@@ -76,40 +81,32 @@ $(function() {
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">二叉树类  <a href="classdsa_1_1_bin_tree.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:ga5f847f09d817710bbf7a817762be9df5"><td class="memItemLeft" align="right" valign="top"><a id="ga5f847f09d817710bbf7a817762be9df5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>RBColor</b> { <b>Red</b>, 
-<b>Black</b>
- }</td></tr>
-<tr class="separator:ga5f847f09d817710bbf7a817762be9df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
-<tr class="memitem:ga4df3420726423a967d1f7d4844161402"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">dsa::visit_along_left_brach</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *x, VST &amp;visit, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&gt; &amp;s)</td></tr>
-<tr class="memdesc:ga4df3420726423a967d1f7d4844161402"><td class="mdescLeft">&#160;</td><td class="mdescRight">依次仿问所有左子节点  <a href="group___t_binary_tree.html#ga4df3420726423a967d1f7d4844161402">更多...</a><br /></td></tr>
-<tr class="separator:ga4df3420726423a967d1f7d4844161402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga49c45e57f9a6304e18c5f098215f5665"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">dsa::go_along_left_branch</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *x, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; * &gt; &amp;s)</td></tr>
-<tr class="memdesc:ga49c45e57f9a6304e18c5f098215f5665"><td class="mdescLeft">&#160;</td><td class="mdescRight">沿着左子树，将左子树顺序入栈 经过此函数，最后入栈节点的左子树一定为nullptr  <a href="group___t_binary_tree.html#ga49c45e57f9a6304e18c5f098215f5665">更多...</a><br /></td></tr>
-<tr class="separator:ga49c45e57f9a6304e18c5f098215f5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memTemplItemLeft" align="right" valign="top">static int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">dsa::remove_at</a> (<a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *node)</td></tr>
-<tr class="memdesc:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除以位置node处节点为根的子树  <a href="group___t_binary_tree.html#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">更多...</a><br /></td></tr>
-<tr class="separator:ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga334ab2781669e17c3a65d5a1265c7540"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga334ab2781669e17c3a65d5a1265c7540"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga334ab2781669e17c3a65d5a1265c7540">dsa::construct_bintree_pre_in</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode</a>&lt; T &gt; *&amp;node)</td></tr>
-<tr class="memdesc:ga334ab2781669e17c3a65d5a1265c7540"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树的子树  <a href="group___t_binary_tree.html#ga334ab2781669e17c3a65d5a1265c7540">更多...</a><br /></td></tr>
-<tr class="separator:ga334ab2781669e17c3a65d5a1265c7540"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga12cf145bec00b6327b966c71f9c4c633"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga12cf145bec00b6327b966c71f9c4c633"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga12cf145bec00b6327b966c71f9c4c633">dsa::construct_bintree</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree</a>&lt; T &gt; &amp;bt)</td></tr>
-<tr class="memdesc:ga12cf145bec00b6327b966c71f9c4c633"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树  <a href="group___t_binary_tree.html#ga12cf145bec00b6327b966c71f9c4c633">更多...</a><br /></td></tr>
-<tr class="separator:ga12cf145bec00b6327b966c71f9c4c633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab507c4e1462f69ec9c13ea09edaaaf5e"><td class="memTemplParams" colspan="2">template&lt;typename T , typename VST &gt; </td></tr>
+<tr class="memitem:gab507c4e1462f69ec9c13ea09edaaaf5e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#gab507c4e1462f69ec9c13ea09edaaaf5e">dsa::visit_along_left_brach</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; x, VST &amp;visit, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &gt; &amp;s)</td></tr>
+<tr class="memdesc:gab507c4e1462f69ec9c13ea09edaaaf5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">依次仿问所有左子节点  <a href="group___t_binary_tree.html#gab507c4e1462f69ec9c13ea09edaaaf5e">更多...</a><br /></td></tr>
+<tr class="separator:gab507c4e1462f69ec9c13ea09edaaaf5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga718fa06bc2d2efa4e79b9dba924f1c20"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga718fa06bc2d2efa4e79b9dba924f1c20"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga718fa06bc2d2efa4e79b9dba924f1c20">dsa::go_along_left_branch</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; x, <a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &gt; &amp;s)</td></tr>
+<tr class="memdesc:ga718fa06bc2d2efa4e79b9dba924f1c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">沿着左子树，将左子树顺序入栈 经过此函数，最后入栈节点的左子树一定为nullptr  <a href="group___t_binary_tree.html#ga718fa06bc2d2efa4e79b9dba924f1c20">更多...</a><br /></td></tr>
+<tr class="separator:ga718fa06bc2d2efa4e79b9dba924f1c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7344ebfdc525ef3a718139855afd21a8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga7344ebfdc525ef3a718139855afd21a8"><td class="memTemplItemLeft" align="right" valign="top">static int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga7344ebfdc525ef3a718139855afd21a8">dsa::remove_at</a> (<a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; node)</td></tr>
+<tr class="memdesc:ga7344ebfdc525ef3a718139855afd21a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除以位置node处节点为根的子树  <a href="group___t_binary_tree.html#ga7344ebfdc525ef3a718139855afd21a8">更多...</a><br /></td></tr>
+<tr class="separator:ga7344ebfdc525ef3a718139855afd21a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85b138e217bbd4d9fbef4d057d367c16"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga85b138e217bbd4d9fbef4d057d367c16"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga85b138e217bbd4d9fbef4d057d367c16">dsa::construct_bintree_pre_in</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;node)</td></tr>
+<tr class="memdesc:ga85b138e217bbd4d9fbef4d057d367c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树的子树  <a href="group___t_binary_tree.html#ga85b138e217bbd4d9fbef4d057d367c16">更多...</a><br /></td></tr>
+<tr class="separator:ga85b138e217bbd4d9fbef4d057d367c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d9beea5942ac782a55617910c28606c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga5d9beea5942ac782a55617910c28606c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga5d9beea5942ac782a55617910c28606c">dsa::construct_bintree</a> (const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;pre, const <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt; &amp;in, <a class="el" href="classdsa_1_1_bin_tree.html">BinTree</a>&lt; T &gt; &amp;bt)</td></tr>
+<tr class="memdesc:ga5d9beea5942ac782a55617910c28606c"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据先序与中序序列重构二叉树  <a href="group___t_binary_tree.html#ga5d9beea5942ac782a55617910c28606c">更多...</a><br /></td></tr>
+<tr class="separator:ga5d9beea5942ac782a55617910c28606c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 节点相关宏</h2></td></tr>
-<tr class="memitem:gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><td class="memItemLeft" align="right" valign="top"><a id="gae5da833c17ce3b2dfc2aa7ca2f2f91d6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_Stature</b>(x)&#160;&#160;&#160;((x) ? (x)-&gt;height : -1)</td></tr>
+<tr class="memitem:gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>(x)&#160;&#160;&#160;((x) ? (x)-&gt;height : -1)</td></tr>
 <tr class="separator:gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6235b1702ffb3beae1c06d6f85934ea5"><td class="memItemLeft" align="right" valign="top"><a id="ga6235b1702ffb3beae1c06d6f85934ea5"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BN_IsRoot</b>(x)&#160;&#160;&#160;(!((x).parent))</td></tr>
@@ -148,6 +145,16 @@ $(function() {
 <tr class="separator:gad4a0f4be2424554bc03f2c2115f47fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga04af3b58417e618a97da0af2be4db582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga04af3b58417e618a97da0af2be4db582">BN_BlackHeightUpdated</a>(x)</td></tr>
 <tr class="separator:ga04af3b58417e618a97da0af2be4db582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+类型定义与声明</h2></td></tr>
+<tr class="memitem:ga5f847f09d817710bbf7a817762be9df5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#ga5f847f09d817710bbf7a817762be9df5">dsa::RBColor</a> { <b>Red</b>, 
+<b>Black</b>
+ }</td></tr>
+<tr class="separator:ga5f847f09d817710bbf7a817762be9df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2239a64b8c720b5d9842fdc892ad50d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gab2239a64b8c720b5d9842fdc892ad50d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">dsa::BinNodePtr</a> = struct <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *</td></tr>
+<tr class="separator:gab2239a64b8c720b5d9842fdc892ad50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>二叉树 </p>
@@ -167,7 +174,27 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">   ( BN_Stature((x).left) == BN_Stature((x).right)) &amp;&amp; \</div><div class="line">   ((x).height == ( BN_IsRed(&amp;x) ? BN_Stature((x).left) : BN_Stature((x).left )+1)))</div></div><!-- fragment --><p>检测黑高度是否正确 </p>
+<b>值:</b><div class="fragment"><div class="line">( \</div><div class="line">   ( <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x).left) == <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x).right)) &amp;&amp; \</div><div class="line">   ((x).height == ( BN_IsRed(&amp;x) ? <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x).left) : <a class="code" href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a>((x).left )+1)))</div><div class="ttc" id="group___t_binary_tree_html_gae5da833c17ce3b2dfc2aa7ca2f2f91d6"><div class="ttname"><a href="group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">BN_Stature</a></div><div class="ttdeci">#define BN_Stature(x)</div><div class="ttdef"><b>Definition:</b> binary_node.h:33</div></div>
+</div><!-- fragment --><p>检测黑高度是否正确 </p>
+
+</div>
+</div>
+<a id="gae5da833c17ce3b2dfc2aa7ca2f2f91d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5da833c17ce3b2dfc2aa7ca2f2f91d6">&#9670;&nbsp;</a></span>BN_Stature</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BN_Stature</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;((x) ? (x)-&gt;height : -1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>节点高度（与“空树高度为-1”的约定相统一） </p>
 
 </div>
 </div>
@@ -190,9 +217,43 @@ $(function() {
 
 </div>
 </div>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="gab2239a64b8c720b5d9842fdc892ad50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2239a64b8c720b5d9842fdc892ad50d">&#9670;&nbsp;</a></span>BinNodePtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">dsa::BinNodePtr</a> = typedef struct <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt;T&gt;*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>二叉树节点指针类型 </p>
+
+</div>
+</div>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="ga5f847f09d817710bbf7a817762be9df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f847f09d817710bbf7a817762be9df5">&#9670;&nbsp;</a></span>RBColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___t_binary_tree.html#ga5f847f09d817710bbf7a817762be9df5">dsa::RBColor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>红黑节点 </p>
+
+</div>
+</div>
 <h2 class="groupheader">函数说明</h2>
-<a id="ga12cf145bec00b6327b966c71f9c4c633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga12cf145bec00b6327b966c71f9c4c633">&#9670;&nbsp;</a></span>construct_bintree()</h2>
+<a id="ga5d9beea5942ac782a55617910c28606c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d9beea5942ac782a55617910c28606c">&#9670;&nbsp;</a></span>construct_bintree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +275,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdsa_1_1_bin_tree.html">dsa::BinTree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_bin_tree.html">BinTree</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>bt</em>&#160;</td>
         </tr>
         <tr>
@@ -245,8 +306,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ga334ab2781669e17c3a65d5a1265c7540"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga334ab2781669e17c3a65d5a1265c7540">&#9670;&nbsp;</a></span>construct_bintree_pre_in()</h2>
+<a id="ga85b138e217bbd4d9fbef4d057d367c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga85b138e217bbd4d9fbef4d057d367c16">&#9670;&nbsp;</a></span>construct_bintree_pre_in()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +332,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode</a>&lt; T &gt; *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>node</em>&#160;</td>
         </tr>
         <tr>
@@ -306,8 +367,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ga49c45e57f9a6304e18c5f098215f5665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga49c45e57f9a6304e18c5f098215f5665">&#9670;&nbsp;</a></span>go_along_left_branch()</h2>
+<a id="ga718fa06bc2d2efa4e79b9dba924f1c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga718fa06bc2d2efa4e79b9dba924f1c20">&#9670;&nbsp;</a></span>go_along_left_branch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -320,13 +381,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static void dsa::go_along_left_branch </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; * &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>s</em>&#160;</td>
         </tr>
         <tr>
@@ -360,8 +421,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6ef153d38f4ed6c9e4d73f4aa8ecdcc7">&#9670;&nbsp;</a></span>remove_at()</h2>
+<a id="ga7344ebfdc525ef3a718139855afd21a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7344ebfdc525ef3a718139855afd21a8">&#9670;&nbsp;</a></span>remove_at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +435,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static int dsa::remove_at </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -403,8 +464,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ga4df3420726423a967d1f7d4844161402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4df3420726423a967d1f7d4844161402">&#9670;&nbsp;</a></span>visit_along_left_brach()</h2>
+<a id="gab507c4e1462f69ec9c13ea09edaaaf5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab507c4e1462f69ec9c13ea09edaaaf5e">&#9670;&nbsp;</a></span>visit_along_left_brach()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,7 +478,7 @@ template&lt;typename T , typename VST &gt; </div>
         <tr>
           <td class="memname">static void dsa::visit_along_left_brach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
@@ -429,7 +490,7 @@ template&lt;typename T , typename VST &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="structdsa_1_1_bin_node.html">BinNode</a>&lt; T &gt; *&gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_stack.html">dsa::Stack</a>&lt; <a class="el" href="group___t_binary_tree.html#gab2239a64b8c720b5d9842fdc892ad50d">BinNodePtr</a>&lt; T &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>s</em>&#160;</td>
         </tr>
         <tr>

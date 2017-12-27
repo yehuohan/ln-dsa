@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -70,12 +76,12 @@ $(function() {
 <p>成员的完整列表，这些成员属于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>,包括所有继承而来的类成员</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>BinNode</b>() (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>BinNode</b>(const T &amp;e, BinNode&lt; T &gt; *p=nullptr, BinNode&lt; T &gt; *ll=nullptr, BinNode&lt; T &gt; *rr=nullptr, int h=0, int n=1, RBColor c=RBColor::Red) (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>BinNode</b>(const T &amp;e, BinNodePtr&lt; T &gt; p=nullptr, BinNodePtr&lt; T &gt; ll=nullptr, BinNodePtr&lt; T &gt; rr=nullptr, int h=0, int n=1, RBColor c=RBColor::Red) (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>color</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>data</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>height</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a7448f20722cb5533d8b5137cd968ab3a">insert_left</a>(const T &amp;e)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a1d90749b64ff269742dd1d9e6b85a3f3">insert_right</a>(const T &amp;e)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a3b7ef310b99e84c02067279ef09e6dfb">insert_left</a>(const T &amp;e)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a178f7e97c891163294f0b98bb9277189">insert_right</a>(const T &amp;e)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>left</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#aeebaecca40d483dc77902b89a44585bd">npl</a></td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>operator!=</b>(BinNode const &amp;bn) (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -85,7 +91,7 @@ $(function() {
   <tr bgcolor="#f0f0f0"><td class="entry"><b>parent</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>right</b> (定义于 <a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a035ae452e90d5885288ffc426aadd241">size</a>()</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#aca51ef386ba4be9ee2b7d1d0a816d95e">successor</a>()</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a4c70ea4b21b6231872ded917a69a5a82">successor</a>()</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a1fe3c66b3083d318dc78dcc6ea8ba118">traverse_DLR</a>(VST &amp;visit)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a06cdd73a382b3bc8c7979fdd703f6242">traverse_LDR</a>(VST &amp;visit)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html#a402b6ca94a935a8200b521a48fe1d2e0">traverse_LO</a>(VST &amp;visit)</td><td class="entry"><a class="el" href="structdsa_1_1_bin_node.html">dsa::BinNode&lt; T &gt;</a></td><td class="entry"></td></tr>

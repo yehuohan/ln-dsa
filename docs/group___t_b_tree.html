@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -59,7 +65,8 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a>  </div>
   <div class="headertitle">
 <div class="title">B-Tree<div class="ingroups"><a class="el" href="group___tree.html">Tree Struct</a></div></div>  </div>
 </div><!--header-->
@@ -73,6 +80,13 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree类  <a href="classdsa_1_1_b_tree.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:gafb10f92829731649e65f1b0e16d5e949"><td class="memTemplParams" colspan="2"><a id="gafb10f92829731649e65f1b0e16d5e949"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gafb10f92829731649e65f1b0e16d5e949"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dsa::BTNodePtr</b> = struct <a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a>&lt; T &gt; *</td></tr>
+<tr class="separator:gafb10f92829731649e65f1b0e16d5e949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>B-树 </p>
