@@ -27,6 +27,22 @@ namespace dsa
 
 #define INI_MAX
 
+template<typename Te> struct Edge;
+template<typename Tv> struct Vertex;
+
+/*!
+ * @name 定义类型别名
+ * @{
+ */
+template<typename Te>
+using EdgePtr = struct Edge<Te>*;
+
+template<typename Tv>
+using VertexPtr = struct Vertex<Tv>*;
+
+/*! @} */
+
+
 /*!
  * @brief 顶点状态
  *
@@ -116,6 +132,7 @@ protected:
 };
 
 /*! @} */
-}
+
+} /* dsa */
 
 #endif /* ifndef GRAPH_H */

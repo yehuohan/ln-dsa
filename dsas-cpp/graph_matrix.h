@@ -35,8 +35,8 @@ template <typename Tv, typename Te>
 class GraphMatrix : public Graph<Tv, Te>
 {
 private:
-    dsa::Vector<Vertex<Tv>* > m_V;                  /**< 顶点集 */
-    dsa::Vector<dsa::Vector<Edge<Te>*> > m_E;       /**< 边集 */
+    dsa::Vector<VertexPtr<Tv> > m_V;                /**< 顶点集 */
+    dsa::Vector<dsa::Vector<EdgePtr<Te> > > m_E;    /**< 边集 */
 
 public:
     GraphMatrix()
@@ -185,9 +185,9 @@ int GraphMatrix<Tv,Te>::insert_vertex(const Tv& vertex)
     // 顶点数量加1
     this->m_vnum++;
     // 邻接矩阵插入一行
-    this->m_E.push_back(dsa::Vector<Edge<Te>* >(this->m_vnum,this->m_vnum, nullptr));
+    this->m_E.push_back(dsa::Vector<EdgePtr<Te> >(this->m_vnum,this->m_vnum, nullptr));
     // 插入顶点
-    Vertex<Tv>* vt = new Vertex<Tv>(vertex);
+    VertexPtr<Tv> vt = new Vertex<Tv>(vertex);
     return this->m_V.push_back(vt);
 }
 
@@ -312,6 +312,6 @@ void GraphMatrix<Tv,Te>::DFS(int vindex, int& clock)
     this->m_V[vindex]->f_time = ++clock;
 }
 
-}
+} /* dsa */
 
 #endif /* ifndef _GRAPH_MATRIX_H */
