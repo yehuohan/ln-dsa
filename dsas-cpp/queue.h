@@ -2,7 +2,7 @@
 //==============================================================================
 /*!
  * @file queue.h
- * @brief Queue struct
+ * @brief 队列结构
  *
  * @date
  * @version
@@ -16,7 +16,6 @@
 #define _QUEUE_H value
 
 #include "list.h"
-#include "vector.h"
 
 namespace dsa
 {
@@ -28,38 +27,71 @@ namespace dsa
  */
 
 /*!
- * @brief Queue class
+ * @brief 队列类
  *
- * inheriting from list
- * taking list-head and queue-front and list-tail as queue-rear
+ * 使用列表构造队列，实现尾进头出
  *
  */
 template <typename T>
-class Queue : private dsa::List<T>
+class Queue : public dsa::List<T>
 {
 public:
     Queue(){dsa::List<T>();}
 
-    bool    is_empty() const {return dsa::List<T>::is_empty();}
-    unsigned int size() const {return dsa::List<T>::size();}
+    /** 返回头部元素 */
+    T       front() const {return (dsa::List<T>::front())->data;};
+    /** 头部元素出队 */
+    T       dequeue() {return dsa::List<T>::remove(dsa::List<T>::front());}
 
-    // 尾进头出
-    /** return the front element */
-    T       front() const {return (dsa::List<T>::first())->data;};
-    /** pop the element from front */
-    //T       pop_front() {return dsa::List<T>::remove(dsa::List<T>::first());}
-    T       dequeue() {return dsa::List<T>::remove(dsa::List<T>::first());}
-
-    /** return the rear element */
-    T       rear() const {return dsa::List<T>::last()->data;}
-    /** push the element to the rear */
-    //void    push_rear(const T& ele) { dsa::List<T>::push_back(ele);}
+    /** 返回尾部元素 */
+    T       rear() const {return dsa::List<T>::back()->data;}
+    /** 尾部元素入队 */
     void    enqueue(const T& ele) { dsa::List<T>::push_back(ele);}
+};
+
+
+/*!
+ * @brief 数组循环队列
+ *
+ * 使用数组构造队列，实现尾进头出
+ */
+template <typename T>
+class ArrayQueue
+{
+public:
+    ArrayQueue(int cap) : m_capacity(cap), m_head(0), m_tail(-1) {this->m_array = new T[cap];};
+    ~ArrayQueue() {delete this->m_array;};
+
+    /** 返回元素数量 */
+    int     size() {return (this->m_tail - this->m_head + 1);}
+    /** 判断是否为空 */
+    bool    is_empty() {return (this->m_tail < this->m_head);}
+    /** 判断是否为满 */
+    bool    is_full() {return (this->size() == m_capacity);}
+
+    /** 返回头部元素，自行判断是否为空 */
+    T       front()
+    {return this->m_array[this->m_head % this->m_capacity];}
+    /** 头部元素出队，自行判断是否为空 */
+    T       dequeue()
+    {return this->m_array[(this->m_head++) % this->m_capacity];}
+
+    /** 返回尾部元素，自行判断是否为空 */
+    T       rear()
+    {return this->m_array[this->m_tail % this->m_capacity];}
+    /** 尾部元素入队，自行判断是否为满 */
+    void    enqueue(const T& ele)
+    {this->m_array[(++this->m_tail) % this->m_capacity] = ele;}
+
+protected:
+    int m_capacity;     /**< 队列容量 */
+    int m_head;         /**< 头部下标 */
+    int m_tail;         /**< 尾部下标 */
+    T*  m_array;
 };
 
 /*! @} */
 
-}
-
+} /* dsa */
 
 #endif /* ifndef _QUEUE_H */

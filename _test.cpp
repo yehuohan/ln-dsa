@@ -147,6 +147,7 @@ void test_stack()
 
 void test_queue()
 {
+    std::cout << "Queue\n";
     dsa::Queue<int> que_i;
     que_i.enqueue(12);
     que_i.enqueue(12392);
@@ -156,12 +157,30 @@ void test_queue()
     std::cout << "Size : " << que_i.size() << std::endl;
     std::cout << "Front: " << que_i.front() << std::endl;
     std::cout << "Rear : " << que_i.rear() << std::endl;
-
-    std::cout << "\n" << que_i.dequeue() << std::endl;
-
+    std::cout << que_i.dequeue() << std::endl;
     std::cout << "Size : " << que_i.size() << std::endl;
     std::cout << "Front: " << que_i.front() << std::endl;
     std::cout << "Rear : " << que_i.rear() << std::endl;
+
+    std::cout << "ArrayQueue\n";
+    dsa::ArrayQueue<int> aq(5);
+    std::cout << "Empty: " << aq.is_empty() << std::endl;
+    std::cout << "Full: " << aq.is_full() << std::endl;
+    aq.enqueue(10);
+    aq.enqueue(20);
+    aq.enqueue(30);
+    aq.enqueue(40);
+    aq.enqueue(50);
+    std::cout << "Empty: " << aq.is_empty() << std::endl;
+    std::cout << "Full: " << aq.is_full() << std::endl;
+
+    std::cout << "Size: " << aq.size() << std::endl;
+    std::cout << "Front: " << aq.front() << std::endl;
+    std::cout << "Rear: " << aq.rear() << std::endl;
+    aq.dequeue();
+    std::cout << "Size: " << aq.size() << std::endl;
+    std::cout << "Front: " << aq.front() << std::endl;
+    std::cout << "Rear: " << aq.rear() << std::endl;
 }
 
 void test_bt()
