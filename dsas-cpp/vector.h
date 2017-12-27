@@ -62,6 +62,7 @@ public:
     int     find(const T& ele, int lo, int hi) const;
     /** 在整个Vector中搜索 */
     int     search(const T& ele) const {return this->search(ele, 0, this->m_size); };
+    /** 在区间内搜索 */
     int     search(const T& ele, int lo, int hi) const {return this->bin_search(ele, lo, hi);};
     int     bin_search(const T& ele, int lo, int hi) const;
     int     fib_search(const T& ele, int lo, int hi) const;
