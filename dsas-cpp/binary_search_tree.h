@@ -1,4 +1,3 @@
-
 //==============================================================================
 /*!
  * @file binary_search_tree.h
@@ -15,6 +14,7 @@
 #define _BINARY_SEARCH_TREE_H
 
 #include "binary_tree.h"
+#include "share/swap.h"
 
 namespace dsa
 {
@@ -28,25 +28,26 @@ namespace dsa
 /*!
  * @brief 二叉搜索树类模板
  *
+ * <pre>
  * 节点数: n
  * 树高度: h，最坏情况下为n
  * search, insert, remove在最坏情况下需要O(h)时间。
- *
+ * </pre>
  */
 template <typename T>
 class BinSearchTree : public BinTree<T>
 {
 public:
-    virtual BinNode<T>*&    search(const T&);
-    virtual BinNode<T>*     insert(const T&);
+    virtual BinNodePtr<T>&  search(const T&);
+    virtual BinNodePtr<T>   insert(const T&);
     virtual bool            remove(const T&);
 
 protected:
-    BinNode<T>*     m_hot;
-    BinNode<T>*     connect34(
-            BinNode<T>*, BinNode<T>*, BinNode<T>*,
-            BinNode<T>*, BinNode<T>*, BinNode<T>*, BinNode<T>*);
-    BinNode<T>*     rotate_at(BinNode<T>*);
+    BinNodePtr<T>     m_hot;
+    BinNodePtr<T>     connect34(
+            BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>,
+            BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>);
+    BinNodePtr<T>     rotate_at(BinNodePtr<T>);
 };
 
 /*! @} */
@@ -62,10 +63,10 @@ protected:
  * @retval None
  */
 template <typename T>
-static BinNode<T>*& search_in(
-        BinNode<T>*& node,
+static BinNodePtr<T>& search_in(
+        BinNodePtr<T>& node,
         const T& e,
-        BinNode<T>*& hot)
+        BinNodePtr<T>& hot)
 {
     if (!node || e == node->data)
         return node;
@@ -82,7 +83,7 @@ static BinNode<T>*& search_in(
  * @retval None
  */
 template <typename T>
-BinNode<T>*& BinSearchTree<T>::search(const T& e)
+BinNodePtr<T>& BinSearchTree<T>::search(const T& e)
 {
     return search_in(this->m_root, e, this->m_hot = nullptr);
 }
@@ -95,9 +96,9 @@ BinNode<T>*& BinSearchTree<T>::search(const T& e)
  * @retval None
  */
 template <typename T>
-BinNode<T>* BinSearchTree<T>::insert(const T& e)
+BinNodePtr<T> BinSearchTree<T>::insert(const T& e)
 {
-    BinNode<T>*& node = this->search(e);
+    BinNodePtr<T>& node = this->search(e);
     if (!node)      // 禁止相同元素
     {
         node = new BinNode<T>(e, this->m_hot);      // node一定是m_hot的子节点，见search代码
@@ -139,12 +140,12 @@ BinNode<T>* BinSearchTree<T>::insert(const T& e)
  * @retval None
  */
 template <typename T>
-static BinNode<T>* remove_at(
-        BinNode<T>*& node,
-        BinNode<T>*& hot)
+static BinNodePtr<T> remove_at(
+        BinNodePtr<T>& node,
+        BinNodePtr<T>& hot)
 {
-    BinNode<T>* w = node;
-    BinNode<T>* succ = nullptr;
+    BinNodePtr<T> w = node;
+    BinNodePtr<T> succ = nullptr;
     // 只有右子树(或左右子树均没有，则返回nullptr，即被删除节点位置没有新节点)
     if(!node->left) succ = node = node->right;
     // 只有左子树
@@ -155,10 +156,8 @@ static BinNode<T>* remove_at(
         // 右子树存在，故node的直接后继w为node右子树最靠左（最小）的节点
         w = w->successor();
         // 交换直接后继w与目标节点的数据，交换完后，w成为待删除的目标节点
-        T tmp = w->data;
-        w->data = node->data;
-        node->data = tmp;
-        BinNode<T>* u = w->parent;
+        dsa::swap(w->data, node->data);
+        BinNodePtr<T> u = w->parent;
         // 后继节点w只可能有右子树，不可能有左子树
         if (u == node)
         {
@@ -190,7 +189,7 @@ static BinNode<T>* remove_at(
 template <typename T>
 bool BinSearchTree<T>::remove(const T& e)
 {
-    BinNode<T>*& node = this->search(e);
+    BinNodePtr<T>& node = this->search(e);
     if (!node) return false;
     remove_at(node, m_hot);
     this->m_size--;
@@ -212,14 +211,14 @@ bool BinSearchTree<T>::remove(const T& e)
  *
  * </pre>
  *
- * @param None
+ * @param a,b,c,T0,T1,T2,T3: 待连接的节点
  * @return 子树的根节点
  * @retval None
  */
 template <typename T>
-BinNode<T>* BinSearchTree<T>::connect34(
-        BinNode<T>* a, BinNode<T>* b, BinNode<T>* c,
-        BinNode<T>* T0, BinNode<T>* T1, BinNode<T>* T2, BinNode<T>* T3)
+BinNodePtr<T> BinSearchTree<T>::connect34(
+        BinNodePtr<T> a, BinNodePtr<T> b, BinNodePtr<T> c,
+        BinNodePtr<T> T0, BinNodePtr<T> T1, BinNodePtr<T> T2, BinNodePtr<T> T3)
 {
     a->left = T0;
     a->right = T1;
@@ -267,15 +266,15 @@ BinNode<T>* BinSearchTree<T>::connect34(
  *                                   |
  * </pre>
  *
- * @param v 调整的节点(子树(如图)中高度最低的节点)
+ * @param v: 调整的节点(子树(如图)中高度最低的节点)
  * @return 子树的根节点
  * @retval None
  */
 template <typename T>
-BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
+BinNodePtr<T> BinSearchTree<T>::rotate_at(BinNodePtr<T> v)
 {
-    BinNode<T>* p = v->parent;
-    BinNode<T>* g = p->parent;
+    BinNodePtr<T> p = v->parent;
+    BinNodePtr<T> g = p->parent;
     if (BN_IsLeftChild(*p))
     {
         if (BN_IsLeftChild(*v))
@@ -312,9 +311,7 @@ BinNode<T>* BinSearchTree<T>::rotate_at(BinNode<T>* v)
     }
 }
 
-
-// namespace dsa end
-}
+} /* dsa */
 
 #endif /* ifndef _BINARY_SEARCH_TREE_H */
 

@@ -47,26 +47,52 @@ template <typename T>
 class BTree
 {
 protected:
-    int m_size;                     /**< 关键码总数 */
-    int m_order;                    /**< 阶次，也即最多分支数为m_order，每个节点关键码最多m_order-1 */
-    dsa::BTNode<T>* m_root;         /**< 根节点 */
-    dsa::BTNode<T>* m_hot;          /**< search最后访问的非空节点位置 */
+    int          m_size;        /**< 关键码总数 */
+    int          m_order;       /**< 阶次，也即最多分支数为m_order，每个节点关键码最多m_order-1 */
+    BTNodePtr<T> m_root;        /**< 根节点 */
+    BTNodePtr<T> m_hot;         /**< search最后访问的非空节点位置 */
 
-    void solve_overflow(BTNode<T>*);
-    void solve_underflow(BTNode<T>*);
+    void delete_node(BTNodePtr<T>);
+    void solve_overflow(BTNodePtr<T>);
+    void solve_underflow(BTNodePtr<T>);
 
 public:
     BTree(int order = 3) : m_size(0), m_order(order){ this->m_root = new BTNode<T>(); }
-    //~BTree(){if (m_root) ;}
-    BTNode<T>*  search(const T& e);
-    bool        insert(const T& e);
-    bool        remove(const T& e);
+    ~BTree(){delete_node(this->m_root);}
 
-    BTNode<T>*  root(){return this->m_root;};
+    int order() const {return this->m_order;}
+    int size() const {return this->m_size;}
+    bool is_empty() const {return !this-m_root;}
+
+    /** 返回根节点 */
+    BTNodePtr<T>&   root(){return this->m_root;};
+    BTNodePtr<T>    search(const T& e);
+    bool            insert(const T& e);
+    bool            remove(const T& e);
 };
 
 /*! @} */
 
+
+/*!
+ * @brief 释放以r为节点的子树资源，用于移除所有节点
+ *
+ * @param r: 子树节点
+ * @return
+ * @retval None
+ */
+template <typename T>
+void BTree<T>::delete_node(BTNodePtr<T> r)
+{
+    if (r)
+    {
+        for (int k = 0; k < r->child.size(); k++)
+            delete_node(r->child[k]);
+        // 将Vector的m_size清零
+        r->child.clear();
+        delete r;
+    }
+}
 
 /*!
  * @brief 使用分裂修复上溢
@@ -103,14 +129,14 @@ public:
  * @retval None
  */
 template <typename T>
-void BTree<T>::solve_overflow(BTNode<T>* node)
+void BTree<T>::solve_overflow(BTNodePtr<T> node)
 {
     // 根据分支数判断是否上溢
     if (node->child.size() <= this->m_order)
         return;
 
     // 判断是否为根节点
-    BTNode<T>* p = node->parent;
+    BTNodePtr<T> p = node->parent;
     if (!p)
     {
         // 在在根节点上溢时，树高度会增加
@@ -122,7 +148,7 @@ void BTree<T>::solve_overflow(BTNode<T>* node)
     // 转移node中s之后关键码和分支节点，追加到新节点rc中
     // 即转移示意图中的 *[5]* 部分
     int s = this->m_order / 2;              // 确定上移的节点位置
-    BTNode<T>* rc = new BTNode<T>();        // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
+    BTNodePtr<T> rc = new BTNode<T>();        // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
     rc->child.clear();                      // 清除第一个默认添加的nullptr子节点
     for (int k = s + 1; k < node->key.size(); k ++)
     {
@@ -186,13 +212,13 @@ void BTree<T>::solve_overflow(BTNode<T>* node)
  * @retval None
  */
 template <typename T>
-void BTree<T>::solve_underflow(BTNode<T>* node)
+void BTree<T>::solve_underflow(BTNodePtr<T> node)
 {
     int order_floor = (this->m_order+1)/2;
     if (node->child.size() >= order_floor)
         return;
 
-    BTNode<T>* p = node->parent;
+    BTNodePtr<T> p = node->parent;
     if (!p)
     {
         if ((0 == node->key.size()) && node->child[0])  // 根节点不含关键码(即没有数据了)
@@ -214,7 +240,7 @@ void BTree<T>::solve_underflow(BTNode<T>* node)
     if (r > 0)
     {
         // 尝试旋转，向左侧子节点借
-        BTNode<T>* s = p->child[r-1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
+        BTNodePtr<T> s = p->child[r-1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
         if (s->child.size() > order_floor)
         {
             //int y = r-1;
@@ -227,7 +253,7 @@ void BTree<T>::solve_underflow(BTNode<T>* node)
     if (r + 1 < p->child.size())
     {
         // 尝试旋转，向右侧子节点借
-        BTNode<T>* s = p->child[r+1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
+        BTNodePtr<T> s = p->child[r+1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
         if(s->child.size() > order_floor)
         {
             //int y = r;
@@ -242,7 +268,7 @@ void BTree<T>::solve_underflow(BTNode<T>* node)
     if (r > 0)
     {
         // 左侧存在
-        BTNode<T>* s = p->child[r-1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
+        BTNodePtr<T> s = p->child[r-1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
         //int y = r-1;
 
         s->key.push_back(p->key.remove(r-1));
@@ -274,7 +300,7 @@ void BTree<T>::solve_underflow(BTNode<T>* node)
     else
     {
         // 右侧存在
-        BTNode<T>* s = p->child[r+1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
+        BTNodePtr<T> s = p->child[r+1];       // p->child和node均为p的节点，node不为nullptr，其它的child也必定不为nullptr
         //int y = r;
 
         s->key.push_front(p->key.remove(r));
@@ -326,9 +352,9 @@ void BTree<T>::solve_underflow(BTNode<T>* node)
  * @retval nullptr: 没有找到目标，因为是逐层查找，故最后m_hot一定指向一个叶节点。
  */
 template <typename T>
-BTNode<T>* BTree<T>::search(const T& e)
+BTNodePtr<T> BTree<T>::search(const T& e)
 {
-    BTNode<T>* node = this->m_root;
+    BTNodePtr<T> node = this->m_root;
     this->m_hot = nullptr;
     while(node)
     {
@@ -365,7 +391,7 @@ BTNode<T>* BTree<T>::search(const T& e)
 template <typename T>
 bool BTree<T>::insert(const T& e)
 {
-    BTNode<T>* node = this->search(e);
+    BTNodePtr<T> node = this->search(e);
     if (node) return false;
 
     // 找到关键码e在m_hot插入的位置
@@ -389,14 +415,14 @@ bool BTree<T>::insert(const T& e)
 template <typename T>
 bool BTree<T>::remove(const T& e)
 {
-    BTNode<T>* node = this->search(e);
+    BTNodePtr<T> node = this->search(e);
     if (!node) return false;
 
     int r = node->key.search(e);
     if (node->child[0])
     {
         // node不是叶节点，则e右侧必有子节点
-        BTNode<T>* u = node->child[r+1];
+        BTNodePtr<T> u = node->child[r+1];
         while(node->child[0]) u = u->child[0];  // 迭代至e的后继(后继必定是叶节点)
         node->key[r] = u->key[0];   // 将u->key[0]与待删除e交换位置
         //u->key[0] = e;              // 赋不赋值无所谓，反正要删除

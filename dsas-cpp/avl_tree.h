@@ -76,20 +76,20 @@ namespace dsa
 
 /*!
  * @brief Avl平衡二叉树类
- *
+ * <pre>
  * 继承自二叉搜索树(BST)，沿用BST的search函数；
  * 需要借助avl平衡因子，实现平衡；
  *
  * 节点数: n
  * 树高度: h，可控制为O(log(n))
  * search, insert, remove在最坏情况下需要O(log(n))时间。
- *
+ * </pre>
  */
 template <typename T>
 class AvlTree : public BinSearchTree<T>
 {
 public:
-    BinNode<T>*     insert(const T&);
+    BinNodePtr<T>   insert(const T&);
     bool            remove(const T&);
 };
 
@@ -106,21 +106,21 @@ public:
  * @retval None
  */
 template <typename T>
-BinNode<T>* AvlTree<T>::insert(const T& e)
+BinNodePtr<T> AvlTree<T>::insert(const T& e)
 {
-    BinNode<T>*& x = this->search(e);
+    BinNodePtr<T>& x = this->search(e);
     if (x) return x;                        // 不插入重复节点
 
     x = new BinNode<T>(e, this->m_hot);     // 新插入的节点
     this->m_size ++;
-    BinNode<T>* node = x;
+    BinNodePtr<T> node = x;
 
     // 从新插入节点的父节点开始，向上遍历所有父节点，检查是否满足Avl平衡
-    for(BinNode<T>* g = this->m_hot; g; g = g->parent)
+    for(BinNodePtr<T> g = this->m_hot; g; g = g->parent)
     {
         if(!AVL_Balanced(*g))               // 所有失衡节点中的最低点
         {
-            BinNode<T>*& sub_node = RefFromParent(*g);
+            BinNodePtr<T>& sub_node = RefFromParent(*g);
                                             // 获取g在父节点的孩子节点指针
             sub_node = this->rotate_at(AVL_TallerChild(AVL_TallerChild(g)));
                                             // 将rotate_at返回子树的根节点添加到Avl树中
@@ -143,16 +143,16 @@ BinNode<T>* AvlTree<T>::insert(const T& e)
 template <typename T>
 bool AvlTree<T>::remove(const T& e)
 {
-    BinNode<T>*& x = this->search(e);
+    BinNodePtr<T>& x = this->search(e);
     if (!x) return false;
     remove_at(x, this->m_hot);
     this->m_size--;
 
-    for (BinNode<T>* g = this->m_hot; g; g = g->parent)
+    for (BinNodePtr<T> g = this->m_hot; g; g = g->parent)
     {
         if (!AVL_Balanced(*g))
         {
-            BinNode<T>*& sub_node = RefFromParent(*g);
+            BinNodePtr<T>& sub_node = RefFromParent(*g);
             g = sub_node = this->rotate_at(AVL_TallerChild(AVL_TallerChild(g)));
         }
         this->update_height(g);
@@ -161,7 +161,6 @@ bool AvlTree<T>::remove(const T& e)
     return true;
 }
 
-// namespace dsa end
-}
+} /* dsa */
 
 #endif /* ifndef _AVL_TREE_H */

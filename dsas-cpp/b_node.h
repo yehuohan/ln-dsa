@@ -23,6 +23,10 @@ namespace dsa
  * @{
  */
 
+template <typename T> struct BTNode;
+template <typename T>
+using BTNodePtr = struct BTNode<T>*;
+
 /*!
  * @brief b-tree节点类
  *
@@ -42,12 +46,11 @@ namespace dsa
  * </pre>
  *
  */
-template <typename T>
-struct BTNode
+template <typename T> struct BTNode
 {
-    BTNode<T>*              parent;
-    dsa::Vector<T>          key;    /**< 关键码，即节点数据 */
-    dsa::Vector<BTNode<T>*> child;  /**< 分支，即子节点 */
+    BTNodePtr<T>                parent;
+    dsa::Vector<T>              key;    /**< 关键码，即节点数据 */
+    dsa::Vector<BTNodePtr<T> >  child;  /**< 分支，即子节点 */
 
     /*!
      * @brief b-tree节点构造函数
@@ -69,7 +72,7 @@ struct BTNode
      * @return
      * @retval None
      */
-    BTNode(const T& e, BTNode<T>* lc = nullptr, BTNode<T>* rc = nullptr)
+    BTNode(const T& e, BTNodePtr<T> lc = nullptr, BTNodePtr<T> rc = nullptr)
     {
         this->parent = nullptr;
         this->key.insert(0, e);

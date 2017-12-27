@@ -34,12 +34,12 @@ template <typename T>
 class SplayTree : public BinSearchTree<T>
 {
 public:
-    BinNode<T>*& search(const T& e);
-    BinNode<T>*  insert(const T& e);
-    bool         remove(const T& e);
+    BinNodePtr<T>&  search(const T& e);
+    BinNodePtr<T>   insert(const T& e);
+    bool            remove(const T& e);
 
 protected:
-    BinNode<T>* splay(BinNode<T>*);
+    BinNodePtr<T>   splay(BinNodePtr<T>);
 };
 
 /*! @} */
@@ -54,7 +54,7 @@ protected:
  * @retval None
  */
 template <typename T>
-inline void attach_left(BinNode<T>* p, BinNode<T>* c)
+inline void attach_left(BinNodePtr<T> p, BinNodePtr<T> c)
 {
     p->left = c;
     if (c) c->parent = p;
@@ -69,7 +69,7 @@ inline void attach_left(BinNode<T>* p, BinNode<T>* c)
  * @retval None
  */
 template <typename T>
-inline void attach_right(BinNode<T>* p, BinNode<T>* c)
+inline void attach_right(BinNodePtr<T> p, BinNodePtr<T> c)
 {
     p->right = c;
     if (c)
@@ -84,9 +84,9 @@ inline void attach_right(BinNode<T>* p, BinNode<T>* c)
  * @retval None
  */
 template <typename T>
-BinNode<T>*& SplayTree<T>::search(const T& e)
+BinNodePtr<T>& SplayTree<T>::search(const T& e)
 {
-    BinNode<T>* p = search_in(this->m_root, e, this->m_hot = nullptr);
+    BinNodePtr<T> p = search_in(this->m_root, e, this->m_hot = nullptr);
     // 无论是否找到节点，均会进行伸展操作，即没有找到目标节点，也将靠近目标的节点移到树根
     this->m_root = this->splay(p ? p : this->m_hot);
     // 若m_root为nullptr（即没有查找到目标e，且m_hot也为nullptr）
@@ -102,7 +102,7 @@ BinNode<T>*& SplayTree<T>::search(const T& e)
  * @retval None
  */
 template <typename T>
-BinNode<T>* SplayTree<T>::insert(const T& e)
+BinNodePtr<T> SplayTree<T>::insert(const T& e)
 {
     // 如果是空树，直接插入节点即可
     if (!this->m_root)
@@ -116,7 +116,7 @@ BinNode<T>* SplayTree<T>::insert(const T& e)
     // search 返回经过伸展后的树根节点
     if (this->search(e)->data == e) return this->m_root;
 
-    BinNode<T>* r = this->m_root;
+    BinNodePtr<T> r = this->m_root;
     this->m_root = new BinNode<T>(e, nullptr);
     this->m_size++;
 
@@ -157,7 +157,7 @@ bool SplayTree<T>::remove(const T& e)
     if (this->search(e)->data != e) return false;
 
     // 删除目标节点（经过伸展，已经移到了根节点）
-    BinNode<T>* s = this->m_root;
+    BinNodePtr<T> s = this->m_root;
     if (!BN_HasLeftChild(*this->m_root))
     {
         this->m_root = this->m_root->right;
@@ -170,7 +170,7 @@ bool SplayTree<T>::remove(const T& e)
     }
     else
     {
-        BinNode<T>* lt = this->m_root->left;
+        BinNodePtr<T> lt = this->m_root->left;
         // 暂时分离左子树
         this->m_root->left = nullptr;
         lt->parent = nullptr;
@@ -229,16 +229,16 @@ bool SplayTree<T>::remove(const T& e)
  * @retval None
  */
 template <typename T>
-BinNode<T>* SplayTree<T>::splay(BinNode<T>* v)
+BinNodePtr<T> SplayTree<T>::splay(BinNodePtr<T> v)
 {
     if (!v) return nullptr;
-    BinNode<T>* p;
-    BinNode<T>* g;
+    BinNodePtr<T> p;
+    BinNodePtr<T> g;
 
     // 双层伸展，伸展完成后，v将成为子树的根节点
     while((p = v->parent) && (g = p->parent))
     {
-        BinNode<T>* gg = g->parent;
+        BinNodePtr<T> gg = g->parent;
         if (BN_IsLeftChild(*v))
         {
             if (BN_IsLeftChild(*p))
@@ -307,7 +307,6 @@ BinNode<T>* SplayTree<T>::splay(BinNode<T>* v)
     return v;
 }
 
-// namespace dsa end
-}
+} /* dsa */
 
 #endif /* ifndef _SPLAY_TREE_H */

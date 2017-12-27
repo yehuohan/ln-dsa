@@ -44,13 +44,13 @@ template <typename T>
 class RedBlackTree : public BinSearchTree<T>
 {
 public:
-    BinNode<T>* insert(const T&);
-    bool        remove(const T&);
+    BinNodePtr<T>   insert(const T&);
+    bool            remove(const T&);
 
 protected:
-    void        solve_double_red(BinNode<T>*);
-    void        solve_double_black(BinNode<T>*);
-    int         update_height(BinNode<T>*);
+    void            solve_double_red(BinNodePtr<T>);
+    void            solve_double_black(BinNodePtr<T>);
+    int             update_height(BinNodePtr<T>);
 };
 
 /*! @} */
@@ -68,7 +68,7 @@ protected:
  * @retval None
  */
 template <typename T>
-int RedBlackTree<T>::update_height(BinNode<T>* x)
+int RedBlackTree<T>::update_height(BinNodePtr<T> x)
 {
     x->height = (BN_Stature(x->left) > BN_Stature(x->right)) ?
                 BN_Stature(x->left) : BN_Stature(x->right);
@@ -133,7 +133,7 @@ int RedBlackTree<T>::update_height(BinNode<T>* x)
  * @retval None
  */
 template <typename T>
-void RedBlackTree<T>::solve_double_red(BinNode<T>* x)
+void RedBlackTree<T>::solve_double_red(BinNodePtr<T> x)
 {
     if (BN_IsRoot(*x))
     {
@@ -141,11 +141,11 @@ void RedBlackTree<T>::solve_double_red(BinNode<T>* x)
         this->m_root->height++;         // 变成黑节点，高度加1
         return;
     }
-    BinNode<T>* p = x->parent;
+    BinNodePtr<T> p = x->parent;
     if (BN_IsBlack(p))                  // p为黑节点，则没有双红问题
         return;
-    BinNode<T>* g = p->parent;          // p为红节点，必有黑父节点
-    BinNode<T>* u = BN_IsLeftChild(*p) ? g->right : g->left;
+    BinNodePtr<T> g = p->parent;          // p为红节点，必有黑父节点
+    BinNodePtr<T> u = BN_IsLeftChild(*p) ? g->right : g->left;
 
     if (BN_IsBlack(u))
     {
@@ -157,7 +157,7 @@ void RedBlackTree<T>::solve_double_red(BinNode<T>* x)
         else
             x->color = RBColor::Black;
 
-        BinNode<T>*& n = RefFromParent(*g); // 获取g在父节点的孩子节点指针
+        BinNodePtr<T>& n = RefFromParent(*g); // 获取g在父节点的孩子节点指针
         n = this->rotate_at(x);             // 34重构中会更新高度，故重染色需要在rotate_at之前进行
         //n->color = RBColor::Black;
         //n->left->color = RBColor::Red;
@@ -245,26 +245,26 @@ void RedBlackTree<T>::solve_double_red(BinNode<T>* x)
  * @retval None
  */
 template <typename T>
-void RedBlackTree<T>::solve_double_black(BinNode<T>* r)
+void RedBlackTree<T>::solve_double_black(BinNodePtr<T> r)
 {
     // 如果r为nullptr，则r的父节点为m_hot
-    BinNode<T>* p = r ? r->parent : this->m_hot;
+    BinNodePtr<T> p = r ? r->parent : this->m_hot;
     // r为根节点
     if (!p)
         return;
     // r的兄弟节点
-    BinNode<T>* s = (r == p->left) ? p->right : p->left;
+    BinNodePtr<T> s = (r == p->left) ? p->right : p->left;
 
     if (BN_IsBlack(s))  // s为黑
     {
-        BinNode<T>* t = nullptr;
+        BinNodePtr<T> t = nullptr;
         if (BN_IsRed(s->left)) t = s->left;
         else if (BN_IsRed(s->right)) t = s->right;
         if (t)          // s至少有一个红子节点
         {
             // BB-1
             RBColor clr = p->color;
-            BinNode<T>*& n = RefFromParent(*p);
+            BinNodePtr<T>& n = RefFromParent(*p);
             // 因为34重构前，未进行颜色设置，故rotate_at中的高度更新无效
             n = this->rotate_at(t);
             // 重染色后，需要重新计算黑高度
@@ -303,10 +303,10 @@ void RedBlackTree<T>::solve_double_black(BinNode<T>* r)
         // BB-3
         p->color = RBColor::Red;
         s->color = RBColor::Black;
-        BinNode<T>* t = (BN_IsLeftChild(*s)) ? s->left : s->right;
+        BinNodePtr<T> t = (BN_IsLeftChild(*s)) ? s->left : s->right;
                         // 取t与s取同侧
         this->m_hot = p;
-        BinNode<T>*& n = RefFromParent(*p);
+        BinNodePtr<T>& n = RefFromParent(*p);
         n = this->rotate_at(t);
         // 递归修正r处的双黑问题
         solve_double_black(r);
@@ -321,9 +321,9 @@ void RedBlackTree<T>::solve_double_black(BinNode<T>* r)
  * @retval None
  */
 template <typename T>
-BinNode<T>* RedBlackTree<T>::insert(const T& e)
+BinNodePtr<T> RedBlackTree<T>::insert(const T& e)
 {
-    BinNode<T>*& x = this->search(e);       // 使用BinSearchTree::search()
+    BinNodePtr<T>& x = this->search(e);       // 使用BinSearchTree::search()
     if (x)
         return x;
     x = new BinNode<T>(e, this->m_hot, nullptr, nullptr, -1);   // 以m_hot为父节点，高度为-1，默认为红节点
@@ -366,12 +366,12 @@ BinNode<T>* RedBlackTree<T>::insert(const T& e)
 template <typename T>
 bool RedBlackTree<T>::remove(const T& e)
 {
-    BinNode<T>*& x = this->search(e);
+    BinNodePtr<T>& x = this->search(e);
     if (!x)
         return false;
 
     // r为接替x所在位置的节点，r可以为nullptr，m_hot为r的父节点
-    BinNode<T>* r = remove_at(x, this->m_hot);
+    BinNodePtr<T> r = remove_at(x, this->m_hot);
     // 没有节点了，则直接返回
     if(!(--this->m_size))
         return true;

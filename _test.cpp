@@ -385,6 +385,7 @@ void test_btree()
     bt.insert(2)  ; bt.insert(90) ; bt.insert(77);
     bt.insert(203); bt.insert(303);
 
+    std::cout << "Size: " << bt.size() << std::endl;
     dsa::BTNode<unsigned int>* node = bt.search(90);
     if (node)
     {

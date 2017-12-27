@@ -30,7 +30,7 @@ namespace dsa
  * @{
  */
 
-#define BN_Stature(x)       ((x) ? (x)->height : -1)     //节点高度（与“空树高度为-1”的约定相统一）
+#define BN_Stature(x)       ((x) ? (x)->height : -1)     /**<  节点高度（与“空树高度为-1”的约定相统一） */
 #define BN_IsRoot(x)        (!((x).parent))
 #define BN_IsLeftChild(x)   (((x).parent) && (&(x)==(x).parent->left))
 #define BN_IsRightChild(x)  (((x).parent) && (&(x)==(x).parent->right))
@@ -44,8 +44,8 @@ namespace dsa
 /** 获取节点x在父节点中的孩子节点指针引用，用于设置父节点的孩子节点，m_root为BinTree中的根节点 */
 #define RefFromParent(x)    (BN_IsRoot(x) ? this->m_root : (BN_IsLeftChild(x) ? (x).parent->left : (x).parent->right))
 
-#define BN_IsBlack(x)       (!(x) || (dsa::RBColor::Black == (x)->color))    // 红黑树external nodes均为黑
-#define BN_IsRed(x)         (!BN_IsBlack(x))        // 非黑即红
+#define BN_IsBlack(x)       (!(x) || (dsa::RBColor::Black == (x)->color))   // 红黑树external nodes均为黑
+#define BN_IsRed(x)         (!BN_IsBlack(x))                                // 非黑即红
 
 /** 检测黑高度是否正确 */
 #define BN_BlackHeightUpdated(x) ( \
@@ -54,11 +54,27 @@ namespace dsa
 
 /*! @} */
 
+
+/*!
+ * @name 类型定义与声明
+ * @{
+ */
+
+/** 红黑节点 */
 typedef enum
 {
     Red,
     Black
-} RBColor;
+}RBColor;
+
+template <typename T> struct BinNode;
+
+/** 二叉树节点指针类型 */
+template <typename T>
+using BinNodePtr = struct BinNode<T>*;
+
+/*! @} */
+
 
 /*!
  * @brief 二叉树节点
@@ -66,47 +82,25 @@ typedef enum
  */
 template <typename T> struct BinNode
 {
-    BinNode<T>* parent;
-    BinNode<T>* left;
-    BinNode<T>* right;
-    T           data;
-    int         height;
-    int         npl;        /**< Null Path Length */
-    RBColor     color;
+    BinNodePtr<T> parent;
+    BinNodePtr<T> left;
+    BinNodePtr<T> right;
+    T             data;
+    int           height;
+    int           npl;        /**< Null Path Length */
+    RBColor       color;
 
     BinNode()
         : parent(nullptr), left(nullptr), right(nullptr), height(0), npl(1),color(RBColor::Red) {}
-    BinNode(const T& e, BinNode<T>* p = nullptr, BinNode<T>* ll = nullptr, BinNode<T>* rr = nullptr,
+    BinNode(const T& e, BinNodePtr<T> p = nullptr, BinNodePtr<T> ll = nullptr, BinNodePtr<T> rr = nullptr,
             int h = 0, int n = 1, RBColor c = RBColor::Red)
         : data(e), parent(p), left(ll), right(rr), height(h), npl(n), color(c) {}
 
-    /*!
-     * @brief 插入左子节点
-     *
-     * @param e: 节点数据
-     * @return BinNode指针
-     * @retval None
-     */
-    BinNode<T>* insert_left(const T& e)
-        { return this->left = new BinNode(e, this); }
-
-    /*!
-     * @brief 插入右子节点
-     *
-     * @param e: 节点数据
-     * @return BinNode指针
-     * @retval None
-     */
-    BinNode<T>* insert_right(const T& e)
-        { return this->right = new BinNode(e, this); }
-
-    /*!
-     * @brief 获取子树节点数量
-     *
-     * @param None
-     * @return
-     * @retval None
-     */
+    /** 插入左子节点 */
+    BinNodePtr<T> insert_left(const T& e) {return this->left = new BinNode(e, this);}
+    /** 插入右子节点 */
+    BinNodePtr<T> insert_right(const T& e) {return this->right = new BinNode(e, this);}
+    /** 获取子树节点数量 */
     int size()
     {
         int sum = 1;
@@ -115,7 +109,7 @@ template <typename T> struct BinNode
         return sum;
     }
 
-    BinNode<T>* successor();
+    BinNodePtr<T> successor();
 
     // 遍历算法
     template <typename VST> void traverse_DLR(VST& visit);      // 先序
@@ -124,18 +118,18 @@ template <typename T> struct BinNode
     template <typename VST> void traverse_LO(VST& visit);       // 层次
 
     // 运算符重写
-    bool operator< ( BinNode const& bn ) { return data < bn.data; }
-    bool operator> ( BinNode const& bn ) { return data > bn.data; }
-    bool operator== ( BinNode const& bn ) { return data == bn.data; }
-    bool operator!= ( BinNode const& bn ) { return data != bn.data; }
+    bool operator< ( BinNode const& bn ) {return data < bn.data;}
+    bool operator> ( BinNode const& bn ) {return data > bn.data;}
+    bool operator== ( BinNode const& bn ) {return data == bn.data;}
+    bool operator!= ( BinNode const& bn ) {return data != bn.data;}
 
-    //BinNode<T>* zig();                  // 顺时针旋转
-    //BinNode<T>* zag();                  // 逆时针旋转
+    //BinNodePtr<T> zig();                  // 顺时针旋转
+    //BinNodePtr<T> zag();                  // 逆时针旋转
 };
 
 
-template <typename T, typename VST> static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::Stack<BinNode<T>* >& s);
-template <typename T> static void go_along_left_branch(BinNode<T>* x, dsa::Stack<BinNode<T>*>& s);
+template <typename T, typename VST> static void visit_along_left_brach(BinNodePtr<T> x, VST& visit, dsa::Stack<BinNodePtr<T> >& s);
+template <typename T> static void go_along_left_branch(BinNodePtr<T> x, dsa::Stack<BinNodePtr<T> >& s);
 
 /*! @} */
 
@@ -168,9 +162,9 @@ template <typename T> static void go_along_left_branch(BinNode<T>* x, dsa::Stack
  * @retval None
  */
 template <typename T>
-BinNode<T>* BinNode<T>::successor()
+BinNodePtr<T> BinNode<T>::successor()
 {
-    BinNode<T>* s = this;
+    BinNodePtr<T> s = this;
     if (this->right)
     {
         s = this->right;
@@ -196,7 +190,7 @@ BinNode<T>* BinNode<T>::successor()
  * @retval None
  */
 template <typename T, typename VST>
-static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::Stack<BinNode<T>* >& s)
+static void visit_along_left_brach(BinNodePtr<T> x, VST& visit, dsa::Stack<BinNodePtr<T> >& s)
 {
     while(x)
     {
@@ -217,9 +211,9 @@ static void visit_along_left_brach(BinNode<T>* x, VST& visit, dsa::Stack<BinNode
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR_iteration(BinNode<T>* node, VST& visit)
+void traverse_DLR_iteration(BinNodePtr<T> node, VST& visit)
 {
-    dsa::Stack<BinNode<T>*> s;
+    dsa::Stack<BinNodePtr<T> > s;
     while(1)
     {
         visit_along_left_brach(node, visit, s);
@@ -239,7 +233,7 @@ void traverse_DLR_iteration(BinNode<T>* node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR_recursion(BinNode<T>* node, VST& visit)
+void traverse_DLR_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     visit(node->data);
@@ -273,7 +267,7 @@ void BinNode<T>::traverse_DLR(VST& visit)
  * @retval None
  */
 template <typename T>
-static void go_along_left_branch(BinNode<T>* x, dsa::Stack<BinNode<T>*>& s)
+static void go_along_left_branch(BinNodePtr<T> x, dsa::Stack<BinNodePtr<T> >& s)
 {
     while(x)
     {
@@ -291,9 +285,9 @@ static void go_along_left_branch(BinNode<T>* x, dsa::Stack<BinNode<T>*>& s)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR_iteration(BinNode<T>* node, VST& visit)
+void traverse_LDR_iteration(BinNodePtr<T> node, VST& visit)
 {
-    dsa::Stack<BinNode<T>*> s;
+    dsa::Stack<BinNodePtr<T> > s;
     while(1)
     {
         go_along_left_branch(node, s);
@@ -315,7 +309,7 @@ void traverse_LDR_iteration(BinNode<T>* node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR_recursion(BinNode<T>* node, VST& visit)
+void traverse_LDR_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     traverse_LDR_recursion(node->left, visit);
@@ -347,10 +341,10 @@ void BinNode<T>::traverse_LDR(VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD_iteration(BinNode<T>* node, VST& visit)
+void traverse_LRD_iteration(BinNodePtr<T> node, VST& visit)
 {
-    dsa::Stack<BinNode<T>*> s;
-    BinNode<T>* last_node = nullptr;
+    dsa::Stack<BinNodePtr<T> > s;
+    BinNodePtr<T> last_node = nullptr;
 
     // 先将左子树节点均入栈
     go_along_left_branch(node, s);
@@ -381,7 +375,7 @@ void traverse_LRD_iteration(BinNode<T>* node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD_recursion(BinNode<T>* node, VST& visit)
+void traverse_LRD_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     traverse_LRD_recursion(node->left, visit);
@@ -416,19 +410,17 @@ template <typename T>
 template <typename VST>
 void BinNode<T>::traverse_LO(VST& visit)
 {
-    dsa::Queue<BinNode<T>*> q;
+    dsa::Queue<BinNodePtr<T> > q;
     q.enqueue(this);
     while(!q.is_empty())
     {
-        BinNode<T>* x = q.dequeue();
+        BinNodePtr<T> x = q.dequeue();
         visit(x->data);
         if(x->left) q.enqueue(x->left);
         if(x->right) q.enqueue(x->right);
     }
 }
 
-
-// namespace dsa end
-}
+} /* dsa */
 
 #endif /* ifndef _BINARY_NODE_H */
