@@ -38,7 +38,7 @@ int main()
     //test_graph();
     //test_bt();
     //test_queue();
-    test_stack();
+    //test_stack();
     //test_list();
     //test_vector();
 

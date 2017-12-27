@@ -15,6 +15,7 @@
 
 #include "priority_queue.h"
 #include "binary_tree.h"
+#include "share/swap.h"
 
 namespace dsa
 {
@@ -98,19 +99,13 @@ static BinNode<T>* merge(BinNode<T>* a, BinNode<T>* b)
 
     // 确保a >= b，因为合并后，a做为根节点，必须为最大值
     if (a->data < b->data)
-    {
-        BinNode<T>* t = a; a = b; b = t;
-    }
+        dsa::swap(a, b);
     // 合并a的右子堆与b
     a->right = merge(a->right, b);      // 因为右侧链长度 d <= O(log(n))，故merge最多递归d次，即时间复杂度为O(log(n))
     a->right->parent = a;
     // 使a继续满足左倾性
     if (!a->left || a->left->npl < a->right->npl)
-    {
-        BinNode<T>* t = a->left;
-        a->left = a->right;
-        a->right = t;
-    }
+        dsa::swap(a->left, a->right);
     // 更新npl，若a->right=nullptr，则a距a->right的距离为1
     a->npl = a->right ? (a->right->npl + 1) : 1;
 
