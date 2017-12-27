@@ -143,20 +143,15 @@ public:
 
     T& operator[](int index) const;
 
-    // find
     ListNodePtr<T>  find(const T& ele, int n, ListNodePtr<T> p) const;
-    // search
     ListNodePtr<T>  search(const T& ele, int n, ListNodePtr<T> p) const;
 
-    // deduplicate
     int             deduplicate();
-    // uniquify
     int             uniquify();
 
-    // sort
-    ListNodePtr<T>  select_max(ListNodePtr<T> p, int n);
     /**< 选出整个链表的最大元素 */
     ListNodePtr<T>  select_max() {this->select_max(this->header->next, this->m_size);}
+    ListNodePtr<T>  select_max(ListNodePtr<T> p, int n);
     /** 对所有元素排序 */
     void            selection_sort(ListNodePtr<T> p, int n);
     void            insertion_sort(ListNodePtr<T> p , int n);
@@ -164,7 +159,6 @@ public:
     ListNodePtr<T>  partition(ListNodePtr<T>, ListNodePtr<T>);
     void            sort() {this->quick_sort(this->front(), this->back()->next);}
 
-    // traverse
     template <typename VST> void traverse(VST& visit);
 
 protected:
