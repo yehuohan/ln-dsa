@@ -72,18 +72,15 @@ void test_vector()
     vec_i[0] = -99999999;
     vec_i.insert(1, -3952);
 
-    std::cout << "Find: " << vec_i.find(-3953,0, vec_i.size()) << std::endl;
+    std::cout << "\nFind: " << vec_i.find(-3953,0, vec_i.size()) << std::endl;
 
     vec_i.merge_sort(0, vec_i.size());
     //vec_i.bubble_sort(0, vec_i.size());
     vec_i.uniquify();
 
     std::cout << "Print:\n";
-    for(int k = 0; k < vec_i.size(); k ++)
-    {
-        std::cout << vec_i[k] << std::endl;
-    }
-    std::cout << "search:\n";
+    vec_i.traverse(print_node);
+    std::cout << "\nSearch: ";
     std::cout << vec_i.bin_search(8009, 0, vec_i.size()) << std::endl;
 }
 
@@ -626,8 +623,7 @@ void test_sort()
         vs.push_back(k+1);
     vs.unsort();
 
-    for (int k = 0; k < vs.size(); k++)
-        std::cout << std::setw(2) << vs[k] << "  ";
+    vs.traverse(print_node);
 
     //vs.bubble_sort(0, vs.size());
     //vs.merge_sort(0, vs.size());
@@ -635,8 +631,7 @@ void test_sort()
     //vs.quick_sort(0, vs.size());
     
     std::cout << std::endl;
-    for (int k = 0; k < vs.size(); k++)
-        std::cout << std::setw(2) << vs[k] << "  ";
+    vs.traverse(print_node);
 
     std::cout << std::endl;
     int maj;

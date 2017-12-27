@@ -29,95 +29,64 @@ namespace dsa
  * @{
  */
 
-#define CAPACITY    50
+#define VECTOR_CAPACITY    50
 
 template <typename T>
 class Vector
 {
 public:
-    /*!
-     * @brief Vector构造函数
-     *
-     * @param None
-     * @return
-     * @retval None
-     */
-    Vector()
-    {
-        this->m_size = 0;
-        this->m_capacity = CAPACITY;
-        this->m_array = new T[this->m_capacity];
-    }
+    Vector() : m_size(0), m_capacity(VECTOR_CAPACITY) {this->m_array = new T[this->m_capacity];}
+    Vector(int size, int capacity, const T& ele);
+    Vector(const Vector<T>& V);
+    Vector(const Vector<T>& V, int lo, int hi );
+    ~Vector() {delete[] this->m_array;}
 
-    /*!
-     * @brief Vector构造函数
-     * 初始化数据内容均为ele
-     * @param None
-     * @return
-     * @retval None
-     */
-    Vector(int size, int capacity, const T& ele)
-    {
-        this->m_size = size;
-        this->m_capacity = capacity;
-        this->m_array = new T[this->m_capacity];
-        for (int k = 0; k < this->m_size; k++)
-        {
-            this->m_array[k] = ele;
-        }
-    }
-
-    /*!
-     * @brief 拷贝构造函数
-     *
-     * @param rhs: 引用对象
-     * @return
-     * @retval None
-     */
-    Vector(const Vector<T>& V) {this->copy_from(V.m_array, 0, V.m_size );}
-
-    ~Vector() { delete[] this->m_array; }
-
-    // basic
+    /** 清空数据 */
+    void    clear() {this->m_size = 0;}
+    /** 判断是否为空 */
+    bool    is_empty() const {return !bool(this->m_size);}
+    /** 返回元素数量 */
+    int     size() const {return this->m_size;}
     int     push_front(const T& ele);
     int     push_back(const T& ele);
     int     insert(int index, const T& ele);
     T       remove(int index);
     int     remove(int lo, int hi);
-    void    clear(){this->m_size = 0;}
-    bool    is_empty() const {return !bool(this->m_size);}
-    int     size() const {return this->m_size;}
 
+    /** 下标索引重写 */
     T& operator[](int index) const {return this->m_array[index];}
     Vector<T>& operator=(const Vector<T>& V);
 
-    // 查找find
+    /** 在整个Vector中查找 */
     int     find(const T& ele) const {return this->find(ele, 0, this->m_size);};
     int     find(const T& ele, int lo, int hi) const;
-    // 搜索search
+    /** 在整个Vector中搜索 */
     int     search(const T& ele) const {return this->search(ele, 0, this->m_size); };
     int     search(const T& ele, int lo, int hi) const {return this->bin_search(ele, lo, hi);};
     int     bin_search(const T& ele, int lo, int hi) const;
     int     fib_search(const T& ele, int lo, int hi) const;
 
-    // 去重操作
     int     deduplicate();
     int     uniquify();
 
-    // 乱序unsort
+    /** 打乱整个Vector的顺序 */
+    void    unsort() {this->unsort(0, this->m_size);}
     void    unsort(int lo, int hi);
-    void    unsort(){this->unsort(0, this->m_size);}
 
-    // 排序sort
+    /** 对所有Vector元素排序 */
+    void    sort() {this->quick_sort(0, this->m_size);}
     void    bubble_sort(int lo, int hi);
     int     bubble(int lo, int hi);
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
     void    selection_sort(int lo, int hi);
-    int     selection_max(int lo, int hi);
+    int     select_max(int lo, int hi);
     void    quick_sort(int lo, int hi);
     int     partition(int lo, int hi);
+    void    shell_sort(int lo, int hi);
     void    heap_sort(int lo, int hi);
+
+    template <typename VST> void traverse(VST& visit);
 
 protected:
     void    copy_from (const T* A, int lo, int hi );
@@ -134,10 +103,61 @@ protected:
 
 
 /*!
- * @brief overload operator =
+ * @brief Vector构造函数
  *
- * @param V: the value to set by operator =
- * @return reference of this vector
+ * 初始化数据内容均为ele
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+template <typename T>
+Vector<T>::Vector(int size, int capacity, const T& ele)
+{
+    this->m_size = size;
+    this->m_capacity = capacity;
+    this->m_array = new T[this->m_capacity];
+    for (int k = 0; k < this->m_size; k++)
+    {
+        this->m_array[k] = ele;
+    }
+}
+
+/*!
+ * @brief 拷贝构造函数
+ *
+ * 拷贝构造函数是即类实例化的过程，故不能执行delete[] m_array。
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+template <typename T>
+Vector<T>::Vector(const Vector<T>& V)
+{
+    this->copy_from(V.m_array, 0, V.m_size );
+}
+
+/*!
+ * @brief 拷贝构造函数
+ *
+ * @param lo,hi: 拷贝区间[lo,hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+Vector<T>::Vector(const Vector<T>& V, int lo, int hi )
+{
+    this->copy_from(V.m_array, lo, hi);
+}
+
+/*!
+ * @brief 重写operator=
+ *
+ * 使用operator=赋值，说明左值已实例化，故需要先释放原的m_array。
+ *
+ * @param V: 目标Vector
+ * @return 返回当前Vector的引用
  * @retval None
  */
 template <typename T>
@@ -149,10 +169,12 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& V)
 }
 
 /*!
- * @brief copy from another vector
+ * @brief 复制数组数据到Vector
  *
- * @param A: vector copying from
- * @param lo,hi: copying range
+ * 直接申请数组资源，若原先已申请数组资源，需要在调用copy_from前释放。
+ *
+ * @param A: 目标数组
+ * @param lo,hi: 下标范围[lo,hi)
  * @return
  * @retval None
  */
@@ -166,44 +188,40 @@ void Vector<T>::copy_from(T const* A, int lo, int hi )
 }
 
 /*!
- * @brief insert element to the front(first) position.
+ * @brief 插入元素到最前面
  *
- * @param ele: the element to be insert
+ * @param ele: 待插入的元素
  * @return
  * @retval None
  */
 template <typename T>
-inline int Vector<T>::push_front(const T& ele)
+int Vector<T>::push_front(const T& ele)
 {
     this->insert(0, ele);
 }
 
 /*!
- * @brief insert element from the back of vector
+ * @brief 插入元素到最后面
  *
- * @param ele: the element to be insert
- * @return index of inserted element
+ * @param ele: 待插入的元素
+ * @return 返回新插入元素的下标
  * @retval None
  */
 template <typename T>
 int Vector<T>::push_back(const T& ele)
 {
     if(this->m_size >= this->m_capacity)
-    {
         this->expand();
-    }
     this->m_array[this->m_size++] = ele;
     return this->m_size-1;
 }
 
 /*!
- * @brief insert element
+ * @brief 插入元素到指定下标位置
  *
- * insert element in index, meaning that [index] = element
- *
- * @param index: where to insert
- * @param ele: the element to insert
- * @return index of inserted element
+ * @param index: 指定的插入下标位置
+ * @param ele: 待插入的元素
+ * @return 返回新插入元素的拉置
  * @retval None
  */
 template <typename T>
@@ -223,20 +241,19 @@ int Vector<T>::insert(int index, const T& ele)
 }
 
 /*!
- * @brief remove element in index
+ * @brief 删除指定下标的元素
  *
- * @param index : index of element to be removed
- * @return the value had been removed
+ * @param index: 指定的删除下标位置
+ * @return 返回被删除的元素
  * @retval None
  */
 template <typename T>
 T Vector<T>::remove(int index)
 {
-    // delete interval (r, r+1) to delelte single element
+    // 删除[r, r+1)即可删除单个元素
     T ele = this->m_array[index];
     this->remove(index, index+1);
     return ele;
-
     /*
     for(int k = index; k < this->m_size - 1; k++)
     {
@@ -247,24 +264,24 @@ T Vector<T>::remove(int index)
 }
 
 /*!
- * @brief delete interval [lo, hi)
+ * @brief 删除下标在范围[lo,hi)的所有元素
  *
- * @param lo : range index >= lo
- * @param hi : range index < hi
- * @return the number of element been removed
+ * @param lo,hi: 下标范围[lo,hi)
+ * @return 返回删除的元素总数量
  * @retval None
  */
 template <typename T>
 int Vector<T>::remove(int lo, int hi)
 {
     if(lo == hi) return 0;
-    while(hi < this->m_size) this->m_array[lo++] = this->m_array[hi++];
+    while(hi < this->m_size)
+        this->m_array[lo++] = this->m_array[hi++];
     this->m_size = lo;
     return hi-lo;
 }
 
 /*!
- * @brief expand vector capacity
+ * @brief 扩展Vector容量
  *
  * @param None
  * @return
@@ -273,7 +290,7 @@ int Vector<T>::remove(int lo, int hi)
 template <typename T>
 void Vector<T>::expand()
 {
-    T* old_ar = this->m_array;         // save the old pointer to m_array
+    T* old_ar = this->m_array;
     this->m_capacity *= 2;
     this->m_array = new T[this->m_capacity];
     for(int k = 0; k < m_size; k++)
@@ -289,8 +306,8 @@ void Vector<T>::expand()
  * 因为是遍历[lo,hi)查找，故时间复杂度为O(n)。
  * 若找到ele，则返回下标，否则返回-1。
  *
- * @param ele : 待查找元素
- * @param lo,hi : 下标范围[lo, hi)
+ * @param ele: 待查找元素
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -307,8 +324,8 @@ int Vector<T>::find(const T& ele, int lo, int hi) const
  * 查找范围为[lo, hi)，时间复杂度为O(logn)
  * 因为最后需要返回不大于ele的最大元素的下标，故查找区间[lo,hi)需要是有序的。
  *
- * @param ele : 待查找元素
- * @param lo,hi : 下标范围[lo, hi)
+ * @param ele: 待查找元素
+ * @param lo,hi: 下标范围[lo, hi)
  * @return 返回不大于ele的元素的下标
  * @retval None
  */
@@ -353,12 +370,13 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
 }
 
 /*!
- * @brief fibonacci search in [lo, hi)
+ * @brief fibonacci查找
  *
- * @param ele : what element to search
- * @param lo : range index >= lo
- * @param hi : range index < hi
- * @return
+ * 查找范围为[lo, hi)
+ *
+ * @param ele: 待查找元素
+ * @param lo,hi: 下标范围[lo, hi)
+ * @return 返回不大于ele的元素的下标
  * @retval None
  */
 template <typename T>
@@ -430,7 +448,7 @@ int Vector<T>::uniquify()
 /*!
  * @brief 对[lo,hi)打乱顺序
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -439,7 +457,7 @@ void Vector<T>::unsort(int lo, int hi)
 {
     T* v = this->m_array + lo;      // v的下标范围为[0, hi-lo)
     for (int k = hi - lo; k > 0; k--)
-        dsa::swap(v[k-1], v[dsa::rand(k)]);
+        dsa::swap(v[k-1], v[dsa::rand_n(k)]);
 }
 
 
@@ -448,7 +466,7 @@ void Vector<T>::unsort(int lo, int hi)
  *
  * 排序范围为[lo, hi)
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -505,7 +523,7 @@ void Vector<T>::bubble_sort(int lo, int hi)
  *                      若k与lo相同，则与改进版一的情况相同。
  * </pre>
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -547,14 +565,15 @@ int Vector<T>::bubble(int lo, int hi)
  *
  * 排序范围为[lo, hi)
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
 template <typename T>
 void Vector<T>::merge_sort(int lo, int hi)
 {
-    if(hi - lo < 2) return;     // 只有一个元素
+    if(hi - lo < 2)
+        return;     // 只有一个元素
     int mi = (lo + hi) / 2;
     merge_sort(lo, mi);
     merge_sort(mi, hi);
@@ -564,7 +583,7 @@ void Vector<T>::merge_sort(int lo, int hi)
 /*!
  * @brief 归并排序的归并操作
  *
- * @param lo,mi,hi 将[lo,mi)和[mi, hi)进行合并
+ * @param lo,mi,hi: 将[lo,mi)和[mi, hi)进行合并
  * @return
  * @retval None
  */
@@ -604,7 +623,7 @@ void Vector<T>::merge(int lo, int mi, int hi)
  *  不断的从W中选出最大者m，放入S的第一个位置i处
  * </pre>
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -612,8 +631,7 @@ template <typename T>
 void Vector<T>::selection_sort(int lo, int hi)
 {
     while(lo < hi--)
-        swap(this->m_array[selection_max(lo, hi)],
-             this->m_array[hi]);
+        swap(this->m_array[select_max(lo, hi)], this->m_array[hi]);
 }
 
 /*!
@@ -621,12 +639,12 @@ void Vector<T>::selection_sort(int lo, int hi)
  *
  * 为保证排序稳定性，若最大值有多个时，返回的一定是最后一个；
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
 template <typename T>
-int Vector<T>::selection_max(int lo, int hi)
+int Vector<T>::select_max(int lo, int hi)
 {
     int max = hi;
     while(lo < hi--)
@@ -643,7 +661,7 @@ int Vector<T>::selection_max(int lo, int hi)
  *
  * 排序范围为[lo, hi)
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -685,16 +703,19 @@ void Vector<T>::quick_sort(int lo, int hi)
  *
  * </pre>
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi]，注意，这里可以取到hi
  * @return
  * @retval None
  */
 template <typename T>
 int Vector<T>::partition(int lo, int hi)
 {
+    // 随机交换候选轴点，使轴点的位置均匀分布
+    dsa::swap(this->m_array[lo], this->m_array[lo + dsa::rand_n(hi-lo+1)]);
+    // 候选轴点
+    T pivot = this->m_array[lo];
 #if(1)
     // 基本形式
-    T pivot = this->m_array[lo];        // 候选轴点
     while(lo < hi)
     {
         while(lo < hi && this->m_array[hi] >= pivot) hi--;
@@ -706,7 +727,6 @@ int Vector<T>::partition(int lo, int hi)
     return lo;
 #else
     // 变种形式
-    T pivot = this->m_array[lo];
     int mi = lo;
     for (int k = lo + 1; k <= hi; k++)
     {
@@ -723,6 +743,57 @@ int Vector<T>::partition(int lo, int hi)
 
 
 /*!
+ * @brief 希尔排序
+ *
+ * 排序范围为[lo, hi)
+ *
+ * <pre>
+ *
+ * (1) 希尔排序过程
+ * 将整个序列视作一个矩阵，逐列各自排序w-sorting (w为矩阵列数)
+ *
+ * 排序序列:  8 1 5 6 9 4 3 7 2
+ * 步长序列: [1, 2, 3, 5]
+ * 5-sorting : 8 1 5 6 9  =>  4 1 5 2 9  =>  4 1 5 2 9 8 3 7 6
+ *             4 3 7 2        8 3 7 6
+ *
+ * 3-sorting : 4 1 5  =>  2 1 5  =>  2 1 5 3 7 6 4 9 8
+ *             2 9 8      3 7 6
+ *             3 7 6      4 9 8
+ *
+ * 2-sorting : 2 1  =>  2 1 => 2 1 4 3 5 6 7 9 8
+ *             5 3      4 3
+ *             7 6      5 6
+ *             4 9      7 9
+ *             8        8
+ *
+ * 1-sorting : 1 2 3 4 5 6 7 8 9
+ *
+ * (2) 线性组合
+ * f=ma+nb : a,b的线性组合（m和n为自然数）
+ * N(a,b) : 对任意整数 m,n，所有满足 f!= ma + nb 的f的集合
+ * max(N(a,b)) = (a-1)(b-a)-1 = ab-a-b
+ *
+ * (3) 间隔有序
+ * h-ordered : 序列s[0,n)对于任何 0<= i < n-h，都有s[i] <= s[i+h]；
+ *
+ * 任一个序列进行h-sorting后，必定是h-ordered；
+ * 若一个序列同时为g-ordered和g-ordered，则序列也为(mg+nh)-ordered，m和n为自然数；
+ *
+ * </pre>
+ *
+ * @param lo,hi: 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::shell_sort(int lo, int hi)
+{
+
+}
+
+
+/*!
  * @brief 利用完全二叉堆对向量区间进行排序
  *
  * <pre>
@@ -735,7 +806,7 @@ int Vector<T>::partition(int lo, int hi)
  *
  * </pre>
  *
- * @param lo,hi : 下标范围[lo, hi)
+ * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
@@ -748,6 +819,21 @@ void Vector<T>::heap_sort(int lo, int hi)
     //    // 将堆顶元素放入已经排序部分
     //    this->m_size[--hi] = h.del_max();
     //}
+}
+
+/*!
+ * @brief 遍历数组
+ *
+ * @param visit: 访问函数
+ * @return
+ * @retval None
+ */
+template <typename T>
+template <typename VST>
+void Vector<T>::traverse(VST& visit)
+{
+    for (int k = 0; k < this->m_size; k ++)
+        visit(this->m_array[k]);
 }
 
 } /* dsa */
