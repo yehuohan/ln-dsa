@@ -16,6 +16,7 @@
 
 #include "vector.h"
 #include "priority_queue.h"
+#include "share/swap.h"
 
 namespace dsa
 {
@@ -165,9 +166,7 @@ int PqComplHeap<T>::percolate_down(int n, int i)
     while(i!= (j = this->proper_parent(n, i)))
     {
         // i的子节点元比i大，则下滤
-        T tmp = this->m_array[i];
-        this->m_array[i] = this->m_array[j];
-        this->m_array[j] = tmp;
+        dsa::swap(this->m_array[i], this->m_array[j]);
         i = j;
     }
     return i;
@@ -254,7 +253,6 @@ void PqComplHeap<T>::heapify(int n)
 #endif
 
 }
-
 
 } /* dsa */
 
