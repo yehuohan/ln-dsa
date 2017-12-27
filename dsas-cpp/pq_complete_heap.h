@@ -32,10 +32,10 @@ namespace dsa
  * @{
  */
 #define PQ_InHeap(n,i)      ((0 <= (i)) && ((i) < (n))) /**< 判断是否在二叉堆中 */
-#define PQ_ParentValid(i)   ((i) > 0)           /**< 判断i是否有父节点 */
-#define PQ_Parent(i)        (((i)-1) >> 1)      /**< i的父节点（floor((i-1)/2)，i无论正负） */
-#define PQ_LeftChild(i)     (1 + ((i) << 1))    /**< i的左孩子，即 (2*i+1) */
-#define PQ_RightChild(i)    ((1 + (i)) << 1)    /**< i的右孩子，即 (2*i+2) */
+#define PQ_ParentValid(i)   ((i) > 0)                   /**< 判断i是否有父节点 */
+#define PQ_Parent(i)        (((i)-1) >> 1)              /**< i的父节点（floor((i-1)/2)，i无论正负） */
+#define PQ_LeftChild(i)     (1 + ((i) << 1))            /**< i的左孩子，即 (2*i+1) */
+#define PQ_RightChild(i)    ((1 + (i)) << 1)            /**< i的右孩子，即 (2*i+2) */
 #define PQ_LeftChildValid(n, i)     PQ_InHeap(n, PQ_LeftChild(i))  /**< 判断i是否有一个（左）孩子 */
 #define PQ_RightChildValid(n, i)    PQ_InHeap(n, PQ_RightChild(i)) /**< 判断i是否有两个孩子，对于完全二叉堆，有右孩子，必有左孩子*/
 /*! @} */
@@ -66,40 +66,26 @@ namespace dsa
  *
  */
 template <typename T>
-class PqComplHeap : public PQ<T>, public Vector<T>
+class PqComplHeap : public dsa::PQ<T>, public dsa::Vector<T>
 {
 protected:
-    int percolate_up(int i);
-    int percolate_down(int n, int i);
-    void heapify(int n);
+    int     percolate_up(int i);
+    int     percolate_down(int n, int i);
+    void    heapify(int n);
 
 public:
-    PqComplHeap() {}
-    /*!
-     * @brief 从向量建立完全二叉堆
-     *
-     * @param A: 向量指针
-     * @param n: 向量元素数量
-     * @return
-     * @retval None
-     */
-    PqComplHeap(const T* A, int n) : PQ<T>(), Vector<T>()
+    PqComplHeap() : dsa::PQ<T>(), dsa::Vector<T>() {}
+    /** 从向量建立完全二叉堆 */
+    PqComplHeap(const T* A, int n) : dsa::PQ<T>(), dsa::Vector<T>()
     {
         this->copy_from(A, 0, n);
         this->heapify(n);
     }
 
-    void insert(const T&);
-
-    /*!
-     * @brief 获取最大值，即优先级最高的元素
-     *
-     * @param None
-     * @return
-     * @retval None
-     */
-    T get_max() {return this->m_array[0];};
-    T del_max();
+    void    insert(const T&);
+    /** 第一个元素，即是优先级最高的元素，时间复杂度O(1) */
+    T       get_max() {return this->m_array[0];};
+    T       del_max();
 
 private:
     int proper_parent(int n, int i);
