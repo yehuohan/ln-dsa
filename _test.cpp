@@ -38,7 +38,7 @@ int main()
     //test_graph();
     //test_bt();
     //test_queue();
-    //test_stack();
+    test_stack();
     //test_list();
     //test_vector();
 
@@ -140,6 +140,14 @@ void test_stack()
     sta_i.clear();
     if(sta_i.is_empty())
         std::cout << "Is empty" << std::endl;
+
+    dsa::StackList<int> sl;
+    sl.push(1000);
+    sl.push(800);
+    sl.push(700);
+    std::cout << sl.size() << std::endl;
+    std::cout << sl.top() << std::endl;
+    std::cout << sl.pop() << std::endl;
 }
 
 void test_queue()

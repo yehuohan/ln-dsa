@@ -1,8 +1,7 @@
-
 //==============================================================================
 /*!
  * @file stack.h
- * @brief Stack struct
+ * @brief 栈结构
  *
  * @date
  * @version
@@ -14,8 +13,8 @@
 #ifndef _STACK_H
 #define _STACK_H
 
-#include "list.h"
 #include "vector.h"
+#include "list.h"
 
 namespace dsa
 {
@@ -27,41 +26,48 @@ namespace dsa
  */
 
 /*!
- * @brief Stack class
+ * @brief 栈
  *
- * inheriting from vector and take vector-end as stack-top
+ * 使用Vector构造栈
  *
  */
 template <typename T>
-class Stack : protected dsa::Vector<T>
+class Stack : public dsa::Vector<T>
 {
 public:
     Stack() {dsa::Vector<T>();}
 
-    bool            is_empty() const {return dsa::Vector<T>::is_empty();}
-    unsigned int    size() const {return dsa::Vector<T>::size();}
-    void            clear(){dsa::Vector<T>::clear();}
-
-    /** push data to stack */
-    void            push(const T& e) {this->push_back(e);}
-    /** pop data from statck */
-    T               pop() {return this->remove(this->size()-1);}
-    /** return top-data */
-    T               top() const {return this->m_array[this->size()-1];}
+    /** 入栈 */
+    void    push(const T& e) {this->push_back(e);}
+    /** 出栈 */
+    T       pop() {return this->remove(this->size()-1);}
+    /** 返回栈顶数据 */
+    T       top() const {return this->m_array[this->size()-1];}
 };
 
 
+/*!
+ * @brief 栈
+ *
+ * 使用List构造栈
+ *
+ */
 template <typename T>
-class StackList : private dsa::List<T>
+class StackList : public dsa::List<T>
 {
 public:
-    StackList() {List<T>::List();}
+    StackList() {dsa::List<T>();}
+
+    /** 入栈 */
+    void    push(const T& e) {this->push_back(e);}
+    /** 出栈 */
+    T       pop() {return this->remove(this->back());}
+    /** 返回栈顶数据 */
+    T       top() const {return this->back()->data;}
 };
 
 /*! @} */
-
-
-// namespace dsa end
-}
+    
+} /* dsa */
 
 #endif /* ifndef _STACK_H */
