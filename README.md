@@ -5,7 +5,7 @@ Data Struct and Algorithm Study.
 
  - code
 ```
-dsas-cpp    : dsa implementation in cpp
+dsas-cpp    : dsa implementation in c++11
 dsas-lite-c : dsa lite-implementation in c
 dsas-code   : code pratice
 ```
