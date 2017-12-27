@@ -3,10 +3,7 @@
 #include <iomanip>
 #include "dsas-cpp/dsas.h"
 
-void print_node(int data)
-{
-    std::cout << data << "    ";
-}
+void print_node(int data) {std::cout << data << "    ";}
 
 void test_vector();
 void test_list();
@@ -28,7 +25,7 @@ void test_sort();
 //(int argc, char** argv)
 int main()
 {
-    test_sort();
+    //test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
@@ -94,31 +91,42 @@ void test_list()
 {
     dsa::List<int> lst_i;
     lst_i.push_front(1000);
-    lst_i.insert_before(lst_i.first(), -1000);
+    lst_i.insert_before(lst_i.front(), -1000);
     lst_i.push_back(-1);
+    lst_i.push_back(9020);
+    lst_i.push_back(20);
+    lst_i.push_back(9020);
+    lst_i.push_back(20);
+    lst_i.push_back(9020);
+    lst_i.push_back(920);
     lst_i.push_back(20);
     lst_i.push_back(-20);
+    lst_i.push_back(-20);
+    lst_i.push_back(20);
     lst_i.push_back(920);
-    lst_i.push_back(9020);
+    lst_i.push_back(920);
+    lst_i.remove(lst_i.front());
 
-    lst_i.remove(lst_i.first());
-    //lst_i.selection_sort(lst_i.first(), lst_i.size());
-    lst_i.insertion_sort(lst_i.first(), lst_i.size());
+    std::cout << "Sort: \n";
+    //lst_i.selection_sort(lst_i.front(), lst_i.size());
+    //lst_i.insertion_sort(lst_i.front(), lst_i.size());
+    lst_i.sort();
+    lst_i.traverse(print_node);
+    std::cout << std::endl;
 
-    std::cout << "Iterator: \n";
-    dsa::ListIterator<int> iter = lst_i.begin();
-    std::cout << *iter << std::endl;
-    iter++;
-    std::cout << *iter << std::endl << std::endl;
-
+    dsa::ListNodePtr<int> f = lst_i.find(9020, lst_i.size(), lst_i.back()->next);
+    std::cout << "Find: ";
+    lst_i.is_valid(f) ? (std::cout << f->data) : std::cout << "nullptr";
+    std::cout << std::endl;
+    dsa::ListNodePtr<int> s = lst_i.search(-30, lst_i.size(), lst_i.back()->next);
+    std::cout << "Search: ";
+    lst_i.is_valid(s) ? (std::cout << s->data) : std::cout << "nullptr";
+    std::cout << std::endl;
     std::cout << "Size: " << lst_i.size() << std::endl;
 
-    dsa::ListNodePtr<int> p = lst_i.first();
-    while(p->next)
-    {
-        std::cout << p->data << std::endl;
-        p = p->next;
-    }
+    //std::cout << "Deduplicate: " << lst_i.deduplicate() << std::endl;;
+    std::cout << "Uniquify: " << lst_i.uniquify() << std::endl;;
+    lst_i.traverse(print_node);
 }
 
 void test_stack()
