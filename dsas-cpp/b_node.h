@@ -55,7 +55,7 @@ template <typename T> struct BTNode
     /*!
      * @brief b-tree节点构造函数
      *
-     * 此构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。
+     * 构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。
      * 同时，当同时向key和child 追加 关键码和节点时，仍满足分支数为m，关键码数为m-1。
      *
      * @param None
@@ -66,6 +66,21 @@ template <typename T> struct BTNode
 
     /*!
      * @brief b-tree节点构造函数
+     *
+     * 构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。
+     * b-树(b-tree)阶次为m，则key的容量 <= m-1， child的容量 <= m。
+     * 因为Vector的size==capacity时就扩展容，所以为使Vector不用护展容量，key和child的容量均+1。
+     *
+     * @param m: btree的阶数
+     * @return
+     * @retval None
+     */
+    BTNode(int m) : key(m-1+1), child(m+1) {parent = nullptr; child.insert(0, nullptr); }
+
+    /*!
+     * @brief b-tree节点构造函数
+     *
+     * 初始化时插一个关键码，和两条分支。
      *
      * @param e: 节点数据
      * @param lc,rc: 两个孩子
@@ -82,13 +97,27 @@ template <typename T> struct BTNode
         if (rc) rc->parent = this;
     }
 
-    ~BTNode()
+    /*!
+     * @brief b-tree节点构造函数
+     *
+     * 初始化时插一个关键码，和两条分支。
+     * b-树(b-tree)阶次为m，则key的容量 <= m-1， child的容量 <= m。
+     * 因为Vector的size==capacity时就扩展容，所以为使Vector不用护展容量，key和child的容量均+1。
+     *
+     * @param m: btree的阶数
+     * @param e: 节点数据
+     * @param lc,rc: 两个孩子
+     * @return
+     * @retval None
+     */
+    BTNode(int m, const T& e, BTNodePtr<T> lc = nullptr, BTNodePtr<T> rc = nullptr) : key(m-1+1), child(m+1)
     {
-        for (int k = 0; k < this->child.size(); k ++)
-        {
-            if (this->child[k])
-                delete this->child[k];
-        }
+        this->parent = nullptr;
+        this->key.insert(0, e);
+        this->child.insert(0, lc);
+        this->child.insert(1, rc);
+        if (lc) lc->parent = this;
+        if (rc) rc->parent = this;
     }
 };
 

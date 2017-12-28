@@ -57,7 +57,7 @@ protected:
     void solve_underflow(BTNodePtr<T>);
 
 public:
-    BTree(int order = 3) : m_size(0), m_order(order){ this->m_root = new BTNode<T>(); }
+    BTree(int order = 3) : m_size(0), m_order(order){ this->m_root = new BTNode<T>(this->m_order); }
     ~BTree(){delete_node(this->m_root);}
 
     int order() const {return this->m_order;}
@@ -88,8 +88,6 @@ void BTree<T>::delete_node(BTNodePtr<T> r)
     {
         for (int k = 0; k < r->child.size(); k++)
             delete_node(r->child[k]);
-        // 将Vector的m_size清零
-        r->child.clear();
         delete r;
     }
 }
@@ -140,7 +138,7 @@ void BTree<T>::solve_overflow(BTNodePtr<T> node)
     if (!p)
     {
         // 在在根节点上溢时，树高度会增加
-        this->m_root = p = new BTNode<T>(); // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
+        this->m_root = p = new BTNode<T>(this->m_order); // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
         p->child[0] = node;
         node->parent = p;
     }
@@ -148,7 +146,7 @@ void BTree<T>::solve_overflow(BTNodePtr<T> node)
     // 转移node中s之后关键码和分支节点，追加到新节点rc中
     // 即转移示意图中的 *[5]* 部分
     int s = this->m_order / 2;              // 确定上移的节点位置
-    BTNodePtr<T> rc = new BTNode<T>();        // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
+    BTNodePtr<T> rc = new BTNode<T>(this->m_order);      // BTNode默认构造函数，在没关键码时有一个指向nullptr子节点
     rc->child.clear();                      // 清除第一个默认添加的nullptr子节点
     for (int k = s + 1; k < node->key.size(); k ++)
     {
@@ -291,10 +289,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
         //        node->child[0]->parent = s;
         //    s->child.push_back(node->child.remove(0));
         //}
-
-        // 为什么要clear，即为什么要置m_size为0，直接delete不就好了？
-        node->key.clear();
-        node->child.clear(); //不用while，需要clear
         delete node;
     }
     else
@@ -323,10 +317,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
         //        node->child[node->child.size()-1]->parent = s;
         //    s->child.push_front(node->child.remove(node->child.size()-1));
         //}
-
-        // 为什么要clear，即为什么要置m_size为0，直接delete不就好了？
-        node->key.clear();
-        node->child.clear(); //不用while，需要clear
         delete node;
     }
 
