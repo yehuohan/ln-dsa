@@ -192,13 +192,13 @@ void Vector<T>::copy_from(T const* A, int lo, int hi )
  * @brief 插入元素到最前面
  *
  * @param ele: 待插入的元素
- * @return
+ * @return 返回新插入元素的下标
  * @retval None
  */
 template <typename T>
 int Vector<T>::push_front(const T& ele)
 {
-    this->insert(0, ele);
+    return this->insert(0, ele);
 }
 
 /*!
