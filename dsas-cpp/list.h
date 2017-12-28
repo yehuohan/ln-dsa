@@ -149,7 +149,7 @@ public:
     int             deduplicate();
     int             uniquify();
 
-    /** 选出整个链表的最大元素 */
+    /** 选出整个链表的最大元素指针 */
     ListNodePtr<T>  select_max() {this->select_max(this->header->next, this->m_size);}
     ListNodePtr<T>  select_max(ListNodePtr<T> p, int n);
     /** 对所有元素排序 */
