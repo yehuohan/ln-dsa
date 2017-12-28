@@ -76,12 +76,16 @@ protected:
 
 public:
     PqComplHeap() : dsa::PQ<T>(), dsa::Vector<T>() {}
-    /** 从向量建立完全二叉堆 */
-    PqComplHeap(const T* A, int n) : dsa::PQ<T>(), dsa::Vector<T>()
-    {
-        this->copy_from(A, 0, n);
-        this->heapify(n);
-    }
+    /** 从数组[0,n)建立完全二叉堆 */
+    PqComplHeap(const T* A, int n) : dsa::PQ<T>(), dsa::Vector<T>(A, n) {this->heapify(n);}
+    /** 从数组[lo,hi)建立完全二叉堆 */
+    PqComplHeap(const T* A, int lo, int hi) : dsa::PQ<T>(), dsa::Vector<T>(A, lo, hi) {this->heapify(hi-lo);}
+    /** 从向量[0,size)建立完全二叉堆 */
+    PqComplHeap(const dsa::Vector<T>& vec) : dsa::PQ<T>(), dsa::Vector<T>(vec)
+    {this->heapify(this->m_size);}
+    /** 从向量[lo,hi)建立完全二叉堆 */
+    PqComplHeap(const dsa::Vector<T>& vec, int lo, int hi) : dsa::PQ<T>(), dsa::Vector<T>(vec, lo, hi)
+    {this->heapify(this->m_size);}
 
     void    insert(const T&);
     /** 第一个元素，即是优先级最高的元素，时间复杂度O(1) */
@@ -91,6 +95,8 @@ public:
 private:
     int proper_parent(int n, int i);
 };
+
+template <typename T> void heap_sort(dsa::Vector<T>& vec, int lo, int hi);
 
 /*! @} */
 
@@ -222,7 +228,7 @@ T PqComplHeap<T>::del_max()
  * this->m_array有n个节点，但不一定满足堆序性，
  * 此函数就是使这n个节点满足堆序性。
  *
- * @param n: 堆的节点数
+ * @param n: 堆的节点数量
  * @return
  * @retval None
  */
@@ -232,7 +238,7 @@ void PqComplHeap<T>::heapify(int n)
 #if(0)
     // 按自上而下的顺序上滤
     // 效率太低：对所有节点的深度求和
-    // 越往堆底，深度越大，节点数越多
+    // 越往堆底，深度越大（上滤的距离越大），节点数越多
     // Sum[depth(i)] = O(nlog(n))
     for (int k = 1; k < n; k ++)
     {
@@ -244,7 +250,7 @@ void PqComplHeap<T>::heapify(int n)
     // 按自下而上的顺序下滤
     // PQ_Parent(n-1) ：最后一个内部节点，也即末节点的父亲
     // 效率较高： 对所有节点的高度求和
-    // 越往堆底，高度越小，节点数越多
+    // 越往堆底，高度越小（下滤的距离越小），节点数越多
     // Sum[height(i)] = O(n)
     for(int k = PQ_Parent(n-1); k >= 0; k--)
     {
@@ -252,6 +258,35 @@ void PqComplHeap<T>::heapify(int n)
     }
 #endif
 
+}
+
+/*!
+ * @brief 利用完全二叉堆对向量区间进行排序
+ *
+ * <pre>
+ *
+ * 元素移动示意图：
+ *     max ------->
+ *    /            \
+ * [ # --- heap --- # --- sorted ---]
+ *  lo             hi
+ *
+ * </pre>
+ *
+ * @param vec: 待排序向量
+ * @param lo,hi: 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+void heap_sort(dsa::Vector<T>& vec, int lo, int hi)
+{
+    dsa::PqComplHeap<T> h(vec, lo, hi);
+    while(!h.is_empty())
+    {
+        // 将堆顶元素放入已经排序部分
+        vec[--hi] = h.del_max();
+    }
 }
 
 } /* dsa */

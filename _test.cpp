@@ -636,8 +636,9 @@ void test_sort()
 
     //vs.bubble_sort(0, vs.size());
     //vs.merge_sort(0, vs.size());
-    vs.selection_sort(0, vs.size());
+    //vs.selection_sort(0, vs.size());
     //vs.quick_sort(0, vs.size());
+    dsa::heap_sort(vs, 0, vs.size());
     
     std::cout << std::endl;
     vs.traverse(print_node);
