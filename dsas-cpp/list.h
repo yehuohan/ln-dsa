@@ -584,5 +584,4 @@ void List<T>::traverse(VST& visit)
 
 } /* dsa */
 
-
 #endif /* ifndef _LIST_H */

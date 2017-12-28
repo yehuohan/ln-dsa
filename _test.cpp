@@ -25,7 +25,7 @@ void test_sort();
 //(int argc, char** argv)
 int main()
 {
-    //test_sort();
+    test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
@@ -631,16 +631,16 @@ void test_sort()
     for (int k = 0; k < 12; k++)
         vs.push_back(k+1);
     vs.unsort();
-
     vs.traverse(print_node);
 
+    std::cout << "\nSort: \n";
     //vs.bubble_sort(0, vs.size());
     //vs.merge_sort(0, vs.size());
     //vs.selection_sort(0, vs.size());
+    //vs.insertion_sort(0, vs.size());
     //vs.quick_sort(0, vs.size());
-    dsa::heap_sort(vs, 0, vs.size());
-    
-    std::cout << std::endl;
+    vs.shell_sort(0, vs.size()-1);
+    //dsa::heap_sort(vs, 0, vs.size());
     vs.traverse(print_node);
 
     std::cout << std::endl;

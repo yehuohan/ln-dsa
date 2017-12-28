@@ -86,6 +86,7 @@ public:
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
     void    selection_sort(int lo, int hi);
+    void    insertion_sort(int lo, int hi);
     void    quick_sort(int lo, int hi);
     int     partition(int lo, int hi);
     void    shell_sort(int lo, int hi);
@@ -361,11 +362,10 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
     while(lo < hi)
     {
         // 2个分支判断，[lo, mi] or (mi, hi)
-        // ele < m_array[mi]  : [lo, mi)    : hi = mi
-        // ele >= m_array[mi] : [mi+1, hi） : lo = mi+1
-        // (1)可以保证 m_array[lo-1] <= ele 恒成立，
-        // (2)若ele == m_array[mi]，之后的二分，只会使hi不断减，
-        // 综合以上(1)(2)两点，所以最后返回的是 "--lo"，即返回不大于ele的最大元素的下标
+        // ele < m_array[mi]  : [lo, mi)    : hi = mi   : 有m_array[lo-1] <= ele
+        // ele >= m_array[mi] : [mi+1, hi） : lo = mi+1 : 有m_array[mi-1+1] <= ele
+        // 所以最后返回的是 "--lo"，即返回不大于ele的最大元素的下标，
+        // -1表示Vector所有元素不大于ele。
         int mi = (lo + hi)/2;
         ele < this->m_array[mi] ? hi = mi : lo = mi + 1;
     }
@@ -661,6 +661,37 @@ int Vector<T>::select_max(int lo, int hi)
 
 
 /*!
+ * @brief 插入排序
+ *
+ * <pre>
+ *
+ * 排序范围为[lo, hi)
+ *
+ * [       i    ][e          ]
+ *  ------------  -----------
+ *  已排序区间S   待排序区间W
+ *
+ * 不断将W中第一个元素e，插入到S中位置i处；
+ * i为S中元素不大于e的最大元素的位置
+ *
+ * </pre>
+ *
+ * @param lo,hi: 下标范围[lo, hi)
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::insertion_sort(int lo, int hi)
+{
+    for (int k = lo + 1; k < hi; k ++)
+    {
+        int index = this->search(this->m_array[k], lo, k) + 1;
+        if (index < k)
+            this->insert(index, this->remove(k));
+    }
+}
+
+/*!
  * @brief 快速排序
  *
  * 排序范围为[lo, hi)
@@ -773,6 +804,10 @@ int Vector<T>::partition(int lo, int hi)
  *
  * 1-sorting : 1 2 3 4 5 6 7 8 9
  *
+ * 进行w-sort时，使用选择排序；
+ * 因为开始的时候，w更大，列元素个数少，逆序对少，选择排序消耗少；
+ * 等到后面的时候，w更小，列元素个数多，但逆序对少，选择排序消耗少；
+ *
  * (2) 线性组合
  * f=ma+nb : a,b的线性组合（m和n为自然数）
  * N(a,b) : 对任意整数 m,n，所有满足 f!= ma + nb 的f的集合
@@ -790,10 +825,41 @@ int Vector<T>::partition(int lo, int hi)
  * @return
  * @retval None
  */
+const int step_sequence[] = {1, 2, 3, 5};
 template <typename T>
 void Vector<T>::shell_sort(int lo, int hi)
 {
-
+    int size = hi - lo;
+    // 步长序列(step sequence)，也即矩阵的列数: min = 1, max < m_size
+#if(1)
+    for (int w = size/2; w > 0; w /= 2) // 希尔步长序列
+#elif(0)
+    for (int w = size/2; w > 0; w /= 2) // PS步长序列
+#endif
+    {
+        int cow = (size + w - 1) / w;           // 向上取整，即为矩阵的行数
+        for (int k = 0; k < w; k ++)            // 对所有列进行插入排序
+        {
+            int sl = lo + k, sh = lo + k+cow*w; // (插入排序)列下标范围[sl,sh)
+            if (sh > hi) sh -= w;               // 防止列下标超范围
+            for (int n = sl + w; n < sh; n += w)// 遍历列元素
+            {
+                // 查找插入的位置
+                int s = sl;
+                for (s = sl; s < n; s += w)
+                    if (this->m_array[s] > this->m_array[n])
+                        break;
+                // 插入到目标位置
+                if (s < n)
+                {
+                    T tmp = this->m_array[n];
+                    for (int m = n; m > s; m -= w)
+                        this->m_array[m] = this->m_array[m-w];
+                    this->m_array[s] = tmp;
+                }
+            }
+        }
+    }
 }
 
 
