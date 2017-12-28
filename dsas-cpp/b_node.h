@@ -28,7 +28,7 @@ template <typename T>
 using BTNodePtr = struct BTNode<T>*;
 
 /*!
- * @brief b-tree节点类
+ * @brief b-树(b-tree)节点类
  *
  * <pre>
  * key为关键码节点，也即数据节点，child为子节点
@@ -36,7 +36,8 @@ using BTNodePtr = struct BTNode<T>*;
  *
  * key       [0]  [1]  [2]  [3]      =>   *[k0]*[k1]*[k2]*[k3]*
  * child  [0]  [1]  [2]  [3]  [4]         紧凑表示：'*'代表key两则的子节点child
- * b-树(b-tree)阶次为m(这里为5)， 则分支数(子节点) <= m，关键码 <= m-1
+ * b-树(b-tree)阶次为m(这里为5)， 则分支数(子节点) <= m，关键码 <= m-1；
+ * 且分支数(子节点) = 关键码数+1 恒成立。
  *
  * 约定关键码数为n，则分支数为n+1，
  * 内部节点的分支数n+1不能太少，即有

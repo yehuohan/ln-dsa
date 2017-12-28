@@ -24,7 +24,7 @@ namespace dsa
  */
 
 /*!
- * @brief b-tree类
+ * @brief b-树(b-tree)类
  *
  * <pre>
  *
@@ -52,17 +52,20 @@ protected:
     BTNodePtr<T> m_root;        /**< 根节点 */
     BTNodePtr<T> m_hot;         /**< search最后访问的非空节点位置 */
 
-    void delete_node(BTNodePtr<T>);
+    void clear(BTNodePtr<T>);
     void solve_overflow(BTNodePtr<T>);
     void solve_underflow(BTNodePtr<T>);
 
 public:
     BTree(int order = 3) : m_size(0), m_order(order){ this->m_root = new BTNode<T>(this->m_order); }
-    ~BTree(){delete_node(this->m_root);}
+    ~BTree(){clear(this->m_root);}
 
-    int order() const {return this->m_order;}
-    int size() const {return this->m_size;}
-    bool is_empty() const {return !this-m_root;}
+    /** 返回b-tree阶次 */
+    int     order() const {return this->m_order;}
+    /** 返回b-tree关键码总数 */
+    int     size() const {return this->m_size;}
+    /** 判断b-tree是否存在节点，存在节点不一定有关键码 */
+    bool    is_empty() const {return !this-m_root;}
 
     /** 返回根节点 */
     BTNodePtr<T>&   root(){return this->m_root;};
@@ -82,12 +85,12 @@ public:
  * @retval None
  */
 template <typename T>
-void BTree<T>::delete_node(BTNodePtr<T> r)
+void BTree<T>::clear(BTNodePtr<T> r)
 {
     if (r)
     {
         for (int k = 0; k < r->child.size(); k++)
-            delete_node(r->child[k]);
+            this->clear(r->child[k]);
         delete r;
     }
 }
@@ -274,8 +277,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
 
         for (int k = 0; k < node->key.size(); k++)
             s->key.push_back(node->key[0]);
-        //while(!node->key.is_empty())
-        //    s->key.push_back(node->key.remove(0));
 
         for (int k = 0; k < node->child.size(); k++)
         {
@@ -283,12 +284,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
                 node->child[k]->parent = s;
             s->child.push_back(node->child[k]);
         }
-        //while(!node->child.is_empty())
-        //{
-        //    if (node->child[0])
-        //        node->child[0]->parent = s;
-        //    s->child.push_back(node->child.remove(0));
-        //}
         delete node;
     }
     else
@@ -302,8 +297,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
 
         for (int k = 0; k < node->key.size(); k++)
             s->key.insert(k, node->key[k]);
-        //while(!node->key.is_empty())
-        //    s->key.push_front(node->key.remove(node->key.size()-1));
 
         for (int k = 0; k < node->child.size(); k++)
         {
@@ -311,12 +304,6 @@ void BTree<T>::solve_underflow(BTNodePtr<T> node)
                 node->child[k]->parent = s;
             s->child.insert(k, node->child[k]);
         }
-        //while(!node->child.is_empty())
-        //{
-        //    if (node->child[node->child.size()-1])
-        //        node->child[node->child.size()-1]->parent = s;
-        //    s->child.push_front(node->child.remove(node->child.size()-1));
-        //}
         delete node;
     }
 
