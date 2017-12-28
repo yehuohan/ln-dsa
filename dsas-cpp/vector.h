@@ -18,7 +18,6 @@
 
 #include "share/swap.h"
 #include "share/rand.h"
-//#include "pq_complete_heap.h"
 
 namespace dsa
 {
@@ -37,6 +36,8 @@ class Vector
 public:
     Vector(int capacity = VECTOR_CAPACITY) : m_size(0), m_capacity(capacity) {this->m_array = new T[this->m_capacity];}
     Vector(int size, int capacity, const T& ele);
+    Vector(const T* A, int n ) {this->copy_from(A, 0, n);}
+    Vector(const T* A, int lo, int hi ) {this->copy_from( A, lo, hi);}
     Vector(const Vector<T>& V);
     Vector(const Vector<T>& V, int lo, int hi );
     ~Vector() {delete[] this->m_array;}
@@ -74,6 +75,10 @@ public:
     void    unsort() {this->unsort(0, this->m_size);}
     void    unsort(int lo, int hi);
 
+    /** 返回Vector的最大元素下标 */
+    int     select_max() {this->select_max(0, this->m_size);}
+    int     select_max(int lo, int hi);
+
     /** 对所有Vector元素排序 */
     void    sort() {this->quick_sort(0, this->m_size);}
     void    bubble_sort(int lo, int hi);
@@ -81,11 +86,9 @@ public:
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
     void    selection_sort(int lo, int hi);
-    int     select_max(int lo, int hi);
     void    quick_sort(int lo, int hi);
     int     partition(int lo, int hi);
     void    shell_sort(int lo, int hi);
-    void    heap_sort(int lo, int hi);
 
     template <typename VST> void traverse(VST& visit);
 
@@ -793,34 +796,6 @@ void Vector<T>::shell_sort(int lo, int hi)
 
 }
 
-
-/*!
- * @brief 利用完全二叉堆对向量区间进行排序
- *
- * <pre>
- *
- * 元素移动示意图：
- *     max ------->
- *    /            \
- * [ # --- heap --- # --- sorted ---]
- *  lo             hi
- *
- * </pre>
- *
- * @param lo,hi: 下标范围[lo, hi)
- * @return
- * @retval None
- */
-template <typename T>
-void Vector<T>::heap_sort(int lo, int hi)
-{
-    //PqComplHeap<T> h(this->m_array+lo, hi-lo);
-    //while(!h.is_empty())
-    //{
-    //    // 将堆顶元素放入已经排序部分
-    //    this->m_size[--hi] = h.del_max();
-    //}
-}
 
 /*!
  * @brief 遍历数组
