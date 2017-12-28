@@ -35,7 +35,7 @@ template <typename T>
 class Vector
 {
 public:
-    Vector() : m_size(0), m_capacity(VECTOR_CAPACITY) {this->m_array = new T[this->m_capacity];}
+    Vector(int capacity = VECTOR_CAPACITY) : m_size(0), m_capacity(capacity) {this->m_array = new T[this->m_capacity];}
     Vector(int size, int capacity, const T& ele);
     Vector(const Vector<T>& V);
     Vector(const Vector<T>& V, int lo, int hi );
