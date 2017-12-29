@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _SWAP_H
-#define _SWAP_H
+#ifndef DSAS_SWAP_H
+#define DSAS_SWAP_H
 
 namespace dsa
 {
@@ -45,5 +45,5 @@ void swap(T& a, T& b)
     
 } /* dsa */ 
 
-#endif /* ifndef _SWAP_H */
+#endif /* ifndef DSAS_SWAP_H */
 

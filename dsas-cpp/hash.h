@@ -20,7 +20,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Hash
+ * @addtogroup LHash
  *
  * @{
  */

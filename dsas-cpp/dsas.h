@@ -29,7 +29,7 @@ DSAS是数据结构与算法的学习过程。
 /*!
  * @defgroup Linear Linear Struct
  *
- * 线性数据结构，包括向量，队列以及栈，队列等。
+ * 线性数据结构，包括向量，队列，栈，队列，串，字典等
  *
  * @{
  */
@@ -70,6 +70,14 @@ DSAS是数据结构与算法的学习过程。
  * @{
  * @}
  */
+/*!
+ * @defgroup LHash Hash Struct
+ *
+ * 散列结构
+ *
+ * @{
+ * @}
+ */
 
 /*!
  * @}
@@ -79,7 +87,7 @@ DSAS是数据结构与算法的学习过程。
 /*!
  * @defgroup Tree Tree Struct
  *
- * 树模块，包括二叉树、b-树等相关算法。
+ * 树模块，包括二叉树、b-树等相关算法
  *
  * @{
  */
@@ -129,17 +137,7 @@ DSAS是数据结构与算法的学习过程。
 /*!
  * @defgroup Graph Graph Struct
  *
- * 图结构模块。
- *
- * @{
- * @}
- */
-
-
-/*!
- * @defgroup Hash Hash Struct
- *
- * 散列结构
+ * 图结构模块
  *
  * @{
  * @}
@@ -155,24 +153,38 @@ DSAS是数据结构与算法的学习过程。
  * @}
  */
 
-//==============================================================================
 
+/*!
+ * @defgroup Example Exapmles of dsas
+ *
+ * 数据结构的运用实例
+ *
+ * @{
+ * @}
+ */
+
+//==============================================================================
 
 
 #ifndef _DSAS_H
 #define _DSAS_H
 
+#include "share/macro.h"
+#include "share/entry.h"
+#include "share/swap.h"
+#include "share/rand.h"
+#include "share/time.h"
+
 #include "vector.h"
 #include "list.h"
 #include "stack.h"
 #include "queue.h"
-
 #include "priority_queue.h"
 #include "pq_list.h"
 #include "pq_complete_heap.h"
 #include "pq_left_heap.h"
-
 #include "string.h"
+#include "hash.h"
 
 #include "binary_node.h"
 #include "binary_tree.h"
@@ -186,12 +198,7 @@ DSAS是数据结构与算法的学习过程。
 #include "graph.h"
 #include "graph_matrix.h"
 
-#include "hash.h"
-
-#include "share/entry.h"
-#include "share/swap.h"
-#include "share/majority.h"
-#include "share/quick_select.h"
-#include "share/rand.h"
+#include "examples/majority.h"
+#include "examples/quick_select.h"
 
 #endif /* ifndef _DSAS_H */

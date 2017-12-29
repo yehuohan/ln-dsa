@@ -11,8 +11,8 @@
 //==============================================================================
 
 
-#ifndef _ENTRY_H
-#define _ENTRY_H
+#ifndef DSAS_ENTRY_H
+#define DSAS_ENTRY_H 
 
 namespace dsa
 {
@@ -45,5 +45,5 @@ struct Entry
 /*! @} */
 
 } /* dsa */ 
-#endif /* ifndef _ENTRY_H */
+#endif /* ifndef DSAS_ENTRY_H */
 

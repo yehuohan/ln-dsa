@@ -3,7 +3,10 @@
 #include <iomanip>
 #include "dsas-cpp/dsas.h"
 
-void print_node(int data) {std::cout << data << "    ";}
+using std::cout;
+using std::endl;
+
+void print_node(int data) {cout << data << "    ";}
 
 void test_vector();
 void test_list();
@@ -21,11 +24,13 @@ void test_pq();
 void test_leftpq();
 void test_string();
 void test_sort();
+void test_sort_time();
 
 //(int argc, char** argv)
 int main()
 {
-    test_sort();
+    test_sort_time();
+    //test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
@@ -72,16 +77,16 @@ void test_vector()
     vec_i[0] = -99999999;
     vec_i.insert(1, -3952);
 
-    std::cout << "\nFind: " << vec_i.find(-3953,0, vec_i.size()) << std::endl;
+    cout << "\nFind: " << vec_i.find(-3953,0, vec_i.size()) << endl;
 
     vec_i.merge_sort(0, vec_i.size());
     //vec_i.bubble_sort(0, vec_i.size());
     vec_i.uniquify();
 
-    std::cout << "Print:\n";
+    cout << "Print:\n";
     vec_i.traverse(print_node);
-    std::cout << "\nSearch: ";
-    std::cout << vec_i.bin_search(8009, 0, vec_i.size()) << std::endl;
+    cout << "\nSearch: ";
+    cout << vec_i.bin_search(8009, 0, vec_i.size()) << endl;
 }
 
 void test_list()
@@ -104,25 +109,25 @@ void test_list()
     lst_i.push_back(920);
     lst_i.remove(lst_i.front());
 
-    std::cout << "Sort: \n";
+    cout << "Sort: \n";
     //lst_i.selection_sort(lst_i.front(), lst_i.size());
     //lst_i.insertion_sort(lst_i.front(), lst_i.size());
     lst_i.sort();
     lst_i.traverse(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
     dsa::ListNodePtr<int> f = lst_i.find(9020, lst_i.size(), lst_i.back()->next);
-    std::cout << "Find: ";
-    lst_i.is_valid(f) ? (std::cout << f->data) : std::cout << "nullptr";
-    std::cout << std::endl;
+    cout << "Find: ";
+    lst_i.is_valid(f) ? (cout << f->data) : cout << "nullptr";
+    cout << endl;
     dsa::ListNodePtr<int> s = lst_i.search(-30, lst_i.size(), lst_i.back()->next);
-    std::cout << "Search: ";
-    lst_i.is_valid(s) ? (std::cout << s->data) : std::cout << "nullptr";
-    std::cout << std::endl;
-    std::cout << "Size: " << lst_i.size() << std::endl;
+    cout << "Search: ";
+    lst_i.is_valid(s) ? (cout << s->data) : cout << "nullptr";
+    cout << endl;
+    cout << "Size: " << lst_i.size() << endl;
 
-    //std::cout << "Deduplicate: " << lst_i.deduplicate() << std::endl;;
-    std::cout << "Uniquify: " << lst_i.uniquify() << std::endl;;
+    //cout << "Deduplicate: " << lst_i.deduplicate() << endl;;
+    cout << "Uniquify: " << lst_i.uniquify() << endl;;
     lst_i.traverse(print_node);
 }
 
@@ -130,62 +135,62 @@ void test_stack()
 {
     dsa::Stack<int> sta_i;
     if(sta_i.is_empty())
-        std::cout << "Is empty" << std::endl;
+        cout << "Is empty" << endl;
     sta_i.push(100);
     sta_i.push(999);
     sta_i.push(-10000);
-    std::cout << sta_i.size() << std::endl;
-    std::cout << sta_i.top() << std::endl;
-    std::cout << sta_i.pop() << std::endl;
+    cout << sta_i.size() << endl;
+    cout << sta_i.top() << endl;
+    cout << sta_i.pop() << endl;
     sta_i.clear();
     if(sta_i.is_empty())
-        std::cout << "Is empty" << std::endl;
+        cout << "Is empty" << endl;
 
     dsa::StackList<int> sl;
     sl.push(1000);
     sl.push(800);
     sl.push(700);
-    std::cout << sl.size() << std::endl;
-    std::cout << sl.top() << std::endl;
-    std::cout << sl.pop() << std::endl;
+    cout << sl.size() << endl;
+    cout << sl.top() << endl;
+    cout << sl.pop() << endl;
 }
 
 void test_queue()
 {
-    std::cout << "Queue\n";
+    cout << "Queue\n";
     dsa::Queue<int> que_i;
     que_i.enqueue(12);
     que_i.enqueue(12392);
     que_i.enqueue(-19212);
     que_i.enqueue(-1000);
 
-    std::cout << "Size : " << que_i.size() << std::endl;
-    std::cout << "Front: " << que_i.front() << std::endl;
-    std::cout << "Rear : " << que_i.rear() << std::endl;
-    std::cout << que_i.dequeue() << std::endl;
-    std::cout << "Size : " << que_i.size() << std::endl;
-    std::cout << "Front: " << que_i.front() << std::endl;
-    std::cout << "Rear : " << que_i.rear() << std::endl;
+    cout << "Size : " << que_i.size() << endl;
+    cout << "Front: " << que_i.front() << endl;
+    cout << "Rear : " << que_i.rear() << endl;
+    cout << que_i.dequeue() << endl;
+    cout << "Size : " << que_i.size() << endl;
+    cout << "Front: " << que_i.front() << endl;
+    cout << "Rear : " << que_i.rear() << endl;
 
-    std::cout << "ArrayQueue\n";
+    cout << "ArrayQueue\n";
     dsa::ArrayQueue<int> aq(5);
-    std::cout << "Empty: " << aq.is_empty() << std::endl;
-    std::cout << "Full: " << aq.is_full() << std::endl;
+    cout << "Empty: " << aq.is_empty() << endl;
+    cout << "Full: " << aq.is_full() << endl;
     aq.enqueue(10);
     aq.enqueue(20);
     aq.enqueue(30);
     aq.enqueue(40);
     aq.enqueue(50);
-    std::cout << "Empty: " << aq.is_empty() << std::endl;
-    std::cout << "Full: " << aq.is_full() << std::endl;
+    cout << "Empty: " << aq.is_empty() << endl;
+    cout << "Full: " << aq.is_full() << endl;
 
-    std::cout << "Size: " << aq.size() << std::endl;
-    std::cout << "Front: " << aq.front() << std::endl;
-    std::cout << "Rear: " << aq.rear() << std::endl;
+    cout << "Size: " << aq.size() << endl;
+    cout << "Front: " << aq.front() << endl;
+    cout << "Rear: " << aq.rear() << endl;
     aq.dequeue();
-    std::cout << "Size: " << aq.size() << std::endl;
-    std::cout << "Front: " << aq.front() << std::endl;
-    std::cout << "Rear: " << aq.rear() << std::endl;
+    cout << "Size: " << aq.size() << endl;
+    cout << "Front: " << aq.front() << endl;
+    cout << "Rear: " << aq.rear() << endl;
 }
 
 void test_bt()
@@ -206,24 +211,24 @@ void test_bt()
  *    6
  *
  */
-    std::cout << "Size: "<< tint.size() << std::endl;
-    std::cout << "Is Empty: "<< tint.is_empty() << std::endl;
+    cout << "Size: "<< tint.size() << endl;
+    cout << "Is Empty: "<< tint.is_empty() << endl;
 
-    std::cout << "先序遍历：\n";
+    cout << "先序遍历：\n";
     tint.root()->traverse_DLR(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
-    std::cout << "中序遍历：\n";
+    cout << "中序遍历：\n";
     tint.root()->traverse_LDR(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
-    std::cout << "后序遍历：\n";
+    cout << "后序遍历：\n";
     tint.root()->traverse_LRD(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
-    std::cout << "层次遍历：\n";
+    cout << "层次遍历：\n";
     tint.root()->traverse_LO(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
     dsa::Vector<int> pre;
     pre.push_back(9);
@@ -246,13 +251,13 @@ void test_bt()
     dsa::BinTree<int> bt;
     construct_bintree(pre, in, bt);
 
-    std::cout << "Size: " << bt.root()->size() << std::endl;
-    std::cout << "重构后序遍历：\n";
+    cout << "Size: " << bt.root()->size() << endl;
+    cout << "重构后序遍历：\n";
     bt.root()->traverse_LRD(print_node);
-    std::cout << std::endl;
-    std::cout << "重构层次遍历：\n";
+    cout << endl;
+    cout << "重构层次遍历：\n";
     bt.root()->traverse_LO(print_node);
-    std::cout << std::endl;
+    cout << endl;
 }
 
 void test_graph()
@@ -266,12 +271,12 @@ void test_graph()
     v2 = gm.insert_vertex(1200);
     int v3 = gm.insert_vertex(9999);
 
-    std::cout << "Vertex: \n";
-    std::cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
-    std::cout << gm.get_vertex_data(v0) << std::endl;
-    std::cout << gm.get_vertex_data(v1) << std::endl;
-    std::cout << gm.get_vertex_data(v2) << std::endl;
-    std::cout << gm.get_vertex_data(v3) << std::endl;
+    cout << "Vertex: \n";
+    cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
+    cout << gm.get_vertex_data(v0) << endl;
+    cout << gm.get_vertex_data(v1) << endl;
+    cout << gm.get_vertex_data(v2) << endl;
+    cout << gm.get_vertex_data(v3) << endl;
 
     gm.insert_edge(0.13, 10, v0, v1);
     gm.insert_edge(0.25, 20, v0, v2);
@@ -282,15 +287,15 @@ void test_graph()
     gm.BFS(v0, clock);
     gm.DFS(v0, clock);
 
-    std::cout << "Edge: \n";
-    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
-    std::cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << std::endl;
+    cout << "Edge: \n";
+    cout << "EdgeNum: " << gm.get_edge_size() << endl;
+    cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << endl;
 
-    std::cout << "v1's first neighbor: " << gm.first_nbr(v0) << std::endl;
-    std::cout << "v1's next: " << gm.next_nbr(v0, v2) << std::endl;
+    cout << "v1's first neighbor: " << gm.first_nbr(v0) << endl;
+    cout << "v1's next: " << gm.next_nbr(v0, v2) << endl;
 
     gm.remove_edge(v0,v3);
-    std::cout << "EdgeNum: " << gm.get_edge_size() << std::endl;
+    cout << "EdgeNum: " << gm.get_edge_size() << endl;
 }
 
 void test_bst()
@@ -311,15 +316,15 @@ void test_bst()
     dsa::BinNode<int>* r = bst.search(10);
     if (r)
     {
-        std::cout << r->data << std::endl;
+        cout << r->data << endl;
     }
     if (bst.remove(10))
     {
-        std::cout << "Remove 10\n";
+        cout << "Remove 10\n";
     }
     if (!bst.remove(10))
     {
-        std::cout << "Remove nothing\n";
+        cout << "Remove nothing\n";
     }
 
     bst.root()->traverse_LDR(print_node);
@@ -339,7 +344,7 @@ void test_avl()
     at.insert(999);
 
     at.root()->traverse_LDR(print_node);
-    std::cout << "\n";
+    cout << "\n";
 
     at.remove(-13);
     at.remove(-80);
@@ -359,19 +364,19 @@ void test_splay()
     st.insert(-99);
 
     st.search(-7);       // 找到目标会进行splay
-    std::cout << st.root()->data << std::endl;
+    cout << st.root()->data << endl;
     st.search(88);       // 没有找到目标同样会进行splay
-    std::cout << st.root()->data << std::endl;
+    cout << st.root()->data << endl;
 
     st.remove(-7);
-    std::cout << st.root()->data << std::endl;
+    cout << st.root()->data << endl;
     st.remove(88);
-    std::cout << st.root()->data << std::endl;
+    cout << st.root()->data << endl;
 
-    std::cout << "中序遍历:" << std::endl;
+    cout << "中序遍历:" << endl;
     st.root()->traverse_LDR(print_node);
-    std::cout << std::endl;
-    std::cout << st.root()->data << std::endl;
+    cout << endl;
+    cout << st.root()->data << endl;
 }
 
 void test_btree()
@@ -385,12 +390,12 @@ void test_btree()
     bt.insert(2)  ; bt.insert(90) ; bt.insert(77);
     bt.insert(203); bt.insert(303);
 
-    std::cout << "Size: " << bt.size() << std::endl;
+    cout << "Size: " << bt.size() << endl;
     dsa::BTNode<unsigned int>* node = bt.search(90);
     if (node)
     {
         for (int k = 0; k < node->key.size(); k++)
-            std::cout << node->key[k] << std::endl;
+            cout << node->key[k] << endl;
     }
 
 #if (1)
@@ -407,7 +412,7 @@ void test_btree()
     bt.remove(20);
 #endif
 
-    std::cout << "Print" << std::endl;
+    cout << "Print" << endl;
     dsa::Queue<dsa::BTNode<unsigned int>*> qn;
     qn.enqueue(bt.root());
     int num[10] = {1};
@@ -416,8 +421,8 @@ void test_btree()
     {
         dsa::BTNode<unsigned int>* x = qn.dequeue();
         for (int k = 0; k < x->key.size(); k++)
-            std::cout << "  " << x->key[k];
-        std::cout << "[" << x->key.size() << "-" << x->child.size() << "] ";
+            cout << "  " << x->key[k];
+        cout << "[" << x->key.size() << "-" << x->child.size() << "] ";
         for (int k = 0; k < x->child.size(); k++)
             if (x->child[k])
                 qn.enqueue(x->child[k]);
@@ -426,7 +431,7 @@ void test_btree()
         cnt++;
         if (cnt >= num[idx])
         {
-            std::cout << std::endl;
+            cout << endl;
             idx++;
             cnt = 0;
         }
@@ -464,13 +469,13 @@ void test_redblack()
     rb.remove(9);
 #endif
 
-    std::cout << "Size: " << rb.size() << std::endl;
-    std::cout << "LDR: ";
+    cout << "Size: " << rb.size() << endl;
+    cout << "LDR: ";
     rb.root()->traverse_LDR(print_node);
-    std::cout << std::endl;
+    cout << endl;
 
     // 输出二叉树结构
-    std::cout << "Print:" << std::endl;
+    cout << "Print:" << endl;
     dsa::Queue<dsa::BinNode<unsigned int>*> qn;
     qn.enqueue(rb.root());
     int num[10] = {1};
@@ -478,7 +483,7 @@ void test_redblack()
     while(!qn.is_empty())
     {
         dsa::BinNode<unsigned int>* x = qn.dequeue();
-        std::cout << x->data
+        cout << x->data
                   << ((BN_IsBlack(x)) ? "_B_" : "_R_")
                   << x->height << "   ";
 
@@ -490,7 +495,7 @@ void test_redblack()
         cnt ++;
         if (cnt >= num[idx])
         {
-            std::cout << std::endl;
+            cout << endl;
             idx++;
             cnt = 0;
         }
@@ -504,9 +509,9 @@ void test_pq()
     pql.insert(10);
     pql.insert(1);
     pql.insert(9);
-    std::cout << "pql max:" << pql.get_max() << std::endl;
+    cout << "pql max:" << pql.get_max() << endl;
     pql.del_max();
-    std::cout << "pql max:" << pql.get_max() << std::endl;
+    cout << "pql max:" << pql.get_max() << endl;
 
     dsa::PqComplHeap<unsigned int> pq;
     pq.insert(10);
@@ -523,14 +528,14 @@ void test_pq()
     pq.del_max();
 #endif
 
-    std::cout << "Print:\n";
+    cout << "Print:\n";
     int n = 0;
     for (int k = 0; k < pq.size(); k ++)
     {
-        std::cout << pq[k] << "  ";
+        cout << pq[k] << "  ";
         if (k+1 >= n)
         {
-            std::cout << std::endl;
+            cout << endl;
             n += 2<<k;
         }
     }
@@ -553,7 +558,7 @@ void test_leftpq()
     lh.del_max();
 
     // 输出二叉树结构
-    std::cout << "Print:" << std::endl;
+    cout << "Print:" << endl;
     dsa::Queue<dsa::BinNode<int>*> qn;
     qn.enqueue(lh.root());
     int num[10] = {1};
@@ -561,7 +566,7 @@ void test_leftpq()
     while(!qn.is_empty())
     {
         dsa::BinNode<int>* x = qn.dequeue();
-        std::cout << x->data
+        cout << x->data
                   <<  " - "
                   << x->npl << "   ";
 
@@ -573,7 +578,7 @@ void test_leftpq()
         cnt ++;
         if (cnt >= num[idx])
         {
-            std::cout << std::endl;
+            cout << endl;
             idx++;
             cnt = 0;
         }
@@ -593,64 +598,151 @@ void test_string()
     int* bm      = dsa::build_bc(P);
     int* gs      = dsa::build_gs(P);
 
-    std::cout << "pat:     ";
+    cout << "pat:     ";
     for (int k = 0; k < dsa::strlen(P); k++)
-        std::cout << std::setw(2) << P[k] << " ";
-    std::cout << std::endl;
-    std::cout << "next:    ";
+        cout << std::setw(2) << P[k] << " ";
+    cout << endl;
+    cout << "next:    ";
     for (int k = 0; k < dsa::strlen(P); k++)
-        std::cout << std::setw(2) << next[k] << " ";
-    std::cout << std::endl;
-    std::cout << "next_im: ";
+        cout << std::setw(2) << next[k] << " ";
+    cout << endl;
+    cout << "next_im: ";
     for (int k = 0; k < dsa::strlen(P); k++)
-        std::cout << std::setw(2) << next_im[k] << " ";
-    std::cout << std::endl;
-    std::cout << "bm:      ";
+        cout << std::setw(2) << next_im[k] << " ";
+    cout << endl;
+    cout << "bm:      ";
     for (int k = 0; k < dsa::strlen(P); k++)
-        std::cout << std::setw(2) << bm[(unsigned int)P[k]] << " ";
-    std::cout << std::endl;
-    std::cout << "gs:      ";
+        cout << std::setw(2) << bm[(unsigned int)P[k]] << " ";
+    cout << endl;
+    cout << "gs:      ";
     for (int k = 0; k < dsa::strlen(P); k++)
-        std::cout << std::setw(2) << gs[k] << " ";
-    std::cout << std::endl;
+        cout << std::setw(2) << gs[k] << " ";
+    cout << endl;
     delete[] next;
     delete[] next_im;
     delete[] bm;
     delete[] gs;
 
-    std::cout << "Match: \n";
-    std::cout << "bf1:   " << dsa::match_bf1(P, T) << "   bf2:  " << dsa::match_bf2(P, T) << std::endl;
-    std::cout << "kmp:   " << dsa::match_kmp(P, T) << std::endl;
-    std::cout << "bc:    " << dsa::match_bm_bc(P, T) << std::endl;
-    std::cout << "bcgs:  " << dsa::match_bm_bcgs(P, T) << std::endl;
+    cout << "Match: \n";
+    cout << "bf1:   " << dsa::match_bf1(P, T) << "   bf2:  " << dsa::match_bf2(P, T) << endl;
+    cout << "kmp:   " << dsa::match_kmp(P, T) << endl;
+    cout << "bc:    " << dsa::match_bm_bc(P, T) << endl;
+    cout << "bcgs:  " << dsa::match_bm_bcgs(P, T) << endl;
 }
 
 void test_sort()
 {
     dsa::Vector<int> vs;
-    for (int k = 0; k < 12; k++)
+    for (int k = 0; k < 120; k++)
         vs.push_back(k+1);
     vs.unsort();
     vs.traverse(print_node);
 
-    std::cout << "\nSort: \n";
+    cout << "\nSort: \n";
     //vs.bubble_sort(0, vs.size());
     //vs.merge_sort(0, vs.size());
     //vs.selection_sort(0, vs.size());
     //vs.insertion_sort(0, vs.size());
     //vs.quick_sort(0, vs.size());
-    vs.shell_sort(0, vs.size()-1);
+    vs.shell_sort(0, vs.size());
     //dsa::heap_sort(vs, 0, vs.size());
     vs.traverse(print_node);
 
-    std::cout << std::endl;
+    cout << endl;
     int maj;
     if (dsa::majority(vs, maj))
-        std::cout << maj << std::endl;
+        cout << maj << endl;
     else
-        std::cout << "No majority";
+        cout << "No majority";
 
-    std::cout << std::endl;
+    cout << endl;
     for (int k = 0; k < vs.size(); k ++)
-        std::cout << std::setw(2) << dsa::quick_select(vs, k) << "  ";
+        cout << dsa::quick_select(vs, k) << "    ";
+}
+
+void test_sort_time()
+{
+#if defined DSAS_WIN
+    cout << "Windows\n";
+#elif defined DSAS_LINUX
+    cout << "Linux\n";
+#endif
+
+    dsa::ClockTime s,e;
+    dsa::Vector<int> vt;
+    int num = 100;
+    for (int k = 0; k < 3000; k++)
+        vt.push_back(k+1);
+    vt.traverse(print_node);
+    cout << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.bubble_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Bubble Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.merge_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Merge Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.selection_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Select Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.insertion_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Insert Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.quick_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Quick Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        vs.shell_sort(0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Shell Time: " << dsa::get_time(s,e) << " ms" << endl;
+
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        dsa::Vector<int> vs(vt);
+        vs.unsort();
+        dsa::heap_sort(vs, 0, vs.size());
+    }
+    e = dsa::get_clock();
+    cout << "Heap Time: " << dsa::get_time(s,e) << " ms" << endl;
 }

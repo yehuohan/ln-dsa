@@ -21,7 +21,7 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Share
+ * @addtogroup Example
  *
  * @{
  */

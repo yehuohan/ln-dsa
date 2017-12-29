@@ -11,11 +11,11 @@
  */
 //==============================================================================
 
-#ifndef _RAND_H
-#define _RAND_H
+#ifndef DSAS_RAND_H
+#define DSAS_RAND_H
 
-#include <cstdlib>
 #include <ctime>
+#include <cstdlib>
 
 namespace dsa
 {
@@ -40,7 +40,7 @@ namespace dsa
  */
 int rand_n(int N)
 {
-    std::srand((unsigned)time(nullptr));
+    std::srand((unsigned)std::time(nullptr));
     return std::rand() % N;
 }
 
@@ -48,5 +48,5 @@ int rand_n(int N)
 
 } /* dsa */
 
-#endif /* ifndef _RAND_H */
+#endif /* ifndef DSAS_RAND_H */
 
