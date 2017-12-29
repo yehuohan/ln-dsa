@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>b-tree节点类  
+<p>b-树(b-tree)节点类  
  <a href="structdsa_1_1_b_t_node.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="b__node_8h_source.html">b_node.h</a>&gt;</code></p>
@@ -87,9 +87,15 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a019246cc357499a7c6c2e1ad236adb37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a019246cc357499a7c6c2e1ad236adb37">BTNode</a> ()</td></tr>
 <tr class="memdesc:a019246cc357499a7c6c2e1ad236adb37"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#a019246cc357499a7c6c2e1ad236adb37">更多...</a><br /></td></tr>
 <tr class="separator:a019246cc357499a7c6c2e1ad236adb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a023751e751e655439997232c838108"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a5a023751e751e655439997232c838108">BTNode</a> (int m)</td></tr>
+<tr class="memdesc:a5a023751e751e655439997232c838108"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#a5a023751e751e655439997232c838108">更多...</a><br /></td></tr>
+<tr class="separator:a5a023751e751e655439997232c838108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659947f1d334dfd4b8eeb698a17531e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#a659947f1d334dfd4b8eeb698a17531e8">BTNode</a> (const T &amp;e, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; lc=nullptr, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; rc=nullptr)</td></tr>
 <tr class="memdesc:a659947f1d334dfd4b8eeb698a17531e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#a659947f1d334dfd4b8eeb698a17531e8">更多...</a><br /></td></tr>
 <tr class="separator:a659947f1d334dfd4b8eeb698a17531e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ca6660b4f4852fcb02fceb398198e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_b_t_node.html#ab0ca6660b4f4852fcb02fceb398198e1">BTNode</a> (int m, const T &amp;e, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; lc=nullptr, <a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; rc=nullptr)</td></tr>
+<tr class="memdesc:ab0ca6660b4f4852fcb02fceb398198e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">b-tree节点构造函数  <a href="#ab0ca6660b4f4852fcb02fceb398198e1">更多...</a><br /></td></tr>
+<tr class="separator:ab0ca6660b4f4852fcb02fceb398198e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -105,17 +111,18 @@ Public 属性</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 struct dsa::BTNode&lt; T &gt;</h3>
 
-<p>b-tree节点类 </p>
+<p>b-树(b-tree)节点类 </p>
 <pre>
 key为关键码节点，也即数据节点，child为子节点
 key和child排列如下：一个key对应左右两个子节点</pre><pre>key       [0]  [1]  [2]  [3]      =&gt;   <em>[k0]</em>[k1]*[k2]*[k3]*
 child  [0]  [1]  [2]  [3]  [4]         紧凑表示：'*'代表key两则的子节点child
-b-树(b-tree)阶次为m(这里为5)， 则分支数(子节点) &lt;= m，关键码 &lt;= m-1</pre><pre>约定关键码数为n，则分支数为n+1，
+b-树(b-tree)阶次为m(这里为5)， 则分支数(子节点) &lt;= m，关键码 &lt;= m-1；
+且分支数(子节点) = 关键码数+1 恒成立。</pre><pre>约定关键码数为n，则分支数为n+1，
 内部节点的分支数n+1不能太少，即有
 树根：    2 &lt;= n+1 &lt;= m
 其余：⌈m/2⌉ &lt;= n+1 &lt;= m ，⌈⌉为取上整</pre><pre></pre> </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a019246cc357499a7c6c2e1ad236adb37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a019246cc357499a7c6c2e1ad236adb37">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a019246cc357499a7c6c2e1ad236adb37">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +147,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>b-tree节点构造函数 </p>
-<p>此构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。 同时，当同时向key和child 追加 关键码和节点时，仍满足分支数为m，关键码数为m-1。</p>
+<p>构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。 同时，当同时向key和child 追加 关键码和节点时，仍满足分支数为m，关键码数为m-1。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -157,8 +164,52 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a id="a5a023751e751e655439997232c838108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a023751e751e655439997232c838108">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt;::<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>b-tree节点构造函数 </p>
+<p>构造函数默认插入一个指向nullptr的空节点，即分支数为m时，关键码m-1。 b-树(b-tree)阶次为m，则key的容量 &lt;= m-1， child的容量 &lt;= m。 因为Vector的size==capacity时就扩展容，所以为使Vector不用护展容量，key和child的容量均+1。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>btree的阶数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a659947f1d334dfd4b8eeb698a17531e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a659947f1d334dfd4b8eeb698a17531e8">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a659947f1d334dfd4b8eeb698a17531e8">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,8 +251,77 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>b-tree节点构造函数 </p>
+<p>初始化时插一个关键码，和两条分支。</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
+    <tr><td class="paramname">e</td><td>节点数据 </td></tr>
+    <tr><td class="paramname">lc,rc</td><td>两个孩子 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab0ca6660b4f4852fcb02fceb398198e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ca6660b4f4852fcb02fceb398198e1">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_b_t_node.html">dsa::BTNode</a>&lt; T &gt;::<a class="el" href="structdsa_1_1_b_t_node.html">BTNode</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lc</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>rc</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>b-tree节点构造函数 </p>
+<p>初始化时插一个关键码，和两条分支。 b-树(b-tree)阶次为m，则key的容量 &lt;= m-1， child的容量 &lt;= m。 因为Vector的size==capacity时就扩展容，所以为使Vector不用护展容量，key和child的容量均+1。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>btree的阶数 </td></tr>
     <tr><td class="paramname">e</td><td>节点数据 </td></tr>
     <tr><td class="paramname">lc,rc</td><td>两个孩子 </td></tr>
   </table>

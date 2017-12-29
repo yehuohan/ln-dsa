@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>b-tree类  
+<p>b-树(b-tree)类  
  <a href="classdsa_1_1_b_tree.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="b__tree_8h_source.html">b_tree.h</a>&gt;</code></p>
@@ -86,16 +86,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a1aec646d14589e044094131d9b691b27"><td class="memItemLeft" align="right" valign="top"><a id="a1aec646d14589e044094131d9b691b27"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BTree</b> (int order=3)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BTree</b> (int <a class="el" href="classdsa_1_1_b_tree.html#aec6259838f0252ee49544389ec97bc03">order</a>=3)</td></tr>
 <tr class="separator:a1aec646d14589e044094131d9b691b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec6259838f0252ee49544389ec97bc03"><td class="memItemLeft" align="right" valign="top"><a id="aec6259838f0252ee49544389ec97bc03"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>order</b> () const</td></tr>
+<tr class="memitem:aec6259838f0252ee49544389ec97bc03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#aec6259838f0252ee49544389ec97bc03">order</a> () const</td></tr>
 <tr class="separator:aec6259838f0252ee49544389ec97bc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6061e10c94873ba52f45725f6b753221"><td class="memItemLeft" align="right" valign="top"><a id="a6061e10c94873ba52f45725f6b753221"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="memitem:a6061e10c94873ba52f45725f6b753221"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a6061e10c94873ba52f45725f6b753221">size</a> () const</td></tr>
 <tr class="separator:a6061e10c94873ba52f45725f6b753221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41fc8a7d078564acc2d30a8f7c8848bf"><td class="memItemLeft" align="right" valign="top"><a id="a41fc8a7d078564acc2d30a8f7c8848bf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
+<tr class="memitem:a41fc8a7d078564acc2d30a8f7c8848bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a41fc8a7d078564acc2d30a8f7c8848bf">is_empty</a> () const</td></tr>
 <tr class="separator:a41fc8a7d078564acc2d30a8f7c8848bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fc0d7be561086c3528ab0bbc0088e20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a1fc0d7be561086c3528ab0bbc0088e20">root</a> ()</td></tr>
 <tr class="separator:a1fc0d7be561086c3528ab0bbc0088e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,9 +108,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#aa0d0d30edc9b8acb9e37ef96475fd011">delete_node</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
-<tr class="memdesc:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放以r为节点的子树资源，用于移除所有节点  <a href="#aa0d0d30edc9b8acb9e37ef96475fd011">更多...</a><br /></td></tr>
-<tr class="separator:aa0d0d30edc9b8acb9e37ef96475fd011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e80849101c2f561654ef4272da6c07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a25e80849101c2f561654ef4272da6c07">clear</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:a25e80849101c2f561654ef4272da6c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放以r为节点的子树资源，用于移除所有节点  <a href="#a25e80849101c2f561654ef4272da6c07">更多...</a><br /></td></tr>
+<tr class="separator:a25e80849101c2f561654ef4272da6c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7184409ce458f99d8eecfe57a5ce9e44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_b_tree.html#a7184409ce458f99d8eecfe57a5ce9e44">solve_overflow</a> (<a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;)</td></tr>
 <tr class="memdesc:a7184409ce458f99d8eecfe57a5ce9e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用分裂修复上溢  <a href="#a7184409ce458f99d8eecfe57a5ce9e44">更多...</a><br /></td></tr>
 <tr class="separator:a7184409ce458f99d8eecfe57a5ce9e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,7 +133,7 @@ Protected 属性</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class dsa::BTree&lt; T &gt;</h3>
 
-<p>b-tree类 </p>
+<p>b-树(b-tree)类 </p>
 <pre></pre><pre>对于叶节点(以5阶b-tree为例)：
 key       [0]  [1]  [2]  [3]     -&gt; 最低层叶节点
 child  [0]  [1]  [2]  [3]  [4]   -&gt; 叶节点的子节点为external nodes，
@@ -150,8 +147,8 @@ child  [0]  [1]  [2]  [3]  [4]   -&gt; 叶节点的子节点为external nodes，
 </h2>
 </pre><pre>
 </pre> </div><h2 class="groupheader">成员函数说明</h2>
-<a id="aa0d0d30edc9b8acb9e37ef96475fd011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0d0d30edc9b8acb9e37ef96475fd011">&#9670;&nbsp;</a></span>delete_node()</h2>
+<a id="a25e80849101c2f561654ef4272da6c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e80849101c2f561654ef4272da6c07">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +159,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::delete_node </td>
+          <td class="memname">void <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::clear </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdsa_1_1_b_t_node.html">BTNodePtr</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
@@ -232,6 +229,62 @@ child  [c]  [c]  [c]  [c] ...
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a41fc8a7d078564acc2d30a8f7c8848bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41fc8a7d078564acc2d30a8f7c8848bf">&#9670;&nbsp;</a></span>is_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::is_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>判断b-tree是否存在节点，存在节点不一定有关键码 </p>
+
+</div>
+</div>
+<a id="aec6259838f0252ee49544389ec97bc03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6259838f0252ee49544389ec97bc03">&#9670;&nbsp;</a></span>order()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::order </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回b-tree阶次 </p>
 
 </div>
 </div>
@@ -339,6 +392,34 @@ child  [c]  [c]  [c]  [c]
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a6061e10c94873ba52f45725f6b753221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6061e10c94873ba52f45725f6b753221">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_b_tree.html">dsa::BTree</a>&lt; T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回b-tree关键码总数 </p>
 
 </div>
 </div>

@@ -16,7 +16,7 @@ var searchData=
   ['pq_5fparentvalid',['PQ_ParentValid',['../group___l_p_q.html#ga2a1d0238df0624ecb02fc0e99d5e4681',1,'pq_complete_heap.h']]],
   ['pq_5frightchild',['PQ_RightChild',['../group___l_p_q.html#ga96895ad8ed3edde159dbdce1818a0b49',1,'pq_complete_heap.h']]],
   ['pq_5frightchildvalid',['PQ_RightChildValid',['../group___l_p_q.html#ga1375784a132eee09a220bf691cab6530',1,'pq_complete_heap.h']]],
-  ['pqcomplheap',['PqComplHeap',['../classdsa_1_1_pq_compl_heap.html',1,'dsa::PqComplHeap&lt; T &gt;'],['../classdsa_1_1_pq_compl_heap.html#aaae5d86b710d2bdc2644240ac759a755',1,'dsa::PqComplHeap::PqComplHeap()']]],
+  ['pqcomplheap',['PqComplHeap',['../classdsa_1_1_pq_compl_heap.html',1,'dsa::PqComplHeap&lt; T &gt;'],['../classdsa_1_1_pq_compl_heap.html#aaae5d86b710d2bdc2644240ac759a755',1,'dsa::PqComplHeap::PqComplHeap(const T *A, int n)'],['../classdsa_1_1_pq_compl_heap.html#a98a253333bf3833cc20260240ad2b7fd',1,'dsa::PqComplHeap::PqComplHeap(const T *A, int lo, int hi)'],['../classdsa_1_1_pq_compl_heap.html#a7d7b96b952da60117f5b798bd73023a7',1,'dsa::PqComplHeap::PqComplHeap(const dsa::Vector&lt; T &gt; &amp;vec)'],['../classdsa_1_1_pq_compl_heap.html#a22c7eac2ae8e5e0c60bb3240cccdfb72',1,'dsa::PqComplHeap::PqComplHeap(const dsa::Vector&lt; T &gt; &amp;vec, int lo, int hi)']]],
   ['pqleftheap',['PqLeftHeap',['../classdsa_1_1_pq_left_heap.html',1,'dsa']]],
   ['pqlist',['PqList',['../classdsa_1_1_pq_list.html',1,'dsa::PqList&lt; T &gt;'],['../classdsa_1_1_pq_list.html#a9b87af8083d4c74c7a5e8dd9f8f79259',1,'dsa::PqList::PqList()']]],
   ['priority_5fqueue_2eh',['priority_queue.h',['../priority__queue_8h.html',1,'']]],

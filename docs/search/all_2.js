@@ -16,7 +16,7 @@ var searchData=
   ['bintree',['BinTree',['../classdsa_1_1_bin_tree.html',1,'dsa']]],
   ['bn_5fblackheightupdated',['BN_BlackHeightUpdated',['../group___t_binary_tree.html#ga04af3b58417e618a97da0af2be4db582',1,'binary_node.h']]],
   ['bn_5fstature',['BN_Stature',['../group___t_binary_tree.html#gae5da833c17ce3b2dfc2aa7ca2f2f91d6',1,'binary_node.h']]],
-  ['btnode',['BTNode',['../structdsa_1_1_b_t_node.html',1,'dsa::BTNode&lt; T &gt;'],['../structdsa_1_1_b_t_node.html#a019246cc357499a7c6c2e1ad236adb37',1,'dsa::BTNode::BTNode()'],['../structdsa_1_1_b_t_node.html#a659947f1d334dfd4b8eeb698a17531e8',1,'dsa::BTNode::BTNode(const T &amp;e, BTNodePtr&lt; T &gt; lc=nullptr, BTNodePtr&lt; T &gt; rc=nullptr)']]],
+  ['btnode',['BTNode',['../structdsa_1_1_b_t_node.html',1,'dsa::BTNode&lt; T &gt;'],['../structdsa_1_1_b_t_node.html#a019246cc357499a7c6c2e1ad236adb37',1,'dsa::BTNode::BTNode()'],['../structdsa_1_1_b_t_node.html#a5a023751e751e655439997232c838108',1,'dsa::BTNode::BTNode(int m)'],['../structdsa_1_1_b_t_node.html#a659947f1d334dfd4b8eeb698a17531e8',1,'dsa::BTNode::BTNode(const T &amp;e, BTNodePtr&lt; T &gt; lc=nullptr, BTNodePtr&lt; T &gt; rc=nullptr)'],['../structdsa_1_1_b_t_node.html#ab0ca6660b4f4852fcb02fceb398198e1',1,'dsa::BTNode::BTNode(int m, const T &amp;e, BTNodePtr&lt; T &gt; lc=nullptr, BTNodePtr&lt; T &gt; rc=nullptr)']]],
   ['btree',['BTree',['../classdsa_1_1_b_tree.html',1,'dsa']]],
   ['bubble',['bubble',['../classdsa_1_1_vector.html#ab66124774aa869708b012d1ffde4ce12',1,'dsa::Vector']]],
   ['bubble_5fsort',['bubble_sort',['../classdsa_1_1_vector.html#a036faa29f2c02db2fcaa39c576a7d95f',1,'dsa::Vector']]],

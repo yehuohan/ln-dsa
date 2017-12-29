@@ -4,7 +4,7 @@ var searchData=
   ['percolate_5fdown',['percolate_down',['../classdsa_1_1_pq_compl_heap.html#a8675186151283aa077a0631d8cd6b178',1,'dsa::PqComplHeap']]],
   ['percolate_5fup',['percolate_up',['../classdsa_1_1_pq_compl_heap.html#a25ad5f6e508e7a24cc52ebce25aa75b4',1,'dsa::PqComplHeap']]],
   ['pop',['pop',['../classdsa_1_1_stack.html#ac5dbff686eebd4c0c191e8f28c73afa0',1,'dsa::Stack::pop()'],['../classdsa_1_1_stack_list.html#a22da2ee9c5b396d4a83a685c76989286',1,'dsa::StackList::pop()']]],
-  ['pqcomplheap',['PqComplHeap',['../classdsa_1_1_pq_compl_heap.html#aaae5d86b710d2bdc2644240ac759a755',1,'dsa::PqComplHeap']]],
+  ['pqcomplheap',['PqComplHeap',['../classdsa_1_1_pq_compl_heap.html#aaae5d86b710d2bdc2644240ac759a755',1,'dsa::PqComplHeap::PqComplHeap(const T *A, int n)'],['../classdsa_1_1_pq_compl_heap.html#a98a253333bf3833cc20260240ad2b7fd',1,'dsa::PqComplHeap::PqComplHeap(const T *A, int lo, int hi)'],['../classdsa_1_1_pq_compl_heap.html#a7d7b96b952da60117f5b798bd73023a7',1,'dsa::PqComplHeap::PqComplHeap(const dsa::Vector&lt; T &gt; &amp;vec)'],['../classdsa_1_1_pq_compl_heap.html#a22c7eac2ae8e5e0c60bb3240cccdfb72',1,'dsa::PqComplHeap::PqComplHeap(const dsa::Vector&lt; T &gt; &amp;vec, int lo, int hi)']]],
   ['pqlist',['PqList',['../classdsa_1_1_pq_list.html#a9b87af8083d4c74c7a5e8dd9f8f79259',1,'dsa::PqList']]],
   ['proper_5fparent',['proper_parent',['../classdsa_1_1_pq_compl_heap.html#a2d774b2e935c17cbbd4fccf1f45f1dab',1,'dsa::PqComplHeap']]],
   ['push',['push',['../classdsa_1_1_stack.html#a09573e231b4eb41b8f5c526950d60fa1',1,'dsa::Stack::push()'],['../classdsa_1_1_stack_list.html#acd40bf0d522fcd4518a410174e624129',1,'dsa::StackList::push()']]],

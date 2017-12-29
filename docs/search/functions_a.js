@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['maj_5fcandidate',['maj_candidate',['../group___share.html#gae24fb0c55d7269f34833fe3fcb854b70',1,'dsa']]],
-  ['majority',['majority',['../group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e',1,'dsa']]],
+  ['maj_5fcandidate',['maj_candidate',['../group___example.html#gae24fb0c55d7269f34833fe3fcb854b70',1,'dsa']]],
+  ['majority',['majority',['../group___example.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e',1,'dsa']]],
   ['match_5fbf1',['match_bf1',['../group___l_string.html#ga7009fa633463e4403e3cad0478c6910a',1,'dsa']]],
   ['match_5fbf2',['match_bf2',['../group___l_string.html#ga582dcdb5f9becbf92816d2461abaef4e',1,'dsa']]],
   ['match_5fbm_5fbc',['match_bm_bc',['../group___l_string.html#gaf6fa260ff01c5f9166d69b5fc81a5ab5',1,'dsa']]],
