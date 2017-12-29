@@ -90,6 +90,7 @@ public:
     void    quick_sort(int lo, int hi);
     int     partition(int lo, int hi);
     void    shell_sort(int lo, int hi);
+    void    shell_insertion(int w, int lo, int hi);
 
     template <typename VST> void traverse(VST& visit);
 
@@ -700,14 +701,15 @@ void Vector<T>::insertion_sort(int lo, int hi)
     {
         // n 即为W的第一个元素
         int n = k;
-        while (n > lo)
+        T   tmp = this->m_array[n];
+        while (n > lo && tmp < this->m_array[n-1])
         {
-            if (this->m_array[n] < this->m_array[n-1])
-                dsa::swap(this->m_array[n], this->m_array[n-1]);
-            else
-                break;
+            this->m_array[n] = this->m_array[n-1];
             n--;
         }
+        // 出while循环后，n == lo 或 tmp >= this->m_array[n-1]
+        // 故tmp必定是插入到n的位置
+        this->m_array[n] = tmp;
     }
 #endif
 }
@@ -849,37 +851,88 @@ int Vector<T>::partition(int lo, int hi)
 template <typename T>
 void Vector<T>::shell_sort(int lo, int hi)
 {
-    int size = hi - lo;
     // 步长序列(step sequence)，也即矩阵的列数: min = 1, max < m_size
-#if(1)
-    for (int w = size/2; w > 0; w /= 2) // 希尔步长序列
-#elif(0)
-    for (int w = size/2; w > 0; w /= 2) // PS步长序列
-#endif
+#if(0)
+    // 希尔步长序列：2^k
+    // 递推公式：w[0] = 1, w[i] = w[i-1] * 2
+    for (int k = (hi - lo)/2; k > 0; k /= 2)
+        this->shell_insertion(k, lo, hi);
+#elif(1)
+    // Hibbard步长序列(相邻步长互素)：2^k-1
+    // 递推公式：w[0] = 1, w[i] = 2 * w[i-1] + 1
+    Vector<int> ss;
+    int k = 1;
+    while (k < this->m_size)
     {
-        int cow = (size + w - 1) / w;           // 向上取整，即为矩阵的行数
-        for (int k = 0; k < w; k ++)            // 对所有列进行插入排序
+        ss.push_back(k);
+        k = 2 * k + 1;
+    }
+    for (k = ss.size()-1; k >= 0; k --)
+        this->shell_insertion(ss[k], lo, hi);
+#elif(0)
+    // Knuth步长序列：(3^k-1)/2
+    // 递推公式：w[0] = 1, w[i] = 3 * w[i-1] + 1
+    Vector<int> ss;
+    int k = 1;
+    while (k < this->m_size)
+    {
+        ss.push_back(k);
+        k = 3 * k + 1;
+    }
+    for (k = ss.size()-1; k >= 0; k --)
+        this->shell_insertion(ss[k], lo, hi);
+#endif
+}
+
+/*!
+ * @brief shell排序中的插入排序算法
+ *
+ * @param lo,hi: 下标范围[lo, hi)
+ * @param w: 步长值，也即矩阵列宽
+ * @return
+ * @retval None
+ */
+template <typename T>
+void Vector<T>::shell_insertion(int w, int lo, int hi)
+{
+#if(1)
+    // 每w次循环，完成对所有列的同一行的插入排序
+    // 第一行元素： lo   , lo+1   , ... lo+w-1
+    // 第二行元素： lo+w , lo+w+1 , ...
+    for (int k = lo + w; k < hi; k ++)
+    {
+        // 此部分程序参照insertion_sort
+        int n = k;
+        T   tmp = this->m_array[n];
+        while (n >= lo+w && tmp < this->m_array[n-w])
         {
-            int sl = lo + k, sh = lo + k+cow*w; // (插入排序)列下标范围[sl,sh)
-            if (sh > hi) sh -= w;               // 防止列下标超范围
-            for (int n = sl + w; n < sh; n += w)// 遍历列元素
+            this->m_array[n] = this->m_array[n-w];
+            n -= w;
+        }
+        this->m_array[n] = tmp;
+    }
+
+#else
+    // 依次对第 0,1,2...w 列进行排序(排完第0列，才能排第1列······)
+    int cow = ((hi-lo) + w - 1) / w;        // 向上取整，即为矩阵的行数
+    for (int k = 0; k < w; k ++)            // 对所有列进行插入排序
+    {
+        int sl = lo + k, sh = lo + k+cow*w; // (插入排序)列下标范围[sl,sh)
+        if (sh > hi) sh -= w;               // 防止列下标超范围
+        for (int s = sl + w; s < sh; s += w)// 对列元素进行插入排序
+        {
+            // 此部分程序参照insertion_sort
+            int n = s;
+            T   tmp = this->m_array[n];
+            while (n > sl && tmp < this->m_array[n-w])
             {
-                // 查找插入的位置
-                int s = sl;
-                for (s = sl; s < n; s += w)
-                    if (this->m_array[s] > this->m_array[n])
-                        break;
-                // 插入到目标位置
-                if (s < n)
-                {
-                    T tmp = this->m_array[n];
-                    for (int m = n; m > s; m -= w)
-                        this->m_array[m] = this->m_array[m-w];
-                    this->m_array[s] = tmp;
-                }
+                this->m_array[n] = this->m_array[n-w];
+                n -= w;
             }
+            this->m_array[n] = tmp;
         }
     }
+#endif
 }
 
 
