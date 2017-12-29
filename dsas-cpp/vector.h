@@ -674,6 +674,9 @@ int Vector<T>::select_max(int lo, int hi)
  * 不断将W中第一个元素e，插入到S中位置i处；
  * i为S中元素不大于e的最大元素的位置
  *
+ * (1) 基本形式：先search再insert。
+ * (2) 改进版：因为S是有序的，故从右向左遍因S，比较与e的大小关系，并进行交换。
+ *
  * </pre>
  *
  * @param lo,hi: 下标范围[lo, hi)
@@ -683,12 +686,30 @@ int Vector<T>::select_max(int lo, int hi)
 template <typename T>
 void Vector<T>::insertion_sort(int lo, int hi)
 {
+#if(0)
+    // 基本形式：按基本原理实现的算法，最易理解
     for (int k = lo + 1; k < hi; k ++)
     {
         int index = this->search(this->m_array[k], lo, k) + 1;
         if (index < k)
             this->insert(index, this->remove(k));
     }
+#else
+    // 改进版
+    for (int k = lo + 1; k < hi; k ++)
+    {
+        // n 即为W的第一个元素
+        int n = k;
+        while (n > lo)
+        {
+            if (this->m_array[n] < this->m_array[n-1])
+                dsa::swap(this->m_array[n], this->m_array[n-1]);
+            else
+                break;
+            n--;
+        }
+    }
+#endif
 }
 
 /*!
@@ -825,7 +846,6 @@ int Vector<T>::partition(int lo, int hi)
  * @return
  * @retval None
  */
-const int step_sequence[] = {1, 2, 3, 5};
 template <typename T>
 void Vector<T>::shell_sort(int lo, int hi)
 {
