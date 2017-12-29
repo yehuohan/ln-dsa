@@ -18,6 +18,7 @@
 #elif defined(_WIN32)
 #define DSAS_WIN
 #else
+// Comment this line to ignore error.
 #error "Failed to detect platform."
 #endif
 

@@ -14,14 +14,15 @@
 #define DSAS_TIME_H
 
 #include "macro.h"
-#if defined DSAS_WIN
-
-#elif defined DSAS_LINUX
-
+#if defined DSAS_LINUX
+    #include <sys/time.h>
+    #include <unistd.h>
+#elif defined DSAS_WIN
+    #include <windows.h>
+#else
+    #include <ctime>
+    #include <cstdlib>
 #endif
-
-#include <ctime>
-#include <cstdlib>
 
 namespace dsa
 {
@@ -36,7 +37,13 @@ namespace dsa
  * @brief clock_t的封装
  *
  */
-typedef clock_t ClockTime;
+#if defined DSAS_LINUX
+typedef long double ClockTime;
+#elif defined DSAS_WIN
+typedef LONGLONG    ClockTime;
+#else
+typedef clock_t     ClockTime;
+#endif
 
 /*!
  * @brief 获取时间点
@@ -47,7 +54,17 @@ typedef clock_t ClockTime;
  */
 inline ClockTime get_clock()
 {
+#if defined DSAS_LINUX
+    struct timeval time;
+    gettimeofday(&time, nullptr);
+    return 100000.0f * (long double)time.tv_sec + (long double)time.tv_usec;
+#elif defined DSAS_WIN
+    LARGE_INTEGER time;
+    QueryPerformanceCounter(&time);
+    return time.QuadPart;
+#else
     return std::clock();
+#endif
 }
 
 /*!
@@ -57,9 +74,17 @@ inline ClockTime get_clock()
  * @return
  * @retval None
  */
-inline double get_time(const ClockTime& s, const ClockTime& e)
+inline double get_time_ms(const ClockTime& s, const ClockTime& e)
 {
-    return (double)(e-s) / CLOCKS_PER_SEC*1000;
+#if defined DSAS_LINUX
+    return (double)(e-s) / 1000.0f;
+#elif defined DSAS_WIN
+    LARGE_INTEGER cpu_freq;
+    QueryPerformanceFrequency(&cpu_freq);
+    return (double)(e-s) * 1000.0f / (double)cpu_freq.QuadPart;
+#else
+    return (double)(e-s) / CLOCKS_PER_SEC*1000.0f;
+#endif
 }
 
 /*! @} */

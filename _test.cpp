@@ -684,7 +684,7 @@ void test_sort_time()
         vs.bubble_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Bubble Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Bubble Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -694,7 +694,7 @@ void test_sort_time()
         vs.merge_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Merge Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Merge Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -704,7 +704,7 @@ void test_sort_time()
         vs.selection_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Select Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Select Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -714,7 +714,7 @@ void test_sort_time()
         vs.insertion_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Insert Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Insert Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -724,7 +724,7 @@ void test_sort_time()
         vs.quick_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Quick Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Quick Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -734,7 +734,7 @@ void test_sort_time()
         vs.shell_sort(0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Shell Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Shell Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)
@@ -744,5 +744,5 @@ void test_sort_time()
         dsa::heap_sort(vs, 0, vs.size());
     }
     e = dsa::get_clock();
-    cout << "Heap Time: " << dsa::get_time(s,e) << " ms" << endl;
+    cout << "Heap Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 }
