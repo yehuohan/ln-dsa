@@ -57,7 +57,7 @@ inline ClockTime get_clock()
 #if defined DSAS_LINUX
     struct timeval time;
     gettimeofday(&time, nullptr);
-    return 100000.0f * (long double)time.tv_sec + (long double)time.tv_usec;
+    return 1000000.0f * (long double)time.tv_sec + (long double)time.tv_usec;
 #elif defined DSAS_WIN
     LARGE_INTEGER time;
     QueryPerformanceCounter(&time);
