@@ -39,7 +39,7 @@ int main()
     //test_leftpq();
     //test_pq();
     test_hash();
-    test_bitmap();
+    //test_bitmap();
     //test_redblack();
     //test_btree();
     //test_splay();
@@ -462,11 +462,14 @@ void test_bitmap()
     //dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
     dsa::Bitmap bp("./dsas-cpp/input-data/prime-4096-bitmap.txt", 4096);
     std::cout << "\nPrime: \n";
-    for (int k = 4000; k < 4096; k ++)
+    for (int k = 0; k < 49; k ++)
     {
         if (bp.test(k))
-            std::cout << k << std::endl;
+            std::cout << k << "  ";
     }
+    std::cout << endl;
+    std::cout << "LP: " << dsa::prime_4096(4000) << std::endl;
+    std::cout << "LP: " << dsa::prime_1048576(400000) << std::endl;
 }
 
 void test_hash()
