@@ -58,6 +58,13 @@ private:
 
 public:
     Bitmap(int n = 8) {this->init(n);}
+    /** 用char数组生成Bitmap */
+    Bitmap(int len, const char bm[])
+    {
+        this->m_len = len;
+        this->m_cap = new char[this->m_len];
+        std::memcpy(this->m_cap, bm, len);
+    }
     /** 从文件中读取数据 */
     Bitmap(const char* file, int n)
     {
@@ -65,6 +72,13 @@ public:
         std::FILE* fp = std::fopen(file, "rb");
         std::fread(this->m_cap, sizeof(char), this->m_len, fp);
         std::fclose(fp);
+    }
+    /** 拷贝构造函数 */
+    Bitmap(const Bitmap& bm)
+    {
+        this->m_len = bm.m_len;
+        this->m_cap = new char[this->m_len];
+        std::memcpy(this->m_cap, bm.m_cap, this->m_len);
     }
     ~Bitmap() {delete[] this->m_cap; this->m_cap = nullptr;}
 
@@ -86,8 +100,6 @@ public:
         std::fwrite(this->m_cap, sizeof(char), this->m_len, fp);
         std::fclose(fp);
     }
-
-    //char* bit2string();
 
 protected:
     /** 初始化Bitmap，按语义，数据范围为[0, n) */
