@@ -1,6 +1,9 @@
 
 #include <iostream>
+#include <cstdio>
 #include <iomanip>
+#include <vector>
+#include <algorithm>
 #include "dsas-cpp/dsas.h"
 
 using std::cout;
@@ -19,6 +22,7 @@ void test_avl();
 void test_splay();
 void test_btree();
 void test_redblack();
+void test_bitmap();
 void test_hash();
 void test_pq();
 void test_leftpq();
@@ -29,12 +33,13 @@ void test_sort_time();
 //(int argc, char** argv)
 int main()
 {
-    test_sort_time();
+    //test_sort_time();
     //test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
     test_hash();
+    test_bitmap();
     //test_redblack();
     //test_btree();
     //test_splay();
@@ -438,6 +443,32 @@ void test_btree()
     }
 }
 
+void test_bitmap()
+{
+    dsa::Bitmap bm(100);
+    for (int k = 0; k < 100; k ++)
+    {
+        if (k & 0x01)
+            bm.set(k);
+    }
+    bm.set(101); bm.set(103); bm.set(104); bm.set(105);
+    for (int k = 0; k < 110; k ++)
+    {
+        if (bm.test(k))
+            std::cout << k << "  ";
+    }
+    //bm.dump("test.txt");
+    
+    //dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
+    dsa::Bitmap bp("./dsas-cpp/input-data/prime-4096-bitmap.txt", 4096);
+    std::cout << "\nPrime: \n";
+    for (int k = 4000; k < 4096; k ++)
+    {
+        if (bp.test(k))
+            std::cout << k << std::endl;
+    }
+}
+
 void test_hash()
 {
     dsa::HashTable<int, int> hash;
@@ -671,10 +702,23 @@ void test_sort_time()
     dsa::ClockTime s,e;
     dsa::Vector<int> vt;
     int num = 100;
-    for (int k = 0; k < 3000; k++)
-        vt.push_back(k+1);
+    for (int k = 0; k < 3000; k++) vt.push_back(k+1);
     vt.traverse(print_node);
     cout << endl;
+
+    std::vector<int> vec;
+    for (int k = 0; k < 3000; k ++) vec.push_back(k+1);
+
+    // std排序测试
+    s = dsa::get_clock();
+    for (int k = 0; k < num; k ++)
+    {
+        std::vector<int> vs(vec);
+        std::random_shuffle(vs.begin(), vs.end());
+        std::sort(vs.begin(), vs.end(), std::less<int>());
+    }
+    e = dsa::get_clock();
+    cout << "Std Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
 
     s = dsa::get_clock();
     for (int k = 0; k < num; k ++)

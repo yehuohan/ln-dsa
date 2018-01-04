@@ -71,6 +71,14 @@ DSAS是数据结构与算法的学习过程。
  * @}
  */
 /*!
+ * @defgroup LBitmap Bitmap Struct
+ *
+ * Bitmap结构
+ *
+ * @{
+ * @}
+ */
+/*!
  * @defgroup LHash Hash Struct
  *
  * 散列结构
@@ -184,6 +192,7 @@ DSAS是数据结构与算法的学习过程。
 #include "pq_complete_heap.h"
 #include "pq_left_heap.h"
 #include "string.h"
+#include "bitmap.h"
 #include "hash.h"
 
 #include "binary_node.h"
