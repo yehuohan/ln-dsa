@@ -346,7 +346,7 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
         // 没法返回不大于ele的最大元素的下标
         int mi = (lo + hi)/2;
         if (ele < this->m_array[mi]) hi = mi;
-        else if (ele > this->m_array[mi]) lo = mi + 1;
+        else if (this->m_array[mi] < ele) lo = mi + 1;
         else return mi;
     }
     return -1;
