@@ -472,7 +472,10 @@ void test_bitmap()
 
 void test_hash()
 {
-    dsa::HashTable<int, int> hash;
+    dsa::HashTable<char*, int> hs;
+    std::cout << hs.hash_func("hello") << std::endl;
+    std::cout << hs.hash_func("world") << std::endl;
+    std::cout << hs.hash_func("hello world") << std::endl;
 }
 
 void test_redblack()
@@ -631,23 +634,23 @@ void test_string()
     int* gs      = dsa::build_gs(P);
 
     cout << "pat:     ";
-    for (int k = 0; k < dsa::strlen(P); k++)
+    for (int k = 0; k < dsa::str_len(P); k++)
         cout << std::setw(2) << P[k] << " ";
     cout << endl;
     cout << "next:    ";
-    for (int k = 0; k < dsa::strlen(P); k++)
+    for (int k = 0; k < dsa::str_len(P); k++)
         cout << std::setw(2) << next[k] << " ";
     cout << endl;
     cout << "next_im: ";
-    for (int k = 0; k < dsa::strlen(P); k++)
+    for (int k = 0; k < dsa::str_len(P); k++)
         cout << std::setw(2) << next_im[k] << " ";
     cout << endl;
     cout << "bm:      ";
-    for (int k = 0; k < dsa::strlen(P); k++)
+    for (int k = 0; k < dsa::str_len(P); k++)
         cout << std::setw(2) << bm[(unsigned int)P[k]] << " ";
     cout << endl;
     cout << "gs:      ";
-    for (int k = 0; k < dsa::strlen(P); k++)
+    for (int k = 0; k < dsa::str_len(P); k++)
         cout << std::setw(2) << gs[k] << " ";
     cout << endl;
     delete[] next;
@@ -660,6 +663,12 @@ void test_string()
     cout << "kmp:   " << dsa::match_kmp(P, T) << endl;
     cout << "bc:    " << dsa::match_bm_bc(P, T) << endl;
     cout << "bcgs:  " << dsa::match_bm_bcgs(P, T) << endl;
+
+    dsa::String str("hello");
+    std::cout << str.data() << std::endl;
+    str[0] = 'a';
+    str.at(1) = 'b';
+    std::cout << str << std::endl;
 }
 
 void test_sort()

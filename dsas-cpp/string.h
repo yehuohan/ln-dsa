@@ -13,6 +13,8 @@
 #ifndef _STRING_H
 #define _STRING_H
 
+#include <iostream>
+
 namespace dsa
 {
 
@@ -22,40 +24,9 @@ namespace dsa
  * @{
  */
 
-/*!
- * @brief 字符串类
- *
- * 串
- *
- * 相等：
- *      S[0,n) = T[0,m)
- *      长度相等，且对应的字符相同
- * 子串：
- *      substr(i,k) = S[i, i+k), 0<= i < n, 0 <= k
- *      从S[i]起的连续k个字符
- * 前缀：
- *      prifix(k) = substr(0,k) = S[0,k), 0 <= k <= n
- *      最靠前k个字符
- * 后缀：
- *      suffix(k) = substr(n-k, k) = S[n-k, n), 0 <= k <= n
- *      最靠后的k个字符
- * 空串：
- *      S[0, n=0)
- *
- */
-class String
-{
-    int     length();
-    char    at();
-    String  substr(int i, int k);
-    String  prifix(int k);
-    String  suffix(int k);
-    String  join();
-    bool    equal();
-    char    index();
-};
-
-int     strlen(const char*);
+int     str_cpy(char*, const char*, int);
+int     str_len(const char*);
+void    str_set(const char*, char, int);
 
 int     match_bf1(char* P, char* T);
 int     match_bf2(char* P, char* T);
@@ -69,25 +40,137 @@ int     match_bm_bcgs(char*, char*);
 int*    build_bc(char*);
 int*    build_gs(char*);
 
+
+/*!
+ * @brief 字符串类
+ *
+ * <pre>
+ * 串
+ *
+ * 相等：
+ *      S[0,n) = T[0,m)
+ *      长度相等，且对应的字符相同
+ * 子串：
+ *      substr(i,k) = S[i, i+k), 0<= i < n, 0 <= k
+ *      从S[i]起的连续k个字符
+ * 前缀：
+ *      prefix(k) = substr(0,k) = S[0,k), 0 <= k <= n
+ *      最靠前k个字符
+ * 后缀：
+ *      suffix(k) = substr(n-k, k) = S[n-k, n), 0 <= k <= n
+ *      最靠后的k个字符
+ * 空串：
+ *      S[0, n=0)
+ * </pre>
+ *
+ */
+class String
+{
+private:
+    char*   m_ch;               /**< 保存char的内存 */
+    int     m_cap;              /**< 字符串容量 */
+    int     m_size;             /**< 字符串长度，不包括'\0' */
+
+protected:
+    /** 扩展内存容量 */
+    void    expand()
+    {
+        char* old_ch = this->m_ch;
+        this->m_cap *= 2;
+        this->m_ch = new char[this->m_cap];
+        str_cpy(this->m_ch, old_ch, this->m_size);
+        delete old_ch;
+    }
+
+public:
+    String() : m_cap(1), m_size(0) {this->m_ch = new char[this->m_cap]; m_ch[0] = '\0';}
+    String(const char* str)
+    {
+        this->m_size = str_len(str);
+        this->m_cap = this->m_size * 2;
+        this->m_ch = new char[this->m_cap];
+        str_cpy(this->m_ch, str, this->m_size);
+    };
+    String(const String& str)
+    {
+        this->m_cap = str.m_cap;
+        this->m_size = str.m_size;
+        this->m_ch = new char[this->m_cap];
+        str_cpy(this->m_ch, str.m_ch, this->m_size);
+    }
+    ~String() {if (m_ch) delete m_ch;}
+
+    /** 重载输出(<<)运算符 */
+    friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_ch; return out;}
+    /** 重载[]，没有边界检测 */
+    char& operator[] (int k) {return this->m_ch[k];}
+
+    /** 返回char指针 */
+    char*   data() {return this->m_ch;}
+    /** 返回字符串长度，不包括'\0' */
+    int     size() {return this->m_size;}
+    /** 返回下标为k的char，没有边界检测 */
+    char&   at(int k) {return this->m_ch[k];}
+    /** 清空字符串 */
+    void    clear() {this->m_size = 0; this->m_ch[0] = '\0';}
+
+    String  substr(int i, int k);
+    String  prefix(int k);
+    String  suffix(int k);
+    String  join();
+    bool    equal();
+};
+
+
+/*!
+ * @brief 复制字符串
+ *
+ * @param dst: 目标字符串，内存长度为size+1，以'\0'结尾
+ * @param src: 源字符串，以'\0'结尾
+ * @param size: 复制的字符串个数，不包括'\0'
+ * @return 返回复制的字符串个数
+ * @retval None
+ */
+int str_cpy(char* dst, const char* src, int size)
+{
+    int len = 0;
+    while (*src != '\0' && len++ < size)
+        *dst++ = *src++;
+    *dst = '\0';
+    return len;
+}
+
 /*!
  * @brief 获取字符串长度
  *
- * 不包括'\0'
+ * 长度不包括'\0'
  *
  * @param str: 字符串，以'\0'结尾
  * @return
  * @retval None
  */
-int strlen(const char* str)
+int str_len(const char* str)
 {
     int len = 0;
     while(*str++ != '\0')
-    {
         len ++;
-    }
     return len;
 }
 
+/*!
+ * @brief 填充字符串
+ *
+ * @param str: 待填充的字符串
+ * @param ch: 填充字符
+ * @param size: 字符串长度
+ * @return
+ * @retval None
+ */
+void str_set(char* str, char ch, int size)
+{
+    for (int k = 0; k < size; k ++)
+        *(str + k) = ch;
+}
 
 /*!
  * @brief  蛮力匹配(Brute-force-1)
@@ -112,8 +195,8 @@ int strlen(const char* str)
  */
 int match_bf1(char* P, char* T)
 {
-    int n = strlen(T), i = 0;
-    int m = strlen(P), j = 0;
+    int n = str_len(T), i = 0;
+    int m = str_len(P), j = 0;
 
     while(j < m && i < n)
     {
@@ -154,8 +237,8 @@ int match_bf1(char* P, char* T)
  */
 int match_bf2(char* P, char* T)
 {
-    int n = strlen(T), i = 0;
-    int m = strlen(P), j;
+    int n = str_len(T), i = 0;
+    int m = str_len(P), j;
 
     for (i = 0; i < n-m+1; i++)
     {
@@ -246,8 +329,8 @@ int match_bf2(char* P, char* T)
 int match_kmp(char* P, char* T)
 {
     int* next = build_next_improved(P);
-    int n = strlen(T), i = 0;
-    int m = strlen(P), j = 0;
+    int n = str_len(T), i = 0;
+    int m = str_len(P), j = 0;
 
     while(j < m && i < n)
     {
@@ -322,7 +405,7 @@ int match_kmp(char* P, char* T)
  */
 int* build_next(char* P)
 {
-    int m = strlen(P);
+    int m = str_len(P);
     int* next = new int[m];
     int t = next[0] = -1;  // 将P[-1]当作通配符
 
@@ -383,7 +466,7 @@ int* build_next(char* P)
  */
 int* build_next_improved(char* P)
 {
-    int m = strlen(P);
+    int m = str_len(P);
     int* next = new int[m];
     int t = next[0] = -1;  // 将P[-1]当作通配符
 
@@ -434,8 +517,8 @@ int* build_next_improved(char* P)
  */
 int match_bm_bc(char* P, char* T)
 {
-    int n = strlen(T);
-    int m = strlen(P);
+    int n = str_len(T);
+    int m = str_len(P);
     int i,j;
     int* bc = build_bc(P);
 
@@ -472,8 +555,8 @@ int match_bm_bc(char* P, char* T)
  */
 int match_bm_bcgs(char* P, char* T)
 {
-    int n = strlen(T);
-    int m = strlen(P);
+    int n = str_len(T);
+    int m = str_len(P);
     int i,j;
     int* bc = build_bc(P);
     int* gs = build_gs(P);
@@ -536,7 +619,7 @@ int* build_bc(char* P)
 
     for (int k = 0; k < 256; k++)
         bc[k] = -1;
-    for (int m = strlen(P), j = 0; j < m; j++)
+    for (int m = str_len(P), j = 0; j < m; j++)
         bc[(unsigned int)P[j]] = j;     // 覆盖刷新字符P[j]的出现位置记录，即重复的字符，下标必定是最大的
                                         // 且没有的字符均为-1
     return bc;
@@ -621,7 +704,7 @@ int* build_bc(char* P)
  */
 int* build_gs(char* P)
 {
-    int m = strlen(P);
+    int m = str_len(P);
     int* gs = new int[m];
     int* ss = new int[m];
 
