@@ -54,8 +54,10 @@ public:
     T       remove(int index);
     int     remove(int lo, int hi);
 
-    /** 下标索引重写 */
-    T& operator[](int index) const {return this->m_array[index];}
+    /** 重载[]，可以修改m_array[index] */
+    T& operator[](int index) {return this->m_array[index];}
+    /** 重载[]，用于const Vector下标访问，不能修改m_array[index] */
+    const T& operator[](int index) const {return this->m_array[index];}
     Vector<T>& operator=(const Vector<T>& V);
 
     /** 在整个Vector中查找 */

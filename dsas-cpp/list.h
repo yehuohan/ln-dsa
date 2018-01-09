@@ -128,9 +128,13 @@ public:
     /** 尾部哨兵节点的Iterator */
     ListIterator<T> end() {return ListIterator<T>(this->tailer);}
     /** 第一个节点 */
-    ListNodePtr<T>  front() const {return this->header->next;}
+    ListNodePtr<T>  front() {return this->header->next;}
+    /** 第一个const节点 */
+    const ListNodePtr<T> front() const {return this->header->next;}
     /** 最后一个节点 */
-    ListNodePtr<T>  back() const {return this->tailer->prev;}
+    ListNodePtr<T>  back() {return this->tailer->prev;}
+    /** 最后一个const节点 */
+    const ListNodePtr<T> back() const {return this->tailer->prev;}
     /** 插入元素到第一个节点 */
     ListNodePtr<T>  push_front(const T& ele) {this->m_size++; return this->header->insert_next(ele);}
     /** 插入元素到最后一个节点 */
@@ -141,7 +145,8 @@ public:
     /** 插入到节点的后面 */
     ListNodePtr<T>  insert_after(ListNodePtr<T> p, const T& ele) {this->m_size++; return p->insert_next(ele);}
 
-    T& operator[](int index) const;
+    T& operator[](int index);
+    const T& operator[](int index) const;
 
     ListNodePtr<T>  find(const T& ele, int n, ListNodePtr<T> p) const;
     ListNodePtr<T>  search(const T& ele, int n, ListNodePtr<T> p) const;
@@ -260,7 +265,24 @@ int List<T>::remove(int n, ListNodePtr<T> p)
  * @retval None
  */
 template <typename T>
-T& List<T>::operator[](int index) const
+T& List<T>::operator[](int index)
+{
+    ListNodePtr<T> p = this->front();
+    while(index-- > 0) p = p->next;
+    return p->data;
+}
+
+/*!
+ * @brief 重载[]运算符，实现下标索引
+ *
+ * 此函数用于const List调用。
+ *
+ * @param index: 下标，范围为[0, size)
+ * @return 返回节点数据的引用
+ * @retval None
+ */
+template <typename T>
+const T& List<T>::operator[](int index) const
 {
     ListNodePtr<T> p = this->front();
     while(index-- > 0) p = p->next;

@@ -102,15 +102,23 @@ public:
 
     /** 重载输出(<<)运算符 */
     friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_ch; return out;}
-    /** 重载[]，没有边界检测 */
+    /** 重载输出(<<)运算符 */
+    friend std::ostream& operator<< (std::ostream& out, const dsa::String& str) {out << str.m_ch; return out;}
+    /** 重载[]，没有边界检测，可以修改m_ch */
     char& operator[] (int k) {return this->m_ch[k];}
+    /** 重载[]，没有边界检测，不能修改m_ch */
+    const char& operator[] (int k) const {return this->m_ch[k];}
 
-    /** 返回char指针 */
+    /** 返回char指针，可以修改m_ch */
     char*   data() {return this->m_ch;}
+    /** 返回char常指针，不能修改m_ch */
+    const char* data() const {return this->m_ch;}
     /** 返回字符串长度，不包括'\0' */
-    int     size() {return this->m_size;}
-    /** 返回下标为k的char，没有边界检测 */
+    int     size() const {return this->m_size;}
+    /** 返回下标为k的char，没有边界检测，可以修改m_ch */
     char&   at(int k) {return this->m_ch[k];}
+    /** 返回下标为k的char，没有边界检测，不能修改m_ch */
+    const char& at(int k) const {return this->m_ch[k];}
     /** 清空字符串 */
     void    clear() {this->m_size = 0; this->m_ch[0] = '\0';}
 
