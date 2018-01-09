@@ -15,6 +15,7 @@
 
 #include "binary_tree.h"
 #include "share/swap.h"
+#include "share/compare.h"
 
 namespace dsa
 {
@@ -68,10 +69,10 @@ static BinNodePtr<T>& search_in(
         const T& e,
         BinNodePtr<T>& hot)
 {
-    if (!node || e == node->data)
+    if (!node || dsa::is_equal(e, node->data))
         return node;
     hot = node;
-    return search_in((e < node->data) ? node->left : node->right, e, hot);
+    return search_in(dsa::less_than(e, node->data) ? node->left : node->right, e, hot);
                             // 递归传入search_in的node是hot的子节点
 }
 

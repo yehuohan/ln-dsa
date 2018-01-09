@@ -15,6 +15,7 @@
 #define _SPLAY_TREE_H
 
 #include "binary_search_tree.h"
+#include "share/compare.h"
 
 namespace dsa
 {
@@ -114,14 +115,14 @@ BinNodePtr<T> SplayTree<T>::insert(const T& e)
 
     // 因为不是空树,返回的x不可以为nullptr
     // search 返回经过伸展后的树根节点
-    if (this->search(e)->data == e) return this->m_root;
+    if (dsa::is_equal(this->search(e)->data, e)) return this->m_root;
 
     BinNodePtr<T> r = this->m_root;
     this->m_root = new BinNode<T>(e, nullptr);
     this->m_size++;
 
     // 确定新插入节点的位置
-    if (e < r->data)
+    if (dsa::less_than(e, r->data))
     {
         attach_left(this->m_root, r->left);
         attach_right(this->m_root, r);
@@ -129,7 +130,7 @@ BinNodePtr<T> SplayTree<T>::insert(const T& e)
         r->left = nullptr;
 
     }
-    else if (r->data < e)
+    else if (dsa::less_than(r->data, e))
     {
         attach_right(this->m_root, r->right);
         attach_left(this->m_root, r);
@@ -154,7 +155,7 @@ bool SplayTree<T>::remove(const T& e)
     // 空树直接返回
     if (!this->m_root) return false;
     // 没有找到目标
-    if (this->search(e)->data != e) return false;
+    if (dsa::not_equal(this->search(e)->data, e)) return false;
 
     // 删除目标节点（经过伸展，已经移到了根节点）
     BinNodePtr<T> s = this->m_root;

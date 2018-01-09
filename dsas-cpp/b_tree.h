@@ -14,6 +14,7 @@
 #define _B_TREE_H
 
 #include "b_node.h"
+#include "share/compare.h"
 
 namespace dsa
 {
@@ -337,7 +338,7 @@ BTNodePtr<T> BTree<T>::search(const T& e)
     {
         int r = node->key.search(e);        // 根据有序性查找，返回不大于查找目标的下标
                                             // 在insert使用BTree::search时，即可按序插入
-        if (0 <= r && e == node->key[r]) return node;   // 找到目标
+        if (0 <= r && dsa::is_equal(e, node->key[r])) return node;   // 找到目标
         this->m_hot = node;
         node = node->child[r+1];            // 原理请看函数说明中的迭代查找示意图
         // 无论是否找到目标，child[r+1]都为m_hot的子节点
