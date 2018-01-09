@@ -42,6 +42,8 @@ struct Entry
     bool operator>  (const Entry<K,V>& e) const {return e.key < this->key;}
     bool operator== (const Entry<K,V>& e) const {return !(this->key < e.key || e.key < this->key);}
     bool operator!= (const Entry<K,V>& e) const {return  (this->key < e.key || e.key < this->key);}
+    bool operator<= (const Entry<K,V>& e) const {return (*this < e || *this == e);}
+    bool operator>= (const Entry<K,V>& e) const {return (*this > e || *this == e);}
 };
 
 /*! @} */
