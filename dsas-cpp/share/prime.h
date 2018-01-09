@@ -14,7 +14,6 @@
 #define DSAS_PRIME_H
 
 #include "../bitmap.h"
-#include "../input-data/prime-4096-bitmap.h"
 #include "../input-data/prime-1048576-bitmap.h"
 
 namespace dsa
@@ -27,7 +26,6 @@ namespace dsa
  */
 
 #define PRIME_MAX_1048576       1048576
-#define PRIME_MAX_4096          4096
 
 /*!
  * @brief 查表法获取[low, n)内最最小素数
@@ -80,18 +78,6 @@ inline int prime_array(int low, int n, const char ch[], int size)
 inline int prime_1048576(int low)
 {
     return prime_array(low, PRIME_MAX_1048576, prime_1048576_bitmap, sizeof(prime_1048576_bitmap)/sizeof(char));
-}
-
-/*!
- * @brief 获取[low, 4096)内最最小素数
- *
- * @param low: 素数范围下界
- * @return
- * @retval None
- */
-inline int prime_4096(int low)
-{
-    return prime_array(low, PRIME_MAX_4096, prime_4096_bitmap, sizeof(prime_4096_bitmap)/sizeof(char));
 }
 
 /*! @} */

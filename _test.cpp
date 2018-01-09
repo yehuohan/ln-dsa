@@ -459,8 +459,7 @@ void test_bitmap()
     }
     //bm.dump("test.txt");
     
-    //dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
-    dsa::Bitmap bp("./dsas-cpp/input-data/prime-4096-bitmap.txt", 4096);
+    dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
     std::cout << "\nPrime: \n";
     for (int k = 0; k < 49; k ++)
     {
@@ -468,7 +467,6 @@ void test_bitmap()
             std::cout << k << "  ";
     }
     std::cout << endl;
-    std::cout << "LP: " << dsa::prime_4096(4000) << std::endl;
     std::cout << "LP: " << dsa::prime_1048576(400000) << std::endl;
 }
 
