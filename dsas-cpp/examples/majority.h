@@ -12,8 +12,8 @@
 //==============================================================================
 
 
-#ifndef _MAJORITY_H
-#define _MAJORITY_H
+#ifndef DSAS_MAJORITY_H
+#define DSAS_MAJORITY_H
 
 #include "../vector.h"
 
@@ -123,4 +123,4 @@ static T maj_candidate(const dsa::Vector<T>& vec)
 
 } /* dsa */
 
-#endif /* ifndef _MAJORITY_H */
+#endif /* ifndef DSAS_MAJORITY_H */

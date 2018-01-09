@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _QUICK_SELECT_H
-#define _QUICK_SELECT_H
+#ifndef DSAS_QUICK_SELECT_H
+#define DSAS_QUICK_SELECT_H
 
 #include "../vector.h"
 
@@ -65,4 +65,4 @@ T quick_select(dsa::Vector<T> vec, int k)
 
 } /* dsa */
 
-#endif /* ifndef _QUICK_SELECT_H */
+#endif /* ifndef DSAS_QUICK_SELECT_H */
