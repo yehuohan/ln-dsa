@@ -15,6 +15,7 @@
 
 #include "../bitmap.h"
 #include "../input-data/prime-1048576-bitmap.h"
+#include "../input-data/prime-1048576-4k3-bitmap.h"
 
 namespace dsa
 {
@@ -78,6 +79,18 @@ inline int prime_array(int low, int n, const char ch[], int size)
 inline int prime_1048576(int low)
 {
     return prime_array(low, PRIME_MAX_1048576, prime_1048576_bitmap, sizeof(prime_1048576_bitmap)/sizeof(char));
+}
+
+/*!
+ * @brief 获取[low, 1048576)内最最小的 4k+3 形式素数（模4余3的素数）
+ *
+ * @param low: 素数范围下界
+ * @return
+ * @retval None
+ */
+inline int prime_1048576_4k3(int low)
+{
+    return prime_array(low, PRIME_MAX_1048576, prime_1048576_4k3_bitmap, sizeof(prime_1048576_bitmap)/sizeof(char));
 }
 
 /*! @} */
