@@ -26,6 +26,8 @@ namespace dsa
 /*!
  * @brief 词条类，实现元素的比较
  *
+ * 键至少实现了 '<' 运算符
+ *
  */
 template <typename K, typename V>
 struct Entry
@@ -36,10 +38,10 @@ struct Entry
     Entry(K _key = K(), V _value = V()) : key(_key), value(_value) {}
     Entry(const Entry<K,V>& e): key(e.key), value(e.value) {}
 
-    bool operator< (const Entry<K,V>& e) const {return key < e.key;}
-    bool operator> (const Entry<K,V>& e) const {return key > e.key;}
-    bool operator== (const Entry<K,V>& e) const {return key == e.key;}
-    bool operator!= (const Entry<K,V>& e) const {return key != e.key;}
+    bool operator<  (const Entry<K,V>& e) const {return this->key < e.key;}
+    bool operator>  (const Entry<K,V>& e) const {return e.key < this->key;}
+    bool operator== (const Entry<K,V>& e) const {return !(this->key < e.key || e.key < this->key);}
+    bool operator!= (const Entry<K,V>& e) const {return  (this->key < e.key || e.key < this->key);}
 };
 
 /*! @} */

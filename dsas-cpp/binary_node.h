@@ -118,10 +118,10 @@ template <typename T> struct BinNode
     template <typename VST> void traverse_LO(VST& visit);       // 层次
 
     // 运算符重写
-    bool operator< ( BinNode const& bn ) {return data < bn.data;}
-    bool operator> ( BinNode const& bn ) {return data > bn.data;}
-    bool operator== ( BinNode const& bn ) {return data == bn.data;}
-    bool operator!= ( BinNode const& bn ) {return data != bn.data;}
+    bool operator<  (const BinNode& bn) {return this->data < bn.data;}
+    bool operator>  (const BinNode& bn) {return bn.data < this->data;}
+    bool operator== (const BinNode& bn) {return !(this->data < bn.data || bn.data < this->data);}
+    bool operator!= (const BinNode& bn) {return  (this->data < bn.data || bn.data < this->data);}
 
     //BinNodePtr<T> zig();                  // 顺时针旋转
     //BinNodePtr<T> zag();                  // 逆时针旋转
