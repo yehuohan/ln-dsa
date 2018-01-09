@@ -183,6 +183,7 @@ DSAS是数据结构与算法的学习过程。
 #include "share/rand.h"
 #include "share/time.h"
 #include "share/prime.h"
+#include "share/compare.h"
 
 #include "vector.h"
 #include "list.h"
