@@ -530,6 +530,17 @@ void test_hash()
     //cout << "free: " << ht.probe_free(113) << endl;
 
     dsa::HashTableList<dsa::String, int> hl;
+    hl.put("list", 100);
+    hl.put("hash", 55);
+    *hl.get("list") = 99;
+    hl["list"] = 88;
+    if (hl.get("list"))
+        cout << *hl.get("list") << endl;
+    if (hl.get("hash"))
+        cout << hl["hash"] << endl;
+    hl.remove("hash");
+    if (hl.get("hash"))
+        cout << *hl.get("hash") << endl;
 }
 
 void test_redblack()

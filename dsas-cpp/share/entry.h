@@ -28,7 +28,12 @@ namespace dsa
 /*!
  * @brief 词条类，实现元素的比较
  *
- * 通过比较函数CMP，实现比较运算符<,>,==,!=,>=,<=
+ * <pre>
+ *
+ * 作为Hash的单元节点，相对完整的实现了比较运算符，赋值运算符，拷贝构造函数。
+ * 其中，通过比较函数CMP，实现比较运算符<,>,==,!=,>=,<=。
+ *
+ * </pre>
  *
  */
 template <typename K, typename V, typename CMP = dsa::Less<K> >
@@ -40,6 +45,9 @@ struct Entry
 
     Entry(K _key = K(), V _value = V()) : key(_key), value(_value) {}
     Entry(const Entry<K,V,CMP>& e): key(e.key), value(e.value) {}
+
+    /** 重载= */
+    Entry<K,V,CMP>& operator= (const Entry<K,V,CMP>& e) {key = e.key; value = e.value; return *this;}
 
     /*!
      * @name 实现Entry之间的比较

@@ -103,7 +103,7 @@ private:
 
 protected:
     /** 沿查找链，查找是否已经存在key */
-    inline int probe_hit(K key)
+    inline int probe_hit(const K& key)
     {
 #if HASH_PROBE == HASH_PROBE_LINE
         return probe_line_hit(key);
@@ -112,7 +112,7 @@ protected:
 #endif
     }
     /** 沿查找链，查找可用空单元 */
-    inline int probe_free(K key)
+    inline int probe_free(const K& key)
     {
 #if HASH_PROBE == HASH_PROBE_LINE
         return probe_line_free(key);
@@ -165,15 +165,20 @@ private:
     int     m_size;         /**< 实际插入的键值对元素 */
     HF      hash_func;      /**< 计算Hash的函数 */
 
-protected:
-    /** 沿查找链，查找是否已经存在key */
-    int probe_hit(K key);
-    /** 沿查找链，查找可用空单元 */
-    int probe_free(K key);
-
 public:
     HashTableList(int n = 5);
-    ~HashTableList();
+    ~HashTableList() {delete[] this->m_ht;}
+
+    /** 重载[]，仿问和修改已有词条，不能插入词条 */
+    V& operator[] (const K key)
+    {
+        return (this->m_ht[this->hash_func(key) % this->m_cap].find(key)->data.value);
+    }
+    /** 重载[]，仿问已有词条，不能插入词条 */
+    const V& operator[] (const K key) const
+    {
+        return (this->m_ht[this->hash_func(key) % this->m_cap].find(key)->data.value);
+    }
 
     /** 获取键值对数量 */
     int     size() const {return this->m_size;}
@@ -417,6 +422,81 @@ int HashTable<K,V,HF,CMP>::probe_quad_free(const K& key)
     return r;
 }
 
+
+/*!
+ * @brief 创建散列表
+ *
+ * 这里使用dsa::prime_1048576来生成不小于n的素数。
+ * 故创建散列表时，容量不应超过1048576，否则无法生成正确的素数。
+ *
+ * @param n: 散列表容量为 >= n 的素数
+ * @return
+ * @retval None
+ */
+template <typename K, typename V, typename HF, typename CMP>
+HashTableList<K,V,HF,CMP>::HashTableList(int n)
+{
+    this->m_cap = dsa::prime_1048576(n);
+    this->m_size = 0;
+    this->m_ht = new dsa::List<dsa::Entry<K,V,CMP> >[this->m_cap];
+}
+
+/*!
+ * @brief 插入字典键-值对
+ *
+ * @param key: 待插入的键
+ * @param val: 待插入的值
+ * @return
+ * @retval None
+ */
+template <typename K, typename V, typename HF, typename CMP>
+bool HashTableList<K,V,HF,CMP>::put(K key, V val)
+{
+    int r = this->hash_func(key) % this->m_cap;
+    // 已存在key，放弃插入key-val
+    if (m_ht[r].find(key))
+        return false;
+    this->m_ht[r].push_back(dsa::Entry<K,V,CMP>(key,val));
+    this->m_size ++;
+    return true;
+}
+
+/*!
+ * @brief 根据键获取或修改值
+ *
+ * 在修改值前，需要判断返回的指针不为nullptr。
+ *
+ * @param key: 键
+ * @return 返回对应key-value的指针，或nullptr
+ * @retval None
+ */
+template <typename K, typename V, typename HF, typename CMP>
+V* HashTableList<K,V,HF,CMP>::get(K key)
+{
+    int r = this->hash_func(key) % this->m_cap;
+    dsa::ListNodePtr<dsa::Entry<K,V,CMP> > node = this->m_ht[r].find(key);
+    return node ? &(node->data.value) : nullptr;
+}
+
+/*!
+ * @brief 根据键删除值
+ *
+ * @param key: 键
+ * @return 返回删除成功与否的结果
+ * @retval None
+ */
+template <typename K, typename V, typename HF, typename CMP>
+bool HashTableList<K,V,HF,CMP>::remove(K key)
+{
+    int r = this->hash_func(key) % this->m_cap;
+    dsa::ListNodePtr<dsa::Entry<K,V,CMP> > node = this->m_ht[r].find(key);
+    // 若不存在key，则放弃删除
+    if (!node)
+        return false;
+    this->m_ht[r].remove(node);
+    this->m_size --;
+    return true;
+}
 
 } /* dsa */
 
