@@ -110,17 +110,17 @@ public:
     /** 重载[]，没有边界检测，不能修改m_ch */
     const char& operator[] (int k) const {return this->m_ch[k];}
     /** 重载< */
-    bool operator< (const String& str) const {return (str_cmp(this->m_ch, str.data()) == -1);}
+    bool operator< (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == -1);}
     /** 重载> */
-    bool operator> (const String& str) const {return (str_cmp(this->m_ch, str.data()) == 1);}
+    bool operator> (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == 1);}
     /** 重载== */
-    bool operator== (const String& str) const {return (str_cmp(this->m_ch, str.data()) == 0);}
+    bool operator== (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == 0);}
     /** 重载!= */
-    bool operator!= (const String& str) const {return (str_cmp(this->m_ch, str.data()) != 0);}
+    bool operator!= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) != 0);}
     /** 重载<= */
-    bool operator<= (const String& str) const {return (str_cmp(this->m_ch, str.data()) <= 0);}
+    bool operator<= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) <= 0);}
     /** 重载>= */
-    bool operator>= (const String& str) const {return (str_cmp(this->m_ch, str.data()) >= 0);}
+    bool operator>= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) >= 0);}
 
     /** 返回char指针，可以修改m_ch */
     char*   data() {return this->m_ch;}
