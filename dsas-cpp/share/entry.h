@@ -14,6 +14,8 @@
 #ifndef DSAS_ENTRY_H
 #define DSAS_ENTRY_H 
 
+#include "compare.h"
+
 namespace dsa
 {
 
@@ -26,24 +28,42 @@ namespace dsa
 /*!
  * @brief 词条类，实现元素的比较
  *
- * 键至少实现了 '<' 运算符
+ * 通过比较函数CMP，实现比较运算符<,>,==,!=,>=,<=
  *
  */
-template <typename K, typename V>
+template <typename K, typename V, typename CMP = dsa::Less<K> >
 struct Entry
 {
-    K key;
-    V value;
+    K   key;        /**< 键 */
+    V   value;      /**< 值 */
+    CMP cmp;        /**< 比较函数 */
 
     Entry(K _key = K(), V _value = V()) : key(_key), value(_value) {}
-    Entry(const Entry<K,V>& e): key(e.key), value(e.value) {}
+    Entry(const Entry<K,V,CMP>& e): key(e.key), value(e.value) {}
 
-    bool operator<  (const Entry<K,V>& e) const {return this->key < e.key;}
-    bool operator>  (const Entry<K,V>& e) const {return e.key < this->key;}
-    bool operator== (const Entry<K,V>& e) const {return !(this->key < e.key || e.key < this->key);}
-    bool operator!= (const Entry<K,V>& e) const {return  (this->key < e.key || e.key < this->key);}
-    bool operator<= (const Entry<K,V>& e) const {return (*this < e || *this == e);}
-    bool operator>= (const Entry<K,V>& e) const {return (*this > e || *this == e);}
+    /*!
+     * @name 实现Entry之间的比较
+     * @{
+     */
+    bool operator<  (const Entry<K,V,CMP>& e) const {return cmp(key, e.key);}
+    bool operator>  (const Entry<K,V,CMP>& e) const {return cmp(e.key, key);}
+    bool operator== (const Entry<K,V,CMP>& e) const {return !(cmp(key, e.key) || cmp(e.key, key));}
+    bool operator!= (const Entry<K,V,CMP>& e) const {return  (cmp(key, e.key) || cmp(e.key, key));}
+    bool operator<= (const Entry<K,V,CMP>& e) const {return (*this < e || *this == e);}
+    bool operator>= (const Entry<K,V,CMP>& e) const {return (*this > e || *this == e);}
+    /*! @} */
+
+    /*!
+     * @name 实现Entry与key之间的比较
+     * @{
+     */
+    bool operator<  (const K& e) const {return cmp(key, e);}
+    bool operator>  (const K& e) const {return cmp(e, key);}
+    bool operator== (const K& e) const {return !(cmp(key, e) || cmp(e, key));}
+    bool operator!= (const K& e) const {return  (cmp(key, e) || cmp(e, key));}
+    bool operator<= (const K& e) const {return (*this < e || *this == e);}
+    bool operator>= (const K& e) const {return (*this > e || *this == e);}
+    /*! @} */
 };
 
 /*! @} */
