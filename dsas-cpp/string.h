@@ -26,6 +26,7 @@ namespace dsa
 
 int     str_cpy(char*, const char*, int);
 int     str_len(const char*);
+int     str_cmp(const char*, const char*);
 void    str_set(const char*, char, int);
 
 int     match_bf1(char* P, char* T);
@@ -108,6 +109,18 @@ public:
     char& operator[] (int k) {return this->m_ch[k];}
     /** 重载[]，没有边界检测，不能修改m_ch */
     const char& operator[] (int k) const {return this->m_ch[k];}
+    /** 重载< */
+    bool operator< (const String& str) const {return (str_cmp(this->m_ch, str.data()) == -1);}
+    /** 重载> */
+    bool operator> (const String& str) const {return (str_cmp(this->m_ch, str.data()) == 1);}
+    /** 重载== */
+    bool operator== (const String& str) const {return (str_cmp(this->m_ch, str.data()) == 0);}
+    /** 重载!= */
+    bool operator!= (const String& str) const {return (str_cmp(this->m_ch, str.data()) != 0);}
+    /** 重载<= */
+    bool operator<= (const String& str) const {return (str_cmp(this->m_ch, str.data()) <= 0);}
+    /** 重载>= */
+    bool operator>= (const String& str) const {return (str_cmp(this->m_ch, str.data()) >= 0);}
 
     /** 返回char指针，可以修改m_ch */
     char*   data() {return this->m_ch;}
@@ -166,6 +179,31 @@ int str_len(const char* str)
 }
 
 /*!
+ * @brief 字串符比较
+ *
+ * @param a,b: 待比较的字符串
+ * @return
+ * @retval 1: a > b
+ * @retval 0: a == b
+ * @retval -1: a < b
+ */
+int str_cmp(const char* a, const char* b)
+{
+    // 无论哪个先到达'\0'，均会因 *a != *b 退出循环
+    while(*a && *a == *b)
+    {
+        a++;
+        b++;
+    }
+
+    if (*(unsigned char*)a > *(unsigned char*)b)
+        return 1;
+    if (*(unsigned char*)a < *(unsigned char*)b)
+        return -1;
+    return 0;
+}
+
+/*!
  * @brief 填充字符串
  *
  * @param str: 待填充的字符串
@@ -179,6 +217,7 @@ void str_set(char* str, char ch, int size)
     for (int k = 0; k < size; k ++)
         *(str + k) = ch;
 }
+
 
 /*!
  * @brief  蛮力匹配(Brute-force-1)
