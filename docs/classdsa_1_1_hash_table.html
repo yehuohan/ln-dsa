@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: dsa::HashTable&lt; K, V &gt; 模板类 参考</title>
+<title>DSAS: dsa::HashTable&lt; K, V, HF, CMP &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,10 +70,11 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pri-attribs">Private 属性</a> &#124;
 <a href="classdsa_1_1_hash_table-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
-<div class="title">dsa::HashTable&lt; K, V &gt; 模板类 参考<div class="ingroups"><a class="el" href="group___linear.html">Linear Struct</a> &raquo; <a class="el" href="group___l_hash.html">Hash Struct</a></div></div>  </div>
+<div class="title">dsa::HashTable&lt; K, V, HF, CMP &gt; 模板类 参考<div class="ingroups"><a class="el" href="group___linear.html">Linear Struct</a> &raquo; <a class="el" href="group___l_hash.html">Hash Struct</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -82,99 +83,114 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="hash_8h_source.html">hash.h</a>&gt;</code></p>
 <div class="dynheader">
-类 dsa::HashTable&lt; K, V &gt; 继承关系图:</div>
+类 dsa::HashTable&lt; K, V, HF, CMP &gt; 继承关系图:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classdsa_1_1_hash_table.png" usemap="#dsa::HashTable_3C_20K_2C_20V_20_3E_map" alt=""/>
-  <map id="dsa::HashTable_3C_20K_2C_20V_20_3E_map" name="dsa::HashTable_3C_20K_2C_20V_20_3E_map">
-<area href="structdsa_1_1_dict.html" title="字典接口类 " alt="dsa::Dict&lt; K, V &gt;" shape="rect" coords="0,0,148,24"/>
+  <img src="classdsa_1_1_hash_table.png" usemap="#dsa::HashTable_3C_20K_2C_20V_2C_20HF_2C_20CMP_20_3E_map" alt=""/>
+  <map id="dsa::HashTable_3C_20K_2C_20V_2C_20HF_2C_20CMP_20_3E_map" name="dsa::HashTable_3C_20K_2C_20V_2C_20HF_2C_20CMP_20_3E_map">
+<area href="structdsa_1_1_dict.html" title="字典接口类 " alt="dsa::Dict&lt; K, V &gt;" shape="rect" coords="0,0,211,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ace860a6df7b69caa6eb4394d96b10e12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#ace860a6df7b69caa6eb4394d96b10e12">HashTable</a> (int c=5)</td></tr>
-<tr class="memdesc:ace860a6df7b69caa6eb4394d96b10e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建散列表  <a href="#ace860a6df7b69caa6eb4394d96b10e12">更多...</a><br /></td></tr>
-<tr class="separator:ace860a6df7b69caa6eb4394d96b10e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a829dcab4eca82dd75120fed53210af"><td class="memItemLeft" align="right" valign="top"><a id="a2a829dcab4eca82dd75120fed53210af"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a2a829dcab4eca82dd75120fed53210af">size</a> () const</td></tr>
-<tr class="memdesc:a2a829dcab4eca82dd75120fed53210af"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取键值对数量 <br /></td></tr>
-<tr class="separator:a2a829dcab4eca82dd75120fed53210af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa7a0138f9f56e3375e987991a33213"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#acfa7a0138f9f56e3375e987991a33213">put</a> (K, V)</td></tr>
-<tr class="memdesc:acfa7a0138f9f56e3375e987991a33213"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入字典键-值对  <a href="#acfa7a0138f9f56e3375e987991a33213">更多...</a><br /></td></tr>
-<tr class="separator:acfa7a0138f9f56e3375e987991a33213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5049fe6b35bb1eae0204fbe7bb8f6448"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a5049fe6b35bb1eae0204fbe7bb8f6448">get</a> (K)</td></tr>
-<tr class="memdesc:a5049fe6b35bb1eae0204fbe7bb8f6448"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据键获取值  <a href="#a5049fe6b35bb1eae0204fbe7bb8f6448">更多...</a><br /></td></tr>
-<tr class="separator:a5049fe6b35bb1eae0204fbe7bb8f6448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20ba9c379237f6e600ae051d293d6ab8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a20ba9c379237f6e600ae051d293d6ab8">remove</a> (K)</td></tr>
-<tr class="memdesc:a20ba9c379237f6e600ae051d293d6ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据键删除值  <a href="#a20ba9c379237f6e600ae051d293d6ab8">更多...</a><br /></td></tr>
-<tr class="separator:a20ba9c379237f6e600ae051d293d6ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e3e2f1d4ef2a7cb3c79b7fb727f0e4"><td class="memItemLeft" align="right" valign="top"><a id="a46e3e2f1d4ef2a7cb3c79b7fb727f0e4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable</b> (int n=5)</td></tr>
+<tr class="separator:a46e3e2f1d4ef2a7cb3c79b7fb727f0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361297c89ebf9ffc1ccce1ecce88139a"><td class="memItemLeft" align="right" valign="top">V &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a361297c89ebf9ffc1ccce1ecce88139a">operator[]</a> (const K key)</td></tr>
+<tr class="separator:a361297c89ebf9ffc1ccce1ecce88139a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac166547244cac74a8ec98bb944c2a275"><td class="memItemLeft" align="right" valign="top">const V &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#ac166547244cac74a8ec98bb944c2a275">operator[]</a> (const K key) const</td></tr>
+<tr class="separator:ac166547244cac74a8ec98bb944c2a275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f1f4d2c6e629c44786c5fb1dd09264"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a79f1f4d2c6e629c44786c5fb1dd09264">size</a> () const</td></tr>
+<tr class="separator:a79f1f4d2c6e629c44786c5fb1dd09264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa198ebe81886c3ec92dc45546bb65646"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#aa198ebe81886c3ec92dc45546bb65646">put</a> (K, V)</td></tr>
+<tr class="memdesc:aa198ebe81886c3ec92dc45546bb65646"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入字典键-值对  <a href="#aa198ebe81886c3ec92dc45546bb65646">更多...</a><br /></td></tr>
+<tr class="separator:aa198ebe81886c3ec92dc45546bb65646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85fde9c6f236751de666218fd8e1e601"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a85fde9c6f236751de666218fd8e1e601">get</a> (K)</td></tr>
+<tr class="memdesc:a85fde9c6f236751de666218fd8e1e601"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据键获取或修改值  <a href="#a85fde9c6f236751de666218fd8e1e601">更多...</a><br /></td></tr>
+<tr class="separator:a85fde9c6f236751de666218fd8e1e601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a8bb4a1988d6a0b2c6ac6072d95698"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a91a8bb4a1988d6a0b2c6ac6072d95698">remove</a> (K)</td></tr>
+<tr class="memdesc:a91a8bb4a1988d6a0b2c6ac6072d95698"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据键删除值  <a href="#a91a8bb4a1988d6a0b2c6ac6072d95698">更多...</a><br /></td></tr>
+<tr class="separator:a91a8bb4a1988d6a0b2c6ac6072d95698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a4e6adcf5fcd5d1b81226c1c1492e6d67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a4e6adcf5fcd5d1b81226c1c1492e6d67">probe_hit</a> (K key)</td></tr>
+<tr class="separator:a4e6adcf5fcd5d1b81226c1c1492e6d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ecc0a6aaf3f658398fef26c25f543d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#ad9ecc0a6aaf3f658398fef26c25f543d">probe_free</a> (K key)</td></tr>
+<tr class="separator:ad9ecc0a6aaf3f658398fef26c25f543d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2b6bb8e349b792074f61896d41a618"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a6d2b6bb8e349b792074f61896d41a618">probe_line_hit</a> (const K &amp;)</td></tr>
+<tr class="memdesc:a6d2b6bb8e349b792074f61896d41a618"><td class="mdescLeft">&#160;</td><td class="mdescRight">线性试探，查看散列表是否已经存在key  <a href="#a6d2b6bb8e349b792074f61896d41a618">更多...</a><br /></td></tr>
+<tr class="separator:a6d2b6bb8e349b792074f61896d41a618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8420f8c259166eddaab7218b38f8a110"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a8420f8c259166eddaab7218b38f8a110">probe_line_free</a> (const K &amp;)</td></tr>
+<tr class="memdesc:a8420f8c259166eddaab7218b38f8a110"><td class="mdescLeft">&#160;</td><td class="mdescRight">线性试探，查找空单元用于插入新元素  <a href="#a8420f8c259166eddaab7218b38f8a110">更多...</a><br /></td></tr>
+<tr class="separator:a8420f8c259166eddaab7218b38f8a110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb68144c79476f5ac93ce94cbe66e3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#aceb68144c79476f5ac93ce94cbe66e3b">probe_quad_hit</a> (const K &amp;)</td></tr>
+<tr class="memdesc:aceb68144c79476f5ac93ce94cbe66e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">平方试探，查看散列表是否已经存在key  <a href="#aceb68144c79476f5ac93ce94cbe66e3b">更多...</a><br /></td></tr>
+<tr class="separator:aceb68144c79476f5ac93ce94cbe66e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a642639cdb7804d6fae9513e393e2b880"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a642639cdb7804d6fae9513e393e2b880">probe_quad_free</a> (const K &amp;)</td></tr>
+<tr class="memdesc:a642639cdb7804d6fae9513e393e2b880"><td class="mdescLeft">&#160;</td><td class="mdescRight">平方试探，查找空单元用于插入新元素  <a href="#a642639cdb7804d6fae9513e393e2b880">更多...</a><br /></td></tr>
+<tr class="separator:a642639cdb7804d6fae9513e393e2b880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa850f1d8a360f1a0b1e08c6b7b9d0202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#aa850f1d8a360f1a0b1e08c6b7b9d0202">init</a> (int)</td></tr>
+<tr class="memdesc:aa850f1d8a360f1a0b1e08c6b7b9d0202"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建散列表  <a href="#aa850f1d8a360f1a0b1e08c6b7b9d0202">更多...</a><br /></td></tr>
+<tr class="separator:aa850f1d8a360f1a0b1e08c6b7b9d0202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d56778eea266bba000e9be45550d2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#ab0d56778eea266bba000e9be45550d2f">rehash</a> ()</td></tr>
+<tr class="memdesc:ab0d56778eea266bba000e9be45550d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">重散列  <a href="#ab0d56778eea266bba000e9be45550d2f">更多...</a><br /></td></tr>
+<tr class="separator:ab0d56778eea266bba000e9be45550d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private 属性</h2></td></tr>
-<tr class="memitem:a19906f3c567f488c980280c41bf4d85e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a19906f3c567f488c980280c41bf4d85e">ht</a></td></tr>
-<tr class="separator:a19906f3c567f488c980280c41bf4d85e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a88c62d635ecabf91c21d1b02085329"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a6a88c62d635ecabf91c21d1b02085329">m_M</a></td></tr>
-<tr class="separator:a6a88c62d635ecabf91c21d1b02085329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98d06707a85e3c823e3714219c6693a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a98d06707a85e3c823e3714219c6693a3">m_N</a></td></tr>
-<tr class="separator:a98d06707a85e3c823e3714219c6693a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3ba66fef72e7da28b82b82ca443ab7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt; K, V, CMP &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#aed3ba66fef72e7da28b82b82ca443ab7">m_ht</a></td></tr>
+<tr class="separator:aed3ba66fef72e7da28b82b82ca443ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bdf7d825956daee264c5b3b41857a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#aa9bdf7d825956daee264c5b3b41857a4">m_cap</a></td></tr>
+<tr class="separator:aa9bdf7d825956daee264c5b3b41857a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61aa0bd8e6edc76f461da19b8808c5de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a61aa0bd8e6edc76f461da19b8808c5de">m_size</a></td></tr>
+<tr class="separator:a61aa0bd8e6edc76f461da19b8808c5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd1ee0e24ecf6bbfc74116b41015283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsa_1_1_bitmap.html">dsa::Bitmap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#accd1ee0e24ecf6bbfc74116b41015283">lazy_rm</a></td></tr>
+<tr class="separator:accd1ee0e24ecf6bbfc74116b41015283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934f12a815c1a015385a9b50133698f5"><td class="memItemLeft" align="right" valign="top">HF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a934f12a815c1a015385a9b50133698f5">hash_func</a></td></tr>
+<tr class="separator:a934f12a815c1a015385a9b50133698f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><h3>template&lt;typename K, typename V&gt;<br />
-class dsa::HashTable&lt; K, V &gt;</h3>
+<div class="textblock"><h3>template&lt;typename K, typename V, typename HF = dsa::Hash&lt;K&gt;, typename CMP = dsa::Less&lt;K&gt;&gt;<br />
+class dsa::HashTable&lt; K, V, HF, CMP &gt;</h3>
 
 <p>散列表模板类 </p>
-<p>装填因子： N/M </p>
-</div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="ace860a6df7b69caa6eb4394d96b10e12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace860a6df7b69caa6eb4394d96b10e12">&#9670;&nbsp;</a></span>HashTable()</h2>
+<pre>
+装填因子： N/M = size/cap</pre><pre>冲突
+(1): 使用链表
+[*]
+[*]-[*]
+[*]-[*]-[*]
+[*]
+[*]-[*]
+每一个单元存储一个链表，冲突的单元属于同一个链表。
+使用链表可以解决任意冲突；
+但 空间分配不连续，系统缓存几乎失效。</pre><pre>(2): 线性试探
+[*][*][*][*][*][*][*][*]
+ 1  2  3
+当1号单元冲突，则试探2号，3号···，直至遇到空单元。
+试探的单元，就形成了一个线性试探的查找链。
+这样空间分配连续，可充分利用系统缓存；
+但 可能导致冲突增多。</pre><pre>(3): 平方试探
+类似于线性试探，只是试探的距离用平方距离，即 1,4,9......
+当有冲突时，平方试探可以快速跳离冲突聚集的地方；
+但 平方试探不一定能试探所有的单元，会造成有些空单元利用不到。</pre><pre>(4): 双向平方试探
+基于平方试控，不过试控距离变成 1, -1, 4, -4, 9, -9......
+散列容量取为 M = 4k+3 的素数，可以保证双平方试探的查找链的前 M 项均互异。</pre><pre></pre> </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a85fde9c6f236751de666218fd8e1e601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85fde9c6f236751de666218fd8e1e601">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::<a class="el" href="classdsa_1_1_hash_table.html">HashTable</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>c</em> = <code>5</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>创建散列表 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>散列表的大小为 &gt;= c 素数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd></dd></dl>
-<dl class="retval"><dt>返回值</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">成员函数说明</h2>
-<a id="a5049fe6b35bb1eae0204fbe7bb8f6448"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5049fe6b35bb1eae0204fbe7bb8f6448">&#9670;&nbsp;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">V * <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::get </td>
+          <td class="memname">V * <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::get </td>
           <td>(</td>
           <td class="paramtype">K&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
@@ -188,7 +204,213 @@ template&lt;typename K , typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>根据键获取值 </p>
+<p>根据键获取或修改值 </p>
+<p>在修改值前，需要判断返回的指针不为nullptr。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回对应key-value的指针，或nullptr </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="structdsa_1_1_dict.html">dsa::Dict&lt; K, V &gt;</a>.</p>
+
+</div>
+</div>
+<a id="aa850f1d8a360f1a0b1e08c6b7b9d0202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa850f1d8a360f1a0b1e08c6b7b9d0202">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>创建散列表 </p>
+<p>这里使用dsa::prime_1048576来生成不小于n的素数。 故创建散列表时，容量不应超过1048576，否则无法生成正确的素数。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>散列表容量为 &gt;= n 的素数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a361297c89ebf9ffc1ccce1ecce88139a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361297c89ebf9ffc1ccce1ecce88139a">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V&amp; <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const K&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载[]，仿问和修改已有词条，不能插入词条 </p>
+
+</div>
+</div>
+<a id="ac166547244cac74a8ec98bb944c2a275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac166547244cac74a8ec98bb944c2a275">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const V&amp; <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const K&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载[]，仿问已有词条，不能插入词条 </p>
+
+</div>
+</div>
+<a id="ad9ecc0a6aaf3f658398fef26c25f543d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ecc0a6aaf3f658398fef26c25f543d">&#9670;&nbsp;</a></span>probe_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_free </td>
+          <td>(</td>
+          <td class="paramtype">K&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>沿查找链，查找可用空单元 </p>
+
+</div>
+</div>
+<a id="a4e6adcf5fcd5d1b81226c1c1492e6d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6adcf5fcd5d1b81226c1c1492e6d67">&#9670;&nbsp;</a></span>probe_hit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_hit </td>
+          <td>(</td>
+          <td class="paramtype">K&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>沿查找链，查找是否已经存在key </p>
+
+</div>
+</div>
+<a id="a8420f8c259166eddaab7218b38f8a110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8420f8c259166eddaab7218b38f8a110">&#9670;&nbsp;</a></span>probe_line_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_line_free </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>线性试探，查找空单元用于插入新元素 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">key</td><td>键 </td></tr>
@@ -203,23 +425,158 @@ template&lt;typename K , typename V &gt; </div>
   </dd>
 </dl>
 
-<p>实现了 <a class="el" href="structdsa_1_1_dict.html">dsa::Dict&lt; K, V &gt;</a>.</p>
-
 </div>
 </div>
-<a id="acfa7a0138f9f56e3375e987991a33213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfa7a0138f9f56e3375e987991a33213">&#9670;&nbsp;</a></span>put()</h2>
+<a id="a6d2b6bb8e349b792074f61896d41a618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d2b6bb8e349b792074f61896d41a618">&#9670;&nbsp;</a></span>probe_line_hit()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::put </td>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_line_hit </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>线性试探，查看散列表是否已经存在key </p>
+<pre></pre><pre>无论散列表中是否已经存在key，均会返回一个下标r。
+(1) 当 m_ht[r] == nullptr时，说明散列表没有以key为键的单元（一定没有懒惰删除标记）；
+(2) 当 m_ht[r] != nullptr时，说明散列表已经有以key为键的单元（无论带有懒惰删除标记与否）；</pre><pre>Lazy_Removed标记    空单元
+        /           /
+[a][b][#][c][d][e][ ]
+ 0  1  2  3  4  5  6
+查找'f'，则返回 r = 6，表示散列表中还没有'f'；
+查找'e'，则返回 r = 5，表示'e'已经存在于散列表中；</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a642639cdb7804d6fae9513e393e2b880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a642639cdb7804d6fae9513e393e2b880">&#9670;&nbsp;</a></span>probe_quad_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_quad_free </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>平方试探，查找空单元用于插入新元素 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aceb68144c79476f5ac93ce94cbe66e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceb68144c79476f5ac93ce94cbe66e3b">&#9670;&nbsp;</a></span>probe_quad_hit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_quad_hit </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>平方试探，查看散列表是否已经存在key </p>
+<p>试探距离： 1, -1, 2^2, -2^2, 3^2, -3^2......</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>键 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa198ebe81886c3ec92dc45546bb65646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa198ebe81886c3ec92dc45546bb65646">&#9670;&nbsp;</a></span>put()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::put </td>
           <td>(</td>
           <td class="paramtype">K&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -263,19 +620,66 @@ template&lt;typename K , typename V &gt; </div>
 
 </div>
 </div>
-<a id="a20ba9c379237f6e600ae051d293d6ab8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20ba9c379237f6e600ae051d293d6ab8">&#9670;&nbsp;</a></span>remove()</h2>
+<a id="ab0d56778eea266bba000e9be45550d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d56778eea266bba000e9be45550d2f">&#9670;&nbsp;</a></span>rehash()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::remove </td>
+          <td class="memname">void <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::rehash </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重散列 </p>
+<pre>
+重散列算法：装填因子过大时，采取“逐一取出再插入”的朴素策略，对单元数组扩容。
+不可简单地（通过memcpy()）将原单元数组复制到新单元数组，否则存在两个问题：
+(1)会继承原有冲突；
+(2)可能导致查找链在后端断裂，即便为所有扩单元设置懒惰删除标志也无济于事；
+</pre><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a91a8bb4a1988d6a0b2c6ac6072d95698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a8bb4a1988d6a0b2c6ac6072d95698">&#9670;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF , typename CMP &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::remove </td>
           <td>(</td>
           <td class="paramtype">K&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
@@ -308,20 +712,50 @@ template&lt;typename K , typename V &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">类成员变量说明</h2>
-<a id="a19906f3c567f488c980280c41bf4d85e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19906f3c567f488c980280c41bf4d85e">&#9670;&nbsp;</a></span>ht</h2>
+<a id="a79f1f4d2c6e629c44786c5fb1dd09264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f1f4d2c6e629c44786c5fb1dd09264">&#9670;&nbsp;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt;K,V&gt;** <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::ht</td>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>获取键值对数量 </p>
+
+<p>实现了 <a class="el" href="structdsa_1_1_dict.html">dsa::Dict&lt; K, V &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a934f12a815c1a015385a9b50133698f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934f12a815c1a015385a9b50133698f5">&#9670;&nbsp;</a></span>hash_func</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HF <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::hash_func</td>
         </tr>
       </table>
   </td>
@@ -330,23 +764,48 @@ template&lt;typename K , typename V &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>散列容量数组，存放词条指针 </p>
+<p>计算Hash的函数 </p>
 
 </div>
 </div>
-<a id="a6a88c62d635ecabf91c21d1b02085329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a88c62d635ecabf91c21d1b02085329">&#9670;&nbsp;</a></span>m_M</h2>
+<a id="accd1ee0e24ecf6bbfc74116b41015283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd1ee0e24ecf6bbfc74116b41015283">&#9670;&nbsp;</a></span>lazy_rm</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::m_M</td>
+          <td class="memname"><a class="el" href="classdsa_1_1_bitmap.html">dsa::Bitmap</a>* <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::lazy_rm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>懒惰删除标记，保证查找链不会中断 </p>
+
+</div>
+</div>
+<a id="aa9bdf7d825956daee264c5b3b41857a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bdf7d825956daee264c5b3b41857a4">&#9670;&nbsp;</a></span>m_cap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::m_cap</td>
         </tr>
       </table>
   </td>
@@ -359,19 +818,44 @@ template&lt;typename K , typename V &gt; </div>
 
 </div>
 </div>
-<a id="a98d06707a85e3c823e3714219c6693a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98d06707a85e3c823e3714219c6693a3">&#9670;&nbsp;</a></span>m_N</h2>
+<a id="aed3ba66fef72e7da28b82b82ca443ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3ba66fef72e7da28b82b82ca443ab7">&#9670;&nbsp;</a></span>m_ht</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V &gt;::m_N</td>
+          <td class="memname"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt;K,V,CMP&gt;** <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::m_ht</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>散列容量数组，存放词条指针 </p>
+
+</div>
+</div>
+<a id="a61aa0bd8e6edc76f461da19b8808c5de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61aa0bd8e6edc76f461da19b8808c5de">&#9670;&nbsp;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typename CMP  = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::m_size</td>
         </tr>
       </table>
   </td>

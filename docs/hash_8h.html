@@ -69,7 +69,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a>  </div>
   <div class="headertitle">
 <div class="title">hash.h 文件参考</div>  </div>
 </div><!--header-->
@@ -78,6 +79,11 @@ $(function() {
 <p>散列结构  
 <a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="entry_8h_source.html">share/entry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="prime_8h_source.html">share/prime.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="compare_8h_source.html">share/compare.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="list_8h_source.html">list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bitmap_8h_source.html">bitmap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hash__func_8h_source.html">hash_func.h</a>&quot;</code><br />
 </div>
 <p><a href="hash_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
@@ -86,9 +92,30 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_dict.html">dsa::Dict&lt; K, V &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">字典接口类  <a href="structdsa_1_1_dict.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable&lt; K, V &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable&lt; K, V, HF, CMP &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">散列表模板类  <a href="classdsa_1_1_hash_table.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table_list.html">dsa::HashTableList&lt; K, V, HF, CMP &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">散列表模板类  <a href="classdsa_1_1_hash_table_list.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ga08d122d7e9ee4b5597c3074817d45bef"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HASH_PROBE_LINE</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga08d122d7e9ee4b5597c3074817d45bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3c2e9da5affe9cbb86dfab6702da7be"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HASH_PROBE_QUAD</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:gaa3c2e9da5affe9cbb86dfab6702da7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34904365a4698959e8654dc78379e521"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HASH_PROBE</b>&#160;&#160;&#160;HASH_PROBE_QUAD</td></tr>
+<tr class="separator:ga34904365a4698959e8654dc78379e521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add63e014dc6f3e2deb0ed3bca19f3377"><td class="memItemLeft" align="right" valign="top"><a id="add63e014dc6f3e2deb0ed3bca19f3377"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>Is_Lazy_Removed</b>(x)&#160;&#160;&#160;(this-&gt;lazy_rm-&gt;test(x))</td></tr>
+<tr class="separator:add63e014dc6f3e2deb0ed3bca19f3377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98679f1bffef2253f3b4a8e7aed1eaff"><td class="memItemLeft" align="right" valign="top"><a id="a98679f1bffef2253f3b4a8e7aed1eaff"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>Mark_As_Removed</b>(x)&#160;&#160;&#160;(this-&gt;lazy_rm-&gt;set(x))</td></tr>
+<tr class="separator:a98679f1bffef2253f3b4a8e7aed1eaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>散列结构 </p>

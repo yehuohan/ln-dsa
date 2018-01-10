@@ -163,7 +163,7 @@ DSAS是数据结构与算法的学习过程。
 
 
 /*!
- * @defgroup Example Exapmles of dsas
+ * @defgroup Example Examples of dsas
  *
  * 数据结构的运用实例
  *

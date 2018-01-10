@@ -66,6 +66,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle">
@@ -75,9 +76,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry&lt; K, V &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_less.html">dsa::Less&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Less仿函数  <a href="structdsa_1_1_less.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry&lt; K, V, CMP &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">词条类，实现元素的比较  <a href="structdsa_1_1_entry.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ga41dc8e0d33e7b6c0e0a1f8bb20ad27c1"><td class="memItemLeft" align="right" valign="top"><a id="ga41dc8e0d33e7b6c0e0a1f8bb20ad27c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PRIME_MAX_1048576</b>&#160;&#160;&#160;1048576</td></tr>
+<tr class="separator:ga41dc8e0d33e7b6c0e0a1f8bb20ad27c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 类型定义</h2></td></tr>
@@ -88,6 +98,30 @@ typedef clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga4aa8754766d09021d3911ead70593d80">dsa::less_than</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga4aa8754766d09021d3911ead70593d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga99e01e6a650b4178c8c2b1f9df839597">dsa::greater_than</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga030aac375776f52d8a661a93d2d543ac">dsa::is_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga030aac375776f52d8a661a93d2d543ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga55c807166fb4bed5e6fb85196892b7c8">dsa::not_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#ga80e2f3f8af6048f241cdff6fa13d2d74">dsa::prime_file</a> (int low, int n, const char *file)</td></tr>
+<tr class="memdesc:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">查表法获取[low, n)内最最小素数  <a href="group___share.html#ga80e2f3f8af6048f241cdff6fa13d2d74">更多...</a><br /></td></tr>
+<tr class="separator:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2b4863f50b9f54fde7ddde051ce9d14"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#gaa2b4863f50b9f54fde7ddde051ce9d14">dsa::prime_array</a> (int low, int n, const char ch[], int size)</td></tr>
+<tr class="memdesc:gaa2b4863f50b9f54fde7ddde051ce9d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">查表法获取[low, n)内最最小素数  <a href="group___share.html#gaa2b4863f50b9f54fde7ddde051ce9d14">更多...</a><br /></td></tr>
+<tr class="separator:gaa2b4863f50b9f54fde7ddde051ce9d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9019001043560980aebe067989e291a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#gac9019001043560980aebe067989e291a">dsa::prime_1048576</a> (int low)</td></tr>
+<tr class="memdesc:gac9019001043560980aebe067989e291a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取[low, 1048576)内最最小素数  <a href="group___share.html#gac9019001043560980aebe067989e291a">更多...</a><br /></td></tr>
+<tr class="separator:gac9019001043560980aebe067989e291a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a0036b0d94dadcfd39539c8968a704c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#ga1a0036b0d94dadcfd39539c8968a704c">dsa::prime_1048576_4k3</a> (int low)</td></tr>
+<tr class="memdesc:ga1a0036b0d94dadcfd39539c8968a704c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取[low, 1048576)内最最小的 4k+3 形式素数（模4余3的素数）  <a href="group___share.html#ga1a0036b0d94dadcfd39539c8968a704c">更多...</a><br /></td></tr>
+<tr class="separator:ga1a0036b0d94dadcfd39539c8968a704c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacba752a0e03cb89109c7a60c426a72c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">dsa::rand_n</a> (int N)</td></tr>
 <tr class="memdesc:gacba752a0e03cb89109c7a60c426a72c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">返一个位于[0,n)随机数  <a href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">更多...</a><br /></td></tr>
 <tr class="separator:gacba752a0e03cb89109c7a60c426a72c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +217,335 @@ typedef clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">s,e</td><td>开始与结束的时间(ClockTime) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga99e01e6a650b4178c8c2b1f9df839597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99e01e6a650b4178c8c2b1f9df839597">&#9670;&nbsp;</a></span>greater_than()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::greater_than </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 &gt; </p>
+
+</div>
+</div>
+<a id="ga030aac375776f52d8a661a93d2d543ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga030aac375776f52d8a661a93d2d543ac">&#9670;&nbsp;</a></span>is_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::is_equal </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 == </p>
+
+</div>
+</div>
+<a id="ga4aa8754766d09021d3911ead70593d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4aa8754766d09021d3911ead70593d80">&#9670;&nbsp;</a></span>less_than()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::less_than </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 &lt; </p>
+
+</div>
+</div>
+<a id="ga55c807166fb4bed5e6fb85196892b7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga55c807166fb4bed5e6fb85196892b7c8">&#9670;&nbsp;</a></span>not_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::not_equal </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 != </p>
+
+</div>
+</div>
+<a id="gac9019001043560980aebe067989e291a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9019001043560980aebe067989e291a">&#9670;&nbsp;</a></span>prime_1048576()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::prime_1048576 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取[low, 1048576)内最最小素数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>素数范围下界 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1a0036b0d94dadcfd39539c8968a704c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a0036b0d94dadcfd39539c8968a704c">&#9670;&nbsp;</a></span>prime_1048576_4k3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::prime_1048576_4k3 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取[low, 1048576)内最最小的 4k+3 形式素数（模4余3的素数） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>素数范围下界 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa2b4863f50b9f54fde7ddde051ce9d14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2b4863f50b9f54fde7ddde051ce9d14">&#9670;&nbsp;</a></span>prime_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::prime_array </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>ch</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>查表法获取[low, n)内最最小素数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low,n</td><td>素数范围 </td></tr>
+    <tr><td class="paramname">ch</td><td>保存素数的Bitmap数组 </td></tr>
+    <tr><td class="paramname">size</td><td>保存素数的Bitmap数组长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga80e2f3f8af6048f241cdff6fa13d2d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80e2f3f8af6048f241cdff6fa13d2d74">&#9670;&nbsp;</a></span>prime_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::prime_file </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>查表法获取[low, n)内最最小素数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low,n</td><td>素数范围 </td></tr>
+    <tr><td class="paramname">file</td><td>保存素数的Bitmap文件 </td></tr>
   </table>
   </dd>
 </dl>

@@ -69,7 +69,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="#friends">友元</a> &#124;
 <a href="classdsa_1_1_string-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">dsa::String类 参考<div class="ingroups"><a class="el" href="group___linear.html">Linear Struct</a> &raquo; <a class="el" href="group___l_string.html">String</a></div></div>  </div>
@@ -81,20 +84,48 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="string_8h_source.html">string.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private 成员函数</h2></td></tr>
-<tr class="memitem:a70d6d7ddc3ea34011aac9bcc1f3fb65d"><td class="memItemLeft" align="right" valign="top"><a id="a70d6d7ddc3ea34011aac9bcc1f3fb65d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> ()</td></tr>
-<tr class="separator:a70d6d7ddc3ea34011aac9bcc1f3fb65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afacc6d24d53661e2276811f4ebb0e3b7"><td class="memItemLeft" align="right" valign="top"><a id="afacc6d24d53661e2276811f4ebb0e3b7"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>at</b> ()</td></tr>
-<tr class="separator:afacc6d24d53661e2276811f4ebb0e3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a3d64424dc6098f54daf7ffe1baa6ba35"><td class="memItemLeft" align="right" valign="top"><a id="a3d64424dc6098f54daf7ffe1baa6ba35"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (const char *str)</td></tr>
+<tr class="separator:a3d64424dc6098f54daf7ffe1baa6ba35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebeea98e65684462579eb7e06516ec1"><td class="memItemLeft" align="right" valign="top"><a id="a8ebeea98e65684462579eb7e06516ec1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str)</td></tr>
+<tr class="separator:a8ebeea98e65684462579eb7e06516ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5fffae5bf3820d6b7727e7be8545570"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#ab5fffae5bf3820d6b7727e7be8545570">operator[]</a> (int k)</td></tr>
+<tr class="separator:ab5fffae5bf3820d6b7727e7be8545570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a163b41dcc1e7d4cf421ba669b3e48d43"><td class="memItemLeft" align="right" valign="top">const char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a163b41dcc1e7d4cf421ba669b3e48d43">operator[]</a> (int k) const</td></tr>
+<tr class="separator:a163b41dcc1e7d4cf421ba669b3e48d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c7373f8215efcfd8e5cca98145ce85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a59c7373f8215efcfd8e5cca98145ce85">operator&lt;</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:a59c7373f8215efcfd8e5cca98145ce85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fca35d7d915d0081358a19e87c854c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a6fca35d7d915d0081358a19e87c854c6">operator&gt;</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:a6fca35d7d915d0081358a19e87c854c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c4bc07aeb7797f27be34e5abc7a543"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a90c4bc07aeb7797f27be34e5abc7a543">operator==</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:a90c4bc07aeb7797f27be34e5abc7a543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f9fd2f2d9ca0a7460cc71e2ba7cd40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a85f9fd2f2d9ca0a7460cc71e2ba7cd40">operator!=</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:a85f9fd2f2d9ca0a7460cc71e2ba7cd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad938504ab86c60dd48ad8338230f464a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#ad938504ab86c60dd48ad8338230f464a">operator&lt;=</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:ad938504ab86c60dd48ad8338230f464a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eae671abd6c7aa6343bf27767bbe810"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a8eae671abd6c7aa6343bf27767bbe810">operator&gt;=</a> (const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="separator:a8eae671abd6c7aa6343bf27767bbe810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50eff4ec8af129b9de3224a91284ab7"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#ab50eff4ec8af129b9de3224a91284ab7">data</a> ()</td></tr>
+<tr class="separator:ab50eff4ec8af129b9de3224a91284ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687a0547b2fea6bc6f05fda7d2d1c505"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a687a0547b2fea6bc6f05fda7d2d1c505">data</a> () const</td></tr>
+<tr class="separator:a687a0547b2fea6bc6f05fda7d2d1c505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95364a1b634c8ab0f2d8e2c08ca7955"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#af95364a1b634c8ab0f2d8e2c08ca7955">size</a> () const</td></tr>
+<tr class="separator:af95364a1b634c8ab0f2d8e2c08ca7955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987ad6bc14815cfa70de53ecf7cb9864"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a987ad6bc14815cfa70de53ecf7cb9864">at</a> (int k)</td></tr>
+<tr class="separator:a987ad6bc14815cfa70de53ecf7cb9864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87e3ee5fef9b320af5512ce7e2e9b1a"><td class="memItemLeft" align="right" valign="top">const char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#af87e3ee5fef9b320af5512ce7e2e9b1a">at</a> (int k) const</td></tr>
+<tr class="separator:af87e3ee5fef9b320af5512ce7e2e9b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6180cd668b22b820e542a9968ba22639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a6180cd668b22b820e542a9968ba22639">clear</a> ()</td></tr>
+<tr class="separator:a6180cd668b22b820e542a9968ba22639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf4de96d3a617f833585c0ce2b860b48"><td class="memItemLeft" align="right" valign="top"><a id="adf4de96d3a617f833585c0ce2b860b48"></a>
 <a class="el" href="classdsa_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>substr</b> (int i, int k)</td></tr>
 <tr class="separator:adf4de96d3a617f833585c0ce2b860b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af301e4995de00fff55d4fd24c62dbe0d"><td class="memItemLeft" align="right" valign="top"><a id="af301e4995de00fff55d4fd24c62dbe0d"></a>
-<a class="el" href="classdsa_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>prifix</b> (int k)</td></tr>
-<tr class="separator:af301e4995de00fff55d4fd24c62dbe0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdec803c23c43d41ef8f79bde374a83"><td class="memItemLeft" align="right" valign="top"><a id="a1fdec803c23c43d41ef8f79bde374a83"></a>
+<a class="el" href="classdsa_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>prefix</b> (int k)</td></tr>
+<tr class="separator:a1fdec803c23c43d41ef8f79bde374a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa45b4037b19408e830a43499c9563982"><td class="memItemLeft" align="right" valign="top"><a id="aa45b4037b19408e830a43499c9563982"></a>
 <a class="el" href="classdsa_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>suffix</b> (int k)</td></tr>
 <tr class="separator:aa45b4037b19408e830a43499c9563982"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,15 +135,592 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>at</b> ()</td></tr>
 <tr class="memitem:a88718032231691fcc5ba4884531f3eee"><td class="memItemLeft" align="right" valign="top"><a id="a88718032231691fcc5ba4884531f3eee"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>equal</b> ()</td></tr>
 <tr class="separator:a88718032231691fcc5ba4884531f3eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e8bd83e944d6b3c68cf0e4c50c5c28"><td class="memItemLeft" align="right" valign="top"><a id="a40e8bd83e944d6b3c68cf0e4c50c5c28"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>index</b> ()</td></tr>
-<tr class="separator:a40e8bd83e944d6b3c68cf0e4c50c5c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:ab05779a4076bc3a33b1476c5b155875b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#ab05779a4076bc3a33b1476c5b155875b">expand</a> ()</td></tr>
+<tr class="separator:ab05779a4076bc3a33b1476c5b155875b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a5ba7b25b938eee4d643a97f43c24e02d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a5ba7b25b938eee4d643a97f43c24e02d">m_ch</a></td></tr>
+<tr class="separator:a5ba7b25b938eee4d643a97f43c24e02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff9d2e97e4da624723cf660224ecc96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a2ff9d2e97e4da624723cf660224ecc96">m_cap</a></td></tr>
+<tr class="separator:a2ff9d2e97e4da624723cf660224ecc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095a21af39ae5215a4239af76611e26a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#a095a21af39ae5215a4239af76611e26a">m_size</a></td></tr>
+<tr class="separator:a095a21af39ae5215a4239af76611e26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:aa914a553da254101d26bf4037654378f"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#aa914a553da254101d26bf4037654378f">operator&lt;&lt;</a> (std::ostream &amp;out, <a class="el" href="classdsa_1_1_string.html">dsa::String</a> &amp;str)</td></tr>
+<tr class="separator:aa914a553da254101d26bf4037654378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85a890af028bcf920385f0c6ef618a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_string.html#ac85a890af028bcf920385f0c6ef618a6">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classdsa_1_1_string.html">dsa::String</a> &amp;str)</td></tr>
+<tr class="separator:ac85a890af028bcf920385f0c6ef618a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>字符串类 </p>
-<p>串</p>
-<p>相等： S[0,n) = T[0,m) 长度相等，且对应的字符相同 子串： substr(i,k) = S[i, i+k), 0&lt;= i &lt; n, 0 &lt;= k 从S[i]起的连续k个字符 前缀： prifix(k) = substr(0,k) = S[0,k), 0 &lt;= k &lt;= n 最靠前k个字符 后缀： suffix(k) = substr(n-k, k) = S[n-k, n), 0 &lt;= k &lt;= n 最靠后的k个字符 空串： S[0, n=0) </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+<pre>
+串</pre><pre>相等：
+     S[0,n) = T[0,m)
+     长度相等，且对应的字符相同
+子串：
+     substr(i,k) = S[i, i+k), 0&lt;= i &lt; n, 0 &lt;= k
+     从S[i]起的连续k个字符
+前缀：
+     prefix(k) = substr(0,k) = S[0,k), 0 &lt;= k &lt;= n
+     最靠前k个字符
+后缀：
+     suffix(k) = substr(n-k, k) = S[n-k, n), 0 &lt;= k &lt;= n
+     最靠后的k个字符
+空串：
+     S[0, n=0)
+</pre> </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a987ad6bc14815cfa70de53ecf7cb9864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987ad6bc14815cfa70de53ecf7cb9864">&#9670;&nbsp;</a></span>at() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char&amp; dsa::String::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回下标为k的char，没有边界检测，可以修改m_ch </p>
+
+</div>
+</div>
+<a id="af87e3ee5fef9b320af5512ce7e2e9b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af87e3ee5fef9b320af5512ce7e2e9b1a">&#9670;&nbsp;</a></span>at() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char&amp; dsa::String::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回下标为k的char，没有边界检测，不能修改m_ch </p>
+
+</div>
+</div>
+<a id="a6180cd668b22b820e542a9968ba22639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6180cd668b22b820e542a9968ba22639">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::String::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>清空字符串 </p>
+
+</div>
+</div>
+<a id="ab50eff4ec8af129b9de3224a91284ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50eff4ec8af129b9de3224a91284ab7">&#9670;&nbsp;</a></span>data() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* dsa::String::data </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回char指针，可以修改m_ch </p>
+
+</div>
+</div>
+<a id="a687a0547b2fea6bc6f05fda7d2d1c505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687a0547b2fea6bc6f05fda7d2d1c505">&#9670;&nbsp;</a></span>data() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* dsa::String::data </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回char常指针，不能修改m_ch </p>
+
+</div>
+</div>
+<a id="ab05779a4076bc3a33b1476c5b155875b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05779a4076bc3a33b1476c5b155875b">&#9670;&nbsp;</a></span>expand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsa::String::expand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>扩展内存容量 </p>
+
+</div>
+</div>
+<a id="a85f9fd2f2d9ca0a7460cc71e2ba7cd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f9fd2f2d9ca0a7460cc71e2ba7cd40">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载!= </p>
+
+</div>
+</div>
+<a id="a59c7373f8215efcfd8e5cca98145ce85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c7373f8215efcfd8e5cca98145ce85">&#9670;&nbsp;</a></span>operator<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载&lt; </p>
+
+</div>
+</div>
+<a id="ad938504ab86c60dd48ad8338230f464a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad938504ab86c60dd48ad8338230f464a">&#9670;&nbsp;</a></span>operator<=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载&lt;= </p>
+
+</div>
+</div>
+<a id="a90c4bc07aeb7797f27be34e5abc7a543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c4bc07aeb7797f27be34e5abc7a543">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载== </p>
+
+</div>
+</div>
+<a id="a6fca35d7d915d0081358a19e87c854c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fca35d7d915d0081358a19e87c854c6">&#9670;&nbsp;</a></span>operator>()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载&gt; </p>
+
+</div>
+</div>
+<a id="a8eae671abd6c7aa6343bf27767bbe810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eae671abd6c7aa6343bf27767bbe810">&#9670;&nbsp;</a></span>operator>=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::String::operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载&gt;= </p>
+
+</div>
+</div>
+<a id="ab5fffae5bf3820d6b7727e7be8545570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5fffae5bf3820d6b7727e7be8545570">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char&amp; dsa::String::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载[]，没有边界检测，可以修改m_ch </p>
+
+</div>
+</div>
+<a id="a163b41dcc1e7d4cf421ba669b3e48d43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a163b41dcc1e7d4cf421ba669b3e48d43">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char&amp; dsa::String::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载[]，没有边界检测，不能修改m_ch </p>
+
+</div>
+</div>
+<a id="af95364a1b634c8ab0f2d8e2c08ca7955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95364a1b634c8ab0f2d8e2c08ca7955">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::String::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>返回字符串长度，不包括'\0' </p>
+
+</div>
+</div>
+<h2 class="groupheader">友元及相关函数文档</h2>
+<a id="aa914a553da254101d26bf4037654378f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa914a553da254101d26bf4037654378f">&#9670;&nbsp;</a></span>operator<< <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_string.html">dsa::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载输出(&lt;&lt;)运算符 </p>
+
+</div>
+</div>
+<a id="ac85a890af028bcf920385f0c6ef618a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85a890af028bcf920385f0c6ef618a6">&#9670;&nbsp;</a></span>operator<< <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdsa_1_1_string.html">dsa::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载输出(&lt;&lt;)运算符 </p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a2ff9d2e97e4da624723cf660224ecc96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff9d2e97e4da624723cf660224ecc96">&#9670;&nbsp;</a></span>m_cap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::String::m_cap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>字符串容量 </p>
+
+</div>
+</div>
+<a id="a5ba7b25b938eee4d643a97f43c24e02d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba7b25b938eee4d643a97f43c24e02d">&#9670;&nbsp;</a></span>m_ch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* dsa::String::m_ch</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>保存char的内存 </p>
+
+</div>
+</div>
+<a id="a095a21af39ae5215a4239af76611e26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095a21af39ae5215a4239af76611e26a">&#9670;&nbsp;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsa::String::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>字符串长度，不包括'\0' </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>dsas-cpp/<a class="el" href="string_8h_source.html">string.h</a></li>
 </ul>
 </div><!-- contents -->

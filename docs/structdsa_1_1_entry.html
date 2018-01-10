@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DSAS: dsa::Entry&lt; K, V &gt; 模板结构体 参考</title>
+<title>DSAS: dsa::Entry&lt; K, V, CMP &gt; 模板结构体 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="structdsa_1_1_entry-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
-<div class="title">dsa::Entry&lt; K, V &gt; 模板结构体 参考<div class="ingroups"><a class="el" href="group___share.html">Share Data and Struct</a></div></div>  </div>
+<div class="title">dsa::Entry&lt; K, V, CMP &gt; 模板结构体 参考<div class="ingroups"><a class="el" href="group___share.html">Share Data and Struct</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -84,40 +84,119 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a05bb7434252cfd619db4dceffab02990"><td class="memItemLeft" align="right" valign="top"><a id="a05bb7434252cfd619db4dceffab02990"></a>
+<tr class="memitem:ae6a5d24133c26734a5ba22a51d37efae"><td class="memItemLeft" align="right" valign="top"><a id="ae6a5d24133c26734a5ba22a51d37efae"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Entry</b> (K _key=K(), V _value=V())</td></tr>
-<tr class="separator:a05bb7434252cfd619db4dceffab02990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbaf6cd964a0c654fef927f365f2c29e"><td class="memItemLeft" align="right" valign="top"><a id="acbaf6cd964a0c654fef927f365f2c29e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Entry</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; &amp;e)</td></tr>
-<tr class="separator:acbaf6cd964a0c654fef927f365f2c29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5d68505ea86952cf49088d183165f29"><td class="memItemLeft" align="right" valign="top"><a id="ae5d68505ea86952cf49088d183165f29"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; &amp;e) const</td></tr>
-<tr class="separator:ae5d68505ea86952cf49088d183165f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9bd50185a9026f973cad5c479888b0b"><td class="memItemLeft" align="right" valign="top"><a id="ab9bd50185a9026f973cad5c479888b0b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; &amp;e) const</td></tr>
-<tr class="separator:ab9bd50185a9026f973cad5c479888b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c3adf7fb2d2c7fe255ccdfc5da40bca"><td class="memItemLeft" align="right" valign="top"><a id="a5c3adf7fb2d2c7fe255ccdfc5da40bca"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; &amp;e) const</td></tr>
-<tr class="separator:a5c3adf7fb2d2c7fe255ccdfc5da40bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fd0d9df42ea583ba1fec32bea5f6853"><td class="memItemLeft" align="right" valign="top"><a id="a6fd0d9df42ea583ba1fec32bea5f6853"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V &gt; &amp;e) const</td></tr>
-<tr class="separator:a6fd0d9df42ea583ba1fec32bea5f6853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae6a5d24133c26734a5ba22a51d37efae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612876140568f9d7402884d6ba2b3cb8"><td class="memItemLeft" align="right" valign="top"><a id="a612876140568f9d7402884d6ba2b3cb8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Entry</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e)</td></tr>
+<tr class="separator:a612876140568f9d7402884d6ba2b3cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">实现Entry之间的比较</div></td></tr>
+<tr class="memitem:a694e983e1b291c95ac96cc03d56f5db4"><td class="memItemLeft" align="right" valign="top"><a id="a694e983e1b291c95ac96cc03d56f5db4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:a694e983e1b291c95ac96cc03d56f5db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6848231dea334a8cf7409a54dfab28"><td class="memItemLeft" align="right" valign="top"><a id="a1c6848231dea334a8cf7409a54dfab28"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:a1c6848231dea334a8cf7409a54dfab28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785d206aeeaeaf98f31d56e7b4075294"><td class="memItemLeft" align="right" valign="top"><a id="a785d206aeeaeaf98f31d56e7b4075294"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:a785d206aeeaeaf98f31d56e7b4075294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5fc72d3223cff1cfdbb2fe49f8e842e"><td class="memItemLeft" align="right" valign="top"><a id="af5fc72d3223cff1cfdbb2fe49f8e842e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:af5fc72d3223cff1cfdbb2fe49f8e842e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35743c8ecd279fa5d460c936b488548c"><td class="memItemLeft" align="right" valign="top"><a id="a35743c8ecd279fa5d460c936b488548c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:a35743c8ecd279fa5d460c936b488548c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f4ba95438a558f25d23212cb8ce6a3"><td class="memItemLeft" align="right" valign="top"><a id="a04f4ba95438a558f25d23212cb8ce6a3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
+<tr class="separator:a04f4ba95438a558f25d23212cb8ce6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">实现Entry与key之间的比较</div></td></tr>
+<tr class="memitem:a193677edf02320aad5719add7ff243f7"><td class="memItemLeft" align="right" valign="top"><a id="a193677edf02320aad5719add7ff243f7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const K &amp;e) const</td></tr>
+<tr class="separator:a193677edf02320aad5719add7ff243f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c0f945a341c1e6825a7e4b8bced1ec"><td class="memItemLeft" align="right" valign="top"><a id="a91c0f945a341c1e6825a7e4b8bced1ec"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const K &amp;e) const</td></tr>
+<tr class="separator:a91c0f945a341c1e6825a7e4b8bced1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c1e426cd219068d0aeec063ee51d2d"><td class="memItemLeft" align="right" valign="top"><a id="a10c1e426cd219068d0aeec063ee51d2d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const K &amp;e) const</td></tr>
+<tr class="separator:a10c1e426cd219068d0aeec063ee51d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb070b21e6046a0d48ca34341691b48"><td class="memItemLeft" align="right" valign="top"><a id="abbb070b21e6046a0d48ca34341691b48"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const K &amp;e) const</td></tr>
+<tr class="separator:abbb070b21e6046a0d48ca34341691b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf40c62fd4e9f644312b6a6e2011b8ed"><td class="memItemLeft" align="right" valign="top"><a id="acf40c62fd4e9f644312b6a6e2011b8ed"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const K &amp;e) const</td></tr>
+<tr class="separator:acf40c62fd4e9f644312b6a6e2011b8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab08edbddd74c24e81bee1f449aaf5df2"><td class="memItemLeft" align="right" valign="top"><a id="ab08edbddd74c24e81bee1f449aaf5df2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const K &amp;e) const</td></tr>
+<tr class="separator:ab08edbddd74c24e81bee1f449aaf5df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:adc5e074002ed1b12357597f958f3361f"><td class="memItemLeft" align="right" valign="top"><a id="adc5e074002ed1b12357597f958f3361f"></a>
-K&#160;</td><td class="memItemRight" valign="bottom"><b>key</b></td></tr>
-<tr class="separator:adc5e074002ed1b12357597f958f3361f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a9acec1e14edbbac1389e5778de2ef"><td class="memItemLeft" align="right" valign="top"><a id="ac4a9acec1e14edbbac1389e5778de2ef"></a>
-V&#160;</td><td class="memItemRight" valign="bottom"><b>value</b></td></tr>
-<tr class="separator:ac4a9acec1e14edbbac1389e5778de2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdeca295b5745c6c5c7b6bc0c5ffee86"><td class="memItemLeft" align="right" valign="top">K&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html#acdeca295b5745c6c5c7b6bc0c5ffee86">key</a></td></tr>
+<tr class="separator:acdeca295b5745c6c5c7b6bc0c5ffee86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a644d9fc4e5078efc1d4b00a46469ed2a"><td class="memItemLeft" align="right" valign="top">V&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html#a644d9fc4e5078efc1d4b00a46469ed2a">value</a></td></tr>
+<tr class="separator:a644d9fc4e5078efc1d4b00a46469ed2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafddcdea505df3897ecb3f3e90f79d2b"><td class="memItemLeft" align="right" valign="top">CMP&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html#aafddcdea505df3897ecb3f3e90f79d2b">cmp</a></td></tr>
+<tr class="separator:aafddcdea505df3897ecb3f3e90f79d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><h3>template&lt;typename K, typename V&gt;<br />
-struct dsa::Entry&lt; K, V &gt;</h3>
+<div class="textblock"><h3>template&lt;typename K, typename V, typename CMP = dsa::Less&lt;K&gt;&gt;<br />
+struct dsa::Entry&lt; K, V, CMP &gt;</h3>
 
 <p>词条类，实现元素的比较 </p>
-</div><hr/>该结构体的文档由以下文件生成:<ul>
+<p>通过比较函数CMP，实现比较运算符&lt;,&gt;,==,!=,&gt;=,&lt;= </p>
+</div><h2 class="groupheader">类成员变量说明</h2>
+<a id="aafddcdea505df3897ecb3f3e90f79d2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafddcdea505df3897ecb3f3e90f79d2b">&#9670;&nbsp;</a></span>cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V, typename CMP = dsa::Less&lt;K&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CMP <a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt; K, V, CMP &gt;::cmp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>比较函数 </p>
+
+</div>
+</div>
+<a id="acdeca295b5745c6c5c7b6bc0c5ffee86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdeca295b5745c6c5c7b6bc0c5ffee86">&#9670;&nbsp;</a></span>key</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V, typename CMP = dsa::Less&lt;K&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">K <a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt; K, V, CMP &gt;::key</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>键 </p>
+
+</div>
+</div>
+<a id="a644d9fc4e5078efc1d4b00a46469ed2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644d9fc4e5078efc1d4b00a46469ed2a">&#9670;&nbsp;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V, typename CMP = dsa::Less&lt;K&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">V <a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt; K, V, CMP &gt;::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>值 </p>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
 <li>dsas-cpp/share/<a class="el" href="entry_8h_source.html">entry.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status',['status',['../structdsa_1_1_edge.html#a906553d6fcfe1c472baedf1bb94e0696',1,'dsa::Edge']]]
+  ['out_5fdeg',['out_deg',['../structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92',1,'dsa::Vertex']]]
 ];

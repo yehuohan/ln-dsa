@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['weight',['weight',['../structdsa_1_1_edge.html#a7858dfda97e0d18ae48946dd5539e1eb',1,'dsa::Edge']]]
+  ['table_5foptr_5fpriority',['table_optr_priority',['../_operator_calc_8h.html#aa5ed5c8e12e4a53aa3ad3971e581cb09',1,'OperatorCalc.cpp']]],
+  ['tailer',['tailer',['../classdsa_1_1_list.html#abe8e4d1ba218c350537cb26ec890170c',1,'dsa::List']]]
 ];

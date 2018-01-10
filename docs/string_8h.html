@@ -78,7 +78,8 @@ $(function() {
 
 <p>字符串相关算法  
 <a href="#details">更多...</a></p>
-
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+</div>
 <p><a href="string_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -89,9 +90,18 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gae20271e600a2cc9681f78fd4743b8acc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#gae20271e600a2cc9681f78fd4743b8acc">dsa::strlen</a> (const char *str)</td></tr>
-<tr class="memdesc:gae20271e600a2cc9681f78fd4743b8acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字符串长度  <a href="group___l_string.html#gae20271e600a2cc9681f78fd4743b8acc">更多...</a><br /></td></tr>
-<tr class="separator:gae20271e600a2cc9681f78fd4743b8acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3254d17e458aee902289230c7478a1d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#ga3254d17e458aee902289230c7478a1d7">dsa::str_cpy</a> (char *dst, const char *src, int size)</td></tr>
+<tr class="memdesc:ga3254d17e458aee902289230c7478a1d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">复制字符串  <a href="group___l_string.html#ga3254d17e458aee902289230c7478a1d7">更多...</a><br /></td></tr>
+<tr class="separator:ga3254d17e458aee902289230c7478a1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga491d25fb0d5de703f4521c634e40ad0a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#ga491d25fb0d5de703f4521c634e40ad0a">dsa::str_len</a> (const char *str)</td></tr>
+<tr class="memdesc:ga491d25fb0d5de703f4521c634e40ad0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取字符串长度  <a href="group___l_string.html#ga491d25fb0d5de703f4521c634e40ad0a">更多...</a><br /></td></tr>
+<tr class="separator:ga491d25fb0d5de703f4521c634e40ad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7b4693a68b6e8e1d70e33da467e4cca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#gaf7b4693a68b6e8e1d70e33da467e4cca">dsa::str_cmp</a> (const char *a, const char *b)</td></tr>
+<tr class="memdesc:gaf7b4693a68b6e8e1d70e33da467e4cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">字串符比较  <a href="group___l_string.html#gaf7b4693a68b6e8e1d70e33da467e4cca">更多...</a><br /></td></tr>
+<tr class="separator:gaf7b4693a68b6e8e1d70e33da467e4cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1ae19eca67854d01bd828b308b058bb"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>dsa::str_set</b> (const char *, char, int)</td></tr>
+<tr class="separator:gaf1ae19eca67854d01bd828b308b058bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7009fa633463e4403e3cad0478c6910a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#ga7009fa633463e4403e3cad0478c6910a">dsa::match_bf1</a> (char *P, char *T)</td></tr>
 <tr class="memdesc:ga7009fa633463e4403e3cad0478c6910a"><td class="mdescLeft">&#160;</td><td class="mdescRight">蛮力匹配(Brute-force-1)  <a href="group___l_string.html#ga7009fa633463e4403e3cad0478c6910a">更多...</a><br /></td></tr>
 <tr class="separator:ga7009fa633463e4403e3cad0478c6910a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +129,9 @@ $(function() {
 <tr class="memitem:ga50084b5c38e0a5e1edaf0ee7ce1df6b1"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#ga50084b5c38e0a5e1edaf0ee7ce1df6b1">dsa::build_gs</a> (char *P)</td></tr>
 <tr class="memdesc:ga50084b5c38e0a5e1edaf0ee7ce1df6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">建立gs表(good suffix)  <a href="group___l_string.html#ga50084b5c38e0a5e1edaf0ee7ce1df6b1">更多...</a><br /></td></tr>
 <tr class="separator:ga50084b5c38e0a5e1edaf0ee7ce1df6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga165589e2c87594f18a90fdd41cf1615b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_string.html#ga165589e2c87594f18a90fdd41cf1615b">dsa::str_set</a> (char *str, char ch, int size)</td></tr>
+<tr class="memdesc:ga165589e2c87594f18a90fdd41cf1615b"><td class="mdescLeft">&#160;</td><td class="mdescRight">填充字符串  <a href="group___l_string.html#ga165589e2c87594f18a90fdd41cf1615b">更多...</a><br /></td></tr>
+<tr class="separator:ga165589e2c87594f18a90fdd41cf1615b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>字符串相关算法 </p>

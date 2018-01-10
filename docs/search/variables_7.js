@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['out_5fdeg',['out_deg',['../structdsa_1_1_vertex.html#a5edfac0548b275e55a502a6e69dcfa92',1,'dsa::Vertex']]]
+  ['npl',['npl',['../structdsa_1_1_bin_node.html#aeebaecca40d483dc77902b89a44585bd',1,'dsa::BinNode']]]
 ];

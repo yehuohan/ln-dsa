@@ -1,6 +1,7 @@
 var searchData=
 [
   ['in_5fdeg',['in_deg',['../structdsa_1_1_vertex.html#a2bc22469ef2fed015d14afa9ddcc5834',1,'dsa::Vertex']]],
+  ['init',['init',['../classdsa_1_1_bitmap.html#a898f5d919a3179d0858a33951a4adacc',1,'dsa::Bitmap::init()'],['../classdsa_1_1_hash_table.html#aa850f1d8a360f1a0b1e08c6b7b9d0202',1,'dsa::HashTable::init()']]],
   ['insert',['insert',['../classdsa_1_1_avl_tree.html#a076403d09ec6f1cce2487f04938f4d7d',1,'dsa::AvlTree::insert()'],['../classdsa_1_1_b_tree.html#a6eb705bbcc108c26cf74c0d3e8ebc7f1',1,'dsa::BTree::insert()'],['../classdsa_1_1_bin_search_tree.html#a8259c762fad94beaaeb43539f3f4ea12',1,'dsa::BinSearchTree::insert()'],['../classdsa_1_1_pq_compl_heap.html#ade506d1990affff0c5fe20775de66f17',1,'dsa::PqComplHeap::insert()'],['../classdsa_1_1_pq_left_heap.html#a5dabf79883e0ce3818236a296bce6f17',1,'dsa::PqLeftHeap::insert()'],['../classdsa_1_1_pq_list.html#a7b9ad72c985faad0104dd25d82f06590',1,'dsa::PqList::insert()'],['../classdsa_1_1_red_black_tree.html#a0f4cb6f62c52508c459d411cb054285a',1,'dsa::RedBlackTree::insert()'],['../classdsa_1_1_splay_tree.html#a8f2ff4961a46439217f7e622cabf76ad',1,'dsa::SplayTree::insert()'],['../classdsa_1_1_vector.html#acd9a59b0207782fddf9aa3e6b58d583b',1,'dsa::Vector::insert()']]],
   ['insert_5fafter',['insert_after',['../classdsa_1_1_list.html#ae13d087dd166838b84d65ae484a2873b',1,'dsa::List']]],
   ['insert_5fbefore',['insert_before',['../classdsa_1_1_list.html#a080083b81f25b0892cb130d5aadb0b6a',1,'dsa::List']]],
@@ -13,8 +14,10 @@ var searchData=
   ['insert_5fvertex',['insert_vertex',['../classdsa_1_1_graph_matrix.html#abc53b1b2fcab4d8664c70f6a797abe4a',1,'dsa::GraphMatrix']]],
   ['insertion_5fsort',['insertion_sort',['../classdsa_1_1_list.html#a124c53bc7e6c0e16a59f1d6113095e7f',1,'dsa::List::insertion_sort()'],['../classdsa_1_1_vector.html#a006602443afd2fd5d12ba29dc018715e',1,'dsa::Vector::insertion_sort()']]],
   ['is_5fempty',['is_empty',['../classdsa_1_1_b_tree.html#a41fc8a7d078564acc2d30a8f7c8848bf',1,'dsa::BTree::is_empty()'],['../classdsa_1_1_array_queue.html#a47c50b7166ac87cdd89fb9098d6fe311',1,'dsa::ArrayQueue::is_empty()'],['../classdsa_1_1_vector.html#a380d702b235dccf64943ad7210ae3542',1,'dsa::Vector::is_empty()']]],
+  ['is_5fequal',['is_equal',['../group___share.html#ga030aac375776f52d8a661a93d2d543ac',1,'dsa']]],
   ['is_5ffull',['is_full',['../classdsa_1_1_array_queue.html#a57a217a0bbfaf8030d81fe6fe6b30ba6',1,'dsa::ArrayQueue']]],
   ['is_5fmajority',['is_majority',['../group___example.html#gace06e8353c66fdd16aa3fb5f756d949e',1,'dsa']]],
   ['is_5fvalid',['is_valid',['../classdsa_1_1_list.html#ae524a50303a42ce19c28f067cabc40a2',1,'dsa::List']]],
-  ['iterator',['Iterator',['../classdsa_1_1_list_1_1_iterator.html',1,'dsa::List']]]
+  ['iterator',['Iterator',['../classdsa_1_1_list_1_1_iterator.html',1,'dsa::List']]],
+  ['input_2ddata',['input-data',['../md_dsas-cpp_input-data_readme.html',1,'']]]
 ];
