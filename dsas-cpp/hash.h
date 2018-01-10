@@ -16,6 +16,7 @@
 
 #include "share/entry.h"
 #include "share/prime.h"
+#include "share/compare.h"
 #include "list.h"
 #include "bitmap.h"
 #include "hash_func.h"
@@ -84,11 +85,15 @@ struct Dict
  * </pre>
  *
  */
-template <typename K, typename V, typename HF=dsa::Hash<K> >
+template <
+    typename K,
+    typename V,
+    typename HF=dsa::Hash<K>,
+    typename CMP=dsa::Less<K> >
 class HashTable : public Dict<K, V>
 {
 private:
-    dsa::Entry<K,V>** m_ht; /**< 散列容量数组，存放词条指针 */
+    dsa::Entry<K,V,CMP>** m_ht; /**< 散列容量数组，存放词条指针 */
     int     m_cap;          /**< 散列容量 */
     int     m_size;         /**< 实际插入的键值对元素 */
     dsa::Bitmap* lazy_rm;   /**< 懒惰删除标记，保证查找链不会中断 */
@@ -147,11 +152,15 @@ public:
  * 使用链表解决冲突。
  *
  */
-template <typename K, typename V, typename HF=dsa::Hash<K> >
+template <
+    typename K,
+    typename V,
+    typename HF=dsa::Hash<K>,
+    typename CMP=dsa::Less<K> >
 class HashTableList : public Dict<K, V>
 {
 private:
-    dsa::List<dsa::Entry<K,V> >* m_ht; /**< 散列容量数组，存放词条指针 */
+    dsa::List<dsa::Entry<K,V,CMP> >* m_ht; /**< 散列容量数组，存放词条指针 */
     int     m_cap;          /**< 散列容量 */
     int     m_size;         /**< 实际插入的键值对元素 */
     HF      hash_func;      /**< 计算Hash的函数 */
@@ -176,8 +185,9 @@ public:
 
 /*! @} */
 
-template <typename K, typename V, typename HF>
-HashTable<K,V,HF>::~HashTable()
+
+template <typename K, typename V, typename HF, typename CMP>
+HashTable<K,V,HF,CMP>::~HashTable()
 {
     for (int k = 0; k < this->m_cap; k ++)
     {
@@ -198,8 +208,8 @@ HashTable<K,V,HF>::~HashTable()
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-void HashTable<K,V,HF>::init(int n)
+template <typename K, typename V, typename HF, typename CMP>
+void HashTable<K,V,HF,CMP>::init(int n)
 {
 #if HASH_PROBE == HASH_PROBE_LINE
     this->m_cap = dsa::prime_1048576(n);
@@ -207,7 +217,7 @@ void HashTable<K,V,HF>::init(int n)
     this->m_cap = dsa::prime_1048576_4k3(n);
 #endif
     this->m_size = 0;
-    this->m_ht = new dsa::Entry<K,V>*[this->m_cap];
+    this->m_ht = new dsa::Entry<K,V,CMP>*[this->m_cap];
     for (int k = 0; k < this->m_cap; k ++)
         this->m_ht[k] = nullptr;
     this->lazy_rm = new dsa::Bitmap(this->m_cap);
@@ -221,15 +231,15 @@ void HashTable<K,V,HF>::init(int n)
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-bool HashTable<K,V,HF>::put(K key, V val)
+template <typename K, typename V, typename HF, typename CMP>
+bool HashTable<K,V,HF,CMP>::put(K key, V val)
 {
     // 先检测key是否存在，若已存在key，则放弃插入key-val
     if (this->m_ht[this->probe_hit(key)])
         return false;
     // 试探出空单元，用于插入key-val
     uint index = this->probe_free(key);
-    this->m_ht[index] = new Entry<K,V>(key, val);
+    this->m_ht[index] = new Entry<K,V,CMP>(key, val);
     this->m_size ++;
     // 装填因子 >50% 时，重散列，保证恒有一定的空单元
     if (this->m_size * 2 > this->m_cap)
@@ -246,8 +256,8 @@ bool HashTable<K,V,HF>::put(K key, V val)
  * @return 返回对应key-value的指针，或nullptr
  * @retval None
  */
-template <typename K, typename V, typename HF>
-V* HashTable<K,V,HF>::get(K key)
+template <typename K, typename V, typename HF, typename CMP>
+V* HashTable<K,V,HF,CMP>::get(K key)
 {
     int index = this->probe_hit(key);
     // 若不存在key，则返回nullptr
@@ -261,8 +271,8 @@ V* HashTable<K,V,HF>::get(K key)
  * @return 返回删除成功与否的结果
  * @retval None
  */
-template <typename K, typename V, typename HF>
-bool HashTable<K,V,HF>::remove(K key)
+template <typename K, typename V, typename HF, typename CMP>
+bool HashTable<K,V,HF,CMP>::remove(K key)
 {
     // 先检测key是否存在，若不存在key，则放弃删除
     int index = this->probe_hit(key);
@@ -290,11 +300,11 @@ bool HashTable<K,V,HF>::remove(K key)
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-void HashTable<K,V,HF>::rehash()
+template <typename K, typename V, typename HF, typename CMP>
+void HashTable<K,V,HF,CMP>::rehash()
 {
     int old_cap = this->m_cap;
-    dsa::Entry<K,V>** old_ht = this->m_ht;
+    dsa::Entry<K,V,CMP>** old_ht = this->m_ht;
     // 重新初始化散列单元
     delete this->lazy_rm;
     this->init(2*old_cap);
@@ -329,8 +339,8 @@ void HashTable<K,V,HF>::rehash()
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-int HashTable<K,V,HF>::probe_line_hit(const K& key)
+template <typename K, typename V, typename HF, typename CMP>
+int HashTable<K,V,HF,CMP>::probe_line_hit(const K& key)
 {
     int r = this->hash_func(key) % this->m_cap;
     while((this->m_ht[r] && *(this->m_ht[r]) != key)    // 试探：跳过冲突的单元（优先跳过不为nullptr的单元）
@@ -348,8 +358,8 @@ int HashTable<K,V,HF>::probe_line_hit(const K& key)
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-int HashTable<K,V,HF>::probe_line_free(const K& key)
+template <typename K, typename V, typename HF, typename CMP>
+int HashTable<K,V,HF,CMP>::probe_line_free(const K& key)
 {
     int r = this->hash_func(key) % this->m_cap;
     while (this->m_ht[r])
@@ -366,8 +376,8 @@ int HashTable<K,V,HF>::probe_line_free(const K& key)
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-int HashTable<K,V,HF>::probe_quad_hit(const K& key)
+template <typename K, typename V, typename HF, typename CMP>
+int HashTable<K,V,HF,CMP>::probe_quad_hit(const K& key)
 {
     int i = this->hash_func(key) % this->m_cap;
     int r = i, s = 1;
@@ -390,8 +400,8 @@ int HashTable<K,V,HF>::probe_quad_hit(const K& key)
  * @return
  * @retval None
  */
-template <typename K, typename V, typename HF>
-int HashTable<K,V,HF>::probe_quad_free(const K& key)
+template <typename K, typename V, typename HF, typename CMP>
+int HashTable<K,V,HF,CMP>::probe_quad_free(const K& key)
 {
     int i = this->hash_func(key) % this->m_cap;
     int r = i, s = 1;
