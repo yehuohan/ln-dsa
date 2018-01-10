@@ -27,8 +27,8 @@ namespace dsa
  *
  */
 template <typename T> struct Less
-{
-    bool operator()(const T& lhs, const T& rhs) {return lhs < rhs;};
+{ 
+    bool operator() (const T& lhs, const T& rhs) const {return lhs < rhs;}
 };
 
 /** 用 < 实现 < */
