@@ -458,24 +458,71 @@ void test_bitmap()
             std::cout << k << "  ";
     }
     //bm.dump("test.txt");
-    
-    dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
+
+    //dsa::Bitmap ba("./dsas-cpp/input-data/prime-1048576-4k3-bitmap.txt", 1048576);
+    //FILE* fp = std::fopen("prime-1048576-4k3-bitmap.h", "w");
+    //std::fprintf(fp, "const char prime_1048576_4k3_bitmap[] = {\n");
+    //for (int k = 0; k < ba.m_len; k++)
+    //{
+    //    std::fprintf(fp, "0x%02x, ", ba.m_cap[k]);
+    //    if ((k + 1) % 100 == 0)
+    //        std::fprintf(fp, "\n");
+    //}
+    //std::fprintf(fp, "\n};");
+    //fclose(fp);
+
+    //dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-bitmap.txt", 1048576);
+    //dsa::Bitmap bp("./dsas-cpp/input-data/prime-1048576-4k3-bitmap.txt", 1048576);
+    dsa::Bitmap bp(sizeof(prime_1048576_bitmap)/sizeof(char), prime_1048576_4k3_bitmap);
     std::cout << "\nPrime: \n";
-    for (int k = 0; k < 49; k ++)
+    for (int k = 0; k < 1048576; k ++)
     {
         if (bp.test(k))
             std::cout << k << "  ";
     }
+    //bp.dump("prime-1048576-4k3-bitmap.txt");
     std::cout << endl;
     std::cout << "LP: " << dsa::prime_1048576(400000) << std::endl;
+    std::cout << "LP: " << dsa::prime_1048576_4k3(400000) << std::endl;
 }
 
 void test_hash()
 {
-    dsa::HashTable<char*, int> hs;
-    std::cout << hs.hash_func("hello") << std::endl;
-    std::cout << hs.hash_func("world") << std::endl;
-    std::cout << hs.hash_func("hello world") << std::endl;
+    dsa::HashTable<dsa::String, int> hs;
+    //dsa::HashTable<char*, int> hs(100);
+    //cout << "cap: " << hs.m_cap << endl;
+    //cout << hs.hash_func("what") << endl;
+    //cout << hs.hash_code("what") << endl;
+
+    hs.put("what", 1000);
+    if (hs.get("what"))
+    {
+        *hs.get("what") = 99;
+        cout << *hs.get("what") << endl;
+    }
+    if (hs.get("what"))
+    {
+        hs["what"] = 996;
+        cout << hs["what"] << endl;
+    }
+    hs.remove("what");
+    if (hs.get("what"))
+        cout << hs["what"] << endl;
+    else
+        cout << "No what\n";
+
+    dsa::HashTable<int, int> ht(100);
+    ht.put(10, 999);
+    ht.put(11, 777);
+    //cout << "hit: " << ht.probe_hit(113) << endl;
+    //cout << "free: " << ht.probe_free(113) << endl;
+    ht.put(113, 666);
+    cout << ht[10] << "-" << ht[11] << "-" << ht[113] << endl;
+    //cout << "hit: " << ht.probe_hit(113) << endl;
+    //cout << "free: " << ht.probe_free(113) << endl;
+    ht.remove(113);
+    //cout << "hit: " << ht.probe_hit(113) << endl;
+    //cout << "free: " << ht.probe_free(113) << endl;
 }
 
 void test_redblack()
