@@ -121,7 +121,12 @@ void test_list()
     lst_i.traverse(print_node);
     cout << endl;
 
-    dsa::ListNodePtr<int> f = lst_i.find(9020, lst_i.size(), lst_i.back()->next);
+    dsa::ListIterator<int> iter;
+    for (iter = lst_i.begin(); iter != lst_i.end(); iter ++)
+    {
+    }
+
+    dsa::ListNodePtr<int> f = lst_i.find(9020);
     cout << "Find: ";
     lst_i.is_valid(f) ? (cout << f->data) : cout << "nullptr";
     cout << endl;
@@ -523,6 +528,8 @@ void test_hash()
     ht.remove(113);
     //cout << "hit: " << ht.probe_hit(113) << endl;
     //cout << "free: " << ht.probe_free(113) << endl;
+
+    dsa::HashTableList<dsa::String, int> hl;
 }
 
 void test_redblack()

@@ -97,14 +97,22 @@ class Iterator
 public:
     Iterator(ListNodePtr<T> node = nullptr){this->m_cur = node;}
 
+    /** 重载*，获取List节点数据 */
     T operator*(){return this->m_cur->data;}
 
-    // 前置++/--
+    /** 重载== */
+    bool operator== (const Iterator& itr) const {return this->m_cur->data == itr.m_cur->data;}
+    /** 重载！= */
+    bool operator!= (const Iterator& itr) const {return this->m_cur->data != itr.m_cur->data;}
+
+    /** 重载前置++ */
     Iterator operator++() {this->m_cur = this->m_cur->next; return *this;}
+    /** 重载前置-- */
     Iterator operator--() {this->m_cur = this->m_cur->prev; return *this;}
 
-    // 后置++/--
+    /** 重载后置++ */
     Iterator operator++(int) {Iterator old = *this; this->m_cur = this->m_cur->next; return old;}
+    /** 重载后置-- */
     Iterator operator--(int) {Iterator old = *this; this->m_cur = this->m_cur->prev; return old;}
 
 private:
@@ -148,7 +156,11 @@ public:
     T& operator[](int index);
     const T& operator[](int index) const;
 
+    /** 在链表中find */
+    ListNodePtr<T>  find(const T& ele) const {return this->find(ele, this->m_size, this->tailer);}
     ListNodePtr<T>  find(const T& ele, int n, ListNodePtr<T> p) const;
+    /** 在链表中search */
+    ListNodePtr<T>  search(const T& ele) const {return this->search(ele, this->m_size, this->tailer);}
     ListNodePtr<T>  search(const T& ele, int n, ListNodePtr<T> p) const;
 
     int             deduplicate();
