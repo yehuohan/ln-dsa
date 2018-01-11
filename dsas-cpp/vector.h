@@ -33,9 +33,18 @@ namespace dsa
 template <typename T>
 class Vector
 {
+protected:
+    int     m_cap;              /** 容量 */
+    int     m_size;             /** 元素数量 */
+    T*      m_array;            /** 存放数据的数组 */
+
+protected:
+    void    copy_from (const T* A, int lo, int hi );
+    void    expand();
+
 public:
-    Vector(int capacity = VECTOR_CAPACITY) : m_size(0), m_capacity(capacity) {this->m_array = new T[this->m_capacity];}
-    Vector(int size, int capacity, const T& ele);
+    Vector(int cap = VECTOR_CAPACITY) : m_size(0), m_cap(cap) {this->m_array = new T[this->m_cap];}
+    Vector(int size, int cap, const T& ele);
     Vector(const T* A, int n ) {this->copy_from(A, 0, n);}
     Vector(const T* A, int lo, int hi ) {this->copy_from( A, lo, hi);}
     Vector(const Vector<T>& V);
@@ -95,16 +104,6 @@ public:
     void    shell_insertion(int w, int lo, int hi);
 
     template <typename VST> void traverse(VST& visit);
-
-protected:
-    void    copy_from (const T* A, int lo, int hi );
-    void    expand();
-
-protected:
-    int m_capacity;
-    int m_size;
-    T*  m_array;
-
 };
 
 /*! @} */
@@ -120,11 +119,11 @@ protected:
  * @retval None
  */
 template <typename T>
-Vector<T>::Vector(int size, int capacity, const T& ele)
+Vector<T>::Vector(int size, int cap, const T& ele)
 {
     this->m_size = size;
-    this->m_capacity = capacity;
-    this->m_array = new T[this->m_capacity];
+    this->m_cap = cap;
+    this->m_array = new T[this->m_cap];
     for (int k = 0; k < this->m_size; k++)
     {
         this->m_array[k] = ele;
@@ -189,7 +188,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& V)
 template <typename T>
 void Vector<T>::copy_from(T const* A, int lo, int hi )
 {
-    this->m_array = new T[this->m_capacity = 2*(hi-lo)];
+    this->m_array = new T[this->m_cap = 2*(hi-lo)];
     this->m_size = 0;
     while(lo < hi)
         this->m_array[this->m_size++] = A[lo++];
@@ -218,7 +217,7 @@ int Vector<T>::push_front(const T& ele)
 template <typename T>
 int Vector<T>::push_back(const T& ele)
 {
-    if(this->m_size >= this->m_capacity)
+    if(this->m_size >= this->m_cap)
         this->expand();
     this->m_array[this->m_size++] = ele;
     return this->m_size-1;
@@ -235,7 +234,7 @@ int Vector<T>::push_back(const T& ele)
 template <typename T>
 int Vector<T>::insert(int index, const T& ele)
 {
-    if(this->m_size >= this->m_capacity)
+    if(this->m_size >= this->m_cap)
     {
         this->expand();
     }
@@ -299,8 +298,8 @@ template <typename T>
 void Vector<T>::expand()
 {
     T* old_ar = this->m_array;
-    this->m_capacity *= 2;
-    this->m_array = new T[this->m_capacity];
+    this->m_cap *= 2;
+    this->m_array = new T[this->m_cap];
     for(int k = 0; k < m_size; k++)
     {
         this->m_array[k] = old_ar[k];

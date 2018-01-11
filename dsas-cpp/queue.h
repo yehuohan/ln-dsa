@@ -58,8 +58,14 @@ public:
 template <typename T>
 class ArrayQueue
 {
+protected:
+    int     m_cap;          /**< 队列容量 */
+    int     m_head;         /**< 头部下标 */
+    int     m_tail;         /**< 尾部下标 */
+    T*      m_array;
+
 public:
-    ArrayQueue(int cap) : m_capacity(cap), m_head(0), m_tail(-1) {this->m_array = new T[cap];};
+    ArrayQueue(int cap) : m_cap(cap), m_head(0), m_tail(-1) {this->m_array = new T[cap];};
     ~ArrayQueue() {delete[] this->m_array;};
 
     /** 返回元素数量 */
@@ -67,27 +73,21 @@ public:
     /** 判断是否为空 */
     bool    is_empty() {return (this->m_tail < this->m_head);}
     /** 判断是否为满 */
-    bool    is_full() {return (this->size() == m_capacity);}
+    bool    is_full() {return (this->size() == m_cap);}
 
     /** 返回头部元素，自行判断是否为空 */
     T       front()
-    {return this->m_array[this->m_head % this->m_capacity];}
+    {return this->m_array[this->m_head % this->m_cap];}
     /** 头部元素出队，自行判断是否为空 */
     T       dequeue()
-    {return this->m_array[(this->m_head++) % this->m_capacity];}
+    {return this->m_array[(this->m_head++) % this->m_cap];}
 
     /** 返回尾部元素，自行判断是否为空 */
     T       rear()
-    {return this->m_array[this->m_tail % this->m_capacity];}
+    {return this->m_array[this->m_tail % this->m_cap];}
     /** 尾部元素入队，自行判断是否为满 */
     void    enqueue(const T& ele)
-    {this->m_array[(++this->m_tail) % this->m_capacity] = ele;}
-
-protected:
-    int m_capacity;     /**< 队列容量 */
-    int m_head;         /**< 头部下标 */
-    int m_tail;         /**< 尾部下标 */
-    T*  m_array;
+    {this->m_array[(++this->m_tail) % this->m_cap] = ele;}
 };
 
 /*! @} */
