@@ -2,11 +2,19 @@
 #include <iostream>
 #include "../stack.h"
 
-//==============================================================================
+namespace dsa
+{
+
+/*!
+ * @addtogroup Example
+ *
+ * @{
+ */
+
 /*!
  * @brief 括号匹配
  *
- * 对expr[lo, hi)进行括号匹配
+ * 对expr[lo, hi)进行括号匹配。
  *
  * @param expr: 进行匹配的表达式
  * @param lo: 匹配区间，>=lo
@@ -14,7 +22,6 @@
  * @return
  * @retval None
  */
-//==============================================================================
 bool match_parenthness(const char expr[], int lo, int hi)
 {
     dsa::Stack<char> s;
@@ -31,16 +38,14 @@ bool match_parenthness(const char expr[], int lo, int hi)
 }
 
 
-
-//==============================================================================
 /*!
  * @brief 判断是否为符号对左端
  *
  * @param a: 需要判断的字符
- * @return true or false
+ * @return
  * @retval None
  */
-bool is_match_left(char a)
+static bool is_match_left(char a)
 {
     if ('{' == a
      || '(' == a
@@ -53,14 +58,15 @@ bool is_match_left(char a)
     else
         return false;
 }
+
 /*!
  * @brief 判断两个字符是否为符号对
  *
  * @param a,b : 需要判断的字符
- * @return true or false
+ * @return
  * @retval None
  */
-bool is_match(char a, char b)
+static bool is_match(char a, char b)
 {
     switch (a)
     {
@@ -74,6 +80,7 @@ bool is_match(char a, char b)
             return b==']' ? true : false;
     }
 }
+
 /*!
  * @brief 符号匹配
  *
@@ -83,7 +90,6 @@ bool is_match(char a, char b)
  * @return true or false
  * @retval None
  */
-//==============================================================================
 bool match_symbol(const char expr[], int lo, int hi)
 {
     dsa::Stack<char> s;
@@ -102,6 +108,10 @@ bool match_symbol(const char expr[], int lo, int hi)
     return s.is_empty();
 }
 
+/*! @} */
+} /* dsa */ 
+
+
 
 int main(void)
 {
@@ -109,7 +119,7 @@ int main(void)
 
     const char expr1[100] = "(())()(())";
     std::cout << "expr: " << expr1 << std::endl;
-    if(match_parenthness(expr1, 0, 10))
+    if(dsa::match_parenthness(expr1, 0, 10))
         std::cout << "Parenthness: True" << std::endl;
     else
         std::cout << "Parenthness: False" << std::endl;
@@ -118,7 +128,7 @@ int main(void)
 
     const char expr2[100] = "<({})([])><(())>";
     std::cout << "expr: " << expr2 << std::endl;
-    if(match_symbol(expr2, 0, 16))
+    if(dsa::match_symbol(expr2, 0, 16))
         std::cout << "Parenthness: True" << std::endl;
     else
         std::cout << "Parenthness: False" << std::endl;

@@ -31,7 +31,7 @@ template <typename T> static bool is_majority(const dsa::Vector<T>& vec, const T
 template <typename T> static T maj_candidate(const dsa::Vector<T>& vec);
 
 /*!
- * @brief
+ * @brief 求取众数
  *
  * <pre>
  * 众数：无序向量中，若有一半以上的元素相同，则称之为众数。
@@ -75,7 +75,7 @@ static bool is_majority(const dsa::Vector<T>& vec, const T& maj)
 }
 
 /*!
- * @brief
+ * @brief 求取可能的众数
  *
  * <pre>
  *

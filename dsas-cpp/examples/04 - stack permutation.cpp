@@ -2,38 +2,56 @@
 #include <iostream>
 #include "../stack.h"
 
+namespace dsa
+{
 
-//==============================================================================
 /*!
- * @brief check whether a is one stack permutation of b by enumeration
+ * @addtogroup Example
  *
+ * @{
+ */
+
+/*!
+ * @brief 检查a是否为b的栈混洗(stack permutation)
+ *
+ * <pre>
+ * (1) 定义
+ * 序列A: 只能入栈
+ * 序列B: 只能出栈
+ * 将B出栈的元素，压入A中，则称A为B的栈混洗(stack permutation)
+ *
+ * (2) 枚举法判定
  * 枚举法：对于 B 中任三个元素下标，1 <= i < j < k <= n，若 A 有 ..k...i...j.. 的顺序
  *         则 A 必定不是 B 的stack permutation
  * 这里设定a[], b[]中存储的是元素的下标，即元素均在[0,n)范围内
  *
- * @param a[],n sequence a and its length, [a, b, c, ... ,>
- * @param b[],n sequence b and its length, <1, 2, 3, ... ,]
- * @return true or false
+ * (3) 模拟法判定
+ * 通过混洗操作模拟，看能否由 b 得到 a。
+ *
+ * </pre>
+ *
+ * @param a: 序列a， [a, b, c, ... ,>
+ * @param b: 序列b， <1, 2, 3, ... ,]
+ * @param n: 序列长度
+ * @return
  * @retval None
  */
-//==============================================================================
 bool is_sp_enumeration(int a[], int b[], int n)
 {
     return false;
 }
 
-//==============================================================================
 /*!
- * @brief check whether a is one stack permutation of b by simulation
+ * @brief 检查a是否为b的栈混洗(stack permutation)
  *
- * 通过混洗操作模拟，看能否由 b 得到 a
+ * 使用模拟法判定。
  *
- * @param a[],n sequence a and its length, [a, b, c, ... ,>
- * @param b[],n sequence b and its length, <1, 2, 3, ... ,]
- * @return true or false
+ * @param a: 序列a， [a, b, c, ... ,>
+ * @param b: 序列b， <1, 2, 3, ... ,]
+ * @param n: 序列长度
+ * @return
  * @retval None
  */
-//==============================================================================
 bool is_sp_simulation(int a[], int b[], int n)
 {
     dsa::Stack<int> s;
@@ -55,6 +73,8 @@ bool is_sp_simulation(int a[], int b[], int n)
     return s.is_empty();
 }
 
+/*! @} */
+} /* dsa */
 
 
 int main(void)
@@ -63,7 +83,7 @@ int main(void)
     int a[] = {2, 3, 1, 4, 6, 5};
     int b[] = {1, 2, 3, 4, 5, 6};
 
-    std::cout << (is_sp_simulation(a, b, n) ? "True" : "False") << std::endl;
+    std::cout << (dsa::is_sp_simulation(a, b, n) ? "True" : "False") << std::endl;
 
     return 0;
 }

@@ -2,7 +2,15 @@
 #include <iostream>
 #include "../stack.h"
 
-//==============================================================================
+namespace dsa
+{
+
+/*!
+ * @addtogroup Example
+ *
+ * @{
+ */
+
 /*!
  * @brief 进制转换
  *
@@ -12,8 +20,7 @@
  * @return
  * @retval None
  */
-//==============================================================================
-void convert(dsa::stack<char>& s, __int64 n, int base)
+void convert(dsa::Stack<char>& s, __int64 n, int base)
 {
     static char digit[] =
     {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -25,11 +32,14 @@ void convert(dsa::stack<char>& s, __int64 n, int base)
     }
 }
 
+/*! @} */
+} /* dsa */
+
 
 int main(void)
 {
-    dsa::stack<char> s;
-    convert(s, 123481, 2);
+    dsa::Stack<char> s;
+    dsa::convert(s, 123481, 2);
     std::cout << std::endl;
     while(!s.is_empty())
     {

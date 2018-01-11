@@ -1,17 +1,21 @@
 
-
-//============================================================================//
-/*
- * Fibonacci Iteration 求解
- */
-//============================================================================//
-
-
 #include <iostream>
 
+namespace dsa
+{
 
-/*
- * n : index of fibonacci
+/*!
+ * @addtogroup Example
+ *
+ * @{
+ */
+
+/*!
+ * @brief 递归求取
+ *
+ * @param n: 第n个Fibonacci数
+ * @return
+ * @retval None
  */
 int fib_recursion(int n)
 {
@@ -20,8 +24,12 @@ int fib_recursion(int n)
     // 计算过程中，产生大量的重复数据(冗余)
 }
 
-/*
- * n : index of fibonacci
+/*!
+ * @brief 迭代求取
+ *
+ * @param n: 第n个Fibonacci数
+ * @return
+ * @retval None
  */
 int fib_iteration(int n)
 {
@@ -36,13 +44,15 @@ int fib_iteration(int n)
     return g;
 }
 
+/*! @} */
+} /* dsa */
+
 
 int main()
 {
     int N = 45;
     std::cout << "N: " << N << std::endl;
 
-    std::cout << "fib_iteration(N): " << fib_iteration(N) << std::endl;
-    
-    std::cout << "fib(N): " << fib_recursion(N) << std::endl;
+    std::cout << "fib_iteration(N): " << dsa::fib_iteration(N) << std::endl;
+    std::cout << "fib_recursion(N): " << dsa::fib_recursion(N) << std::endl;
 }

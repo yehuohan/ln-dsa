@@ -1,21 +1,28 @@
 
 #include <iostream>
+#include <vector>
 
+namespace dsa
+{
 
-//==============================================================================
+/*!
+ * @addtogroup Example
+ *
+ * @{
+ */
+
 /*!
  * @brief 通过递归求解LCS (longest common subsequence(最长公共子序列))
  *
- * no consideration for complex situation
+ * 不考虑复杂情况。
  *
- * @param a[] 序列a
- * @param n 序列a的长度
- * @param b[] 序列b
- * @param m 序列b的长度
+ * @param a: 序列a
+ * @param n: 序列a的长度
+ * @param b: 序列b
+ * @param m: 序列b的长度
  * @return LCS的长度
  * @retval None
  */
-//==============================================================================
 int lcs_len_recursion(char a[], int n, char b[], int m)
 {
     // no length means that no element
@@ -24,7 +31,7 @@ int lcs_len_recursion(char a[], int n, char b[], int m)
     if(a[n-1] == b[m-1])
     {
         // decrease and conquer(减而治之)
-        return lcs_len_recursion(a, n-1, b, m-1) + 1;    
+        return lcs_len_recursion(a, n-1, b, m-1) + 1;
     }
     else
     {
@@ -37,37 +44,38 @@ int lcs_len_recursion(char a[], int n, char b[], int m)
     }
 }
 
+/*!
+ * @brief 坐标点结构体
+ *
+ */
+typedef struct _EqualPoint
+{
+    int x,y;
+    _EqualPoint(int _x = 0, int _y = 0) : x(_x), y(_y) {}
+}EqualPoint;
 
-//==============================================================================
 /*!
  * @brief 通过迭代求解LCS
  *
  * <pre>
- * iteration algorithm of lcs
-      d d a d
-    a     1 
-    d 1 1   2
-    a     2
- * any equalpoint at the right-down of '1' is '2'
+ * LCS迭代求取算法：
+ * “行” 和 “列” 分别为表示两个序列，数字n代表第n个相同的字符。
+ *
+ *    d d a d
+ *  a     1
+ *  d 1 1   2
+ *  a     2
+ *
+ * 任何在某个 '1' 的 右下方 的 EqualPoint 必定为 '2'。
  * </pre>
  *
- * @param a[] 序列a
- * @param n 序列a的长度
- * @param b[] 序列b
- * @param m 序列b的长度
+ * @param a: 序列a
+ * @param n: 序列a的长度
+ * @param b: 序列b
+ * @param m: 序列b的长度
  * @return
  * @retval None
  */
-//============================================================================//
-#include <vector>
-typedef struct _EqualPoint
-{
-    int x;
-    int y;
-    _EqualPoint(int _x = 0, int _y = 0)
-        :x(_x), y(_y){}
-}EqualPoint;
-
 int lcs_len_iteration(char a[], int n, char b[], int m)
 {
     std::vector<EqualPoint> vec_ep;
@@ -110,6 +118,8 @@ int lcs_len_iteration(char a[], int n, char b[], int m)
     return cnt;
 }
 
+/*! @} */
+} /* dsa */
 
 
 int main()
@@ -123,10 +133,10 @@ int main()
     while(B[m++] != '\0');
 
     std::cout << "lcs_len_iteration: ";
-    std::cout << lcs_len_iteration(A, n, B, m) << std::endl;
+    std::cout << dsa::lcs_len_iteration(A, n, B, m) << std::endl;
 
     std::cout << "lcs_len_recursion: ";
-    std::cout << lcs_len_recursion(A, n, B, m) << std::endl;
+    std::cout << dsa::lcs_len_recursion(A, n, B, m) << std::endl;
 
     return 0;
 }
