@@ -34,7 +34,7 @@ void test_share();
 //(int argc, char** argv)
 int main()
 {
-    test_share();
+    //test_share();
     //test_sort_time();
     //test_sort();
     //test_string();
@@ -140,6 +140,11 @@ void test_list()
 
     //cout << "Deduplicate: " << lst_i.deduplicate() << endl;;
     cout << "Uniquify: " << lst_i.uniquify() << endl;;
+    lst_i.traverse(print_node);
+
+    cout << "\nInsert by order: \n";
+    lst_i.insert_byorder(3000);
+    lst_i.insert_multi_byorder(1000);
     lst_i.traverse(print_node);
 }
 

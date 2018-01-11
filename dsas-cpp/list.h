@@ -147,11 +147,20 @@ public:
     ListNodePtr<T>  push_front(const T& ele) {this->m_size++; return this->header->insert_next(ele);}
     /** 插入元素到最后一个节点 */
     ListNodePtr<T>  push_back(const T& ele) {this->m_size++; return this->tailer->insert_prev(ele);}
-
     /** 插入到节点的前面 */
     ListNodePtr<T>  insert_before(ListNodePtr<T> p, const T& ele) {this->m_size++; return p->insert_prev(ele);}
     /** 插入到节点的后面 */
     ListNodePtr<T>  insert_after(ListNodePtr<T> p, const T& ele) {this->m_size++; return p->insert_next(ele);}
+    /** 按序插入，可插入重复元素 */
+    ListNodePtr<T>  insert_multi_byorder(const T& ele) {return this->insert_after(this->search(ele), ele);}
+    /** 按序插入，不可插入重复元素，返回元素节点指针 */
+    ListNodePtr<T>  insert_byorder(const T& ele)
+    {
+        ListNodePtr<T> node = this->search(ele);
+        if (node->data == ele)
+            return node;
+        return this->insert_after(node, ele);
+    }
 
     T& operator[](int index);
     const T& operator[](int index) const;
