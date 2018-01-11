@@ -29,16 +29,18 @@ void test_leftpq();
 void test_string();
 void test_sort();
 void test_sort_time();
+void test_share();
 
 //(int argc, char** argv)
 int main()
 {
+    test_share();
     //test_sort_time();
     //test_sort();
     //test_string();
     //test_leftpq();
     //test_pq();
-    test_hash();
+    //test_hash();
     //test_bitmap();
     //test_redblack();
     //test_btree();
@@ -864,4 +866,14 @@ void test_sort_time()
     }
     e = dsa::get_clock();
     cout << "Heap Time: " << dsa::get_time_ms(s,e) << " ms" << endl;
+}
+
+void test_share()
+{
+    dsa::Entry<int, int> et(10,20);
+    cout << (et == 10) << endl;
+
+    dsa::CmpOperator<int> co(1);
+    co = 10;
+    cout << (co == 10) << endl;
 }
