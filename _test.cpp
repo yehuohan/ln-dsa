@@ -94,6 +94,10 @@ void test_vector()
     vec_i.traverse(print_node);
     cout << "\nSearch: ";
     cout << vec_i.bin_search(8009, 0, vec_i.size()) << endl;
+    cout << "Insert by order\n";
+    vec_i.insert_byorder(1000);
+    vec_i.insert_multi_byorder(1000);
+    vec_i.traverse(print_node);
 }
 
 void test_list()

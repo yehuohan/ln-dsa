@@ -60,6 +60,16 @@ public:
     int     push_front(const T& ele);
     int     push_back(const T& ele);
     int     insert(int index, const T& ele);
+    /** 按序插入元素，可插入重复元素 */
+    int     insert_multi_byorder(const T& ele) {return this->insert(this->search(ele)+1, ele);}
+    /** 按序插入元素，不可插入重复元素，返回元素下标 */
+    int     insert_byorder(const T& ele)
+    {
+        int r = this->search(ele);
+        if (this->m_array[r] == ele)
+            return r;
+        return this->insert(r+1, ele);
+    }
     T       remove(int index);
     int     remove(int lo, int hi);
 
