@@ -38,7 +38,7 @@ namespace dsa
  * @return
  * @retval None
  */
-int rand_n(int N)
+inline int rand_n(int N)
 {
     std::srand((unsigned)std::time(nullptr));
     return std::rand() % N;
