@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['graph',['Graph',['../classdsa_1_1_graph.html',1,'dsa']]],
-  ['graphmatrix',['GraphMatrix',['../classdsa_1_1_graph_matrix.html',1,'dsa']]]
+  ['edge',['Edge',['../structdsa_1_1_edge.html',1,'dsa']]],
+  ['entry',['Entry',['../structdsa_1_1_entry.html',1,'dsa']]]
 ];

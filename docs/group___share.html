@@ -79,6 +79,9 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_less.html">dsa::Less&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Less仿函数  <a href="structdsa_1_1_less.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_cmp_operator.html">dsa::CmpOperator&lt; T, L &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">比较类模板  <a href="structdsa_1_1_cmp_operator.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html">dsa::Entry&lt; K, V, CMP &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">词条类，实现元素的比较  <a href="structdsa_1_1_entry.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,18 +101,6 @@ typedef clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga4aa8754766d09021d3911ead70593d80">dsa::less_than</a> (const T &amp;a, const T &amp;b)</td></tr>
-<tr class="separator:ga4aa8754766d09021d3911ead70593d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga99e01e6a650b4178c8c2b1f9df839597">dsa::greater_than</a> (const T &amp;a, const T &amp;b)</td></tr>
-<tr class="separator:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga030aac375776f52d8a661a93d2d543ac">dsa::is_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
-<tr class="separator:ga030aac375776f52d8a661a93d2d543ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga55c807166fb4bed5e6fb85196892b7c8">dsa::not_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
-<tr class="separator:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#ga80e2f3f8af6048f241cdff6fa13d2d74">dsa::prime_file</a> (int low, int n, const char *file)</td></tr>
 <tr class="memdesc:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">查表法获取[low, n)内最最小素数  <a href="group___share.html#ga80e2f3f8af6048f241cdff6fa13d2d74">更多...</a><br /></td></tr>
 <tr class="separator:ga80e2f3f8af6048f241cdff6fa13d2d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +126,30 @@ typedef clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memitem:gaf61d1fd04d2ea3fa54851d7bef94c5f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___share.html#gaf61d1fd04d2ea3fa54851d7bef94c5f9">dsa::get_time_ms</a> (const <a class="el" href="group___share.html#ga1c22329157fd8121b3f44200cd76ac0c">ClockTime</a> &amp;s, const <a class="el" href="group___share.html#ga1c22329157fd8121b3f44200cd76ac0c">ClockTime</a> &amp;e)</td></tr>
 <tr class="memdesc:gaf61d1fd04d2ea3fa54851d7bef94c5f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算时间差(ms)  <a href="group___share.html#gaf61d1fd04d2ea3fa54851d7bef94c5f9">更多...</a><br /></td></tr>
 <tr class="separator:gaf61d1fd04d2ea3fa54851d7bef94c5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+比较函数模板</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp399abf4d0ec76e05d8af35d5f32f4209"></a></p><pre>
+被比较的对象，必须重写 operator&lt;。</pre><pre>理想情况是，自己实现类的所有比较操作符。
+使用比较函数模板则只有实现 operator&lt; 即可。</pre><pre></pre> </td></tr>
+<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga4aa8754766d09021d3911ead70593d80"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga4aa8754766d09021d3911ead70593d80">dsa::less_than</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga4aa8754766d09021d3911ead70593d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga99e01e6a650b4178c8c2b1f9df839597">dsa::greater_than</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga99e01e6a650b4178c8c2b1f9df839597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga030aac375776f52d8a661a93d2d543ac"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga030aac375776f52d8a661a93d2d543ac">dsa::is_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga030aac375776f52d8a661a93d2d543ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga55c807166fb4bed5e6fb85196892b7c8">dsa::not_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga55c807166fb4bed5e6fb85196892b7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bc52ef33b3b262dfe7de1c977dfff90"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9bc52ef33b3b262dfe7de1c977dfff90"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga9bc52ef33b3b262dfe7de1c977dfff90">dsa::less_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga9bc52ef33b3b262dfe7de1c977dfff90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ac19def29f10dce36ce6b9b29aa2750"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1ac19def29f10dce36ce6b9b29aa2750"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___share.html#ga1ac19def29f10dce36ce6b9b29aa2750">dsa::greater_equal</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ga1ac19def29f10dce36ce6b9b29aa2750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>共享类和数据 </p>
@@ -230,6 +245,37 @@ typedef clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 
 </div>
 </div>
+<a id="ga1ac19def29f10dce36ce6b9b29aa2750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ac19def29f10dce36ce6b9b29aa2750">&#9670;&nbsp;</a></span>greater_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::greater_equal </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 &gt;= </p>
+
+</div>
+</div>
 <a id="ga99e01e6a650b4178c8c2b1f9df839597"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga99e01e6a650b4178c8c2b1f9df839597">&#9670;&nbsp;</a></span>greater_than()</h2>
 
@@ -289,6 +335,37 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>用 &lt; 实现 == </p>
+
+</div>
+</div>
+<a id="ga9bc52ef33b3b262dfe7de1c977dfff90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9bc52ef33b3b262dfe7de1c977dfff90">&#9670;&nbsp;</a></span>less_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dsa::less_equal </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>用 &lt; 实现 &lt;= </p>
 
 </div>
 </div>
@@ -564,6 +641,9 @@ template&lt;typename T &gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int dsa::rand_n </td>
@@ -573,6 +653,11 @@ template&lt;typename T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>返一个位于[0,n)随机数 </p>

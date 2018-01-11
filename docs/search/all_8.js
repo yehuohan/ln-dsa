@@ -14,7 +14,7 @@ var searchData=
   ['hash_5ffunc',['hash_func',['../classdsa_1_1_hash_table.html#a934f12a815c1a015385a9b50133698f5',1,'dsa::HashTable::hash_func()'],['../classdsa_1_1_hash_table_list.html#ad9770bab32fc7f78ccb6f884c9296d34',1,'dsa::HashTableList::hash_func()']]],
   ['hash_5ffunc_2eh',['hash_func.h',['../hash__func_8h.html',1,'']]],
   ['hashtable',['HashTable',['../classdsa_1_1_hash_table.html',1,'dsa']]],
-  ['hashtablelist',['HashTableList',['../classdsa_1_1_hash_table_list.html',1,'dsa']]],
+  ['hashtablelist',['HashTableList',['../classdsa_1_1_hash_table_list.html',1,'dsa::HashTableList&lt; K, V, HF, CMP &gt;'],['../classdsa_1_1_hash_table_list.html#a7998fb53321dd2c61cfe401d157d74ef',1,'dsa::HashTableList::HashTableList()']]],
   ['header',['header',['../classdsa_1_1_list.html#a656804a39791711d0f4f08f11e7f154d',1,'dsa::List']]],
   ['heap_5fsort',['heap_sort',['../group___l_p_q.html#ga0125d882fe3e3efb373c3cc02562ee4b',1,'dsa']]],
   ['heapify',['heapify',['../classdsa_1_1_pq_compl_heap.html#a191bab52890bb279032bec1b9221acb6',1,'dsa::PqComplHeap']]],

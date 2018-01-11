@@ -90,6 +90,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a612876140568f9d7402884d6ba2b3cb8"><td class="memItemLeft" align="right" valign="top"><a id="a612876140568f9d7402884d6ba2b3cb8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Entry</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e)</td></tr>
 <tr class="separator:a612876140568f9d7402884d6ba2b3cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63dae66d582a63f15a398b714477af88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_entry.html#a63dae66d582a63f15a398b714477af88">operator=</a> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e)</td></tr>
+<tr class="separator:a63dae66d582a63f15a398b714477af88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">实现Entry之间的比较</div></td></tr>
 <tr class="memitem:a694e983e1b291c95ac96cc03d56f5db4"><td class="memItemLeft" align="right" valign="top"><a id="a694e983e1b291c95ac96cc03d56f5db4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;e) const</td></tr>
@@ -143,8 +145,38 @@ Public 属性</h2></td></tr>
 struct dsa::Entry&lt; K, V, CMP &gt;</h3>
 
 <p>词条类，实现元素的比较 </p>
-<p>通过比较函数CMP，实现比较运算符&lt;,&gt;,==,!=,&gt;=,&lt;= </p>
-</div><h2 class="groupheader">类成员变量说明</h2>
+<pre></pre><pre>作为Hash的单元节点，相对完整的实现了比较运算符，赋值运算符，拷贝构造函数。
+其中，通过比较函数CMP，实现比较运算符&lt;,&gt;,==,!=,&gt;=,&lt;=。</pre><pre></pre> </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a63dae66d582a63f15a398b714477af88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63dae66d582a63f15a398b714477af88">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V, typename CMP = dsa::Less&lt;K&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt;K,V,CMP&gt;&amp; <a class="el" href="structdsa_1_1_entry.html">dsa::Entry</a>&lt; K, V, CMP &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdsa_1_1_entry.html">Entry</a>&lt; K, V, CMP &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>重载= </p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
 <a id="aafddcdea505df3897ecb3f3e90f79d2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aafddcdea505df3897ecb3f3e90f79d2b">&#9670;&nbsp;</a></span>cmp</h2>
 

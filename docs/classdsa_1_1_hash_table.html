@@ -115,10 +115,10 @@ Public 成员函数</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:a4e6adcf5fcd5d1b81226c1c1492e6d67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a4e6adcf5fcd5d1b81226c1c1492e6d67">probe_hit</a> (K key)</td></tr>
-<tr class="separator:a4e6adcf5fcd5d1b81226c1c1492e6d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9ecc0a6aaf3f658398fef26c25f543d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#ad9ecc0a6aaf3f658398fef26c25f543d">probe_free</a> (K key)</td></tr>
-<tr class="separator:ad9ecc0a6aaf3f658398fef26c25f543d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88909467b7bf118f31e09a9c01505da0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a88909467b7bf118f31e09a9c01505da0">probe_hit</a> (const K &amp;key)</td></tr>
+<tr class="separator:a88909467b7bf118f31e09a9c01505da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b3ce07d031f10592fc2d0ff3230636"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#af2b3ce07d031f10592fc2d0ff3230636">probe_free</a> (const K &amp;key)</td></tr>
+<tr class="separator:af2b3ce07d031f10592fc2d0ff3230636"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d2b6bb8e349b792074f61896d41a618"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_hash_table.html#a6d2b6bb8e349b792074f61896d41a618">probe_line_hit</a> (const K &amp;)</td></tr>
 <tr class="memdesc:a6d2b6bb8e349b792074f61896d41a618"><td class="mdescLeft">&#160;</td><td class="mdescRight">线性试探，查看散列表是否已经存在key  <a href="#a6d2b6bb8e349b792074f61896d41a618">更多...</a><br /></td></tr>
 <tr class="separator:a6d2b6bb8e349b792074f61896d41a618"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,8 +326,8 @@ template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typenam
 
 </div>
 </div>
-<a id="ad9ecc0a6aaf3f658398fef26c25f543d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9ecc0a6aaf3f658398fef26c25f543d">&#9670;&nbsp;</a></span>probe_free()</h2>
+<a id="af2b3ce07d031f10592fc2d0ff3230636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b3ce07d031f10592fc2d0ff3230636">&#9670;&nbsp;</a></span>probe_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +340,7 @@ template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typenam
         <tr>
           <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_free </td>
           <td>(</td>
-          <td class="paramtype">K&#160;</td>
+          <td class="paramtype">const K &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -355,8 +355,8 @@ template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typenam
 
 </div>
 </div>
-<a id="a4e6adcf5fcd5d1b81226c1c1492e6d67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e6adcf5fcd5d1b81226c1c1492e6d67">&#9670;&nbsp;</a></span>probe_hit()</h2>
+<a id="a88909467b7bf118f31e09a9c01505da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88909467b7bf118f31e09a9c01505da0">&#9670;&nbsp;</a></span>probe_hit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,7 +369,7 @@ template&lt;typename K , typename V , typename HF  = dsa::Hash&lt;K&gt;, typenam
         <tr>
           <td class="memname">int <a class="el" href="classdsa_1_1_hash_table.html">dsa::HashTable</a>&lt; K, V, HF, CMP &gt;::probe_hit </td>
           <td>(</td>
-          <td class="paramtype">K&#160;</td>
+          <td class="paramtype">const K &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>

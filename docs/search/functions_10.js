@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['search',['search',['../classdsa_1_1_b_tree.html#a15d7a7bd0c3f6ef476ea4e278ae141bb',1,'dsa::BTree::search()'],['../classdsa_1_1_bin_search_tree.html#a053e0f126ebc2f3d95933cef3c7f660c',1,'dsa::BinSearchTree::search()'],['../classdsa_1_1_list.html#ad13459f49f6eaca4949cdca0ead9fce8',1,'dsa::List::search()'],['../classdsa_1_1_splay_tree.html#afdbc13914849859584431b1a8b2a6c2f',1,'dsa::SplayTree::search()'],['../classdsa_1_1_vector.html#a6b175876a4e75e18fe1123cebf818f4c',1,'dsa::Vector::search(const T &amp;ele) const'],['../classdsa_1_1_vector.html#aff4c89ac93d12c1cfa7e91673298d2b1',1,'dsa::Vector::search(const T &amp;ele, int lo, int hi) const']]],
+  ['search',['search',['../classdsa_1_1_b_tree.html#a15d7a7bd0c3f6ef476ea4e278ae141bb',1,'dsa::BTree::search()'],['../classdsa_1_1_bin_search_tree.html#a053e0f126ebc2f3d95933cef3c7f660c',1,'dsa::BinSearchTree::search()'],['../classdsa_1_1_list.html#a9d16e4898c0a76312e1626e88296f6ec',1,'dsa::List::search(const T &amp;ele) const'],['../classdsa_1_1_list.html#ad13459f49f6eaca4949cdca0ead9fce8',1,'dsa::List::search(const T &amp;ele, int n, ListNodePtr&lt; T &gt; p) const'],['../classdsa_1_1_splay_tree.html#afdbc13914849859584431b1a8b2a6c2f',1,'dsa::SplayTree::search()'],['../classdsa_1_1_vector.html#a6b175876a4e75e18fe1123cebf818f4c',1,'dsa::Vector::search(const T &amp;ele) const'],['../classdsa_1_1_vector.html#aff4c89ac93d12c1cfa7e91673298d2b1',1,'dsa::Vector::search(const T &amp;ele, int lo, int hi) const']]],
   ['search_5fin',['search_in',['../binary__search__tree_8h.html#a2830c2a538f53082581f44c07b6af976',1,'dsa']]],
   ['select_5fmax',['select_max',['../classdsa_1_1_list.html#a2c35bd2c80c832d4fabe049c71f51526',1,'dsa::List::select_max()'],['../classdsa_1_1_list.html#a89e0ef292f4743638fe88755d8f87ffd',1,'dsa::List::select_max(ListNodePtr&lt; T &gt; p, int n)'],['../classdsa_1_1_vector.html#aa5c18ca1512773b3caae9e1d1a76c979',1,'dsa::Vector::select_max()'],['../classdsa_1_1_vector.html#a786d6f51f7d7aedb114d44611c05fb6f',1,'dsa::Vector::select_max(int lo, int hi)']]],
   ['selection_5fsort',['selection_sort',['../classdsa_1_1_list.html#a060b1f4ab79c042815d42f4bf4672771',1,'dsa::List::selection_sort()'],['../classdsa_1_1_vector.html#a20a6b332e834add086a9357a3c5a9745',1,'dsa::Vector::selection_sort()']]],
@@ -19,5 +19,8 @@ var searchData=
   ['str_5flen',['str_len',['../group___l_string.html#ga491d25fb0d5de703f4521c634e40ad0a',1,'dsa']]],
   ['str_5fset',['str_set',['../group___l_string.html#ga165589e2c87594f18a90fdd41cf1615b',1,'dsa']]],
   ['successor',['successor',['../structdsa_1_1_bin_node.html#a4c70ea4b21b6231872ded917a69a5a82',1,'dsa::BinNode']]],
+  ['sum_5fdecrease_5fconquer',['sum_decrease_conquer',['../group___example.html#gaaf81bbfa2c28975c52a8280c10983562',1,'dsa']]],
+  ['sum_5fdivide_5fconquer',['sum_divide_conquer',['../group___example.html#gabeeef8ee0fd4e6a665d2acdc413d2709',1,'dsa']]],
+  ['sum_5fiteration',['sum_iteration',['../group___example.html#ga64836254d62080032bcd5affd78fad7c',1,'dsa::sum_iteration(int a[], int n)'],['../group___example.html#ga48f046898ac6a1224469779898b9c2b3',1,'dsa::sum_iteration(int a[], int lo, int hi)']]],
   ['swap',['swap',['../group___share.html#ga2aae71235e2c01179097f0e3a7720857',1,'dsa']]]
 ];

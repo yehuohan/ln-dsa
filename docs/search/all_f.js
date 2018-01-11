@@ -25,8 +25,8 @@ var searchData=
   ['prime_5farray',['prime_array',['../group___share.html#gaa2b4863f50b9f54fde7ddde051ce9d14',1,'dsa']]],
   ['prime_5ffile',['prime_file',['../group___share.html#ga80e2f3f8af6048f241cdff6fa13d2d74',1,'dsa']]],
   ['priority_5fqueue_2eh',['priority_queue.h',['../priority__queue_8h.html',1,'']]],
-  ['probe_5ffree',['probe_free',['../classdsa_1_1_hash_table.html#ad9ecc0a6aaf3f658398fef26c25f543d',1,'dsa::HashTable::probe_free()'],['../classdsa_1_1_hash_table_list.html#a9ef78c7085965741c7afc3b8198d9bad',1,'dsa::HashTableList::probe_free()']]],
-  ['probe_5fhit',['probe_hit',['../classdsa_1_1_hash_table.html#a4e6adcf5fcd5d1b81226c1c1492e6d67',1,'dsa::HashTable::probe_hit()'],['../classdsa_1_1_hash_table_list.html#ad15983a3edad50cf95eac67512f49cf7',1,'dsa::HashTableList::probe_hit()']]],
+  ['probe_5ffree',['probe_free',['../classdsa_1_1_hash_table.html#af2b3ce07d031f10592fc2d0ff3230636',1,'dsa::HashTable']]],
+  ['probe_5fhit',['probe_hit',['../classdsa_1_1_hash_table.html#a88909467b7bf118f31e09a9c01505da0',1,'dsa::HashTable']]],
   ['probe_5fline_5ffree',['probe_line_free',['../classdsa_1_1_hash_table.html#a8420f8c259166eddaab7218b38f8a110',1,'dsa::HashTable']]],
   ['probe_5fline_5fhit',['probe_line_hit',['../classdsa_1_1_hash_table.html#a6d2b6bb8e349b792074f61896d41a618',1,'dsa::HashTable']]],
   ['probe_5fquad_5ffree',['probe_quad_free',['../classdsa_1_1_hash_table.html#a642639cdb7804d6fae9513e393e2b880',1,'dsa::HashTable']]],
@@ -35,5 +35,5 @@ var searchData=
   ['push',['push',['../classdsa_1_1_stack.html#a09573e231b4eb41b8f5c526950d60fa1',1,'dsa::Stack::push()'],['../classdsa_1_1_stack_list.html#acd40bf0d522fcd4518a410174e624129',1,'dsa::StackList::push()']]],
   ['push_5fback',['push_back',['../classdsa_1_1_list.html#a4e88b46e1fef97c9e83ce6f3a7c3f5c2',1,'dsa::List::push_back()'],['../classdsa_1_1_vector.html#ae40586e13d877c3dff0a63bfd07f260b',1,'dsa::Vector::push_back()']]],
   ['push_5ffront',['push_front',['../classdsa_1_1_list.html#a58a93dc265640c842413fc1e4d52af4b',1,'dsa::List::push_front()'],['../classdsa_1_1_vector.html#a0d160ec887db5aa7e8fc301a10c06f70',1,'dsa::Vector::push_front()']]],
-  ['put',['put',['../classdsa_1_1_hash_table.html#aa198ebe81886c3ec92dc45546bb65646',1,'dsa::HashTable']]]
+  ['put',['put',['../classdsa_1_1_hash_table.html#aa198ebe81886c3ec92dc45546bb65646',1,'dsa::HashTable::put()'],['../classdsa_1_1_hash_table_list.html#a4f53ba601fe721c93c410618e8059374',1,'dsa::HashTableList::put()']]]
 ];
