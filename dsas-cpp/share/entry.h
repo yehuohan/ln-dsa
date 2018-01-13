@@ -26,7 +26,7 @@ namespace dsa
  */
 
 /*!
- * @brief 词条类，实现元素的比较
+ * @brief 词条类，实现元素的映射
  *
  * <pre>
  *

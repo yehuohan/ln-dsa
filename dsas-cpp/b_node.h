@@ -43,7 +43,7 @@ using BTNodePtr = struct BTNode<T>*;
  * 内部节点的分支数n+1不能太少，即有
  * 树根：    2 <= n+1 <= m
  * 其余：⌈m/2⌉ <= n+1 <= m ，⌈⌉为取上整
- * 
+ * 故 b-tree 也称做 (⌈m/2⌉，m)-tree 。
  * </pre>
  *
  */
