@@ -127,9 +127,12 @@ template <typename T> struct BinNode
     //BinNodePtr<T> zag();                  // 逆时针旋转
 };
 
-
-template <typename T, typename VST> static void visit_along_left_brach(BinNodePtr<T> x, VST& visit, dsa::Stack<BinNodePtr<T> >& s);
-template <typename T> static void go_along_left_branch(BinNodePtr<T> x, dsa::Stack<BinNodePtr<T> >& s);
+template <typename T, typename VST> static void traverse_DLR_iteration(BinNodePtr<T> node, VST& visit);
+template <typename T, typename VST> static void traverse_DLR_recursion(BinNodePtr<T> node, VST& visit);
+template <typename T, typename VST> static void traverse_LDR_iteration(BinNodePtr<T> node, VST& visit);
+template <typename T, typename VST> static void traverse_LDR_recursion(BinNodePtr<T> node, VST& visit);
+template <typename T, typename VST> static void traverse_LRD_iteration(BinNodePtr<T> node, VST& visit);
+template <typename T, typename VST> static void traverse_LRD_recursion(BinNodePtr<T> node, VST& visit);
 
 /*! @} */
 
@@ -181,29 +184,28 @@ BinNodePtr<T> BinNode<T>::successor()
 
 
 /*!
- * @brief 依次仿问所有左子节点
- *
- * @param x: 节点指针
- * @param visit: 遍历函数
- * @param s: 栈，用于保存右子树
- * @return
- * @retval None
- */
-template <typename T, typename VST>
-static void visit_along_left_brach(BinNodePtr<T> x, VST& visit, dsa::Stack<BinNodePtr<T> >& s)
-{
-    while(x)
-    {
-        visit(x->data);
-        s.push(x->right);   // 右子树入栈，pop时，则从最低端右子树开始visit
-        x = x->left;
-    }
-}
-
-/*!
  * @brief 先序(preorder)遍历
  *
- * 通过迭代实现
+ * <pre>
+ * (1) 基本顺序
+ *     D
+ *    / \
+ *   L   R
+ * 先序遍历： D --> L --> R
+ *
+ * (2) 通过迭代实现：
+ *          d
+ *        /   \
+ *      l1    r1 /
+ *     / \      / => 对任何以d为根节点的子树，执行以下过程（称之为DLR过程）：
+ *   l2  r2    /     因为先访问D(即d,l1,l2)，所以在访问D的过程中，将R(r1,r2)按斜线方向入栈；
+ *                   将出栈的节点R，当成新的子树d节点，执行DLR过程；
+ *
+ * 先序遍历    : d - l1 - l2 - r2 - r1
+ * d - l1 - l2 : 从d开始，沿着left一直visit下去（注意将right入栈）；
+ * r2 - r1     : 看成一个Stack，r2最后入栈，但最先访问；
+ *               访问r2时，同样从r2开始，沿着left一直visit下去（注意将right入栈）；
+ * </pre>
  *
  * @param node: 节点指针
  * @param visit: 遍历函数
@@ -211,14 +213,19 @@ static void visit_along_left_brach(BinNodePtr<T> x, VST& visit, dsa::Stack<BinNo
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR_iteration(BinNodePtr<T> node, VST& visit)
+static void traverse_DLR_iteration(BinNodePtr<T> node, VST& visit)
 {
     dsa::Stack<BinNodePtr<T> > s;
-    while(1)
+    s.push(node);
+    while (!s.is_empty())
     {
-        visit_along_left_brach(node, visit, s);
-        if(s.is_empty()) break;
-        node = s.pop();    // pop出右子树，用以visit以右子树为root的左子树
+        node = s.pop();             // pop出右子节点
+        while (node)
+        {
+            visit(node->data);
+            s.push(node->right);    // 右子节点入栈
+            node = node->left;
+        }
     }
 }
 
@@ -233,7 +240,7 @@ void traverse_DLR_iteration(BinNodePtr<T> node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_DLR_recursion(BinNodePtr<T> node, VST& visit)
+static void traverse_DLR_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     visit(node->data);
@@ -258,26 +265,31 @@ void BinNode<T>::traverse_DLR(VST& visit)
 
 
 /*!
- * @brief 沿着左子树，将左子树顺序入栈
- * 经过此函数，最后入栈节点的左子树一定为nullptr
+ * @brief 中序(inorder)遍历
  *
- * @param x: 节点指针
- * @param s: 栈，用于保存右子树
- * @return
- * @retval None
- */
-template <typename T>
-static void go_along_left_branch(BinNodePtr<T> x, dsa::Stack<BinNodePtr<T> >& s)
-{
-    while(x)
-    {
-        s.push(x);
-        x = x->left;
-    }
-}
-
-/*!
- * @brief 中序遍历, inorder
+ * <pre>
+ * (1) 基本顺序
+ *     D
+ *    / \
+ *   L   R
+ * 先序遍历： L --> D --> R
+ *
+ * (2) 通过迭代实现：
+ *        /    d
+ *       /   /   \
+ *      /  l1    r1
+ *     /  / \
+ *    / l2  r2
+ *   / => 对任何以d为根节点的子树，执行以下过程（称之为LDR过程）：
+ *        因为需要访问完L后才能访问D，故先将L(d,l1,l2)按斜线方向入栈（即沿left入栈）；
+ *        每个出栈的节点，先访问，再转向R(r2,r1)，再将R当成新子树的根节点d，执行LDR过程；
+ *
+ * 中序遍历  : l2 - l1 - r2 - d - r1
+ * Stack示例 : 将L一直入栈，直至栈为 [d - l1 - l2>，然后弹出l2，访问l2，转向l2->right；
+ *             l2->right为nullptr，故不需要将L入栈，继续弹出l1，访问l1，转向l1->right；
+ *             l1->right不为nullptr，故需要将L入栈，然后......；
+ *             一直重复上述过程即可；
+ * </pre>
  *
  * @param node: 节点指针
  * @param visit: 遍历函数
@@ -285,18 +297,20 @@ static void go_along_left_branch(BinNodePtr<T> x, dsa::Stack<BinNodePtr<T> >& s)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR_iteration(BinNodePtr<T> node, VST& visit)
+static void traverse_LDR_iteration(BinNodePtr<T> node, VST& visit)
 {
     dsa::Stack<BinNodePtr<T> > s;
     while(1)
     {
-        go_along_left_branch(node, s);
-        if(s.is_empty()) break;
+        while(node)
+        {
+            s.push(node);       // 将L入栈
+            node = node->left;
+        }
+        if (s.is_empty()) break;
         node = s.pop();
-        visit(node->data);
-        // right为null，在go_along_left_branch会直接跳出，下一次将visit LDR中的D
-        // right不为null，则下一次将visit LDR中的R
-        node = node->right;
+        visit(node->data);      // 访问D
+        node = node->right;     // 转到R (R可以为nullptr)
     }
 }
 
@@ -309,7 +323,7 @@ void traverse_LDR_iteration(BinNodePtr<T> node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LDR_recursion(BinNodePtr<T> node, VST& visit)
+static void traverse_LDR_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     traverse_LDR_recursion(node->left, visit);
@@ -318,7 +332,7 @@ void traverse_LDR_recursion(BinNodePtr<T> node, VST& visit)
 }
 
 /*!
- * @brief 中序(inorder)遍历
+ * @brief 中序(inorder)遍历接口
  *
  * @param visit: 遍历函数
  * @return
@@ -336,33 +350,61 @@ void BinNode<T>::traverse_LDR(VST& visit)
 /*!
  * @brief 后序(postorder)遍历
  *
+ * <pre>
+ * (1) 基本顺序
+ *     D
+ *    / \
+ *   L   R
+ * 先序遍历： L --> R --> D
+ *
+ * (2) 通过迭代实现：
+ *        /    d
+ *       /   /   \
+ *      /  l1    r1
+ *     /  / \
+ *    / l2  r2
+ *   / => 对任何以d为根节点的子树，执行以下过程（称之为LRD过程）：
+ *        因为需要访问完L后才能访问R，访问完R后才能访问D，故先将L(d,l1,l2)按斜线方向入栈（即沿left入栈）；
+ *        对每个出栈的节点，<1>如果：没有右子树，或者右子树已经访问完毕，则访问之，然后继续弹出节点，继续<1>过程；
+ *                          <2>否则：转向R(r2,r1)，再将R当成新子树的根节点d，执行LRD过程；
+ *
+ * 后序遍历  : l2 - r2 - l1 - r1 - d
+ *
+ * </pre>
+ *
  * @param node: 节点指针
  * @param visit: 遍历函数
+ * @return
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD_iteration(BinNodePtr<T> node, VST& visit)
+static void traverse_LRD_iteration(BinNodePtr<T> node, VST& visit)
 {
     dsa::Stack<BinNodePtr<T> > s;
-    BinNodePtr<T> last_node = nullptr;
+    BinNodePtr<T> last_visited = nullptr;
 
-    // 先将左子树节点均入栈
-    go_along_left_branch(node, s);
+    while(node)
+    {
+        s.push(node); node = node->left; // 将L入栈
+    }
     while(!s.is_empty())
     {
         node = s.pop();
         // LRD中的D节点能被访问的前提是：无右子树或右子树已被访问过
-        if(!node->right || node->right == last_node)
+        if (!node->right || node->right == last_visited )
         {
             visit(node->data);
-            last_node = node;
+            last_visited = node;
         }
         else
         {
             // 将LRD中的D重新入栈，等待右子树被访问完
             s.push(node);
             node = node->right;
-            go_along_left_branch(node, s);
+            while(node)
+            {
+                s.push(node); node = node->left; // 将L入栈
+            }
         }
     }
 }
@@ -375,7 +417,7 @@ void traverse_LRD_iteration(BinNodePtr<T> node, VST& visit)
  * @retval None
  */
 template <typename T, typename VST>
-void traverse_LRD_recursion(BinNodePtr<T> node, VST& visit)
+static void traverse_LRD_recursion(BinNodePtr<T> node, VST& visit)
 {
     if(!node) return;
     traverse_LRD_recursion(node->left, visit);
@@ -384,7 +426,7 @@ void traverse_LRD_recursion(BinNodePtr<T> node, VST& visit)
 }
 
 /*!
- * @brief 后序(postorder)遍历
+ * @brief 后序(postorder)遍历接口
  *
  * @param visit: 遍历函数
  * @return
@@ -402,6 +444,19 @@ void BinNode<T>::traverse_LRD(VST& visit)
 /*!
  * @brief 层次遍历(LayerOrder)
  *
+ * <pre>
+ * 通过迭代实现：
+ *             d
+ *           /   \
+ *         l1    r1
+ *        / \
+ *      l2  r2
+ *
+ * 层次遍历  : d - l1 - r1 - l2 - r2
+ * 将遍历的顺序，看成一个队列：d最先入队，故最先访问；
+ *                             r2最后入队，最后访问；
+ * </pre>
+ *
  * @param visit: 遍历函数
  * @return
  * @retval None
@@ -411,13 +466,14 @@ template <typename VST>
 void BinNode<T>::traverse_LO(VST& visit)
 {
     dsa::Queue<BinNodePtr<T> > q;
-    q.enqueue(this);
+    BinNodePtr<T> node = this;
+    q.enqueue(node);
     while(!q.is_empty())
     {
-        BinNodePtr<T> x = q.dequeue();
-        visit(x->data);
-        if(x->left) q.enqueue(x->left);
-        if(x->right) q.enqueue(x->right);
+        node = q.dequeue();
+        visit(node->data);
+        if(node->left) q.enqueue(node->left);
+        if(node->right) q.enqueue(node->right);
     }
 }
 

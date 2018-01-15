@@ -48,7 +48,7 @@ int main()
     //test_avl();
     //test_bst();
     //test_graph();
-    //test_bt();
+    test_bt();
     //test_queue();
     //test_stack();
     //test_list();
@@ -235,48 +235,36 @@ void test_bt()
     cout << "Size: "<< tint.size() << endl;
     cout << "Is Empty: "<< tint.is_empty() << endl;
 
-    cout << "先序遍历：\n";
+    cout << "Pre Order:\n";
     tint.root()->traverse_DLR(print_node);
     cout << endl;
 
-    cout << "中序遍历：\n";
+    cout << "In Order:\n";
     tint.root()->traverse_LDR(print_node);
     cout << endl;
 
-    cout << "后序遍历：\n";
+    cout << "Post Order:\n";
     tint.root()->traverse_LRD(print_node);
     cout << endl;
 
-    cout << "层次遍历：\n";
+    cout << "Layer Order:\n";
     tint.root()->traverse_LO(print_node);
     cout << endl;
 
     dsa::Vector<int> pre;
-    pre.push_back(9);
-    pre.push_back(5);
-    pre.push_back(1);
-    pre.push_back(7);
-    pre.push_back(6);
-    pre.push_back(18);
-    pre.push_back(12);
-    pre.push_back(28);
+    pre.push_back(9); pre.push_back(5); pre.push_back(1); pre.push_back(7);
+    pre.push_back(6); pre.push_back(18); pre.push_back(12); pre.push_back(28);
     dsa::Vector<int> in;
-    in.push_back(1);
-    in.push_back(5);
-    in.push_back(6);
-    in.push_back(7);
-    in.push_back(9);
-    in.push_back(12);
-    in.push_back(18);
-    in.push_back(28);
+    in.push_back(1); in.push_back(5); in.push_back(6); in.push_back(7);
+    in.push_back(9); in.push_back(12); in.push_back(18); in.push_back(28);
     dsa::BinTree<int> bt;
     construct_bintree(pre, in, bt);
 
     cout << "Size: " << bt.root()->size() << endl;
-    cout << "重构后序遍历：\n";
+    cout << "ReConstructed Post Order:\n";
     bt.root()->traverse_LRD(print_node);
     cout << endl;
-    cout << "重构层次遍历：\n";
+    cout << "ReConstructed Layer Order:\n";
     bt.root()->traverse_LO(print_node);
     cout << endl;
 }
