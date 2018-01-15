@@ -120,7 +120,9 @@ b-树(b-tree)阶次为m(这里为5)， 则分支数(子节点) &lt;= m，关键�
 且分支数(子节点) = 关键码数+1 恒成立。</pre><pre>约定关键码数为n，则分支数为n+1，
 内部节点的分支数n+1不能太少，即有
 树根：    2 &lt;= n+1 &lt;= m
-其余：⌈m/2⌉ &lt;= n+1 &lt;= m ，⌈⌉为取上整</pre><pre></pre> </div><h2 class="groupheader">构造及析构函数说明</h2>
+其余：⌈m/2⌉ &lt;= n+1 &lt;= m ，⌈⌉为取上整
+故 b-tree 也称做 (⌈m/2⌉，m)-tree 。
+</pre> </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a019246cc357499a7c6c2e1ad236adb37"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a019246cc357499a7c6c2e1ad236adb37">&#9670;&nbsp;</a></span>BTNode() <span class="overload">[1/4]</span></h2>
 

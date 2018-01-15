@@ -102,11 +102,11 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a1fe3c66b3083d318dc78dcc6ea8ba118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06cdd73a382b3bc8c7979fdd703f6242"><td class="memTemplParams" colspan="2">template&lt;typename VST &gt; </td></tr>
 <tr class="memitem:a06cdd73a382b3bc8c7979fdd703f6242"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdsa_1_1_bin_node.html#a06cdd73a382b3bc8c7979fdd703f6242">traverse_LDR</a> (VST &amp;visit)</td></tr>
-<tr class="memdesc:a06cdd73a382b3bc8c7979fdd703f6242"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序(inorder)遍历  <a href="#a06cdd73a382b3bc8c7979fdd703f6242">更多...</a><br /></td></tr>
+<tr class="memdesc:a06cdd73a382b3bc8c7979fdd703f6242"><td class="mdescLeft">&#160;</td><td class="mdescRight">中序(inorder)遍历接口  <a href="#a06cdd73a382b3bc8c7979fdd703f6242">更多...</a><br /></td></tr>
 <tr class="separator:a06cdd73a382b3bc8c7979fdd703f6242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf1d66eaefce783853879157ffbdf8c"><td class="memTemplParams" colspan="2">template&lt;typename VST &gt; </td></tr>
 <tr class="memitem:a0bf1d66eaefce783853879157ffbdf8c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdsa_1_1_bin_node.html#a0bf1d66eaefce783853879157ffbdf8c">traverse_LRD</a> (VST &amp;visit)</td></tr>
-<tr class="memdesc:a0bf1d66eaefce783853879157ffbdf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历  <a href="#a0bf1d66eaefce783853879157ffbdf8c">更多...</a><br /></td></tr>
+<tr class="memdesc:a0bf1d66eaefce783853879157ffbdf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">后序(postorder)遍历接口  <a href="#a0bf1d66eaefce783853879157ffbdf8c">更多...</a><br /></td></tr>
 <tr class="separator:a0bf1d66eaefce783853879157ffbdf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402b6ca94a935a8200b521a48fe1d2e0"><td class="memTemplParams" colspan="2">template&lt;typename VST &gt; </td></tr>
 <tr class="memitem:a402b6ca94a935a8200b521a48fe1d2e0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdsa_1_1_bin_node.html#a402b6ca94a935a8200b521a48fe1d2e0">traverse_LO</a> (VST &amp;visit)</td></tr>
@@ -333,7 +333,7 @@ template&lt;typename VST &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>中序(inorder)遍历 </p>
+<p>中序(inorder)遍历接口 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
@@ -371,7 +371,16 @@ template&lt;typename VST &gt; </div>
 </div><div class="memdoc">
 
 <p>层次遍历(LayerOrder) </p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+通过迭代实现：
+            d
+          /   \
+        l1    r1
+       / \
+     l2  r2</pre><pre>层次遍历  : d - l1 - r1 - l2 - r2
+将遍历的顺序，看成一个队列：d最先入队，故最先访问；
+                            r2最后入队，最后访问；
+</pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>
   </table>
@@ -407,7 +416,7 @@ template&lt;typename VST &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>后序(postorder)遍历 </p>
+<p>后序(postorder)遍历接口 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">visit</td><td>遍历函数 </td></tr>

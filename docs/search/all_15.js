@@ -8,6 +8,5 @@ var searchData=
   ['vector_3c_20dsa_3a_3avector_3c_20dsa_3a_3aedge_3c_20te_20_3e_20_3e_20_3e',['Vector&lt; dsa::Vector&lt; dsa::Edge&lt; Te &gt; &gt; &gt;',['../classdsa_1_1_vector.html',1,'dsa']]],
   ['vector_3c_20dsa_3a_3avertex_3c_20tv_20_3e_20_3e',['Vector&lt; dsa::Vertex&lt; Tv &gt; &gt;',['../classdsa_1_1_vector.html',1,'dsa']]],
   ['vertex',['Vertex',['../structdsa_1_1_vertex.html',1,'dsa']]],
-  ['visit_5falong_5fleft_5fbrach',['visit_along_left_brach',['../group___t_binary_tree.html#gab507c4e1462f69ec9c13ea09edaaaf5e',1,'dsa']]],
   ['vstatus',['VStatus',['../group___graph.html#ga1defbb21ddc4f52a36976e1d33b59dd1',1,'dsa']]]
 ];

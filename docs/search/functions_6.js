@@ -5,7 +5,6 @@ var searchData=
   ['get_5fmax',['get_max',['../classdsa_1_1_pq_compl_heap.html#ac8ad099e4e7be3af321e350375e30b8e',1,'dsa::PqComplHeap::get_max()'],['../classdsa_1_1_pq_list.html#a7ae35775e25fe70c7f1ead62e1f802c7',1,'dsa::PqList::get_max()']]],
   ['get_5ftime_5fms',['get_time_ms',['../group___share.html#gaf61d1fd04d2ea3fa54851d7bef94c5f9',1,'dsa']]],
   ['get_5ftype',['get_type',['../classdsa_1_1_operator_calc.html#ab9c5d8b056522d6a9fb604cae52a822f',1,'dsa::OperatorCalc']]],
-  ['go_5falong_5fleft_5fbranch',['go_along_left_branch',['../group___t_binary_tree.html#ga718fa06bc2d2efa4e79b9dba924f1c20',1,'dsa']]],
   ['greater_5fequal',['greater_equal',['../group___share.html#ga1ac19def29f10dce36ce6b9b29aa2750',1,'dsa']]],
   ['greater_5fthan',['greater_than',['../group___share.html#ga99e01e6a650b4178c8c2b1f9df839597',1,'dsa']]]
 ];

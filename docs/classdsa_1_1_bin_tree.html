@@ -147,10 +147,11 @@ class dsa::BinTree&lt; T &gt;</h3>
 --------------&mdash; r      ---&mdash;
                  /depth(v)        .                *
                / \
--------&mdash;    v  ...      height(r)
-             / \
-height(v)   .-------&mdash;  .
-           / \             .           ---&mdash;</pre><pre>v的深度：depth(v)，指子树根节点v的深度
+-------&mdash;    v   .    height(r)
+             / \  .
+height(v)   .   * .
+            .     .
+-------&mdash;  *     .                  *      ---&mdash;</pre><pre>v的深度：depth(v)，指子树根节点v的深度
 根节点深度为0</pre><pre>v的高度：height(v)，指子树根节点v的高度
 空树高度取为-1</pre><pre>叶子节点：没有后代(子节点)的节点</pre><pre>(2) 二叉树：节点度数&lt;=2的树
 对于深度为k的节点，数量至多为2^k个；</pre><pre>含n个节点，高度为h的二叉树： h &lt; n &lt; 2^(h+1)

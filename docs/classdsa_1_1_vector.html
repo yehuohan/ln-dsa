@@ -123,6 +123,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:acd9a59b0207782fddf9aa3e6b58d583b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#acd9a59b0207782fddf9aa3e6b58d583b">insert</a> (int index, const T &amp;ele)</td></tr>
 <tr class="memdesc:acd9a59b0207782fddf9aa3e6b58d583b"><td class="mdescLeft">&#160;</td><td class="mdescRight">插入元素到指定下标位置  <a href="#acd9a59b0207782fddf9aa3e6b58d583b">更多...</a><br /></td></tr>
 <tr class="separator:acd9a59b0207782fddf9aa3e6b58d583b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95ac03950e775cfcdf7dd785378ed24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ac95ac03950e775cfcdf7dd785378ed24">insert_multi_byorder</a> (const T &amp;ele)</td></tr>
+<tr class="separator:ac95ac03950e775cfcdf7dd785378ed24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9829bcbd1bed82764ad4fd32cc1a5f06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#a9829bcbd1bed82764ad4fd32cc1a5f06">insert_byorder</a> (const T &amp;ele)</td></tr>
+<tr class="separator:a9829bcbd1bed82764ad4fd32cc1a5f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_vector.html#ab16c56c8d4e3e1a9c59a5a42d045e9b0">remove</a> (int index)</td></tr>
 <tr class="memdesc:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除指定下标的元素  <a href="#ab16c56c8d4e3e1a9c59a5a42d045e9b0">更多...</a><br /></td></tr>
 <tr class="separator:ab16c56c8d4e3e1a9c59a5a42d045e9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -871,6 +875,64 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a id="a9829bcbd1bed82764ad4fd32cc1a5f06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9829bcbd1bed82764ad4fd32cc1a5f06">&#9670;&nbsp;</a></span>insert_byorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::insert_byorder </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>按序插入元素，不可插入重复元素，返回元素下标 </p>
+
+</div>
+</div>
+<a id="ac95ac03950e775cfcdf7dd785378ed24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95ac03950e775cfcdf7dd785378ed24">&#9670;&nbsp;</a></span>insert_multi_byorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;::insert_multi_byorder </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>按序插入元素，可插入重复元素 </p>
+
+</div>
+</div>
 <a id="a006602443afd2fd5d12ba29dc018715e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a006602443afd2fd5d12ba29dc018715e">&#9670;&nbsp;</a></span>insertion_sort()</h2>
 
@@ -904,7 +966,7 @@ template&lt;typename T &gt; </div>
  ------------  -----------
  已排序区间S   待排序区间W</pre><pre>不断将W中第一个元素e，插入到S中位置i处；
 i为S中元素不大于e的最大元素的位置</pre><pre>(1) 基本形式：先search再insert。
-(2) 改进版：因为S是有序的，故从右向左遍因S，比较与e的大小关系，并进行交换。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
+(2) 改进版：因为S是有序的，故从右向左遍历S，比较与e的大小关系，并进行交换。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
@@ -1028,8 +1090,12 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>merge sort in [lo, hi) （归并排序） </p>
-<p>排序范围为[lo, hi)</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre></pre><pre> lo             hi
+[              ]</pre><pre>分：将排序区间分成左右两部分</pre><pre>[      ][      ]
+ ------  ------
+   L       R</pre><pre>合：同时遍历L和R，按大小依次插入到新区间S中</pre><pre>[              ]
+ --------------
+ 已排序区间S</pre><pre> 不断的递归，执行“分，合”，直至L、R中只有一个元素。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">lo,hi</td><td>下标范围[lo, hi) </td></tr>
   </table>
