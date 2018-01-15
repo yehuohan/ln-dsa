@@ -493,6 +493,7 @@ void Vector<T>::bubble_sort(int lo, int hi)
     while(!this->bubble(lo, hi--));
 #else
     while(lo < hi) hi = this->bubble(lo, hi);
+#endif
 
     // 改进版二的直接实现
 #if(0)
@@ -510,7 +511,6 @@ void Vector<T>::bubble_sort(int lo, int hi)
         }
         hi = last;
     }
-#endif
 #endif
 }
 
@@ -579,7 +579,26 @@ int Vector<T>::bubble(int lo, int hi)
 /*!
  * @brief merge sort in [lo, hi) （归并排序）
  *
- * 排序范围为[lo, hi)
+ * <pre>
+ *
+ *  lo             hi
+ * [              ]
+ *
+ * 分：将排序区间分成左右两部分
+ *
+ * [      ][      ]
+ *  ------  ------
+ *    L       R
+ *
+ * 合：同时遍历L和R，按大小依次插入到新区间S中
+ *
+ * [              ]
+ *  --------------
+ *  已排序区间S
+ *
+ *  不断的递归，执行“分，合”，直至L、R中只有一个元素。
+ *
+ * </pre>
  *
  * @param lo,hi: 下标范围[lo, hi)
  * @return
@@ -687,7 +706,7 @@ int Vector<T>::select_max(int lo, int hi)
  * i为S中元素不大于e的最大元素的位置
  *
  * (1) 基本形式：先search再insert。
- * (2) 改进版：因为S是有序的，故从右向左遍因S，比较与e的大小关系，并进行交换。
+ * (2) 改进版：因为S是有序的，故从右向左遍历S，比较与e的大小关系，并进行交换。
  *
  * </pre>
  *
