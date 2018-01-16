@@ -139,15 +139,15 @@ template <typename T, typename VST> static void traverse_LRD_recursion(BinNodePt
 
 /*!
  * @brief 获取中序遍历下当前节点的直接后继节点
- *
+ * <pre>
  * 有右子树：r为当前节点，d为r的直接后继
  *    r
  *   / \
  *  L   a
  *     / \
- *    b   c
+ *    d   c
  *     \
- *      d
+ *      b
  *
  * 无右子树：r为当前节点，d为r的直接后继
  *        e
@@ -159,7 +159,7 @@ template <typename T, typename VST> static void traverse_LRD_recursion(BinNodePt
  *  a   r
  *     /
  *    L
- *
+ * </pre>
  * @param None
  * @return 返回直接后继节点
  * @retval None

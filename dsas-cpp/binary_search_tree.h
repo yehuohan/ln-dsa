@@ -210,10 +210,13 @@ bool BinSearchTree<T>::remove(const T& e)
  *   / \   / \
  *  T0 T1 T2 T3
  *
+ * 同时更新a,b,c三个节点的高度（connect34会调用update_height()函数）；
+ * 而T0,T1,T2,T3，因为其子节点未发生变动，所以其高度也就无需更新；
+ *
  * </pre>
  *
  * @param a,b,c,T0,T1,T2,T3: 待连接的节点
- * @return 子树的根节点
+ * @return 新子树的根节点
  * @retval None
  */
 template <typename T>
@@ -245,25 +248,25 @@ BinNodePtr<T> BinSearchTree<T>::connect34(
  *
  * <pre>
  * 示意图如下(包括对称情况)：
+ * 单旋:
  * zag(旋转gp)                       | zig(旋转gp)
- * 单旋:                             |  单旋:
- *   g                       p       |      g                       p
- * /   \                   /   \     |    /   \                   /   \
- * T0  p        =>        g     v    |    p   T3       =>        v     g
- *    / \                / \   / \   |   / \                    / \   / \
- *   T1 v               T0 T1 T2 T3  |   v T2                  T0 T1 T2 T3
- *     / \                           |  / \
- *    T2 T3                          | T0 T1
+ *   g                       p       |        g                       p
+ * /   \                   /   \     |      /   \                   /   \
+ * T0   p       =>        g     v    |     p    T3     =>          v     g
+ *     / \               / \   / \   |    / \                     / \   / \
+ *    T1  v             T0 T1 T2 T3  |   v  T2                   T0 T1 T2 T3
+ *       / \                         |  / \
+ *      T2 T3                        | T0 T1
  *                                   |
- * zag-zig(先zig旋转pv，再zag旋转gv) | zig-zag(先zag旋转pv，再zig旋转gv)
- * 双旋:                             |  双旋:
+ * 双旋:
+ * zig-zag(先zig旋转pv，再zag旋转gv) | zag-zig(先zag旋转pv，再zig旋转gv)
  *   g                       v       |      g                       v
  * /   \                   /   \     |    /   \                   /   \
  * T0   p                 g     p    |   p    T3                 p     g
- *    /   \              / \   / \   | /   \                    / \   / \
- *   v    T3    =>      T0 T1 T2 T3  | T0   v          =>      T0 T1 T2 T3
- *  / \                              |     / \
- * T1 T2                             |    T1 T2
+ *     / \               / \   / \   |  / \                     / \   / \
+ *    v  T3     =>      T0 T1 T2 T3  | T0  v           =>      T0 T1 T2 T3
+ *   / \                             |    / \
+ *  T1 T2                            |   T1 T2
  *                                   |
  * </pre>
  *
