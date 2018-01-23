@@ -16,3 +16,18 @@ Can you do it like a boss? Do it without using any builtin function like \_\_bui
 You should make use of what you have produced already.
 Divide the numbers in ranges like [2-3], [4-7], [8-15] and so on. And try to generate new range from previous.
 Or does the odd/even status of the number help you in calculating the number of 1s?
+
+## Code
+
+```
+rcb[0] = 0;
+rcb[1] = 1;
+rcb[k] = rcb[k >> 1] + rcb[k & 1];
+
+对k >> 1的理解:
+  向右移一位，'1'的个数不变；
+  向右移一位即除2，最终的结果不是0就是1，所以要先给rcb[0]和rcb[1]赋值；
+
+对k & 1的理解：
+  向右移一位，则最低的一位将丢弃，如果丢弃的是'1'，则要加上；
+```

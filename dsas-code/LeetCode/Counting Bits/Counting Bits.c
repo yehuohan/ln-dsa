@@ -8,9 +8,15 @@
  */
 int* countBits(int num, int* returnSize) {
 	int* rcb = (int*)malloc((num + 1)*sizeof(int));
-	int next = 0;
-	int offset = 0;
 
+#if(1)
+    rcb[0] = 0; rcb[1] = 1;
+    // k >> 1 = k / 2
+    // k & 1  = k % 2
+    for (int k = 2; k <= num; k ++)
+        rcb[k] = rcb[k >> 1] + rcb[k & 1];
+#else
+	int offset = 0;
     rcb[0] = 0;
 	for (int n = 1; n <= num; n++)
 	{
@@ -22,6 +28,7 @@ int* countBits(int num, int* returnSize) {
 		else
             rcb[n] = rcb[n - (1 << (offset-1))] + 1;
 	}
+#endif
 
 	*returnSize = num + 1;
 	return rcb;

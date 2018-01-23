@@ -21,6 +21,8 @@ S will consist of lowercase letters ('a' to 'z') only.
 
 ## Code
 
+### 分割与合并法 
+
  - 极端情况
 
 ```
@@ -39,4 +41,15 @@ S will consist of lowercase letters ('a' to 'z') only.
 "abcbde"
 分到第2个"b"时，需要将前面从"b"开始的部分合并，然后继续分
 ["a", "b", "c"] => ["a", "bcb", "d", "e"]
+```
+
+### 下标计算法
+
+S 的字母字为"a~z"，先求出每个字母的最大下标pos：
+
+```
+"abcdeakkbiiii"
+pos['a'] = 5，分割的第一部分 至少为S[0:5]
+pos['b'] = 8，分割的第一部分更新成 至少为S[0:8]
+pos['i'] = 12，分割的第二部分 至少为S[9:12] 
 ```

@@ -5,6 +5,20 @@ class Solution:
         :type S: str
         :rtype: List[int]
         """
+
+        """
+        # 容易理解，但速度太慢
+        num = []
+        while S:
+            k = 1
+            # 两个集合没有交集，即可分开
+            while not set(S[:k]).isdisjoint(set(S[k:])):
+                k += 1
+            num.append(k)
+            S = S[k:]
+        return num
+        """
+
         p = []
         for k in range(len(S)):
             # p中无含有S[k]的字符串
