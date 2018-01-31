@@ -119,18 +119,18 @@ BinNodePtr<T> BinSearchTree<T>::insert(const T& e)
  *  / \              / \
  * T0  b            T0  b
  *    / \     =>       / \
- *   T1  d            T1  c (d)
+ *   T1  d            T1  T2(d)
  *      /
- *     c
+ *     T2
  *
  * 双分支删除d节点：
  *    d                  c
  *  /   \              /   \
  * T0    b            T0    b
  *     /   \     =>       /   \
- *    c     T1           d     T1
- *     \   / \            \   / \
- *      a T2 T3            a T2 T3
+ *    c     T2           d     T2
+ *     \                  \
+ *      T1                 T1
  * 节点c为节点d直接后继，交换c和d，然后按单分支情况删除d
  *
  * </pre>
