@@ -258,9 +258,25 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>获取中序遍历下当前节点的直接后继节点 </p>
-<p>有右子树：r为当前节点，d为r的直接后继 r / \ L a / \ b c \ d</p>
-<p>无右子树：r为当前节点，d为r的直接后继 e / \ d R / \ b c / \ a r / L</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre>
+有右子树：r为当前节点，d为r的直接后继
+   r
+  / \
+ L   a
+    / \
+   d   c
+    \
+     b</pre><pre>无右子树：r为当前节点，d为r的直接后继
+       e
+      / \
+     d  R
+    / \
+   b   c
+  / \
+ a   r
+    /
+   L
+</pre> <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
   </table>

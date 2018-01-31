@@ -191,8 +191,24 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>AVL平衡二叉树的插入操作 </p>
-<p>在插入元素后，如果二叉树失衡，则要恢复平AVL平衡</p>
-<dl class="params"><dt>参数</dt><dd>
+<pre></pre><pre>插入节点，引起树失衡的基本情况共4种：
+       (1)     (2)          (3)       (4)
+        g       g            g         g
+       / \     / \          / \       / \
+      p   t   t   p        p   t     t   p
+     /             \        \           /
+    v               v        v         v
+   /               /        /         /
+  i               i        i         i</pre><pre>g,p,v,t四个节点原本可以达到AVL平衡，但插入节点i做为v的子节点后，就会引起节点g失衡；
+（因为插入节点i，使得g的高度变化，从而引起g的平衡因子超范围，即引起g失衡）。</pre><pre>这里估且设定 g-&gt;parent 节点为 x；</pre><pre>回复平衡的方法，即将g,p,v三个基本节点调整到以下形状：
+      (1)      (2)          (3)       (4)
+       p        p            v         v
+      / \      / \          / \       / \
+     v   g    g   v        p   g     g   p
+    /     \  /   /          \   \   / \
+   i      t t   i            i   t t   i</pre><pre>需要注意的是：
+回复平衡后，g所在位置(即现在的p,v节点处)节点的高度也会同样回复；
+所以从 x 节点以上的所有祖先节点高度均不会变化，即全树回复平衡。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">e</td><td>待插入的元素 </td></tr>
   </table>
@@ -237,7 +253,20 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>移除节点 </p>
-<dl class="params"><dt>参数</dt><dd>
+<pre></pre><pre>插入节点，引起树失衡的基本情况共4种：
+       (1)     (2)          (3)       (4)
+        g       g            g         g
+       / \     / \          / \       / \
+      p   t   t   p        p   t     t   p
+     /             \        \           /
+    v               v        v         v</pre><pre>g,p,v,t四个节点原本可以达到AVL平衡，但删除节点t后，就会引起节点g失衡；
+（因为删除节点t，使得g的高度变化，从而引起g的平衡因子超范围，即引起g失衡）。</pre><pre>这里估且设定 g-&gt;parent 节点为 x；</pre><pre>回复平衡的方法，即将g,p,v三个基本节点调整到以下形状：
+      (1)      (2)          (3)       (4)
+       p        p            v         v
+      / \      / \          / \       / \
+     v   g    g   v        p   g     g   p</pre><pre>需要注意的是：
+回复平衡后，g所在位置(即现在的p,v节点处)节点的高度可能再次发生变化，可能引起g-&gt;parent失衡；
+所以，需要自 x 节点开始，沿着 parent 方向，检测所有祖先节点是否发生失衡，直至树根节点root；</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">e</td><td>待移除节点的内容 </td></tr>
   </table>

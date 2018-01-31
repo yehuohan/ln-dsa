@@ -328,34 +328,64 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>对节点进行伸展 </p>
-<pre>
-双层伸展：
-zag-zag (先旋转gp，再旋转gv)      | zig-zig(先旋转gp，再旋转gv)
-  g                       v       |      g                       v
-/   \                   /   \     |    /   \                    / \
-T0  p        =&gt;        p    T3    |    p   T3       =&gt;         T0  p
-   / \                / \         |   / \                         / \
-  T1 v               g  T2        |   v T2                       T1  g
-    / \             / \           |  / \                            / \
-   T2 T3           T0 T1          | T0 T1                          T2 T3
+<pre></pre><pre>伸展的目的是使目标节点向上移，直至成为根节点root；
+优先双层伸展，直至最后只剩下一层，则执行单层伸展。</pre><pre>(1)双层伸展
+zag-zag(先zag旋转gp，再zag旋转pv) | zig-zig(先zig旋转gp，再zig旋转pv)
+  g                       v       |        g                  v
+/   \                   /   \     |      /   \               / \
+T0   p       =&gt;        p    T3    |     p    T3     =&gt;     T0   p
+    / \               / \         |    / \                     / \
+   T1  v             g  T2        |   v  T2                   T1  g
+      / \           / \           |  / \                         / \
+     T2 T3         T0 T1          | T0 T1                       T2 T3
                                   |
-zig-zag(先旋转pv，再旋转gv)       | zag-zig(先旋转pv，再旋转gv)
+(与AVL旋转相同)                   | (与AVL旋转相同)
+zig-zag(先zig旋转pv，再zag旋转gv) | zag-zig(先zag旋转pv，再zig旋转gv)
+双旋:                             |  双旋:
   g                       v       |      g                       v
 /   \                   /   \     |    /   \                   /   \
 T0   p                 g     p    |   p    T3                 p     g
-   /   \              / \   / \   | /   \                    / \   / \
-  v    T3    =&gt;      T0 T1 T2 T3  | T0   v          =&gt;      T0 T1 T2 T3
- / \                              |     / \
-T1 T2                             |    T1 T2</pre><pre>单层伸展：
+    / \               / \   / \   |  / \                     / \   / \
+   v  T3     =&gt;      T0 T1 T2 T3  | T0  v           =&gt;      T0 T1 T2 T3
+  / \                             |    / \
+ T1 T2                            |   T1 T2</pre><pre>(2)单层伸展
 zig:                              | zag:
     p                   v         |     p                   v
    / \                 / \        |    / \                 / \
   v  T2      =&gt;       T0  p       |   T0  v       =&gt;      p  T2
  / \                     / \      |      / \             / \
-T0  T1                  T1 T2     |     T1  T2          T0 T1
-</pre><dl class="params"><dt>参数</dt><dd>
+T0  T1                  T1 T2     |     T1  T2          T0 T1</pre><pre>(3)伸展效果
+查找'1':
+伸过数次伸展，'1'成为了根节点，而树的高度也减小了一半；
+              8              8            8             8             1
+             /              /            /             /      =&gt;       \
+            7              7            7             1   (伸展1,8)     8
+           /              /            /               \               /
+          6              6            6                 6             6
+         /              /            /     =&gt;          / \           / \
+        5              5            1  (伸展1,6,7)    4   7         4   7
+       /              /              \               / \           / \
+      4              4     =&gt;         4             2   5         2   5
+     /              /  (伸展1,4,5)   / \             \             \
+    3              1                2   5             3             3
+   /       =&gt;       \                \
+  2   (伸展1,2,3)    2                3
+ /                    \
+1                      3</pre><pre>查找'3':
+伸过数次伸展，'3'成为了根节点，'1'仍在根节点附近，树的高度再度减小一半；
+     1                   1                 1                   3
+      \                   \                 \        =&gt;     /     \
+       8                   8                 3  (伸展1,3)  1       6
+      /                   /                 / \             \    /   \
+     6                   6        =&gt;       2   6             2  4     8
+    / \                 / \  (伸展3,6,8)  /   \               \      /
+   4   7               3   7             4     8               5    7
+  / \        =&gt;       / \                 \   /
+ 2   5  (伸展3,2,4)  2   4                 5 7
+  \                   \
+   3                   5</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>待展展的节点 </td></tr>
+    <tr><td class="paramname">v</td><td>待伸展的节点 </td></tr>
   </table>
   </dd>
 </dl>
