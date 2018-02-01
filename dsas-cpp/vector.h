@@ -471,6 +471,7 @@ int Vector<T>::uniquify()
 template <typename T>
 void Vector<T>::unsort(int lo, int hi)
 {
+    dsa::rand_init();
     T* v = this->m_array + lo;      // v的下标范围为[0, hi-lo)
     for (int k = hi - lo; k > 0; k--)
         dsa::swap(v[k-1], v[dsa::rand_n(k)]);
@@ -799,6 +800,7 @@ template <typename T>
 int Vector<T>::partition(int lo, int hi)
 {
     // 随机交换候选轴点，使轴点的位置均匀分布
+    dsa::rand_init();
     dsa::swap(this->m_array[lo], this->m_array[lo + dsa::rand_n(hi-lo+1)]);
     // 候选轴点
     T pivot = this->m_array[lo];

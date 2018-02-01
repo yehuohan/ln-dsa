@@ -26,6 +26,19 @@ namespace dsa
  * @{
  */
 
+/*!
+ * @brief 设置随机种子
+ *
+ * 使用rand_n前，调用一次
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+inline void rand_init()
+{
+    std::srand((unsigned)std::time(nullptr));
+}
 
 /*!
  * @brief 返一个位于[0,n)随机数
@@ -40,7 +53,6 @@ namespace dsa
  */
 inline int rand_n(int N)
 {
-    std::srand((unsigned)std::time(nullptr));
     return std::rand() % N;
 }
 
