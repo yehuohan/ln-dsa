@@ -12,7 +12,7 @@
 
 
 #ifndef DSAS_ENTRY_H
-#define DSAS_ENTRY_H 
+#define DSAS_ENTRY_H
 
 #include "compare.h"
 
@@ -36,7 +36,7 @@ namespace dsa
  * </pre>
  *
  */
-template <typename K, typename V, typename CMP = dsa::Less<K> >
+template <typename K, typename V, typename CMP = dsa::Less<K>>
 struct Entry
 {
     K   key;        /**< 键 */
@@ -76,6 +76,6 @@ struct Entry
 
 /*! @} */
 
-} /* dsa */ 
+} /* dsa */
 #endif /* ifndef DSAS_ENTRY_H */
 

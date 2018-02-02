@@ -78,7 +78,7 @@ using BinNodePtr = struct BinNode<T>*;
 
 /*!
  * @brief 二叉树节点
- *
+ * T类型需要实现'<'运算符，或用CmpOperator对T进行封装。
  */
 template <typename T> struct BinNode
 {

@@ -67,7 +67,7 @@ template <typename T> bool greater_equal(const T& a, const T& b) {return (greate
  * 将数据封装到一个类中，实现比较操作符、赋值操作符、拷贝构造函数等。
  *
  */
-template <typename T, typename L=dsa::Less<T> >
+template <typename T, typename L=dsa::Less<T>>
 struct CmpOperator
 {
     T   val;
