@@ -97,7 +97,7 @@ public:
     void    unsort(int lo, int hi);
 
     /** 返回Vector的最大元素下标 */
-    int     select_max() {this->select_max(0, this->m_size);}
+    int     select_max() {return this->select_max(0, this->m_size);}
     int     select_max(int lo, int hi);
 
     /** 对所有Vector元素排序 */
