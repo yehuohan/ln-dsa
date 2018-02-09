@@ -11,6 +11,7 @@ using std::endl;
 
 void print_node(int data) {cout << data << "    ";}
 
+void test_varray();
 void test_vector();
 void test_list();
 void test_stack();
@@ -34,6 +35,7 @@ void test_share();
 //(int argc, char** argv)
 int main()
 {
+    test_varray();
     //test_share();
     //test_sort_time();
     //test_sort();
@@ -48,13 +50,33 @@ int main()
     //test_avl();
     //test_bst();
     //test_graph();
-    test_bt();
+    //test_bt();
     //test_queue();
     //test_stack();
     //test_list();
     //test_vector();
 
     return 0;
+}
+
+#include <array>
+void test_varray()
+{
+    const int N = 10;
+    dsa::Array<int, N> ar;
+
+    for (int k = 0; k < N; k ++)
+        ar[k] = k * k;
+    for (int k = 0; k < N; k ++)
+        std::cout << ar.at(k) << "  ";
+    std::cout << std::endl;
+    std::cout << ar.find(81) << std::endl;
+
+    ar.fill(99);
+    for (int k = 0; k < N; k ++)
+        std::cout << ar.at(k) << "  ";
+
+    //ar.at(10) = 10;
 }
 
 void test_vector()

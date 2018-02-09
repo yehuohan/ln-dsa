@@ -35,6 +35,12 @@ DSAS是数据结构与算法的学习过程。
  */
 
 /*!
+ * @defgroup LArray Array
+ * 数组
+ * @{
+ * @}
+ */
+/*!
  * @defgroup LVector Vector
  * 向量
  * @{
@@ -185,6 +191,7 @@ DSAS是数据结构与算法的学习过程。
 #include "share/prime.h"
 #include "share/compare.h"
 
+#include "array.h"
 #include "vector.h"
 #include "list.h"
 #include "stack.h"
