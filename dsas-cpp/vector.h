@@ -18,6 +18,7 @@
 
 #include "share/swap.h"
 #include "share/rand.h"
+#include "share/compare.h"
 
 namespace dsa
 {
@@ -100,16 +101,16 @@ public:
     int     select_max() {return this->select_max(0, this->m_size);}
     int     select_max(int lo, int hi);
 
-    /** 对所有Vector元素排序 */
-    void    sort() {this->quick_sort(0, this->m_size);}
+    /** 对所有Vector元素排序（可提示比较函数） */
+    template <typename CMP = dsa::Less<T>> void sort(const CMP& cmp = dsa::Less<T>()) {this->quick_sort(0, this->m_size, cmp);}
     void    bubble_sort(int lo, int hi);
     int     bubble(int lo, int hi);
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
     void    selection_sort(int lo, int hi);
     void    insertion_sort(int lo, int hi);
-    void    quick_sort(int lo, int hi);
-    int     partition(int lo, int hi);
+    template <typename CMP = dsa::Less<T>> void quick_sort(int lo, int hi, const CMP& cmp = dsa::Less<T>());
+    template <typename CMP> int partition(int lo, int hi, const CMP& cmp);
     void    shell_sort(int lo, int hi);
     void    shell_insertion(int w, int lo, int hi);
 
@@ -748,21 +749,22 @@ void Vector<T>::insertion_sort(int lo, int hi)
 /*!
  * @brief 快速排序
  *
- * 排序范围为[lo, hi)
+ * 排序范围为[lo, hi)，CMP(a,b)为比较函数，a<b时返回true。
  *
  * @param lo,hi: 下标范围[lo, hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::quick_sort(int lo, int hi)
+template <typename T> template <typename CMP>
+void Vector<T>::quick_sort(int lo, int hi, const CMP& cmp)
 {
     // 只有一个元素
     if (hi - lo < 2)
         return;
-    int mi = this->partition(lo, hi-1);   // 构造轴点
-    this->quick_sort(lo, mi);
-    this->quick_sort(mi + 1, hi);
+    int mi = this->partition(lo, hi-1, cmp);   // 构造轴点
+    this->quick_sort(lo, mi, cmp);
+    this->quick_sort(mi + 1, hi, cmp);
+
 }
 
 /*!
@@ -781,7 +783,7 @@ void Vector<T>::quick_sort(int lo, int hi)
  *      L              R
  * 比较候选轴点p和i和j，将i和j不断的归入到L或R中；
  *
- * (2)变种形式
+ * (2)变种形式（要使用自定义CMP，需要使用变种形式）
  * [p][      q][i       ][k----------]
  *    --------  --------
  *        L        R
@@ -796,31 +798,31 @@ void Vector<T>::quick_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::partition(int lo, int hi)
+template <typename T> template <typename CMP>
+int Vector<T>::partition(int lo, int hi, const CMP& cmp)
 {
     // 随机交换候选轴点，使轴点的位置均匀分布
     dsa::rand_init();
     dsa::swap(this->m_array[lo], this->m_array[lo + dsa::rand_n(hi-lo+1)]);
     // 候选轴点
     T pivot = this->m_array[lo];
-#if(1)
+#if(0)
     // 基本形式
     while(lo < hi)
     {
-        while(lo < hi && this->m_array[hi] >= pivot) hi--;
+        while(lo < hi && this->m_array[hi] >= pivot) hi--;  // 有重复元素时，需要>=
         this->m_array[lo] = this->m_array[hi];
-        while(lo < hi && this->m_array[lo] <= pivot) lo++;
+        while(lo < hi && this->m_array[lo] <= pivot) lo++;  // 有重复元素时，需要<=
         this->m_array[hi] = this->m_array[lo];
     }
     this->m_array[lo] = pivot;        // 最终轴点
     return lo;
 #else
-    // 变种形式
+    // 变种形式（要使用自定义CMP，需要使用变种形式）
     int mi = lo;
     for (int k = lo + 1; k <= hi; k++)
     {
-        if (this->m_array[k] < pivot)
+        if (cmp(this->m_array[k], pivot))   // 在变种形式中使用CMP
         {
             mi ++;
             dsa::swap(this->m_array[k], this->m_array[mi]);
