@@ -131,9 +131,9 @@ public:
  */
 template <typename T>
 Vector<T>::Vector(int size, int cap, const T& ele)
+    : m_size(size)
+    , m_cap(cap)
 {
-    this->m_size = size;
-    this->m_cap = cap;
     this->m_array = new T[this->m_cap];
     for (int k = 0; k < this->m_size; k++)
     {
