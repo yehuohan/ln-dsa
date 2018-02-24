@@ -13,6 +13,8 @@
 #ifndef _ARRAY_H
 #define _ARRAY_H
 
+#include "vector.h"
+
 namespace dsa
 {
 
@@ -35,6 +37,19 @@ protected:
 
 public:
     Array() : m_cap(N) {this->m_array = new T[this->m_cap];}
+    Array(const dsa::Vector<T>& V) : m_cap(N)
+    {
+        this->m_array = new T[this->m_cap];
+        for (int k = 0; k < this->m_cap; k ++)
+            this->m_array[k] = V[k];
+    }
+    Array(const Array<T,N>& A)
+    {
+        this->m_cap = A.m_cap;
+        this->m_array = new T[this->m_cap];
+        for (int k = 0; k < this->m_cap; k ++)
+            this->m_array[k] = A.m_array[k];
+    }
     ~Array() {delete[] this->m_array;}
 
     /** 返回数组容量 */
@@ -55,6 +70,15 @@ public:
     T& operator[](int index) {return this->m_array[index];}
     /** 重载[]，用于const Vector下标访问，不能修改m_array[index] */
     const T& operator[](int index) const {return this->m_array[index];}
+    /** 重载= */
+    Array<T,N>& operator=(const Array<T,N>& A)
+    {
+        delete[] this->m_array;
+        this->m_cap = A.m_cap;
+        this->m_array = new T[this->m_cap];
+        for (int k = 0; k < this->m_cap; k ++)
+            this->m_array[k] = A.m_array[k];
+    }
 
     /** 在整个Array中查找 */
     int     find(const T& ele) const {return this->find(ele, 0, this->m_cap);}
