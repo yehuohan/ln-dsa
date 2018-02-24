@@ -31,11 +31,13 @@ void test_string();
 void test_sort();
 void test_sort_time();
 void test_share();
+void test_kdtree();
 
 //(int argc, char** argv)
 int main()
 {
-    test_varray();
+    test_kdtree();
+    //test_varray();
     //test_share();
     //test_sort_time();
     //test_sort();
@@ -59,7 +61,6 @@ int main()
     return 0;
 }
 
-#include <array>
 void test_varray()
 {
     const int N = 10;
@@ -896,3 +897,22 @@ void test_share()
     co = 10;
     cout << (co == 10) << endl;
 }
+
+void test_kdtree()
+{
+    dsa::Vector<dsa::Vector<int>> vd;
+    dsa::Vector<int> point(2);
+    point.push_back(0); point.push_back(0);
+    point[0] = 2; point[1] = 3; vd.push_back(point);
+    point[0] = 5; point[1] = 4; vd.push_back(point);
+    point[0] = 9; point[1] = 6; vd.push_back(point);
+    point[0] = 4; point[1] = 7; vd.push_back(point);
+    point[0] = 8; point[1] = 1; vd.push_back(point);
+    point[0] = 7; point[1] = 2; vd.push_back(point);
+
+    dsa::KdTree<int, 2> kd(vd);
+
+    for (int k = 0; k < vd.size(); k ++)
+        std::cout << vd[k][0] << " " << vd[k][1] << std::endl;
+}
+

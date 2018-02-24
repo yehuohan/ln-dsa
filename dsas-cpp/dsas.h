@@ -142,6 +142,12 @@ DSAS是数据结构与算法的学习过程。
  * @{
  * @}
  */
+/*!
+ * @defgroup TKDTree K-D Tree
+ * k-d树
+ * @{
+ * @}
+ */
 
 /*!
  * @}
@@ -212,6 +218,7 @@ DSAS是数据结构与算法的学习过程。
 #include "b_node.h"
 #include "b_tree.h"
 #include "redblack_tree.h"
+#include "kdtree.h"
 
 #include "graph.h"
 #include "graph_matrix.h"
