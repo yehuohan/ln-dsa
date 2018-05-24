@@ -28,16 +28,54 @@
 */
 
 #include <iostream>
+#include <vector>
 
+/*!
+ * @brief count_num
+ * 排列组合
+ */
 int count_num(int n, int k)
 {
-    const mod_val = 1000000007;
+    const int mod = 1000000007;
+
+    std::vector<std::vector<int>> state;
+    for (int i = 0; i <= n; i ++)
+        state.push_back(std::vector<int>(k + 1, 0));
+
+    // 长度为1，且以i结尾的合法数列均只有1个
+    for (int i = 1; i <= k; i ++)
+        state[1][i] = 1;
+
+    // 求取长度为i，且以j结尾的合法数列个数
+    for (int i = 2; i <= n; i ++)
+    {
+        // 长度为i-1的合法数列共sum个
+        int sum = 0;
+        for (int j = 1; j <= k; j ++)
+            sum = (sum + state[i-1][j]) % mod;
+
+        // 长度为i，且以j结层的合法数列有state[i][j]个
+        for (int j = 1; j <= k; j ++)
+        {
+            state[i][j] = sum;
+            // 减去不合法的数列(A%B==0的组合???)
+            for (int q = j*2; q <= k; q += j)
+                state[i][j] = (state[i][j] - state[i-1][q] + mod) % mod;
+        }
+    }
+
+    // 对长度为n，且以i结尾的合法数列求和
+    int count = 0;
+    for (int i = 1; i <= k; i ++)
+        count = (count + state[n][i]) % mod;
+
+    return count;
 }
 
 int main(int argc, char *argv[])
 {
-    int n, k;
-    std::cin >> n >> k;
+    int n = 2, k = 2;
+    //std::cin >> n >> k;
     std::cout << count_num(n, k);
     return 0;
 }

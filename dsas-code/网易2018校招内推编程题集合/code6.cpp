@@ -37,56 +37,38 @@
 #include <cstring>
 #include <limits>
 
-typedef struct point_s
-{
-    int x, y;
-    point_s(int _x, int _y) : x(_x), y(_y){}
-}point_t;
-
-inline int calc_dis(point_t a, point_t b)
-{
-    return (std::abs(a.x - b.x) + std::abs(a.y - b.y));
-}
-
 void move_chess(int* x, int* y, int* count, int n)
 {
-    // init
-    count[0] = 0;
-    std::vector<point_t> p;
     for (int k = 0; k < n; k ++)
-    {
-        p.push_back(point_t(x[k], y[k]));
-    }
+        count[k] = INT_MAX;
 
-    // sort
-    std::sort(p.begin(), p.end(), [](point_t a, point_t b)->bool{return a.x < b.x;});
-
-    // calculate distance
-    std::vector<int> dis;
-    for (int k = 1; k < n; k ++)
+    for(int i = 0; i < n; ++i)
     {
-        dis.push_back(calc_dis(p[k - 1], p[k]));
-    }
+        for(int j = 0; j < n; ++j)
+        {
+            std::vector<int> dis(n, 0);
+            for(int k = 0; k < n; ++k)
+                dis[k] = std::abs(x[i] - x[k]) + std::abs(y[j] - y[k]);
+            std::sort(dis.begin(), dis.end());
 
-    // count moves
-    for (int k = 1; k < n; k ++)
-    {
-        count[k] = count[k] + dis[k-1]; 
+            int tmp = 0;
+            for(int k = 0; k < n; ++k)
+            {
+                tmp += dis[k];
+                count[k] = std::min(count[k], tmp);
+            }
+        }
     }
 }
 
 int main(int argc, char *argv[])
 {
     int n;
-    int* x;
-    int* y;
     std::cin >> n;
-    x = new int[n];
-    y = new int[n];
-    for (int k = 0; k < n; k ++)
-        std::cin >> x[k];
-    for (int k = 0; k < n; k ++)
-        std::cin >> y[k];
+    int* x = new int[n];
+    int* y = new int[n];
+    for (int k = 0; k < n; k ++) std::cin >> x[k];
+    for (int k = 0; k < n; k ++) std::cin >> y[k];
     int* count = new int[n];
     move_chess(x, y, count, n);
     for (int k = 0; k < n; k ++)
