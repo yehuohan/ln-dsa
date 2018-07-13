@@ -27,6 +27,7 @@ extern void container_list(void);
 extern void container_hash_map(void);
 extern void container_hash_set(void);
 extern void container_iterator(void);
+extern void container_bitset(void);
 
 // Algorithm
 extern void algorithm_maxmin(void);

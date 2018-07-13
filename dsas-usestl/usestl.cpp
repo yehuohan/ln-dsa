@@ -17,12 +17,13 @@ void exec_stl(stl_func sf)
 
 int main()//int argc, char *argv[])
 {
-#if 0
+#if 1
     exec_stl(container_vector);
     exec_stl(container_list);
     exec_stl(container_iterator);
     exec_stl(container_hash_set);
     exec_stl(container_hash_map);
+    exec_stl(container_bitset);
 #endif
 
 #if 0
@@ -30,7 +31,7 @@ int main()//int argc, char *argv[])
     exec_stl(algorithm_sort);
 #endif
 
-#if 1
+#if 0
     exec_stl(thread_thread);
 #endif
 
