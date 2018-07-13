@@ -24,6 +24,7 @@ int main()//int argc, char *argv[])
     exec_stl(container_hash_set);
     exec_stl(container_hash_map);
     exec_stl(container_bitset);
+    exec_stl(container_priority_queue);
 #endif
 
 #if 0
