@@ -312,21 +312,19 @@ int match_bf2(char* P, char* T)
  * len(P) = m , len(T) = n
  * KMP = O(n+m)
  *
- * 示例：
- * 0  1  2  3  4  5  6  7  8  9  -> 字符的下标j
- * c  h  i  n  c  h  i  l  l  a
- * -1 0  0  0  0  1  2  3  0  0  -> next[j]
- *
+ * (1)KMP的基本思想如下：
  *                             失配点
  *                           /
  * Text    :  c h i n c h i *
+ *            0 1 2 3 4 5 6 7 8 9  -> 字符的下标j
  * Pattern :  c h i n c h i l l a
+ *           -1 0 0 0 0 1 2 3 0 0  -> next[j]
  * next[j] :          c h i n c h i l l a
- * 如果在 l 处失配，说明 l 前的 chi 是匹配的，
- * 故pattern最开始的 chi 则不需要再次比较。
+
+ * 在 P[j=7]=l 匹配失败时，不必从P[j=0]重新开始匹配，而是从 next[j=7]=P[j=3]=n 开始匹配；
+ * 因为 P[j=4,5,6]=chi 和 P[j=0,1,2] 相同的，不需要再次匹配（因此KMP算法需要先建立next表）；
  *
- *
- * Next[j]的建立：
+ * (2)Next[j]的建立：
  *                                        i -> 失配点下标
  * Text: ---------- [     ][  P[j-t,j)  ] x ----------
  *                  |       ------------|
@@ -495,7 +493,7 @@ int* build_next(char* P)
  * -1  0  0    -1  0        -> next_improved[]
  *  t t+1
  *
- * 若P[j] = P[j] 且 P[j+1] = P[t+1]，则next[j+1] = next[t+1] = 0；
+ * 若P[j] = P[t] 且 P[j+1] = P[t+1]，则next[j+1] = next[t+1] = 0；
  *
  * 按原来算法，若T[i]与P[j+1]失配，
  * 接着，应该让T[i]与 P[next[j+1]] = P[t+1] 比较
@@ -550,7 +548,7 @@ int* build_next_improved(char* P)
  * Pattern:     [           ] Y [*****]
  *                            j: 失配点
  * bc表：
- *      失配之处为“教训”，要想匹配成功，下一次比对的字符应当为失配字符。
+ *      失配之处为“教训”，要想匹配成功，下一次比对的Pattern字符应当为Text中失配字符。
  *
  * gs表：
  *      失配之处为“经验”，与KMP类似，借助模式字符串的自相似性。
