@@ -1,0 +1,12 @@
+
+# .gitignore
+
+*.swp
+*.exe
+
+/*
+!/.gitignore
+!/*.md
+!/*.py
+!/*.png
+!/*.jpg
