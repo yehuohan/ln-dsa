@@ -35,20 +35,27 @@ for k, v in enumerate(gxy):
     gzz[k] = fx(v)
 size = len(gxy)
 
-fig = plt.figure("grand")
+fig = plt.figure("grand", figsize=(7, 4))
 fig.canvas.mpl_connect('key_press_event', on_key)
-ax = fig.add_subplot(111, projection='3d')
+fig.subplots_adjust(0.01, 0.1, 0.98, 0.9, 0.2, 0.2)
+ax = fig.add_subplot(121, projection='3d')
+ax2 = fig.add_subplot(122)
 ax.plot_surface(xx, yy, zz)
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 line = []
 
+ax2.contour(xx, yy, zz,
+    levels=np.arange(-1.0, 1, 0.1))
+
 def update(n):
     if n == 0:
         line.append(ax.plot(gxy[0:1, 0], gxy[0:1, 1], gzz[0], '*r', linewidth=1, markersize=5))
+        line.append(ax2.plot(gxy[0:1, 0], gxy[0:1, 1], '*r', linewidth=1, markersize=5))
     else:
         line.append(ax.plot(gxy[n-1:n+1, 0], gxy[n-1:n+1, 1], gzz[n-1:n+1], '*-r', linewidth=1, markersize=5))
+        line.append(ax2.plot(gxy[n-1:n+1, 0], gxy[n-1:n+1, 1], '*-r', linewidth=1, markersize=5))
     return line
 
 anim = animation.FuncAnimation(fig, func=update, frames=size, interval=300)
