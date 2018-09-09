@@ -25,6 +25,7 @@ void container_hash_set(void)
 
     // ²éÕÒÔªËØ
     auto result = ism.find(8);
+    int result_cnt = ism.count(9);
 
     // Êä³ö
     PutTitle("unordered set:\n");
@@ -38,6 +39,8 @@ void container_hash_set(void)
         PutContent("found: " << *result);
     else
         PutContent("not found");
+    PutTitle("\ncount result:\n");
+    PutContent("count: " << result_cnt);
 
     PutTitle("\nContainer hash set end.\n");
 }
