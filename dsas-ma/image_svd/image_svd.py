@@ -78,7 +78,7 @@ def decompress_svd(size:tuple, svd_u, svd_s, svd_vh):
 
 
 if __name__ == "__main__":
-    img           = read_image('pic.jpg')
+    img           = read_image('pic2.jpg')
     [u, s, vh]    = calc_image_svd(img)
     [cu, cs, cvh] = compree_svd(u, s, vh)
     # img_svd       = decompress_svd(img.shape, u, s, vh)

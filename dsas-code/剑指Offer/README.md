@@ -1,0 +1,8 @@
+
+# [剑指Offer](https://www.nowcoder.com/ta/coding-interviews?page=1)
+
+1.二维数组中的查找
+2.替换空格
+3.从尾到头打印链表
+4.重建二叉树
+5.用两个栈实现队列
