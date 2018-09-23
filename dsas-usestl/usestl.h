@@ -33,6 +33,7 @@ extern void container_priority_queue(void);
 // Algorithm
 extern void algorithm_maxmin(void);
 extern void algorithm_sort(void);
+extern void algorithm_heap(void);
 
 // Thread
 extern void thread_thread(void);

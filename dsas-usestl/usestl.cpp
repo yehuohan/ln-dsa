@@ -17,7 +17,7 @@ void exec_stl(stl_func sf)
 
 int main()//int argc, char *argv[])
 {
-#if 1
+#if 0
     exec_stl(container_vector);
     exec_stl(container_list);
     exec_stl(container_iterator);
@@ -31,6 +31,7 @@ int main()//int argc, char *argv[])
     exec_stl(algorithm_maxmin);
     exec_stl(algorithm_sort);
 #endif
+    exec_stl(algorithm_heap);
 
 #if 0
     exec_stl(thread_thread);
