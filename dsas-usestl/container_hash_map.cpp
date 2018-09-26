@@ -17,6 +17,7 @@ void container_hash_map(void)
     std::unordered_multimap<int, int> iim;
 
     // 插入键值对
+    // 可以用std::pair, std::make_pair,std::unordered_map<int, int>::value_type(),[]
     for (int k = 0; k < size; k ++)
     {
         // 用map统计频数
