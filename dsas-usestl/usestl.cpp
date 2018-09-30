@@ -28,10 +28,10 @@ int main()//int argc, char *argv[])
 #endif
 
 #if 0
-    exec_stl(algorithm_maxmin);
-    exec_stl(algorithm_sort);
-#endif
     exec_stl(algorithm_heap);
+    exec_stl(algorithm_maxmin);
+#endif
+    exec_stl(algorithm_sort);
 
 #if 0
     exec_stl(thread_thread);

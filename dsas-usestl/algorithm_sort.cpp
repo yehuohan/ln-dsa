@@ -29,10 +29,14 @@ void algorithm_sort(void)
     int size = sizeof(arr) / sizeof(int);
     std::vector<int> vec(arr, arr + size);
 
-    // 对数组、vector排序
+    // 对数组
     std::sort(arr, arr + size);
     std::qsort(arr, size, sizeof(int), cmp);
+
+    // 对vector排序
     std::sort(vec.begin(), vec.end(), [](int a, int b)->bool{return a > b;});
+    std::sort(vec.begin(), vec.end(), std::less<int>());
+    std::sort(vec.begin(), vec.end(), std::greater<int>());
 
     // 输出
     PutTitle("arr:\n");
