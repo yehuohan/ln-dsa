@@ -29,6 +29,7 @@ extern void container_hash_set(void);
 extern void container_iterator(void);
 extern void container_bitset(void);
 extern void container_priority_queue(void);
+extern void container_deque(void);
 
 // Algorithm
 extern void algorithm_maxmin(void);

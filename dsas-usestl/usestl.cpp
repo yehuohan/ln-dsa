@@ -25,13 +25,14 @@ int main()//int argc, char *argv[])
     exec_stl(container_hash_map);
     exec_stl(container_bitset);
     exec_stl(container_priority_queue);
+    exec_stl(container_deque);
 #endif
 
 #if 0
     exec_stl(algorithm_heap);
     exec_stl(algorithm_maxmin);
-#endif
     exec_stl(algorithm_sort);
+#endif
 
 #if 0
     exec_stl(thread_thread);
