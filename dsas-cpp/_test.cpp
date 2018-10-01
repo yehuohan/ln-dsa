@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
-#include "dsas-cpp/dsas.h"
+#include "dsas.h"
 
 using std::cout;
 using std::endl;
