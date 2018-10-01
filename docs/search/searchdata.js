@@ -1,15 +1,16 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefghiklmnopqrstuvw",
-  1: "_abcdeghilopqrsv",
-  2: "abcdeghlmopqrstv",
-  3: "abcdefghilmnopqrstuv",
-  4: "cdhiklmnostvw",
-  5: "bceu",
-  6: "erv",
-  7: "o",
-  8: "abeghlpqrstv",
-  9: "di"
+  0: "1_abcdefghiklmnopqrstuvwxyzåæ",
+  1: "_abcdeghiklmnopqrstv",
+  2: "abcdeghklmopqrstuv",
+  3: "_abcdefghiklmnopqrstuv",
+  4: "cdhiklmnostvwxy",
+  5: "bceku",
+  6: "cerv",
+  7: "abensuw",
+  8: "o",
+  9: "abeghklpqrstv",
+  10: "1abcdilmprstzåæ"
 };
 
 var indexSectionNames =
@@ -21,9 +22,10 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "enums",
-  7: "related",
-  8: "groups",
-  9: "pages"
+  7: "enumvalues",
+  8: "related",
+  9: "groups",
+  10: "pages"
 };
 
 var indexSectionLabels =
@@ -35,8 +37,9 @@ var indexSectionLabels =
   4: "变量",
   5: "类型定义",
   6: "枚举",
-  7: "友元",
-  8: "组",
-  9: "页"
+  7: "枚举值",
+  8: "友元",
+  9: "组",
+  10: "页"
 };
 

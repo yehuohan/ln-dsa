@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: dsas-cpp/share/algorithm.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li><li class="navelem"><a class="el" href="dir_0870876a5588d0814081605ff6d0fa1d.html">share</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">algorithm.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="algorithm_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef DSA_ALGORITHM_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define DSA_ALGORITHM_H</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../vector.h&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group___share.html#gaf2239f0affff0d7da6347bd1b3bc4d1d">   42</a></span>&#160;T <a class="code" href="group___share.html#gaf2239f0affff0d7da6347bd1b3bc4d1d">quick_select</a>(<a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a> vec, <span class="keywordtype">int</span> k)</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> lo, hi;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> (lo = 0, hi = vec.<a class="code" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a>()-1; lo &lt; hi;)</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">int</span> i = lo, j = hi;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        T pivot = vec[lo];</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">while</span>(i &lt; j)</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">while</span>(i &lt; j &amp;&amp; vec[j] &gt;= pivot) j--;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            vec[i] = vec[j];</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">while</span>(i &lt; j &amp;&amp; vec[i] &lt;= pivot) i++;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            vec[j] = vec[i];</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        vec[i] = pivot;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (k &lt; i) hi = i - 1;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(k &gt; i) lo = i + 1;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> vec[i];</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> vec[lo];</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e">majority</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec, T&amp; maj);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">is_majority</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec, <span class="keyword">const</span> T&amp; maj);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">static</span> T <a class="code" href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">maj_candidate</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e">   88</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e">majority</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec, T&amp; maj)</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    maj = <a class="code" href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">maj_candidate</a>(vec);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">is_majority</a>(vec, maj);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">  105</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">is_majority</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec, <span class="keyword">const</span> T&amp; maj)</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">int</span> num = 0;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; vec.<a class="code" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a>(); k ++)</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> (maj == vec[k]) num ++;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> 2*num &gt; vec.<a class="code" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a>();</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">  141</a></span>&#160;<span class="keyword">static</span> T <a class="code" href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">maj_candidate</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; vec)</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    T maj;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">int</span> cnt = 0;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; vec.<a class="code" href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">size</a>(); k ++)</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    {</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> (cnt == 0)</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            maj = vec[k];</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            cnt++;</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            (maj == vec[k]) ? cnt++ : cnt--;</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> maj;</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef DSA_ALGORITHM_H */</span><span class="preprocessor"></span></div><div class="ttc" id="classdsa_1_1_vector_html_a678a27dbc03f408f1e10a327f0c3fb94"><div class="ttname"><a href="classdsa_1_1_vector.html#a678a27dbc03f408f1e10a327f0c3fb94">dsa::Vector::size</a></div><div class="ttdeci">int size() const</div><div class="ttdef"><b>Definition:</b> vector.h:60</div></div>
+<div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> array.h:18</div></div>
+<div class="ttc" id="group___share_html_gace06e8353c66fdd16aa3fb5f756d949e"><div class="ttname"><a href="group___share.html#gace06e8353c66fdd16aa3fb5f756d949e">dsa::is_majority</a></div><div class="ttdeci">static bool is_majority(const dsa::Vector&lt; T &gt; &amp;vec, const T &amp;maj)</div><div class="ttdoc">判断是否为众数 </div><div class="ttdef"><b>Definition:</b> algorithm.h:105</div></div>
+<div class="ttc" id="group___share_html_ga30f96dc2e76e3fe64a5b4efc3f7c874e"><div class="ttname"><a href="group___share.html#ga30f96dc2e76e3fe64a5b4efc3f7c874e">dsa::majority</a></div><div class="ttdeci">bool majority(const dsa::Vector&lt; T &gt; &amp;vec, T &amp;maj)</div><div class="ttdoc">求取众数 </div><div class="ttdef"><b>Definition:</b> algorithm.h:88</div></div>
+<div class="ttc" id="group___share_html_gaf2239f0affff0d7da6347bd1b3bc4d1d"><div class="ttname"><a href="group___share.html#gaf2239f0affff0d7da6347bd1b3bc4d1d">dsa::quick_select</a></div><div class="ttdeci">T quick_select(dsa::Vector&lt; T &gt; vec, int k)</div><div class="ttdoc">选取第k大小的元素 </div><div class="ttdef"><b>Definition:</b> algorithm.h:42</div></div>
+<div class="ttc" id="classdsa_1_1_vector_html"><div class="ttname"><a href="classdsa_1_1_vector.html">dsa::Vector</a></div><div class="ttdef"><b>Definition:</b> vector.h:35</div></div>
+<div class="ttc" id="group___share_html_gae24fb0c55d7269f34833fe3fcb854b70"><div class="ttname"><a href="group___share.html#gae24fb0c55d7269f34833fe3fcb854b70">dsa::maj_candidate</a></div><div class="ttdeci">static T maj_candidate(const dsa::Vector&lt; T &gt; &amp;vec)</div><div class="ttdoc">求取可能的众数 </div><div class="ttdef"><b>Definition:</b> algorithm.h:141</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

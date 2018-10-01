@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: dsas-cpp/array.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_467525d45c1310501e24d21a23d10858.html">dsas-cpp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">array.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="array_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef _ARRAY_H</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define _ARRAY_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector_8h.html">vector.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> N&gt;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdsa_1_1_array.html">Array</a></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span>     m_cap;              </div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">   36</a></span>&#160;    T*      <a class="code" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">m_array</a>;            </div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">   39</a></span>&#160;    <a class="code" href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">Array</a>() : m_cap(N) {this-&gt;m_array = <span class="keyword">new</span> T[this-&gt;m_cap];}</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">Array</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_vector.html">dsa::Vector&lt;T&gt;</a>&amp; V) : m_cap(N)</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        this-&gt;m_array = <span class="keyword">new</span> T[this-&gt;m_cap];</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; this-&gt;m_cap; k ++)</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            this-&gt;m_array[k] = V[k];</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">Array</a>(<span class="keyword">const</span> Array&lt;T,N&gt;&amp; A)</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        this-&gt;m_cap = A.m_cap;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        this-&gt;m_array = <span class="keyword">new</span> T[this-&gt;m_cap];</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; this-&gt;m_cap; k ++)</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            this-&gt;m_array[k] = A.m_array[k];</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ~<a class="code" href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">Array</a>() {<span class="keyword">delete</span>[] this-&gt;<a class="code" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">m_array</a>;}</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a9470073723cd32e3e1c3c433a5becf75">   56</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="classdsa_1_1_array.html#a9470073723cd32e3e1c3c433a5becf75">max_size</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> this-&gt;m_cap;}</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a90598951e1fec484c925b018181a1c65">   58</a></span>&#160;    T*      <a class="code" href="classdsa_1_1_array.html#a90598951e1fec484c925b018181a1c65">data</a>() {<span class="keywordflow">return</span> this-&gt;<a class="code" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">m_array</a>;}</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a4eb84c9f125d4d20613d099b54f8c6ba">   60</a></span>&#160;    T&amp;      <a class="code" href="classdsa_1_1_array.html#a4eb84c9f125d4d20613d099b54f8c6ba">at</a>(<span class="keywordtype">int</span> index)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (0&lt;=index &amp;&amp; index&lt;this-&gt;m_cap)</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> this-&gt;m_array[index];</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">throw</span> <span class="stringliteral">&quot;array: out of range&quot;</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a57c3d2f9aa53bb35c08febe361e9c74e">   67</a></span>&#160;    <span class="keywordtype">void</span>    <a class="code" href="classdsa_1_1_array.html#a57c3d2f9aa53bb35c08febe361e9c74e">fill</a>(<span class="keyword">const</span> T&amp; ele) {<span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; this-&gt;m_cap; k ++) this-&gt;m_array[k] = ele;}</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a0f89e726abe4836df5c092d82b217b85">   70</a></span>&#160;    T&amp; <a class="code" href="classdsa_1_1_array.html#a0f89e726abe4836df5c092d82b217b85">operator[]</a>(<span class="keywordtype">int</span> index) {<span class="keywordflow">return</span> this-&gt;m_array[index];}</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#ac2f26e21e56873e257753306e6f44cdb">   72</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="classdsa_1_1_array.html#ac2f26e21e56873e257753306e6f44cdb">operator[]</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{<span class="keywordflow">return</span> this-&gt;m_array[index];}</div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#aa918378c13d6c06a4fdeb2ae1b346377">   74</a></span>&#160;    <a class="code" href="classdsa_1_1_array.html">Array&lt;T,N&gt;</a>&amp; <a class="code" href="classdsa_1_1_array.html#aa918378c13d6c06a4fdeb2ae1b346377">operator=</a>(<span class="keyword">const</span> <a class="code" href="classdsa_1_1_array.html">Array&lt;T,N&gt;</a>&amp; A)</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">delete</span>[] this-&gt;<a class="code" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">m_array</a>;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this-&gt;m_cap = A.m_cap;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        this-&gt;m_array = <span class="keyword">new</span> T[this-&gt;m_cap];</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; this-&gt;m_cap; k ++)</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            this-&gt;m_array[k] = A.<a class="code" href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">m_array</a>[k];</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#aac70742b391f6434e2eb37e703f1e401">   84</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="classdsa_1_1_array.html#aac70742b391f6434e2eb37e703f1e401">find</a>(<span class="keyword">const</span> T&amp; ele)<span class="keyword"> const </span>{<span class="keywordflow">return</span> this-&gt;<a class="code" href="classdsa_1_1_array.html#aac70742b391f6434e2eb37e703f1e401">find</a>(ele, 0, this-&gt;m_cap);}</div><div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classdsa_1_1_array.html#a09995c4e4ed34d7408686bd4e2280ef5">   86</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="classdsa_1_1_array.html#a09995c4e4ed34d7408686bd4e2280ef5">find</a>(<span class="keyword">const</span> T&amp; ele, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi)<span class="keyword"> const</span></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">    </span>{</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">while</span>((lo &lt; hi--) &amp;&amp; (ele != this-&gt;m_array[hi]));</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> hi;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef _ARRAY_H */</span><span class="preprocessor"></span></div><div class="ttc" id="classdsa_1_1_array_html_a09995c4e4ed34d7408686bd4e2280ef5"><div class="ttname"><a href="classdsa_1_1_array.html#a09995c4e4ed34d7408686bd4e2280ef5">dsa::Array::find</a></div><div class="ttdeci">int find(const T &amp;ele, int lo, int hi) const</div><div class="ttdef"><b>Definition:</b> array.h:86</div></div>
+<div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> array.h:18</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_aa918378c13d6c06a4fdeb2ae1b346377"><div class="ttname"><a href="classdsa_1_1_array.html#aa918378c13d6c06a4fdeb2ae1b346377">dsa::Array::operator=</a></div><div class="ttdeci">Array&lt; T, N &gt; &amp; operator=(const Array&lt; T, N &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> array.h:74</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_afa047b58139490e97a9ad28c80c448f4"><div class="ttname"><a href="classdsa_1_1_array.html#afa047b58139490e97a9ad28c80c448f4">dsa::Array::m_array</a></div><div class="ttdeci">T * m_array</div><div class="ttdef"><b>Definition:</b> array.h:36</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_a90598951e1fec484c925b018181a1c65"><div class="ttname"><a href="classdsa_1_1_array.html#a90598951e1fec484c925b018181a1c65">dsa::Array::data</a></div><div class="ttdeci">T * data()</div><div class="ttdef"><b>Definition:</b> array.h:58</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_a57c3d2f9aa53bb35c08febe361e9c74e"><div class="ttname"><a href="classdsa_1_1_array.html#a57c3d2f9aa53bb35c08febe361e9c74e">dsa::Array::fill</a></div><div class="ttdeci">void fill(const T &amp;ele)</div><div class="ttdef"><b>Definition:</b> array.h:67</div></div>
+<div class="ttc" id="classdsa_1_1_vector_html"><div class="ttname"><a href="classdsa_1_1_vector.html">dsa::Vector</a></div><div class="ttdef"><b>Definition:</b> vector.h:35</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_a9470073723cd32e3e1c3c433a5becf75"><div class="ttname"><a href="classdsa_1_1_array.html#a9470073723cd32e3e1c3c433a5becf75">dsa::Array::max_size</a></div><div class="ttdeci">int max_size() const</div><div class="ttdef"><b>Definition:</b> array.h:56</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_ad476f1c10eb7c34cd7b3b663b0279621"><div class="ttname"><a href="classdsa_1_1_array.html#ad476f1c10eb7c34cd7b3b663b0279621">dsa::Array::Array</a></div><div class="ttdeci">Array()</div><div class="ttdef"><b>Definition:</b> array.h:39</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_ac2f26e21e56873e257753306e6f44cdb"><div class="ttname"><a href="classdsa_1_1_array.html#ac2f26e21e56873e257753306e6f44cdb">dsa::Array::operator[]</a></div><div class="ttdeci">const T &amp; operator[](int index) const</div><div class="ttdef"><b>Definition:</b> array.h:72</div></div>
+<div class="ttc" id="vector_8h_html"><div class="ttname"><a href="vector_8h.html">vector.h</a></div><div class="ttdoc">Vector struct </div></div>
+<div class="ttc" id="classdsa_1_1_array_html"><div class="ttname"><a href="classdsa_1_1_array.html">dsa::Array</a></div><div class="ttdoc">数组类 </div><div class="ttdef"><b>Definition:</b> array.h:32</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_a0f89e726abe4836df5c092d82b217b85"><div class="ttname"><a href="classdsa_1_1_array.html#a0f89e726abe4836df5c092d82b217b85">dsa::Array::operator[]</a></div><div class="ttdeci">T &amp; operator[](int index)</div><div class="ttdef"><b>Definition:</b> array.h:70</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_aac70742b391f6434e2eb37e703f1e401"><div class="ttname"><a href="classdsa_1_1_array.html#aac70742b391f6434e2eb37e703f1e401">dsa::Array::find</a></div><div class="ttdeci">int find(const T &amp;ele) const</div><div class="ttdef"><b>Definition:</b> array.h:84</div></div>
+<div class="ttc" id="classdsa_1_1_array_html_a4eb84c9f125d4d20613d099b54f8c6ba"><div class="ttname"><a href="classdsa_1_1_array.html#a4eb84c9f125d4d20613d099b54f8c6ba">dsa::Array::at</a></div><div class="ttdeci">T &amp; at(int index)</div><div class="ttdef"><b>Definition:</b> array.h:60</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

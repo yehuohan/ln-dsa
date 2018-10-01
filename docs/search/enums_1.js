@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rbcolor',['RBColor',['../group___t_binary_tree.html#ga5f847f09d817710bbf7a817762be9df5',1,'dsa']]]
+  ['estatus',['EStatus',['../group___graph.html#ga31de4b012c792e6a98c7a89e6417f956',1,'dsa']]]
 ];

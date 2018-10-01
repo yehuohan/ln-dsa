@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['priority_20queue',['Priority Queue',['../group___l_p_q.html',1,'']]]
+  ['linear_20struct',['Linear Struct',['../group___linear.html',1,'']]],
+  ['list',['List',['../group___l_list.html',1,'']]]
 ];

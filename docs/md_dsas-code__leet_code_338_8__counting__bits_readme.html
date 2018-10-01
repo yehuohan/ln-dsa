@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: Counting Bits</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- åˆ¶ä½œè€… Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'æœç´¢');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','æœç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Counting Bits </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Given a non negative integer number num. For every numbers i in the range 0 ¡Ü i ¡Ü num calculate the number of 1's in their binary representation and return them as an array.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<p>For num = 5 you should return [0,1,1,2,1,2].</p>
+<ul>
+<li>Follow up:</li>
+</ul>
+<p>It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass? Space complexity should be O(n). Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.</p>
+<ul>
+<li>Hint:</li>
+</ul>
+<p>You should make use of what you have produced already. Divide the numbers in ranges like [2-3], [4-7], [8-15] and so on. And try to generate new range from previous. Or does the odd/even status of the number help you in calculating the number of 1s?</p>
+<h2>Code</h2>
+<div class="fragment"><div class="line">rcb[0] = 0;</div><div class="line">rcb[1] = 1;</div><div class="line">rcb[k] = rcb[k &gt;&gt; 1] + rcb[k &amp; 1];</div><div class="line"></div><div class="line">¶Ôk &gt;&gt; 1µÄÀí½â:</div><div class="line">  ÏòÓÒÒÆÒ»Î»£¬&#39;1&#39;µÄ¸öÊı²»±ä£»</div><div class="line">  ÏòÓÒÒÆÒ»Î»¼´³ı2£¬×îÖÕµÄ½á¹û²»ÊÇ0¾ÍÊÇ1£¬ËùÒÔÒªÏÈ¸ørcb[0]ºÍrcb[1]¸³Öµ£»</div><div class="line"></div><div class="line">¶Ôk &amp; 1µÄÀí½â£º</div><div class="line">  ÏòÓÒÒÆÒ»Î»£¬Ôò×îµÍµÄÒ»Î»½«¶ªÆú£¬Èç¹û¶ªÆúµÄÊÇ'1&#39;£¬ÔòÒª¼ÓÉÏ£»</div></div><!-- fragment --> </div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+åˆ¶ä½œè€… &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

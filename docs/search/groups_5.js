@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['linear_20struct',['Linear Struct',['../group___linear.html',1,'']]],
-  ['list',['List',['../group___l_list.html',1,'']]]
+  ['k_2dd_20tree',['K-D Tree',['../group___t_k_d_tree.html',1,'']]]
 ];

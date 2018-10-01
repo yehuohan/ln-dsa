@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DSAS: String</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +35,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.13 -->
+<!-- 制作者 Doxygen 1.8.14 -->
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','搜索');
   $(document).ready(function() { init_search(); });
 });
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
@@ -154,11 +157,11 @@ Pattern:     [           ] Y [*****]
                            t = bc['X']
              P在P[j]处失配，若要在T[i+j]处成功匹配，则P中应该也有一个字符X；
              故可以直接右移 j-bc['X'] 重新进行比较（bc['X']表示字符X在P中的下标）。
-特殊情况1：P中有多个字符X时，取下标最大的字符X（即P中在t后面的子串，不能再有字符X）
-特殊情况2：P中没有字符X时，取bc['X']=-1（类似的，-1为假想的通配符位置，同时，P中在t后面的子串中，必定没有字符X）
-特殊情况3：bc['X'] &gt; j 时（即X在Y的后面），则只需向右移1个字符，不需要向左移；
-           因为在 i 前面的位置，都已经排除了，不可能发生成功的匹配；
-           且若有多个字符X时，在j前面也可能有X（但下标不是最大的），故只能向右移一个字符。
+特殊情况1：P中有多个字符X时，取下标最大的字符X（即P中在t右侧的子串，不能再有字符X）
+特殊情况2：P中没有字符X时，取bc['X']=-1（类似的，-1为假想的通配符位置，同时，P中在t右侧的子串中，必定没有字符X）
+特殊情况3：bc['X'] &gt; j 时（即X在Y的右侧），则只需向右移1个字符，不需要向左移；
+           因为在 i 左侧的位置，都已经排除了，不可能发生成功的匹配；
+           且若有多个字符X时，在j左侧也可能有X（但下标不是最大的），故只能向右移一个字符。
 总结：
      情况1,2：右移j-bc['X']， 则i = i+j-bc['X']，情况2即为i = i+j+1
      情况3：  右移1</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
@@ -339,19 +342,19 @@ c  h  i  n  c  h  i  l  l  a
 
 <p>建立next表改进版 </p>
 <pre></pre><pre>改进版：
-设P与T进行匹配，且匹配到了T[i]处</pre><pre>情况一：连接好向个字符相同
+设P与T进行匹配，且匹配到了T[i]处</pre><pre>情况一：接连好几个字符相同
     j j+1
 [0  0  0  0  0  0  1]
 -1 -1                   -&gt; next[j]
  t t+1
 若P[j] = P[t] 且 P[j+1] = P[t+1]，则next[j+1] = next[t+1] = -1；</pre><pre>同理一直推下去，可知前6个0的next均为-1；
 这样，若T[i]与P[j+1]失配，可以让P直接从头开始比较，
-P[j+1]前面的相同的0无需再比较（比较也肯定失配）。</pre><pre>情况二：普通情况
+P[j+1]左侧的相同的0无需再比较（比较也肯定失配）。</pre><pre>情况二：普通情况
              j j+1
 [a  b  c  *  a  b  #]
 -1  0  0     0  1        -&gt; next[]
 -1  0  0    -1  0        -&gt; next_improved[]
- t t+1</pre><pre>若P[j] = P[j] 且 P[j+1] = P[t+1]，则next[j+1] = next[t+1] = 0；</pre><pre>按原来算法，若T[i]与P[j+1]失配，
+ t t+1</pre><pre>若P[j] = P[t] 且 P[j+1] = P[t+1]，则next[j+1] = next[t+1] = 0；</pre><pre>按原来算法，若T[i]与P[j+1]失配，
 接着，应该让T[i]与 P[next[j+1]] = P[t+1] 比较</pre><pre>按照改进算法，若T[i]与P[j+1]失配，
 接着，直接让T[i]与 P[next[j+1] = P[0] 比较，
 因为既然T[i] != P[j+1]，也就有T[i] != P[t+1]，再比较T[i]与P[t+1]肯定也是失配
@@ -501,7 +504,7 @@ Pattern:     [           ] Y [     ]
 
 <p>BM匹配算法 </p>
 <pre>
-BM算法：首次失配的概率越小，性能优势越明显；适合大字符表。
+BM算法：首次失配的概率越大，性能优势越明显；适合大字符表。
 时间复杂度：
 len(P) = m , len(T) = n
 O(n/m) &lt;= BC &lt;= O(n*m)
@@ -511,7 +514,7 @@ Text: ------ [           ] X [*****]----------
 Pattern:     [           ] Y [*****]
                            j: 失配点
 bc表：
-     失配之处为“教训”，要想匹配成功，下一次比对的字符应当为失配字符。</pre><pre>gs表：
+     失配之处为“教训”，要想匹配成功，下一次比对的Pattern字符应当为Text中失配字符。</pre><pre>gs表：
      失配之处为“经验”，与KMP类似，借助模式字符串的自相似性。</pre><pre></pre><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">P</td><td>Pattern，模式字符，即待匹配的字符 </td></tr>
@@ -604,16 +607,15 @@ bc表：
 <pre></pre><pre>KMP算法：匹配概率越高，优势越明显；适合小字符表。
 时间复杂度：
 len(P) = m , len(T) = n
-KMP = O(n+m)</pre><pre>示例：
-0  1  2  3  4  5  6  7  8  9  -&gt; 字符的下标j
-c  h  i  n  c  h  i  l  l  a
--1 0  0  0  0  1  2  3  0  0  -&gt; next[j]</pre><pre>                            失配点
+KMP = O(n+m)</pre><pre>(1)KMP的基本思想如下：
+                            失配点
                           /
 Text    :  c h i n c h i *
+           0 1 2 3 4 5 6 7 8 9  -&gt; 字符的下标j
 Pattern :  c h i n c h i l l a
-next[j] :          c h i n c h i l l a
-如果在 l 处失配，说明 l 前的 chi 是匹配的，
-故pattern最开始的 chi 则不需要再次比较。</pre><pre>Next[j]的建立：
+          -1 0 0 0 0 1 2 3 0 0  -&gt; next[j]
+next[j] :          c h i n c h i l l a</pre><pre>在 P[j=7]=l 匹配失败时，不必从P[j=0]重新开始匹配，而是从 next[j=7]=P[j=3]=n 开始匹配；
+因为 P[j=4,5,6]=chi 和 P[j=0,1,2] 相同的，不需要再次匹配（因此KMP算法需要先建立next表）；</pre><pre>(2)Next[j]的建立：
                                        i -&gt; 失配点下标
 Text: ---------- [     ][  P[j-t,j)  ] x ----------
                  |       ------------|
@@ -850,7 +852,7 @@ next[j+1] &lt;= next[j] + 1
 <hr class="footer"/><address class="footer"><small>
 制作者 &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.14
 </small></address>
 </body>
 </html>

@@ -1,3 +1,26 @@
+/*
+@ @licstart  The following is the entire license notice for the
+JavaScript code in this file.
+
+Copyright (C) 1997-2017 by Dimitri van Heesch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this file
+*/
 var menudata={children:[
 {text:"首页",url:"index.html"},
 {text:"相关页面",url:"pages.html"},
@@ -8,7 +31,8 @@ var menudata={children:[
 {text:"类继承关系",url:"hierarchy.html"},
 {text:"类成员",url:"functions.html",children:[
 {text:"全部",url:"functions.html",children:[
-{text:"a",url:"functions.html#index_a"},
+{text:"_",url:"functions.html#index__"},
+{text:"a",url:"functions_a.html#index_a"},
 {text:"b",url:"functions_b.html#index_b"},
 {text:"c",url:"functions_c.html#index_c"},
 {text:"d",url:"functions_d.html#index_d"},
@@ -29,9 +53,12 @@ var menudata={children:[
 {text:"t",url:"functions_t.html#index_t"},
 {text:"u",url:"functions_u.html#index_u"},
 {text:"v",url:"functions_v.html#index_v"},
-{text:"w",url:"functions_w.html#index_w"}]},
+{text:"w",url:"functions_w.html#index_w"},
+{text:"x",url:"functions_x.html#index_x"},
+{text:"y",url:"functions_y.html#index_y"}]},
 {text:"函数",url:"functions_func.html",children:[
-{text:"a",url:"functions_func.html#index_a"},
+{text:"_",url:"functions_func.html#index__"},
+{text:"a",url:"functions_func_a.html#index_a"},
 {text:"b",url:"functions_func_b.html#index_b"},
 {text:"c",url:"functions_func_c.html#index_c"},
 {text:"d",url:"functions_func_d.html#index_d"},
@@ -40,6 +67,7 @@ var menudata={children:[
 {text:"g",url:"functions_func_g.html#index_g"},
 {text:"h",url:"functions_func_h.html#index_h"},
 {text:"i",url:"functions_func_i.html#index_i"},
+{text:"k",url:"functions_func_k.html#index_k"},
 {text:"l",url:"functions_func_l.html#index_l"},
 {text:"m",url:"functions_func_m.html#index_m"},
 {text:"n",url:"functions_func_n.html#index_n"},
@@ -64,10 +92,13 @@ var menudata={children:[
 {text:"s",url:"functions_vars.html#index_s"},
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"v",url:"functions_vars.html#index_v"},
-{text:"w",url:"functions_vars.html#index_w"}]},
+{text:"w",url:"functions_vars.html#index_w"},
+{text:"x",url:"functions_vars.html#index_x"},
+{text:"y",url:"functions_vars.html#index_y"}]},
 {text:"相关函数",url:"functions_rela.html"}]}]},
 {text:"文件",url:"files.html",children:[
 {text:"文件列表",url:"files.html"},
 {text:"文件成员",url:"globals.html",children:[
 {text:"全部",url:"globals.html"},
+{text:"函数",url:"globals_func.html"},
 {text:"宏定义",url:"globals_defs.html"}]}]}]}

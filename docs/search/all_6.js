@@ -1,10 +1,17 @@
 var searchData=
 [
-  ['factorial',['factorial',['../classdsa_1_1_operator_calc.html#aeb70ee1c3e1bf404b9ab643655428ed4',1,'dsa::OperatorCalc']]],
-  ['fib_5fiteration',['fib_iteration',['../group___example.html#ga14c9fc60b2449d5918cb631600165126',1,'dsa']]],
-  ['fib_5frecursion',['fib_recursion',['../group___example.html#ga46bc44c607557162fac212ff10391253',1,'dsa']]],
-  ['fib_5fsearch',['fib_search',['../classdsa_1_1_vector.html#af1ab670c7e3944524fc7ab673f315408',1,'dsa::Vector']]],
-  ['find',['find',['../classdsa_1_1_list.html#a3bf6536725aafab8fa8ddd6a496c839a',1,'dsa::List::find(const T &amp;ele) const'],['../classdsa_1_1_list.html#ae7e5ac42606e85bad2fac25de806543f',1,'dsa::List::find(const T &amp;ele, int n, ListNodePtr&lt; T &gt; p) const'],['../classdsa_1_1_vector.html#a2badb6737264ecc43e68a08417be21ac',1,'dsa::Vector::find(const T &amp;ele) const'],['../classdsa_1_1_vector.html#a5ea2e424841fa058b63e892424634c3b',1,'dsa::Vector::find(const T &amp;ele, int lo, int hi) const']]],
-  ['first_5fnbr',['first_nbr',['../classdsa_1_1_graph_matrix.html#a7408f78494cb7c0f63c2ee6275901a90',1,'dsa::GraphMatrix']]],
-  ['front',['front',['../classdsa_1_1_list.html#af3e48f73100a5ba6ec103d24c782213c',1,'dsa::List::front()'],['../classdsa_1_1_list.html#afb617e7ed74191e7aff305b0d599688d',1,'dsa::List::front() const'],['../classdsa_1_1_queue.html#a4aa09f57da9f3b81bc591accc1300d81',1,'dsa::Queue::front()'],['../classdsa_1_1_array_queue.html#a90aae6c9652a99852a5cc28a04a9b696',1,'dsa::ArrayQueue::front()']]]
+  ['east',['East',['../group___example.html#ggad95b063c50ec12fe40d14975a70cbbb8a527719dea5d7c6c676d69ae4be643262',1,'dsa']]],
+  ['edge',['Edge',['../structdsa_1_1_edge.html',1,'dsa']]],
+  ['end',['end',['../classdsa_1_1_list.html#a30c964f2967e203488a38b4573f1fdd7',1,'dsa::List']]],
+  ['enqueue',['enqueue',['../classdsa_1_1_queue.html#aa733ddfc9767d52afd7368f44e5843f2',1,'dsa::Queue::enqueue()'],['../classdsa_1_1_array_queue.html#a1e28fe8b08a0f7ed0b02297ff01e7368',1,'dsa::ArrayQueue::enqueue()']]],
+  ['entry',['Entry',['../structdsa_1_1_entry.html',1,'dsa']]],
+  ['entry_2eh',['entry.h',['../entry_8h.html',1,'']]],
+  ['equalpoint',['EqualPoint',['../group___example.html#gac3c492f0267fd443a460334164364bb5',1,'dsa']]],
+  ['estatus',['EStatus',['../group___graph.html#ga31de4b012c792e6a98c7a89e6417f956',1,'dsa']]],
+  ['evaluate_5finfix',['evaluate_infix',['../group___example.html#gaea02ef415cdbf0eb3a634ad6959d0f9a',1,'dsa']]],
+  ['evaluate_5frpn',['evaluate_rpn',['../group___example.html#gae1171dbf20153e803b1862e137dc218f',1,'dsa']]],
+  ['examples_20of_20dsas',['Examples of dsas',['../group___example.html',1,'']]],
+  ['exist_5fedge',['exist_edge',['../classdsa_1_1_graph_matrix.html#aaaa60609dd9835240b986ae0d7fb8bdf',1,'dsa::GraphMatrix']]],
+  ['expand',['expand',['../classdsa_1_1_bitmap.html#ac088f562d29e43c50a5d3501dbe9e70f',1,'dsa::Bitmap::expand()'],['../classdsa_1_1_string.html#ab05779a4076bc3a33b1476c5b155875b',1,'dsa::String::expand()'],['../classdsa_1_1_vector.html#a24094b34d85f98ac19c2dbef582d177f',1,'dsa::Vector::expand()']]],
+  ['expandpalindrome',['expandPalindrome',['../class_longest_01_palindromic_01_substring_1_1_solution.html#a7972329d25b307f23047ddbf086c06e4',1,'Longest Palindromic Substring::Solution']]]
 ];

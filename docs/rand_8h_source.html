@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DSAS: dsas-cpp/share/rand.h 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +35,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.13 -->
+<!-- 制作者 Doxygen 1.8.14 -->
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','搜索');
   $(document).ready(function() { init_search(); });
 });
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -72,14 +75,15 @@ $(function() {
 <div class="title">rand.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="rand_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef DSAS_RAND_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define DSAS_RAND_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">   41</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">rand_n</a>(<span class="keywordtype">int</span> N)</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::srand((<span class="keywordtype">unsigned</span>)std::time(<span class="keyword">nullptr</span>));</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> std::rand() % N;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef DSAS_RAND_H */</span><span class="preprocessor"></span></div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> avl_tree.h:21</div></div>
-<div class="ttc" id="group___share_html_gacba752a0e03cb89109c7a60c426a72c4"><div class="ttname"><a href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">dsa::rand_n</a></div><div class="ttdeci">int rand_n(int N)</div><div class="ttdoc">返一个位于[0,n)随机数 </div><div class="ttdef"><b>Definition:</b> rand.h:41</div></div>
+<a href="rand_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//==============================================================================</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//==============================================================================</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef DSAS_RAND_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define DSAS_RAND_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsa.html">dsa</a></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="group___share.html#gac1c895e6cc51d81aa904c781e878fff5">   38</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="group___share.html#gac1c895e6cc51d81aa904c781e878fff5">rand_init</a>()</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::srand((<span class="keywordtype">unsigned</span>)std::time(<span class="keyword">nullptr</span>));</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">   54</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">rand_n</a>(<span class="keywordtype">int</span> N)</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> std::rand() % N;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">/* dsa */</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ifndef DSAS_RAND_H */</span><span class="preprocessor"></span></div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="ttc" id="namespacedsa_html"><div class="ttname"><a href="namespacedsa.html">dsa</a></div><div class="ttdef"><b>Definition:</b> array.h:18</div></div>
+<div class="ttc" id="group___share_html_gac1c895e6cc51d81aa904c781e878fff5"><div class="ttname"><a href="group___share.html#gac1c895e6cc51d81aa904c781e878fff5">dsa::rand_init</a></div><div class="ttdeci">void rand_init()</div><div class="ttdoc">设置随机种子 </div><div class="ttdef"><b>Definition:</b> rand.h:38</div></div>
+<div class="ttc" id="group___share_html_gacba752a0e03cb89109c7a60c426a72c4"><div class="ttname"><a href="group___share.html#gacba752a0e03cb89109c7a60c426a72c4">dsa::rand_n</a></div><div class="ttdeci">int rand_n(int N)</div><div class="ttdoc">返一个位于[0,n)随机数 </div><div class="ttdef"><b>Definition:</b> rand.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 制作者 &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.14
 </small></address>
 </body>
 </html>

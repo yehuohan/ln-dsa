@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['arrayqueue',['ArrayQueue',['../classdsa_1_1_array_queue.html',1,'dsa']]],
-  ['at',['at',['../classdsa_1_1_string.html#a987ad6bc14815cfa70de53ecf7cb9864',1,'dsa::String::at(int k)'],['../classdsa_1_1_string.html#af87e3ee5fef9b320af5512ce7e2e9b1a',1,'dsa::String::at(int k) const']]],
-  ['attach_5fleft',['attach_left',['../splay__tree_8h.html#a2a70335dc7e751453843ed89f12c8a78',1,'dsa']]],
-  ['attach_5fright',['attach_right',['../splay__tree_8h.html#a87de8214539795df540e5d8d017d129d',1,'dsa']]],
-  ['avl_5fbalanced',['AVL_Balanced',['../group___t_avl_tree.html#gafb3c60d1760598ab80a52f84775176fa',1,'avl_tree.h']]],
-  ['avl_5fbalfac',['AVL_BalFac',['../group___t_avl_tree.html#ga52ec68e2518b8f73a8e27f3a1aa7d8d4',1,'avl_tree.h']]],
-  ['avl_5ftallerchild',['AVL_TallerChild',['../group___t_avl_tree.html#ga9210eed3ff9f828c333ec2ddf069fe8d',1,'avl_tree.h']]],
-  ['avl_5ftree_2eh',['avl_tree.h',['../avl__tree_8h.html',1,'']]],
-  ['avltree',['AvlTree',['../classdsa_1_1_avl_tree.html',1,'dsa']]],
-  ['avl_20tree',['Avl Tree',['../group___t_avl_tree.html',1,'']]]
+  ['_5f_5finit_5f_5f',['__init__',['../classgrad_1_1_gradient_descent.html#a158fa07dd857e02b0e0a96f5d05f9a92',1,'grad::GradientDescent']]],
+  ['_5fequalpoint',['_EqualPoint',['../structdsa_1_1___equal_point.html',1,'dsa']]],
+  ['_5flinearinterpolation',['_LinearInterpolation',['../classinterpolation_1_1___linear_interpolation.html',1,'interpolation']]],
+  ['_5fpolynomialinterpolation',['_PolynomialInterpolation',['../classinterpolation_1_1___polynomial_interpolation.html',1,'interpolation']]],
+  ['_5fsplineinterpolation',['_SplineInterpolation',['../classinterpolation_1_1___spline_interpolation.html',1,'interpolation']]]
 ];

@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['test',['test',['../classdsa_1_1_bitmap.html#aa4486896de4ca2b525ece0831d05cca5',1,'dsa::Bitmap']]],
-  ['top',['top',['../classdsa_1_1_stack.html#a3cfcab2b1e29d5660b08b734976b5212',1,'dsa::Stack::top()'],['../classdsa_1_1_stack_list.html#a46b365132aec396a154e274a587aee8f',1,'dsa::StackList::top()']]],
-  ['traverse',['traverse',['../classdsa_1_1_list.html#a24109558645bbd34012968d77b9f3f28',1,'dsa::List::traverse()'],['../classdsa_1_1_vector.html#a132ccae211df8bebb7180d06e674881c',1,'dsa::Vector::traverse()']]],
-  ['traverse_5fdlr',['traverse_DLR',['../structdsa_1_1_bin_node.html#a1fe3c66b3083d318dc78dcc6ea8ba118',1,'dsa::BinNode']]],
-  ['traverse_5fdlr_5fiteration',['traverse_DLR_iteration',['../group___t_binary_tree.html#ga4bb46a7a571251ec1168efc22eda30b0',1,'dsa']]],
-  ['traverse_5fdlr_5frecursion',['traverse_DLR_recursion',['../group___t_binary_tree.html#ga7ff45ad0cfa122c404ad8b38ef77b34f',1,'dsa']]],
-  ['traverse_5fldr',['traverse_LDR',['../structdsa_1_1_bin_node.html#a06cdd73a382b3bc8c7979fdd703f6242',1,'dsa::BinNode']]],
-  ['traverse_5fldr_5fiteration',['traverse_LDR_iteration',['../group___t_binary_tree.html#ga21f660bee65df24b1183d5677d6ad150',1,'dsa']]],
-  ['traverse_5fldr_5frecursion',['traverse_LDR_recursion',['../group___t_binary_tree.html#ga071e7db99e46b51eb4e77cfcaa86ada3',1,'dsa']]],
-  ['traverse_5flo',['traverse_LO',['../structdsa_1_1_bin_node.html#a402b6ca94a935a8200b521a48fe1d2e0',1,'dsa::BinNode']]],
-  ['traverse_5flrd',['traverse_LRD',['../structdsa_1_1_bin_node.html#a0bf1d66eaefce783853879157ffbdf8c',1,'dsa::BinNode']]],
-  ['traverse_5flrd_5fiteration',['traverse_LRD_iteration',['../group___t_binary_tree.html#ga5355ca81f9583231eeb2a496f90455a4',1,'dsa']]],
-  ['traverse_5flrd_5frecursion',['traverse_LRD_recursion',['../group___t_binary_tree.html#gaa5fce092de79456a2359e5a8fe0f61e3',1,'dsa']]]
+  ['rand_5finit',['rand_init',['../group___share.html#gac1c895e6cc51d81aa904c781e878fff5',1,'dsa']]],
+  ['rand_5fn',['rand_n',['../group___share.html#gacba752a0e03cb89109c7a60c426a72c4',1,'dsa']]],
+  ['read_5fnumber',['read_number',['../group___example.html#ga1c1820e5a4729c8f0125edd919936bdb',1,'dsa']]],
+  ['rear',['rear',['../classdsa_1_1_queue.html#a3f5bbe391d4f98429384deb4e5687caf',1,'dsa::Queue::rear()'],['../classdsa_1_1_array_queue.html#af941162e39b76901943fa0fcfcfa7fc5',1,'dsa::ArrayQueue::rear()']]],
+  ['rehash',['rehash',['../classdsa_1_1_hash_table.html#a8fa29a7ae78c7e5213f88aa9f510aeae',1,'dsa::HashTable']]],
+  ['remove',['remove',['../classdsa_1_1_avl_tree.html#a130c5b9bf2ffa489c3e0f4571270cdeb',1,'dsa::AvlTree::remove()'],['../classdsa_1_1_b_tree.html#a4f20b78ecf0e8bfbe69e8d39ad3e9f40',1,'dsa::BTree::remove()'],['../classdsa_1_1_bin_search_tree.html#a6117501ae65292977b745047316508f3',1,'dsa::BinSearchTree::remove()'],['../classdsa_1_1_bin_tree.html#ac3511228878b2ab08e1a49f011721ab7',1,'dsa::BinTree::remove()'],['../classdsa_1_1_hash_table.html#a1c89e7bbfa005858e26562c52b858968',1,'dsa::HashTable::remove()'],['../classdsa_1_1_hash_table_list.html#ad75c831452c4ecb54e4c84f5d4a67bdc',1,'dsa::HashTableList::remove()'],['../classdsa_1_1_list.html#ae03224a5c583e646a23fde01b80567d3',1,'dsa::List::remove(ListNodePtr&lt; T &gt; p)'],['../classdsa_1_1_list.html#aa27865a319caab4d1416f0e0debcfa66',1,'dsa::List::remove(int n, ListNodePtr&lt; T &gt; p)'],['../classdsa_1_1_red_black_tree.html#a59b2701ea0e05e7a35703d75d1af11fe',1,'dsa::RedBlackTree::remove()'],['../classdsa_1_1_splay_tree.html#ad5ade0d041d2feb89a561a51ae4830a5',1,'dsa::SplayTree::remove()'],['../classdsa_1_1_vector.html#a5f8a812393d5295a557f6ce5f9079a79',1,'dsa::Vector::remove(int index)'],['../classdsa_1_1_vector.html#af3a2bbba54f94e1c5a676794a6748162',1,'dsa::Vector::remove(int lo, int hi)']]],
+  ['remove_5fat',['remove_at',['../binary__search__tree_8h.html#ab5133d63b0884d952fbaf0d7eb23bf9f',1,'dsa::remove_at(BinNodePtr&lt; T &gt; &amp;node, BinNodePtr&lt; T &gt; &amp;hot)'],['../group___t_binary_tree.html#ga7344ebfdc525ef3a718139855afd21a8',1,'dsa::remove_at(BinNodePtr&lt; T &gt; node)']]],
+  ['remove_5fedge',['remove_edge',['../classdsa_1_1_graph_matrix.html#a8e724aa34a70f0b1c85076ed075fe7c7',1,'dsa::GraphMatrix']]],
+  ['remove_5fvertex',['remove_vertex',['../classdsa_1_1_graph_matrix.html#ad56dbf3535380ad240e48c65f0a9eb3a',1,'dsa::GraphMatrix']]],
+  ['root',['root',['../classdsa_1_1_b_tree.html#a1fc0d7be561086c3528ab0bbc0088e20',1,'dsa::BTree::root()'],['../classdsa_1_1_bin_tree.html#a783a9411242d8d598ca655af7d9b8a35',1,'dsa::BinTree::root()']]],
+  ['rotate_5fat',['rotate_at',['../classdsa_1_1_bin_search_tree.html#aab303e113c9acae8c4f072b7c3d566c2',1,'dsa::BinSearchTree']]]
 ];

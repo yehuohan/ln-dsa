@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSAS: K-D Tree</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSAS
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle">
+<div class="title">K-D Tree<div class="ingroups"><a class="el" href="group___tree.html">Tree Struct</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_kd_node.html">dsa::KdNode&lt; T, K &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">kd树节点 K为维度大小  <a href="structdsa_1_1_kd_node.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsa_1_1_kd_tree.html">dsa::KdTree&lt; T, K &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">kd树类 K为维度大小  <a href="classdsa_1_1_kd_tree.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsa_1_1_kd_node_less.html">dsa::KdNodeLess&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">KdNode按维度比较函数  <a href="structdsa_1_1_kd_node_less.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:gac678471fa848880703dbee93e13d479e"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:gac678471fa848880703dbee93e13d479e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_k_d_tree.html#gac678471fa848880703dbee93e13d479e">dsa::KdNodePtr</a> = struct <a class="el" href="structdsa_1_1_kd_node.html">KdNode</a>&lt; T, K &gt; *</td></tr>
+<tr class="separator:gac678471fa848880703dbee93e13d479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada17b2ac6476569ad0c9528e56ecbfe9"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:gada17b2ac6476569ad0c9528e56ecbfe9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___t_k_d_tree.html#gada17b2ac6476569ad0c9528e56ecbfe9">dsa::KdNodeData</a> = <a class="el" href="classdsa_1_1_array.html">dsa::Array</a>&lt; T, K &gt;</td></tr>
+<tr class="separator:gada17b2ac6476569ad0c9528e56ecbfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gaf7768227d8bbb93d042cf583c149f6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_k_d_tree.html#gaf7768227d8bbb93d042cf583c149f6ae">dsa::KdTree&lt; T, K &gt;::KdTree</a> (<a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;&gt; &amp;ele)</td></tr>
+<tr class="memdesc:gaf7768227d8bbb93d042cf583c149f6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">由数据集构造kd树  <a href="#gaf7768227d8bbb93d042cf583c149f6ae">更多...</a><br /></td></tr>
+<tr class="separator:gaf7768227d8bbb93d042cf583c149f6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>k-d树 </p>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="gada17b2ac6476569ad0c9528e56ecbfe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada17b2ac6476569ad0c9528e56ecbfe9">&#9670;&nbsp;</a></span>KdNodeData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group___t_k_d_tree.html#gada17b2ac6476569ad0c9528e56ecbfe9">dsa::KdNodeData</a> = typedef <a class="el" href="classdsa_1_1_array.html">dsa::Array</a>&lt;T,K&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>kd树节点数据 </p>
+
+</div>
+</div>
+<a id="gac678471fa848880703dbee93e13d479e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac678471fa848880703dbee93e13d479e">&#9670;&nbsp;</a></span>KdNodePtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group___t_k_d_tree.html#gac678471fa848880703dbee93e13d479e">dsa::KdNodePtr</a> = typedef struct <a class="el" href="structdsa_1_1_kd_node.html">KdNode</a>&lt;T,K&gt;*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>kd树节点指针类型 </p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="gaf7768227d8bbb93d042cf583c149f6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf7768227d8bbb93d042cf583c149f6ae">&#9670;&nbsp;</a></span>KdTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdsa_1_1_kd_tree.html">dsa::KdTree</a>&lt; T, K &gt;::<a class="el" href="classdsa_1_1_kd_tree.html">KdTree</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; <a class="el" href="classdsa_1_1_vector.html">dsa::Vector</a>&lt; T &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>ele</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>由数据集构造kd树 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ele</td><td>数据集 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

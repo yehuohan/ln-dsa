@@ -10,6 +10,7 @@ var searchData=
   ['hash_3c_20int_20_3e',['Hash&lt; int &gt;',['../structdsa_1_1_hash_3_01int_01_4.html',1,'dsa']]],
   ['hash_3c_20unsigned_20char_20_3e',['Hash&lt; unsigned char &gt;',['../structdsa_1_1_hash_3_01unsigned_01char_01_4.html',1,'dsa']]],
   ['hash_3c_20unsigned_20int_20_3e',['Hash&lt; unsigned int &gt;',['../structdsa_1_1_hash_3_01unsigned_01int_01_4.html',1,'dsa']]],
-  ['hashtable',['HashTable',['../classdsa_1_1_hash_table.html',1,'dsa']]],
+  ['hashitem',['HashItem',['../struct_hash_item.html',1,'']]],
+  ['hashtable',['HashTable',['../struct_hash_table.html',1,'HashTable'],['../classdsa_1_1_hash_table.html',1,'dsa::HashTable&lt; K, V, HF, CMP &gt;']]],
   ['hashtablelist',['HashTableList',['../classdsa_1_1_hash_table_list.html',1,'dsa']]]
 ];
