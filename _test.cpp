@@ -36,7 +36,7 @@ void test_kdtree();
 //(int argc, char** argv)
 int main()
 {
-    test_kdtree();
+    //test_kdtree();
     //test_varray();
     //test_share();
     //test_sort_time();

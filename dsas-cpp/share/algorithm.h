@@ -1,10 +1,10 @@
 
 //==============================================================================
 /*!
- * @file majority.h
- * @brief 众数算法
+ * @file algorithm.h
+ * @brief 一些相关算法
  *
- * @date
+ * @date 2018-10-01
  * @version
  * @author
  * @copyright
@@ -12,8 +12,8 @@
 //==============================================================================
 
 
-#ifndef DSAS_MAJORITY_H
-#define DSAS_MAJORITY_H
+#ifndef DSA_ALGORITHM_H
+#define DSA_ALGORITHM_H
 
 #include "../vector.h"
 
@@ -21,10 +21,46 @@ namespace dsa
 {
 
 /*!
- * @addtogroup Example
+ * @addtogroup Share
  *
  * @{
  */
+
+
+/*!
+ * @brief 选取第k大小的元素
+ *
+ * 第k大小的元素，即为有序向量下标为k的元素。
+ * 根据快速排序的算法进行构造，迭代的查找轴点，直至轴点下标为k。
+ *
+ * @param vec: 在向量vec中查找第k大小的元素
+ * @param k: 指第k大小的元素，0 <= k < vec.size()
+ * @return
+ * @retval None
+ */
+template <typename T>
+T quick_select(dsa::Vector<T> vec, int k)
+{
+    int lo, hi;
+    for (lo = 0, hi = vec.size()-1; lo < hi;)
+    {
+        int i = lo, j = hi;
+        T pivot = vec[lo];
+        while(i < j)
+        {
+            while(i < j && vec[j] >= pivot) j--;
+            vec[i] = vec[j];
+            while(i < j && vec[i] <= pivot) i++;
+            vec[j] = vec[i];
+        }
+        vec[i] = pivot;
+        if (k < i) hi = i - 1;
+        else if(k > i) lo = i + 1;
+        else return vec[i];
+    }
+    return vec[lo];
+}
+
 
 template <typename T> bool majority(const dsa::Vector<T>& vec, T& maj);
 template <typename T> static bool is_majority(const dsa::Vector<T>& vec, const T& maj);
@@ -119,8 +155,9 @@ static T maj_candidate(const dsa::Vector<T>& vec)
     return maj;
 }
 
+
 /*! @} */
 
 } /* dsa */
 
-#endif /* ifndef DSAS_MAJORITY_H */
+#endif /* ifndef DSA_ALGORITHM_H */

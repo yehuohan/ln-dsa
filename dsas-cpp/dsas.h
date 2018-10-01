@@ -196,6 +196,7 @@ DSAS是数据结构与算法的学习过程。
 #include "share/time.h"
 #include "share/prime.h"
 #include "share/compare.h"
+#include "share/algorithm.h"
 
 #include "array.h"
 #include "vector.h"
@@ -222,8 +223,5 @@ DSAS是数据结构与算法的学习过程。
 
 #include "graph.h"
 #include "graph_matrix.h"
-
-#include "examples/majority.h"
-#include "examples/quick_select.h"
 
 #endif /* ifndef _DSAS_H */
