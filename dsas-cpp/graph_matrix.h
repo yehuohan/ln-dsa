@@ -27,6 +27,8 @@ namespace dsa
  * @{
  */
 
+
+
 /*!
  * @brief 邻接矩阵类
  *
@@ -35,8 +37,28 @@ template <typename Tv, typename Te>
 class GraphMatrix : public Graph<Tv, Te>
 {
 private:
-    dsa::Vector<VertexPtr<Tv> > m_V;                /**< 顶点集 */
-    dsa::Vector<dsa::Vector<EdgePtr<Te> > > m_E;    /**< 边集 */
+    dsa::Vector<VertexPtr<Tv> > m_v;                /**< 顶点集 */
+    dsa::Vector<dsa::Vector<EdgePtr<Te> > > m_e;    /**< 边集 */
+
+    /** 重置顶点和边 */
+    void reset()
+    {
+        // 重置项点
+        for (int i = 0; i < this->m_vnum; i ++)
+        {
+            this->m_v[i]->status = VStatus::UnDiscovered;
+            this->m_v[i]->d_time = -1;
+            this->m_v[i]->f_time = -1;
+            this->m_v[i]->parent = -1;
+            this->m_v[i]->priority = INIT_PRIORITY;
+            // 重量边
+            for (int j = 0; j < this->m_vnum; j ++)
+            {
+                if (this->exist_edge(i,j))
+                    this->m_e[i][j]->status = EStatus::UnDetermined;
+            }
+        }
+    }
 
 public:
     GraphMatrix()
@@ -49,33 +71,42 @@ public:
     {
         for (int j = 0; j < this->m_vnum; j ++)
             for(int k = 0; k < this->m_vnum; k++)
-                if (this->m_E[j][k])
-                    delete this->m_E[j][k];
+                if (this->m_e[j][k])
+                    delete this->m_e[j][k];
     }
 
     // 基本数据获取
-    int     get_vertex_size() {return this->m_vnum;} const
-    Tv      get_vertex_data(int i) {return this->m_V[i]->data;}
-    int     get_vertex_in_deg(int i) {return this->m_V[i]->in_deg;}
-    int     get_vertex_out_deg(int i) {return this->m_V[i]->out_deg;}
-    int     get_edge_size() {return this->m_enum;} const
-    Te      get_edge_data(int i, int j) {return this->m_E[i][j]->data;}
-    int     get_edge_weight(int i, int j) {return this->m_E[i][j]->weight;}
+    int     vertex_size() {return this->m_vnum;} const
+    Tv      vertex_data(int i) {return this->m_v[i]->data;}
+    int     vertex_indeg(int i) {return this->m_v[i]->in_deg;}
+    int     vertex_outdeg(int i) {return this->m_v[i]->out_deg;}
+    VStatus vertex_status(int i) {return this->m_v[i]->status;}
+    int     vertex_ftime(int i) {return this->m_v[i]->f_time;}
+    int     vertex_dtime(int i) {return this->m_v[i]->d_time;}
+    int     vertex_parent(int i) {return this->m_v[i]->parent;}
+    int     vertex_priority(int i) {return this->m_v[i]->priority;}
+    int     edge_size() {return this->m_enum;} const
+    Te      edge_data(int i, int j) {return this->m_e[i][j]->data;}
+    int     edge_weight(int i, int j) {return this->m_e[i][j]->weight;}
+    EStatus edge_status(int i, int j) {return this->m_e[i][j]->status;}
 
-    // 顶点操作
+    // 顶点遍历
     int     next_nbr(int i, int j);
     int     first_nbr(int i);
 
-    int     insert_vertex(const Tv& vertex);
-    Tv      remove_vertex(int i);
+    // 顶点操作
+    virtual int     insert_vertex(const Tv& vertex);
+    virtual Tv      remove_vertex(int i);
 
     // 边操作
-    bool    exist_edge(int i, int j);
-    void    insert_edge(const Te& edge, int w, int i, int j);
-    Te      remove_edge(int i, int j);
+    virtual bool    exist_edge(int i, int j);
+    virtual void    insert_edge(const Te& edge, int w, int i, int j);
+    virtual Te      remove_edge(int i, int j);
 
-    // 搜索
+    // 图的搜索
+    void    bfs(int s);
     void    BFS(int vindex, int& clock);
+    void    dfs(int s);
     void    DFS(int vindex, int& clock);
 };
 
@@ -122,7 +153,7 @@ bool GraphMatrix<Tv, Te>::exist_edge(int i, int j)
 {
     return ((0 <= i) && (i < this->m_vnum)
         && (0 <= j) && (j < this->m_vnum)
-        && (this->m_E[i][j] != nullptr));
+        && (this->m_e[i][j] != nullptr));
 }
 
 /*!
@@ -139,12 +170,12 @@ void GraphMatrix<Tv, Te>::insert_edge(const Te& edge, int w, int i, int j)
 {
     if (this->exist_edge(i,j)) return;
 
-    this->m_E[i][j] = new Edge<Te>(edge, w);
+    this->m_e[i][j] = new Edge<Te>(edge, w);
     this->m_enum++;
 
     // 修改出度与入度
-    this->m_V[i]->out_deg++;
-    this->m_V[j]->in_deg++;
+    this->m_v[i]->out_deg++;
+    this->m_v[j]->in_deg++;
 }
 
 /*!
@@ -157,14 +188,14 @@ void GraphMatrix<Tv, Te>::insert_edge(const Te& edge, int w, int i, int j)
 template <typename Tv, typename Te>
 Te GraphMatrix<Tv,Te>::remove_edge(int i, int j)
 {
-    Te old = this->m_E[i][j]->data;
-    delete this->m_E[i][j];
-    this->m_E[i][j] = nullptr;
+    Te old = this->m_e[i][j]->data;
+    delete this->m_e[i][j];
+    this->m_e[i][j] = nullptr;
     this->m_enum--;
 
     // 修改出度与入度
-    this->m_V[i]->out_deg--;
-    this->m_V[j]->in_deg--;
+    this->m_v[i]->out_deg--;
+    this->m_v[j]->in_deg--;
 
     return old;
 }
@@ -181,14 +212,14 @@ int GraphMatrix<Tv,Te>::insert_vertex(const Tv& vertex)
 {
     // 每行增加一个元素
     for (int j = 0; j < this->m_vnum; j++)
-        this->m_E[j].push_back(nullptr);
+        this->m_e[j].push_back(nullptr);
     // 顶点数量加1
     this->m_vnum++;
     // 邻接矩阵插入一行
-    this->m_E.push_back(dsa::Vector<EdgePtr<Te> >(this->m_vnum,this->m_vnum, nullptr));
+    this->m_e.push_back(dsa::Vector<EdgePtr<Te> >(this->m_vnum, this->m_vnum, nullptr));
     // 插入顶点
     VertexPtr<Tv> vt = new Vertex<Tv>(vertex);
-    return this->m_V.push_back(vt);
+    return this->m_v.push_back(vt);
 }
 
 /*!
@@ -206,13 +237,13 @@ Tv GraphMatrix<Tv,Te>::remove_vertex(int i)
         // 删除顶点的出边
         if (this->exist_edge(i,j))
         {
-            delete this->m_E[i][j];
+            delete this->m_e[i][j];
             // 头部(终点)顶点 j 的入度减1
-            this->m_V[j]->in_deg--;
+            this->m_v[j]->in_deg--;
         }
     }
     // 删除第i行
-    this->m_E.remove(i);
+    this->m_e.remove(i);
     this->m_vnum--;
 
     for(int j = 0; j < this->m_vnum; j++)
@@ -221,95 +252,144 @@ Tv GraphMatrix<Tv,Te>::remove_vertex(int i)
         if (this->exist_edge(j,i))
         {
             // 删除边，并且每行删除对应顶点 i 的元素
-            delete this->m_E[j].remove(i);
+            delete this->m_e[j].remove(i);
             // 尾部(起点)顶点 j 的出度减1
-            this->m_V[j]->out_deg--;
+            this->m_v[j]->out_deg--;
         }
     }
 
-    Tv old = this->m_V[i]->data;
-    delete this->m_V.remove(i);
+    Tv old = this->m_v[i]->data;
+    delete this->m_v.remove(i);
     return old;
 }
 
 /*!
- * @brief 广度优先搜索
+ * @brief 广度优先搜索（全图遍历）
  *
- * 通过BFS，最后会标记出一棵Tree。
+ * 通过bfs，会将全图的连通/可达分量标记成BFS树。
+ * bsf的时间复杂度为O(n+e)+O(n+2e)=O(n+e)，其中n和e分别代表顶点和边的数量。
+ *
+ * @param s: 起始顶点。
+ * @return
+ * @retval None
+ */
+template <typename Tv, typename Te>
+void GraphMatrix<Tv,Te>::bfs(int s)
+{
+    this->reset();
+    int clock = 0;
+    int v = s;
+    do
+    {
+        if (this->m_v[v]->status == VStatus::UnDiscovered)
+            this->BFS(v, clock);
+        v = ++v % this->m_vnum;     // 按序号顺序访问所有顶点
+    } while (s != v);
+}
+
+/*!
+ * @brief 广度优先搜索（对图中的一个连通/可达分量遍历）
+ *
+ * 通过BFS标记出一棵以vindex为根的BFS树。
  *
  * @param vindex: 顶点下标。
- * @param clock: 时间标签，用于读取时间。
+ * @param clock: 时间标签，用于判定顶点访问的先后顺序。可以通过顶点的VStatus状态，判断边是属于Tree还是Cross。
  * @return
  * @retval None
  */
 template <typename Tv, typename Te>
 void GraphMatrix<Tv,Te>::BFS(int vindex, int& clock)
 {
-    this->m_V[vindex]->status = VStatus::Discovered;
+    this->m_v[vindex]->status = VStatus::Discovered;
 
     dsa::Queue<int> q;
     q.enqueue(vindex);
     while(!q.is_empty())
     {
         int v = q.dequeue();
-        this->m_V[v]->d_time = ++clock;
+        this->m_v[v]->d_time = ++clock;
 
         for (int k = this->first_nbr(v); k > -1 ; k = this->next_nbr(v, k))
         {
-            if (VStatus::UnDiscovered == this->m_V[k]->status)
+            if (VStatus::UnDiscovered == this->m_v[k]->status)
             {
-                this->m_V[k]->status = VStatus::Discovered;
+                this->m_v[k]->status = VStatus::Discovered;
                 q.enqueue(k);       // 在队列中的顶点处理Discovered状态
-                this->m_V[k]->parent = v;
-                this->m_E[v][k]->status = EStatus::Tree;
+                this->m_v[k]->parent = v;
+                this->m_e[v][k]->status = EStatus::Tree;
                                     // 将边引入Tree中（处于Discovered均为引入Tree中）
             }
             else
             {
-                this->m_E[v][k]->status = EStatus::Cross;
+                this->m_e[v][k]->status = EStatus::Cross;
                                     // 若已在队列中，或是已经访问完毕，则将边引入Cross边中
             }
         }
 
-        this->m_V[v]->status = VStatus::Visited;
+        this->m_v[v]->status = VStatus::Visited;
     }
 }
 
 /*!
- * @brief 深度优先搜索
+ * @brief 深度优先搜索（全图遍历）
  *
- * @param vindex: The index of vertex.
- * @param clock: 时间标签，用于读取时间。
+ * dsf的时间复杂度为O(n+e)，其中n和e分别代表顶点和边的数量。
+ *
+ * @param s: 起始顶点。
+ * @return
+ * @retval None
+ */
+template <typename Tv, typename Te>
+void GraphMatrix<Tv,Te>::dfs(int s)
+{
+    this->reset();
+    int clock = 0;
+    int v = s;
+    do
+    {
+        if (this->m_v[s]->status == VStatus::UnDiscovered)
+            this->DFS(v, clock);
+        v = ++v % this->m_vnum;     // 按序号顺序访问所有顶点
+    }while (s != v);
+}
+
+/*!
+ * @brief 深度优先搜索（对图中的一个连通/可达分量遍历）
+ *
+ * 通过BFS标记出一棵DFS树。
+ *
+ * @param vindex: 顶点下标。
+ * @param clock: 时间标签，用于判定顶点访问的先后顺序。可以根据项点的d_time来判断边是Backward还是Forward。
  * @return
  * @retval None
  */
 template <typename Tv, typename Te>
 void GraphMatrix<Tv,Te>::DFS(int vindex, int& clock)
 {
-    this->m_V[vindex]->status = VStatus::Discovered;
-    this->m_V[vindex]->d_time = ++clock;
+    this->m_v[vindex]->status = VStatus::Discovered;
+    this->m_v[vindex]->d_time = ++clock;
 
     for (int k = this->first_nbr(vindex); k > -1 ; k = this->next_nbr(vindex, k))
     {
-        switch(this->m_V[k]->status)
+        switch(this->m_v[k]->status)
         {
             case VStatus::UnDiscovered:
-                this->m_E[vindex][k]->status = EStatus::Tree;
-                this->m_V[k]->parent = vindex;
-                this->DFS(k, clock);
+                this->m_e[vindex][k]->status = EStatus::Tree;
+                this->m_v[k]->parent = vindex;
+                this->DFS(k, clock);        // 通过递归实现
                 break;
             case VStatus::Discovered:
-                this->m_E[vindex][k]->status = EStatus::Backward;
+                this->m_e[vindex][k]->status = EStatus::Backward;
                 break;
             case VStatus::Visited:
-                this->m_E[vindex][k]->status = (this->m_V[vindex]->d_time < this->m_V[k]->d_time) ?
+                this->m_e[vindex][k]->status = (this->m_v[vindex]->d_time < this->m_v[k]->d_time) ?
                                             EStatus::Forward : EStatus::Cross;
                 break;
         }
     }
 
-    this->m_V[vindex]->status = VStatus::Visited;
-    this->m_V[vindex]->f_time = ++clock;
+    this->m_v[vindex]->status = VStatus::Visited;
+    this->m_v[vindex]->f_time = ++clock;
 }
 
 } /* dsa */

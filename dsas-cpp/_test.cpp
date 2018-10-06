@@ -51,7 +51,7 @@ int main()
     //test_splay();
     //test_avl();
     //test_bst();
-    //test_graph();
+    test_graph();
     //test_bt();
     //test_queue();
     //test_stack();
@@ -294,6 +294,7 @@ void test_bt()
 
 void test_graph()
 {
+    std::cout << "INT_MAX: " << INT_MAX << endl;
     dsa::GraphMatrix<int, float> gm;
 
     int v0 = gm.insert_vertex(100);
@@ -305,29 +306,28 @@ void test_graph()
 
     cout << "Vertex: \n";
     cout << v0 << " " << v1 << " " << v2 << " " << v3 << "\n";
-    cout << gm.get_vertex_data(v0) << endl;
-    cout << gm.get_vertex_data(v1) << endl;
-    cout << gm.get_vertex_data(v2) << endl;
-    cout << gm.get_vertex_data(v3) << endl;
+    cout << gm.vertex_data(v0) << endl;
+    cout << gm.vertex_data(v1) << endl;
+    cout << gm.vertex_data(v2) << endl;
+    cout << gm.vertex_data(v3) << endl;
 
     gm.insert_edge(0.13, 10, v0, v1);
     gm.insert_edge(0.25, 20, v0, v2);
     gm.insert_edge(0.37, 30, v0, v3);
     gm.insert_edge(0.99, 40, v2, v3);
 
-    int clock = 0;
-    gm.BFS(v0, clock);
-    gm.DFS(v0, clock);
+    gm.bfs(v0);
+    gm.dfs(v0);
 
     cout << "Edge: \n";
-    cout << "EdgeNum: " << gm.get_edge_size() << endl;
-    cout << gm.get_edge_data(v0,v3) << "   " << gm.get_edge_weight(v0,v3) << endl;
+    cout << "EdgeNum: " << gm.edge_size() << endl;
+    cout << gm.edge_data(v0,v3) << "   " << gm.edge_weight(v0,v3) << endl;
 
     cout << "v1's first neighbor: " << gm.first_nbr(v0) << endl;
     cout << "v1's next: " << gm.next_nbr(v0, v2) << endl;
 
     gm.remove_edge(v0,v3);
-    cout << "EdgeNum: " << gm.get_edge_size() << endl;
+    cout << "EdgeNum: " << gm.edge_size() << endl;
 }
 
 void test_bst()

@@ -25,8 +25,6 @@ namespace dsa
  * @{
  */
 
-#define INI_MAX
-
 template<typename Te> struct Edge;
 template<typename Tv> struct Vertex;
 
@@ -55,8 +53,52 @@ typedef enum { UnDiscovered, Discovered, Visited } VStatus;
  */
 typedef enum { UnDetermined, Tree, Cross, Forward, Backward } EStatus;
 
+
+#define INIT_PRIORITY 2147483647
+
 /*!
  * @brief 顶点类
+ *
+ */
+template<typename Tv>
+struct Vertex
+{
+    Tv      data;
+    int     in_deg;     /**< 入度 */
+    int     out_deg;    /**< 出度 */
+    VStatus status;
+    int     d_time;
+    int     f_time;
+    int     parent;
+    int     priority;
+
+    Vertex(const Tv& d):
+        data(d), in_deg(0), out_deg(0),
+        status(UnDiscovered), d_time(-1), f_time(-1),parent(-1), priority(INIT_PRIORITY)
+    {}
+};
+
+/*!
+ * @brief 边类
+ *
+ */
+template<typename Te>
+struct Edge
+{
+    Te      data;       /**< 数据 */
+    int     weight;     /**< 权重 */
+    EStatus status;     /**< 类型 */
+
+    Edge(const Te& d, int w):
+        data(d), weight(w),
+        status(UnDetermined)
+    {}
+};
+
+
+/*!
+ * @brief 图类
+ * Tv为顶点数据，Te为边数据。
  *
  * <pre>
  *
@@ -70,8 +112,8 @@ typedef enum { UnDetermined, Tree, Cross, Forward, Backward } EStatus;
  * 无向边：A---B---C
  * 有向边：A<---B<--->C
  *
- * 有向图：所有边为有向边
- * 无向图：所有边为无向边
+ * 有向图：所有边为有向边，因为是有向边的连接，所以能得到可达分量
+ * 无向图：所有边为无向边，通过无向边的连接，可得到连通分量
  * 混合图：既有有向边，也有无向边
  *
  * 路径：一系列顶点构成的序列 P = <v0,v1,v2,v3,...vk>
@@ -79,56 +121,23 @@ typedef enum { UnDetermined, Tree, Cross, Forward, Backward } EStatus;
  * 环路：v0 = vk
  *
  * </pre>
- */
-template<typename Tv>
-struct Vertex
-{
-    Tv data;
-    int in_deg;             /**< 入度 */
-    int out_deg;            /**< 出度 */
-    VStatus status;
-    int d_time, f_time;
-    int parent;
-    int priority;
-
-    Vertex(const Tv& d):
-        data(d), in_deg(0), out_deg(0), status(UnDiscovered),
-        d_time(-1), f_time(-1),parent(-1),
-        priority(INI_MAX)
-    {}
-};
-
-/*!
- * @brief 边类
- *
- */
-template<typename Te>
-struct Edge
-{
-    Te data;            /**< 数据 */
-    int weight;         /**< 权重 */
-    EStatus status;     /**< 类型 */
-
-    Edge(const Te& d, int w):
-        data(d), weight(w), status(UnDetermined)
-    {}
-};
-
-
-/*!
- * @brief 图类
  *
  */
 template <typename Tv, typename Te>
 class Graph
 {
 private:
-    void reset(){}
 
 protected:
     int m_vnum;         /**< 顶点数量 */
     int m_enum;         /**< 边数量 */
 
+public:
+    virtual int     insert_vertex(const Tv&) = 0;
+    virtual Tv      remove_vertex(int) = 0;
+    virtual bool    exist_edge(int, int) = 0;
+    virtual void    insert_edge(const Te&, int, int, int) = 0;
+    virtual Te      remove_edge(int, int) = 0;
 };
 
 /*! @} */
