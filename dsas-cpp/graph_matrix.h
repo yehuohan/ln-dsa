@@ -28,9 +28,10 @@ namespace dsa
  */
 
 
-
 /*!
  * @brief 邻接矩阵类
+ *
+ * 用邻接矩阵表示一幅图，以及进行图操作。
  *
  */
 template <typename Tv, typename Te>
@@ -108,6 +109,7 @@ public:
     void    BFS(int vindex, int& clock);
     void    dfs(int s);
     void    DFS(int vindex, int& clock);
+    void    dijkstra(int s);
 };
 
 /*! @} */
@@ -290,7 +292,7 @@ void GraphMatrix<Tv,Te>::bfs(int s)
 /*!
  * @brief 广度优先搜索（对图中的一个连通/可达分量遍历）
  *
- * 通过BFS标记出一棵以vindex为根的BFS树。
+ * 通过BFS标记出一棵以vindex为根的BFS树；BFS树整体上较短且宽。
  *
  * @param vindex: 顶点下标。
  * @param clock: 时间标签，用于判定顶点访问的先后顺序。可以通过顶点的VStatus状态，判断边是属于Tree还是Cross。
@@ -347,7 +349,7 @@ void GraphMatrix<Tv,Te>::dfs(int s)
     int v = s;
     do
     {
-        if (this->m_v[s]->status == VStatus::UnDiscovered)
+        if (this->m_v[v]->status == VStatus::UnDiscovered)
             this->DFS(v, clock);
         v = ++v % this->m_vnum;     // 按序号顺序访问所有顶点
     }while (s != v);
@@ -356,7 +358,7 @@ void GraphMatrix<Tv,Te>::dfs(int s)
 /*!
  * @brief 深度优先搜索（对图中的一个连通/可达分量遍历）
  *
- * 通过BFS标记出一棵DFS树。
+ * 通过BFS标记出一棵DFS树；DFS树整体上较长且窄。
  *
  * @param vindex: 顶点下标。
  * @param clock: 时间标签，用于判定顶点访问的先后顺序。可以根据项点的d_time来判断边是Backward还是Forward。
@@ -390,6 +392,53 @@ void GraphMatrix<Tv,Te>::DFS(int vindex, int& clock)
 
     this->m_v[vindex]->status = VStatus::Visited;
     this->m_v[vindex]->f_time = ++clock;
+}
+
+/*!
+ * @brief Dijkstra最短路径算法
+ *
+ * Dijkstra算法可以计算顶点s到其余各点的最短路径及长度，所有最短路径可以组成一棵树。
+ * 注意：图中边的权重需要为正。
+ *
+ * @param s: 起始顶点。
+ * @return
+ * @retval None
+ */
+template <typename Tv, typename Te>
+void GraphMatrix<Tv,Te>::dijkstra(int s)
+{
+    this->reset();
+    // 用priority表示距离的优先级，距离越小，优先级越高，优先并入最短路径
+    this->m_v[s]->priority = 0;
+    for (int i = 0; i < this->m_vnum; i ++)
+    {
+        this->m_v[s]->status = VStatus::Visited;
+        // 连接最短路径成树
+        if (-1 != this->m_v[s]->parent)
+            this->m_e[this->m_v[s]->parent][s]->status = EStatus::Tree;
+        // 遍历顶点s的邻接顶点
+        for (int j = this->first_nbr(s); j > -1; j = this->next_nbr(s, j))
+        {
+            if (this->m_v[j]->status == VStatus::UnDiscovered
+                    && this->m_v[j]->priority > this->m_v[j]->priority + this->m_e[s][j]->weight)
+            {
+                // 更新s到j的距离
+                this->m_v[j]->priority = this->m_v[s]->priority + this->m_e[s][j]->weight;
+                this->m_v[j]->parent = s;
+            }
+
+        }
+        // 遍历查找下一个最近的顶点
+        for (int min = INIT_PRIORITY, j = 0; j < this->m_vnum; j ++)
+        {
+            if (this->m_v[j]->status == VStatus::UnDiscovered
+                    && min > this->m_v[j]->priority)
+            {
+                min = this->m_v[j]->priority;
+                s = j;
+            }
+        }
+    }
 }
 
 } /* dsa */

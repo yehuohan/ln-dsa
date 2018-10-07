@@ -318,6 +318,7 @@ void test_graph()
 
     gm.bfs(v0);
     gm.dfs(v0);
+    gm.dijkstra(v0);
 
     cout << "Edge: \n";
     cout << "EdgeNum: " << gm.edge_size() << endl;

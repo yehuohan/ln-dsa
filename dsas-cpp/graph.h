@@ -54,7 +54,7 @@ typedef enum { UnDiscovered, Discovered, Visited } VStatus;
 typedef enum { UnDetermined, Tree, Cross, Forward, Backward } EStatus;
 
 
-#define INIT_PRIORITY 2147483647
+#define INIT_PRIORITY 2147483647        // 
 
 /*!
  * @brief 顶点类
@@ -66,11 +66,11 @@ struct Vertex
     Tv      data;
     int     in_deg;     /**< 入度 */
     int     out_deg;    /**< 出度 */
-    VStatus status;
-    int     d_time;
-    int     f_time;
-    int     parent;
-    int     priority;
+    VStatus status;     /**< 顶点的状态 */
+    int     d_time;     /**< 仿问开始时间 */
+    int     f_time;     /**< 仿问结束时间 */
+    int     parent;     /**< 图的支撑树中的父节点 */
+    int     priority;   /**< 优先级参数，一般数越小，优先级越高 */
 
     Vertex(const Tv& d):
         data(d), in_deg(0), out_deg(0),
