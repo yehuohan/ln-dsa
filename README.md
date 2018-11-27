@@ -10,7 +10,7 @@ dsas-lite-c : dsa lite-implementation in c
 dsas-ma     : mathematics and algorithm
 dsas-code   : code pratice
 dsas-usestl : examples of c++stl
-dsas-sys    : uscore learning
+dsas-sys    : ucore os learning
 ```
 
  - 教程：[`《数据结构》- 邓俊辉`](http://www.xuetangx.com/courses/TsinghuaX/30240184X/2014_T2/about?Spam=3)

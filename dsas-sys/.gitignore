@@ -1,0 +1,12 @@
+
+/*
+!/*.md
+!/.gitignore
+
+!/ucore
+/ucore/*
+!/ucore/Makefile
+
+!/ucore/boot
+!/ucore/libs
+!/ucore/tools
