@@ -4,9 +4,6 @@
 !/.gitignore
 
 !/ucore
-/ucore/*
-!/ucore/Makefile
-
-!/ucore/boot
-!/ucore/libs
-!/ucore/tools
+/ucore/bin
+/ucore/obj
+/ucore/.ycm_extra_conf.py
