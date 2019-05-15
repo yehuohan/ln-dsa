@@ -17,7 +17,7 @@ void exec_stl(stl_func sf)
 
 int main()//int argc, char *argv[])
 {
-#if 0
+#if 1
     exec_stl(container_vector);
     exec_stl(container_list);
     exec_stl(container_iterator);

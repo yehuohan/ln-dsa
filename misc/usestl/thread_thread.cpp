@@ -2,7 +2,6 @@
 #include "usestl.h"
 #include <thread>
 #include <mutex>
-#include <conio.h>
 
 int cnt = 0;
 std::mutex mtx;

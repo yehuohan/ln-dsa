@@ -10,9 +10,8 @@
 !/Doxyfile
 !/docs
 
-!/dsas-code
 !/dsas-cpp
 !/dsas-lite-c
 !/dsas-ma
 !/dsas-sys
-!/dsas-usestl
+!/misc
