@@ -6,11 +6,20 @@ SRC_BOOT_DIR := boot
 INC_BOOT_DIR := boot\
 				libs
 SRC_TOOL_DIR := tools
-SRC_KERN_DIR := kern/driver \
+SRC_KERN_DIR := kern/debug \
+				kern/driver \
+				kern/fs \
 				kern/init \
 				kern/libs \
+				kern/mm \
+				kern/trap \
 				libs
-INC_KERN_DIR := kern/driver \
+INC_KERN_DIR := kern/debug \
+				kern/driver \
+				kern/fs \
+				kern/mm \
+				kern/trap \
+				kern/sync \
 				libs
 OBJ_DIR      := obj
 BIN_DIR      := bin
@@ -19,24 +28,24 @@ BIN_DIR      := bin
 #===============================================================================
 # Commands
 #===============================================================================
-#V		:= @
 CC		:= gcc
 GDB		:= gdb
-CFLAGS	:= -Wall -ggdb -m32 -Os -fno-builtin -nostdinc
+CFLAGS	:= -Wall -ggdb -m32 -Os -gstabs -fno-builtin -nostdinc
 CFLAGS	+= $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
 CFLAGS	+= $(addprefix -I, $(INC_BOOT_DIR))
 CTYPE	:= c S
-KCFLAGS := -Wall -ggdb -m32 -Os -fno-builtin -nostdinc
+KCFLAGS := -Wall -ggdb -m32 -gstabs -fno-builtin -nostdinc
 KCFLAGS	+= $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
 KCFLAGS += $(addprefix -I, $(INC_KERN_DIR))
 
 LD      := ld
-LDFLAGS	:= -m elf_i386 -N -e start -Ttext 0x7C00
-KLDFLAGS:= -m elf_i386 -e kern_init -Ttext 0x100000
+LDFLAGS	:= -m elf_i386 -nostdlib -N -e start -Ttext 0x7C00
+KLDFLAGS:= -m elf_i386 -nostdlib -T tools/kernel.ld
 
 OBJCOPY := objcopy
 OBJDUMP := objdump
 
+#V		:= @
 COPY	:= cp
 MKDIR   := mkdir -p
 MV		:= mv
@@ -89,15 +98,17 @@ UCOREIMG := $(BIN_DIR)/ucore.img
 #===============================================================================
 # ucore.img
 # ucore.img在硬盘上的分布：
-# 		第一个扇区为引导代码(bootblock)
+# 		第一个扇区为引导代码(bootblock)，即bootloader
 # 		第二个扇区开始为kernel代码
 $(UCOREIMG): $(bootblock_bin) $(kernel_bin)
+	$(V)echo "... making" $@ "..."
 	$(V)dd if=/dev/zero of=$@ count=10000
 	$(V)dd if=$(bootblock_bin) of=$@ conv=notrunc
 	$(V)dd if=$(kernel_bin) of=$@ seek=1 conv=notrunc
 
 # bootblock
 $(bootblock_bin): $(bootblock_obj) $(sign_bin)
+	$(V)echo "... making" $@ "..."
 	$(V)$(OBJDUMP) -S $< > $@.asm
 	$(V)$(OBJCOPY) -S -O binary $< $@.out
 	$(V)$(sign_bin) $@.out $@
@@ -112,6 +123,7 @@ $(sign_bin): $(SRC_TOOL_DIR)/sign.c
 
 # kernel
 $(kernel_bin): $(kernel_obj_files)
+	$(V)echo "... making" $@ "..."
 	$(V)$(LD) $(KLDFLAGS) $^ -o $@
 	$(V)$(OBJDUMP) -S $@ > $@.asm
 	$(V)$(OBJDUMP) -t $@ | $(SED) '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > $@.sym
@@ -131,7 +143,7 @@ test:
 #===============================================================================
 # Targets for qemu
 #===============================================================================
-QEMU := qemu-system-x86_64
+QEMU := qemu-system-i386
 TERMINAL := xfce4-terminal
 
 .PHONY: qemu
