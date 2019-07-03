@@ -9,7 +9,7 @@ Data Struct and Algorithm Study.
 .
 ├── dsas-cpp : dsa implementation in c++11
 ├── dsas-ma  : mathematics and algorithm
-├── dsas-sys : ucore os learning
+├── dsas-os  : ucore os learning
 └── misc
     ├── lite-c : some lite-implementation of dsa in c
     ├── usestl : examples of c++stl
