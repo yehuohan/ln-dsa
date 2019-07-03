@@ -18,8 +18,7 @@
 #elif defined(_WIN32)
 #define DSAS_WIN
 #else
-// Comment this line to ignore error.
-#error "Failed to detect platform."
+#warning "Using time lib of std"
 #endif
 
 #endif /* ifndef DSAS_MARCO_H */

@@ -296,7 +296,7 @@ BinNodePtr<T> BinSearchTree<T>::rotate_at(BinNodePtr<T> v)
                     p->left, v->left, v->right, g->right);
         }
     }
-    else if (BN_IsRightChild(*p))
+    else// if (BN_IsRightChild(*p))
     {
         if (BN_IsLeftChild(*v))
         {
