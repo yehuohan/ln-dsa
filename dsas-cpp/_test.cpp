@@ -24,6 +24,7 @@ void test_avl();
 void test_splay();
 void test_btree();
 void test_redblack();
+void test_maprbt();
 void test_bitmap();
 void test_hash();
 void test_pq();
@@ -48,11 +49,12 @@ int main()
     //test_hash();
     //test_bitmap();
     //test_redblack();
+    test_maprbt();
     //test_btree();
     //test_splay();
     //test_avl();
     //test_bst();
-    test_graph();
+    //test_graph();
     //test_bt();
     //test_queue();
     //test_stack();
@@ -625,6 +627,32 @@ void test_redblack()
         }
     }
 
+}
+
+void test_maprbt()
+{
+    dsa::MapRBT<int, dsa::String> mr;
+    dsa::String* ps;
+
+    mr.put(10, "A");
+    mr.put(20, "B");
+    mr.put(30, "C");
+
+    mr.put(10, "AA");   // 覆盖键值
+    ps = mr.get(10);
+    if (ps)
+    {
+        cout << *ps << endl;
+        *ps = "BCD";
+    }
+    ps = mr.get(10);
+    if (ps)
+        cout << *ps << endl;
+
+    //mr.remove(20);
+    ps = mr.get(20);
+    if (ps)
+        cout << *ps << endl;
 }
 
 void test_pq()

@@ -137,6 +137,12 @@ DSAS是数据结构与算法的学习过程。
  * @}
  */
 /*!
+ * @defgroup TMap Map On RedBlackTree)
+ * Map结构
+ * @{
+ * @}
+ */
+/*!
  * @defgroup TBTree B-Tree
  * B-树
  * @{
@@ -219,6 +225,7 @@ DSAS是数据结构与算法的学习过程。
 #include "b_node.h"
 #include "b_tree.h"
 #include "redblack_tree.h"
+#include "map_rbt.h"
 #include "kdtree.h"
 
 #include "graph.h"

@@ -101,15 +101,37 @@ public:
     }
     ~String() {if (m_ch) delete m_ch;}
 
-    /** 重载输出(<<)运算符 */
+    /** 重赋值(=)运算符 */
+    String& operator=(const String& str)
+    {
+        if (m_ch)
+            delete m_ch;
+        this->m_size = str_len(str.data());
+        this->m_cap = this->m_size * 2;
+        this->m_ch = new char[this->m_cap];
+        str_cpy(this->m_ch, str.data(), this->m_size);
+        return *this;
+    }
+    /** 重赋值(=)运算符 */
+    String& operator=(const char* str)
+    {
+        if (m_ch)
+            delete m_ch;
+        this->m_size = str_len(str);
+        this->m_cap = this->m_size * 2;
+        this->m_ch = new char[this->m_cap];
+        str_cpy(this->m_ch, str, this->m_size);
+        return *this;
+    }
+    /** 重写输出(<<)运算符 */
     friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_ch; return out;}
-    /** 重载输出(<<)运算符 */
+    /** 重写输出(<<)运算符 */
     friend std::ostream& operator<< (std::ostream& out, const dsa::String& str) {out << str.m_ch; return out;}
-    /** 重载[]，没有边界检测，可以修改m_ch */
+    /** 重写[]，没有边界检测，可以修改m_ch */
     char& operator[] (int k) {return this->m_ch[k];}
-    /** 重载[]，没有边界检测，不能修改m_ch */
+    /** 重写[]，没有边界检测，不能修改m_ch */
     const char& operator[] (int k) const {return this->m_ch[k];}
-    /** 重载< */
+    /** 重写< */
     bool operator< (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == -1);}
     /** 重载> */
     bool operator> (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == 1);}

@@ -30,20 +30,6 @@ namespace dsa
  * @{
  */
 
-
-/*!
- * @brief 字典接口类
- *
- */
-template <typename K, typename V>
-struct Dict
-{
-    virtual int     size() const = 0;
-    virtual bool    put(K, V) = 0;
-    virtual V*      get(K) = 0;
-    virtual bool    remove(K) = 0;
-};
-
 #define HASH_PROBE_LINE     0x01
 #define HASH_PROBE_QUAD     0x02
 #define HASH_PROBE          HASH_PROBE_QUAD
@@ -90,7 +76,7 @@ template <
     typename V,
     typename HF=dsa::Hash<K>,
     typename CMP=dsa::Less<K> >
-class HashTable : public Dict<K, V>
+class HashTable : public dsa::Dict<K, V>
 {
 private:
     dsa::Entry<K,V,CMP>** m_ht; /**< 散列容量数组，存放词条指针 */
@@ -157,7 +143,7 @@ template <
     typename V,
     typename HF=dsa::Hash<K>,
     typename CMP=dsa::Less<K> >
-class HashTableList : public Dict<K, V>
+class HashTableList : public dsa::Dict<K, V>
 {
 private:
     dsa::List<dsa::Entry<K,V,CMP> >* m_ht; /**< 散列容量数组，存放词条指针 */
