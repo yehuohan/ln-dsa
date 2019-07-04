@@ -35,8 +35,6 @@ template <typename T> struct Less
  * @name 比较函数模板
  *
  * <pre>
- * 被比较的对象，必须重写 operator<。
- *
  * 理想情况是，自己实现类的所有比较操作符。
  * 使用比较函数模板则只有实现 operator< 即可。
  *
@@ -46,17 +44,17 @@ template <typename T> struct Less
  */
 
 /** 用 < 实现 < */
-template <typename T> bool less_than    (const T& a, const T& b) {return a < b;}
+template <typename T, typename L=dsa::Less<T> > bool less_than    (const T& a, const T& b, const L& lt=dsa::Less<T>()) {return lt(a,b);}
 /** 用 < 实现 > */
-template <typename T> bool greater_than (const T& a, const T& b) {return b < a;}
+template <typename T, typename L=dsa::Less<T> > bool greater_than (const T& a, const T& b, const L& lt=dsa::Less<T>()) {return lt(b,a);}
 /** 用 < 实现 == */
-template <typename T> bool is_equal     (const T& a, const T& b) {return !(a < b || b < a);}
+template <typename T, typename L=dsa::Less<T> > bool is_equal     (const T& a, const T& b, const L& lt=dsa::Less<T>()) {return !(lt(a,b) || lt(b,a));}
 /** 用 < 实现 != */
-template <typename T> bool not_equal    (const T& a, const T& b) {return  (a < b || b < a);}
+template <typename T, typename L=dsa::Less<T> > bool not_equal    (const T& a, const T& b, const L& lt=dsa::Less<T>()) {return  (lt(a,b) || lt(b,a));}
 /** 用 < 实现 <= */
-template <typename T> bool less_equal   (const T& a, const T& b) {return (less_than(a,b) || is_equal(a,b));}
+template <typename T, typename L=dsa::Less<T> > bool less_equal   (const T& a, const T& b, const L& lt=dsa::Less<T>()) {return (less_than(a,b) || is_equal(a,b));}
 /** 用 < 实现 >= */
-template <typename T> bool greater_equal(const T& a, const T& b) {return (greater_than(a,b) || is_equal(a,b));}
+template <typename T, typename L=dsa::Less<T> > bool greater_equal(const T& a, const T& b, const L& lt=dsa::Less<T>()) {return (greater_than(a,b) || is_equal(a,b));}
 
 /*! @} */
 
