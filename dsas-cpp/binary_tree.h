@@ -71,6 +71,7 @@ protected:
 protected:
     virtual int update_height(BinNodePtr<T> node);
     void        update_height_above(BinNodePtr<T> node);
+    int         remove_at(BinNodePtr<T> node);
 
 public:
     BinTree() : m_size(0), m_root(nullptr) {}
@@ -89,7 +90,6 @@ public:
     BinNodePtr<T> insert_right(BinNodePtr<T> node, const T& ele);
 };
 
-template <typename T> static int remove_at(BinNodePtr<T> node);
 template <typename T> static void construct_bintree_pre_in(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, BinNodePtr<T>& node);
 template <typename T> void construct_bintree(const dsa::Vector<T>& pre, const dsa::Vector<T>& in, BinTree<T>& bt);
 
@@ -137,10 +137,10 @@ void BinTree<T>::update_height_above(BinNodePtr<T> node)
  * @retval None
  */
 template <typename T>
-static int remove_at(BinNodePtr<T> node)
+int BinTree<T>::remove_at(BinNodePtr<T> node)
 {
     if (!node) return 0;
-    int n = 1 + remove_at(node->left) + remove_at(node->right);
+    int n = 1 + this->remove_at(node->left) + this->remove_at(node->right);
     delete node;
     return n;
 
@@ -163,7 +163,7 @@ int BinTree<T>::remove(BinNodePtr<T> node)
         else p->right = nullptr;
     }
     this->update_height_above(p);
-    int n = remove_at(node);
+    int n = this->remove_at(node);
     this->m_size -= n;
     return n;
 }

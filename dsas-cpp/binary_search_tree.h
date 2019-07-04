@@ -44,11 +44,13 @@ public:
     virtual bool            remove(const T&);
 
 protected:
-    BinNodePtr<T>     m_hot;
-    BinNodePtr<T>     connect34(
+    BinNodePtr<T>       m_hot;
+    BinNodePtr<T>       connect34(
             BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>,
             BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>, BinNodePtr<T>);
-    BinNodePtr<T>     rotate_at(BinNodePtr<T>);
+    BinNodePtr<T>       rotate_at(BinNodePtr<T>);
+    BinNodePtr<T>       remove_at(BinNodePtr<T>&, BinNodePtr<T>&);
+    BinNodePtr<T>&      search_in(BinNodePtr<T>&, const T&, BinNodePtr<T>&);
 };
 
 /*! @} */
@@ -64,7 +66,7 @@ protected:
  * @retval None
  */
 template <typename T>
-static BinNodePtr<T>& search_in(
+BinNodePtr<T>& BinSearchTree<T>::search_in(
         BinNodePtr<T>& node,
         const T& e,
         BinNodePtr<T>& hot)
@@ -72,7 +74,7 @@ static BinNodePtr<T>& search_in(
     if (!node || dsa::is_equal(e, node->data))
         return node;
     hot = node;
-    return search_in(dsa::less_than(e, node->data) ? node->left : node->right, e, hot);
+    return this->search_in(dsa::less_than(e, node->data) ? node->left : node->right, e, hot);
                             // 递归传入search_in的node是hot的子节点
 }
 
@@ -86,7 +88,7 @@ static BinNodePtr<T>& search_in(
 template <typename T>
 BinNodePtr<T>& BinSearchTree<T>::search(const T& e)
 {
-    return search_in(this->m_root, e, this->m_hot = nullptr);
+    return this->search_in(this->m_root, e, this->m_hot = nullptr);
 }
 
 /*!
@@ -141,7 +143,7 @@ BinNodePtr<T> BinSearchTree<T>::insert(const T& e)
  * @retval None
  */
 template <typename T>
-static BinNodePtr<T> remove_at(
+BinNodePtr<T> BinSearchTree<T>::remove_at(
         BinNodePtr<T>& node,
         BinNodePtr<T>& hot)
 {
@@ -192,7 +194,7 @@ bool BinSearchTree<T>::remove(const T& e)
 {
     BinNodePtr<T>& node = this->search(e);
     if (!node) return false;
-    remove_at(node, m_hot);
+    this->remove_at(node, m_hot);
     this->m_size--;
     this->update_height_above(m_hot);
     return true;

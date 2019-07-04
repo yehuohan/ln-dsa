@@ -57,9 +57,10 @@ public:
     void    insert(const T&);
     T       get_max(){return this->m_root->data;}
     T       del_max();
-};
 
-template <typename T> static BinNode<T>* merge(BinNode<T>*, BinNode<T>*);
+protected:
+    BinNodePtr<T>   merge(BinNodePtr<T>, BinNodePtr<T>);
+};
 
 /*! @} */
 
@@ -92,7 +93,7 @@ template <typename T> static BinNode<T>* merge(BinNode<T>*, BinNode<T>*);
  * @retval None
  */
 template <typename T>
-static BinNode<T>* merge(BinNode<T>* a, BinNode<T>* b)
+BinNodePtr<T> PqLeftHeap<T>::merge(BinNodePtr<T> a, BinNodePtr<T> b)
 {
     if (!a) return b;
     if (!b) return a;
@@ -101,7 +102,7 @@ static BinNode<T>* merge(BinNode<T>* a, BinNode<T>* b)
     if (a->data < b->data)
         dsa::swap(a, b);
     // 合并a的右子堆与b
-    a->right = merge(a->right, b);      // 因为右侧链长度 d <= O(log(n))，故merge最多递归d次，即时间复杂度为O(log(n))
+    a->right = this->merge(a->right, b);      // 因为右侧链长度 d <= O(log(n))，故merge最多递归d次，即时间复杂度为O(log(n))
     a->right->parent = a;
     // 使a继续满足左倾性
     if (!a->left || a->left->npl < a->right->npl)
@@ -124,8 +125,8 @@ static BinNode<T>* merge(BinNode<T>* a, BinNode<T>* b)
 template <typename T>
 void PqLeftHeap<T>::insert(const T& e)
 {
-    BinNode<T>* v = new BinNode<T>(e);
-    this->m_root = merge(this->m_root, v);
+    BinNodePtr<T> v = new BinNode<T>(e);
+    this->m_root = this->merge(this->m_root, v);
     this->m_root->parent = nullptr;
     this->m_size++;
 }
@@ -142,13 +143,13 @@ void PqLeftHeap<T>::insert(const T& e)
 template <typename T>
 T PqLeftHeap<T>::del_max()
 {
-    BinNode<T>* rl = this->m_root->left;
-    BinNode<T>* rr = this->m_root->right;
+    BinNodePtr<T> rl = this->m_root->left;
+    BinNodePtr<T> rr = this->m_root->right;
     T e = this->m_root->data;
     delete this->m_root;
     this->m_size--;
 
-    this->m_root = merge(rl, rr);
+    this->m_root = this->merge(rl, rr);
     if (this->m_root)
         this->m_root->parent = nullptr;
     return e;

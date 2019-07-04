@@ -383,7 +383,7 @@ bool RedBlackTree<T>::remove(const T& e)
     // 因为是先删除x，再进行调整，故先保存好x的颜色
     dsa::RBColor xclr = x->color;
     // r为接替x所在位置的节点，r可以为nullptr，m_hot为r的父节点
-    BinNodePtr<T> r = remove_at(x, this->m_hot);
+    BinNodePtr<T> r = this->remove_at(x, this->m_hot);
 
     // 没有节点了，则直接返回
     if(!(--this->m_size))

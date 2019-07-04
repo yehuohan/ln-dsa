@@ -201,7 +201,7 @@ bool AvlTree<T>::remove(const T& e)
 {
     BinNodePtr<T>& x = this->search(e);
     if (!x) return false;
-    remove_at(x, this->m_hot);
+    this->remove_at(x, this->m_hot);
     this->m_size--;
 
     for (BinNodePtr<T> g = this->m_hot; g; g = g->parent)

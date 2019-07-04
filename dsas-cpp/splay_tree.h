@@ -86,7 +86,7 @@ inline void attach_right(BinNodePtr<T> p, BinNodePtr<T> c)
 template <typename T>
 BinNodePtr<T>& SplayTree<T>::search(const T& e)
 {
-    BinNodePtr<T> p = search_in(this->m_root, e, this->m_hot = nullptr);
+    BinNodePtr<T> p = this->search_in(this->m_root, e, this->m_hot = nullptr);
     // 无论是否找到节点，均会进行伸展操作，即没有找到目标节点，也将靠近目标的节点移到树根
     this->m_root = this->splay(p ? p : this->m_hot);
     // 若m_root为nullptr（即没有查找到目标e，且m_hot也为nullptr）
