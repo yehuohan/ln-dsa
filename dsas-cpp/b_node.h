@@ -41,8 +41,8 @@ using BTNodePtr = struct BTNode<T>*;
  *
  * 约定关键码数为n，则分支数为n+1，
  * 内部节点的分支数n+1不能太少，即有
- * 树根：    2 <= n+1 <= m
- * 其余：⌈m/2⌉ <= n+1 <= m ，⌈⌉为取上整
+ * 树根：        2 <= n+1 <= m
+ * 其余：ceil(m/2) <= n+1 <= m ，ceil为取上整
  * 故 b-tree 也称做 (⌈m/2⌉，m)-tree 。
  * </pre>
  *
