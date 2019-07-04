@@ -180,7 +180,7 @@ template <typename T>
 BinNodePtr<T> BinTree<T>::insert_left(BinNodePtr<T> node, const T& ele)
 {
     this->m_size ++;
-    node->insert_left(ele);
+    node->insert_left(new BinNode<T>(ele, node));
     this->update_height_above(node);    // 新加结点后，高度变化
     return node->left;
 }
@@ -197,7 +197,7 @@ template <typename T>
 BinNodePtr<T> BinTree<T>::insert_right(BinNodePtr<T> node, const T& ele)
 {
     this->m_size ++;
-    node->insert_right(ele);
+    node->insert_right(new BinNode<T>(ele, node));
     this->update_height_above(node);
     return node->right;
 }
@@ -239,13 +239,13 @@ static void construct_bintree_pre_in(
     if(!l_pre.is_empty())
     {
         // 插件子树的根节点
-        BinNodePtr<T> left = node->insert_left(l_pre[0]);
+        BinNodePtr<T> left = node->insert_left(new BinNode<T>(l_pre[0], left));
         // 继续重构左子树与右子树
         construct_bintree_pre_in(l_pre, l_in, left);
     }
     if(!r_pre.is_empty())
     {
-        BinNodePtr<T> right = node->insert_right(r_pre[0]);
+        BinNodePtr<T> right = node->insert_right(new BinNode<T>(r_pre[0], right));
         construct_bintree_pre_in(r_pre, r_in, right);
     }
 }

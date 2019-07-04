@@ -97,9 +97,9 @@ template <typename T> struct BinNode
         : data(e), parent(p), left(ll), right(rr), height(h), npl(n), color(c) {}
 
     /** 插入左子节点 */
-    BinNodePtr<T> insert_left(const T& e) {return this->left = new BinNode(e, this);}
+    BinNodePtr<T> insert_left(BinNodePtr<T> n) {return this->left = n; n->parent = this;}
     /** 插入右子节点 */
-    BinNodePtr<T> insert_right(const T& e) {return this->right = new BinNode(e, this);}
+    BinNodePtr<T> insert_right(BinNodePtr<T> n) {return this->right = n; n->parent = this;}
     /** 获取子树节点数量 */
     int size()
     {
