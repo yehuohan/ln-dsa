@@ -14,6 +14,7 @@
 #define _STRING_H
 
 #include <iostream>
+#include "vector.h"
 
 namespace dsa
 {
@@ -65,105 +66,73 @@ int*    build_gs(char*);
  * </pre>
  *
  */
-class String
+class String : protected dsa::Vector<char>
 {
 private:
-    char*   m_ch;               /**< 保存char的内存 */
-    int     m_cap;              /**< 字符串容量 */
-    int     m_size;             /**< 字符串长度，不包括'\0' */
-
-protected:
-    /** 扩展内存容量 */
-    void    expand()
-    {
-        char* old_ch = this->m_ch;
-        this->m_cap *= 2;
-        this->m_ch = new char[this->m_cap];
-        str_cpy(this->m_ch, old_ch, this->m_size);
-        delete old_ch;
-    }
 
 public:
-    String() : m_cap(1), m_size(0) {this->m_ch = new char[this->m_cap]; m_ch[0] = '\0';}
-    String(const char* str)
+    String() : dsa::Vector<char>() {}
+    String(const char* str) : dsa::Vector<char>(str, str_len(str))
     {
-        this->m_size = str_len(str);
-        this->m_cap = this->m_size * 2;
-        this->m_ch = new char[this->m_cap];
-        str_cpy(this->m_ch, str, this->m_size);
-    };
-    String(const String& str)
-    {
-        this->m_cap = str.m_cap;
-        this->m_size = str.m_size;
-        this->m_ch = new char[this->m_cap];
-        str_cpy(this->m_ch, str.m_ch, this->m_size);
+        if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';
     }
-    ~String() {if (m_ch) delete m_ch;}
+    String(const String& str) : dsa::Vector<char>(str.m_array, str.m_size)
+    {
+        if (this->m_cap > this->m_size)
+            this->m_array[this->m_size] = '\0';
+    }
 
-    /** 重赋值(=)运算符 */
-    String& operator=(const String& str)
-    {
-        if (m_ch)
-            delete m_ch;
-        this->m_size = str_len(str.data());
-        this->m_cap = this->m_size * 2;
-        this->m_ch = new char[this->m_cap];
-        str_cpy(this->m_ch, str.data(), this->m_size);
-        return *this;
-    }
-    /** 重赋值(=)运算符 */
+    /** 重写赋值(=)运算符 */
     String& operator=(const char* str)
     {
-        if (m_ch)
-            delete m_ch;
-        this->m_size = str_len(str);
-        this->m_cap = this->m_size * 2;
-        this->m_ch = new char[this->m_cap];
-        str_cpy(this->m_ch, str, this->m_size);
+        if(this->m_array) delete[] this->m_array;
+        this->copy_from(str, 0, str_len(str));
+        if (this->m_cap > this->m_size)
+            this->m_array[this->m_size] = '\0';
         return *this;
     }
     /** 重写输出(<<)运算符 */
-    friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_ch; return out;}
+    friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_array; return out;}
     /** 重写输出(<<)运算符 */
-    friend std::ostream& operator<< (std::ostream& out, const dsa::String& str) {out << str.m_ch; return out;}
-    /** 重写[]，没有边界检测，可以修改m_ch */
-    char& operator[] (int k) {return this->m_ch[k];}
-    /** 重写[]，没有边界检测，不能修改m_ch */
-    const char& operator[] (int k) const {return this->m_ch[k];}
+    friend std::ostream& operator<< (std::ostream& out, const dsa::String& str) {out << str.m_array; return out;}
+    /** 重写[]，没有边界检测，可以修改m_array */
+    char& operator[] (int k) {return this->m_array[k];}
+    /** 重写[]，没有边界检测，不能修改m_array */
+    const char& operator[] (int k) const {return this->m_array[k];}
     /** 重写< */
-    bool operator< (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == -1);}
+    bool operator< (const String& str) const {return (str_cmp(this->m_array, str.m_array) == -1);}
     /** 重载> */
-    bool operator> (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == 1);}
+    bool operator> (const String& str) const {return (str_cmp(this->m_array, str.m_array) == 1);}
     /** 重载== */
-    bool operator== (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) == 0);}
+    bool operator== (const String& str) const {return (str_cmp(this->m_array, str.m_array) == 0);}
     /** 重载!= */
-    bool operator!= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) != 0);}
+    bool operator!= (const String& str) const {return (str_cmp(this->m_array, str.m_array) != 0);}
     /** 重载<= */
-    bool operator<= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) <= 0);}
+    bool operator<= (const String& str) const {return (str_cmp(this->m_array, str.m_array) <= 0);}
     /** 重载>= */
-    bool operator>= (const String& str) const {return (str_cmp(this->m_ch, str.m_ch) >= 0);}
+    bool operator>= (const String& str) const {return (str_cmp(this->m_array, str.m_array) >= 0);}
 
-    /** 返回char指针，可以修改m_ch */
-    char*   data() {return this->m_ch;}
-    /** 返回char常指针，不能修改m_ch */
-    const char* data() const {return this->m_ch;}
+    /** 返回char指针，可以修改m_array */
+    char*   data() {return this->m_array;}
+    /** 返回char常指针，不能修改m_array */
+    const char* data() const {return this->m_array;}
     /** 返回字符串长度，不包括'\0' */
     int     size() const {return this->m_size;}
-    /** 返回下标为k的char，没有边界检测，可以修改m_ch */
-    char&   at(int k) {return this->m_ch[k];}
-    /** 返回下标为k的char，没有边界检测，不能修改m_ch */
-    const char& at(int k) const {return this->m_ch[k];}
+    /** 返回下标为k的char，没有边界检测，可以修改m_array */
+    char&   at(int k) {return this->m_array[k];}
+    /** 返回下标为k的char，没有边界检测，不能修改m_array */
+    const char& at(int k) const {return this->m_array[k];}
     /** 清空字符串 */
-    void    clear() {this->m_size = 0; this->m_ch[0] = '\0';}
+    void    clear() {this->m_size = 0; this->m_array[0] = '\0';}
 
-    String  substr(int i, int k);
-    String  prefix(int k);
-    String  suffix(int k);
-    String  join();
-    bool    equal();
+    //String  substr(int i, int k);
+    //String  prefix(int k);
+    //String  suffix(int k);
+    //String  join();
+    //bool    equal();
 };
 
+/*! @} */
 
 /*!
  * @brief 复制字符串
@@ -838,7 +807,6 @@ int* build_gs(char* P)
     return gs;
 }
 
-/*! @} */
 } /* dsa */
 
 #endif /* ifndef _STRING_H */
