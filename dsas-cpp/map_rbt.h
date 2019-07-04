@@ -36,13 +36,17 @@ template <
     typename CMP=dsa::Less<K> >
 class MapRBT : public dsa::Dict<K,V>
 {
+public:
     typedef dsa::Entry<K,V,CMP> Pair;
+
 private:
     RedBlackTree<Pair>  m_rb;
 
 public:
     MapRBT() : m_rb() {};
 
+    /** 获取根节点 */
+    BinNodePtr<Pair>    root() {return this->m_rb.root();}
     /** 获取键值对数量 */
     int     size() const {return this->m_rb.size();}
     /** 插入键值对（若键存在，则覆盖Entry的value） */
