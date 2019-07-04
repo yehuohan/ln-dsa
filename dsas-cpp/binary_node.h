@@ -67,8 +67,16 @@ typedef enum
     Black
 }RBColor;
 
-template <typename T> struct BinNode;
+/**< 遍历类型 */
+typedef enum
+{
+    DLR = 0,
+    LDR,
+    LRD,
+    LO
+}TraverseType;
 
+template <typename T> struct BinNode;
 /** 二叉树节点指针类型 */
 template <typename T>
 using BinNodePtr = struct BinNode<T>*;
@@ -87,7 +95,7 @@ template <typename T> struct BinNode
     BinNodePtr<T> right;
     T             data;
     int           height;
-    int           npl;        /**< Null Path Length */
+    int           npl;      /**< Null Path Length */
     RBColor       color;
 
     BinNode()
@@ -112,6 +120,7 @@ template <typename T> struct BinNode
     BinNodePtr<T> successor();
 
     // 遍历算法
+    template <typename VST> void traverse(VST& visit, TraverseType type = DLR);
     template <typename VST> void traverse_DLR(VST& visit);      // 先序
     template <typename VST> void traverse_LDR(VST& visit);      // 中序
     template <typename VST> void traverse_LRD(VST& visit);      // 后序
@@ -182,6 +191,34 @@ BinNodePtr<T> BinNode<T>::successor()
     return s;
 }
 
+/*!
+ * @brief 遍历所有节点
+ *
+ * @param visit: 遍历函数
+ * @param type: 遍历类型
+ * @return
+ * @retval None
+ */
+template <typename T>
+template<typename VST>
+void BinNode<T>::traverse(VST& visit, TraverseType type)
+{
+    switch (type)
+    {
+        case DLR:
+            this->traverse_DLR(visit);
+            break;
+        case LDR:
+            this->traverse_LDR(visit);
+            break;
+        case LRD:
+            this->traverse_LRD(visit);
+            break;
+        case LO:
+            this->traverse_LO(visit);
+            break;
+    }
+}
 
 /*!
  * @brief 先序(preorder)遍历

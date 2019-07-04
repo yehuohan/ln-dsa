@@ -37,7 +37,7 @@ template <
 class MapRBT : public dsa::Dict<K,V>
 {
 public:
-    typedef dsa::Entry<K,V,CMP> Pair;
+    using Pair = dsa::Entry<K,V,CMP>;
 
 private:
     RedBlackTree<Pair>  m_rb;
@@ -47,6 +47,11 @@ public:
 
     /** 获取根节点 */
     BinNodePtr<Pair>    root() {return this->m_rb.root();}
+    /** 遍历Map键值对 */
+    template <typename VST> void traverse(VST& visit, dsa::TraverseType type = DLR)
+    {
+        this->m_rb.root()->traverse(visit, type);
+    }
     /** 获取键值对数量 */
     int     size() const {return this->m_rb.size();}
     /** 插入键值对（若键存在，则覆盖Entry的value） */
