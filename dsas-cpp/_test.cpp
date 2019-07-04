@@ -37,6 +37,7 @@ void test_sort();
 void test_sort_time();
 void test_share();
 void test_kdtree();
+void test_trie();
 
 //(int argc, char** argv)
 int main()
@@ -63,6 +64,7 @@ int main()
     //test_stack();
     //test_list();
     //test_vector();
+    test_trie();
 
     return 0;
 }
@@ -952,4 +954,19 @@ void test_kdtree()
 
     for (int k = 0; k < vd.size(); k ++)
         std::cout << vd[k][0] << " " << vd[k][1] << std::endl;
+}
+
+void test_trie()
+{
+    dsa::TrieTree tt;
+
+    tt.insert("he");
+    tt.insert("she");
+    tt.insert("his");
+    tt.insert("hers");
+    cout << tt.size() << endl;
+    cout << tt.contains("she") << endl;
+    cout << tt.contains("my") << endl;
+    cout << tt.contains("hi") << endl;
+    cout << tt.is_prefix("hi") << endl;
 }
