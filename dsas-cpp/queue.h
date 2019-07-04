@@ -69,7 +69,7 @@ public:
     ~ArrayQueue() {delete[] this->m_array;};
 
     /** 返回元素数量 */
-    int     size() {return (this->m_tail - this->m_head + 1);}
+    int     size() const {return (this->m_tail - this->m_head + 1);}
     /** 判断是否为空 */
     bool    is_empty() {return (this->m_tail < this->m_head);}
     /** 判断是否为满 */

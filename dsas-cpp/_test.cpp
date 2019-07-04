@@ -10,7 +10,10 @@
 using std::cout;
 using std::endl;
 
-void print_node(int data) {cout << data << "    ";}
+template <typename T>
+void print_node(T data) {cout << data << "    ";}
+template <typename K, typename V>
+void print_entry(dsa::Entry<K, V> entry) {cout << entry.key << "  " << entry.value << endl;}
 
 void test_varray();
 void test_vector();
@@ -49,7 +52,7 @@ int main()
     //test_hash();
     //test_bitmap();
     //test_redblack();
-    test_maprbt();
+    //test_maprbt();
     //test_btree();
     //test_splay();
     //test_avl();
@@ -117,13 +120,13 @@ void test_vector()
     vec_i.uniquify();
 
     cout << "Print:\n";
-    vec_i.traverse(print_node);
+    vec_i.traverse(print_node<int>);
     cout << "\nSearch: ";
     cout << vec_i.bin_search(8009, 0, vec_i.size()) << endl;
     cout << "Insert by order\n";
     vec_i.insert_byorder(1000);
     vec_i.insert_multi_byorder(1000);
-    vec_i.traverse(print_node);
+    vec_i.traverse(print_node<int>);
 }
 
 void test_list()
@@ -150,7 +153,7 @@ void test_list()
     //lst_i.selection_sort(lst_i.front(), lst_i.size());
     //lst_i.insertion_sort(lst_i.front(), lst_i.size());
     lst_i.sort();
-    lst_i.traverse(print_node);
+    lst_i.traverse(print_node<int>);
     cout << endl;
 
     dsa::ListIterator<int> iter;
@@ -170,12 +173,12 @@ void test_list()
 
     //cout << "Deduplicate: " << lst_i.deduplicate() << endl;;
     cout << "Uniquify: " << lst_i.uniquify() << endl;;
-    lst_i.traverse(print_node);
+    lst_i.traverse(print_node<int>);
 
     cout << "\nInsert by order: \n";
     lst_i.insert_byorder(3000);
     lst_i.insert_multi_byorder(1000);
-    lst_i.traverse(print_node);
+    lst_i.traverse(print_node<int>);
 }
 
 void test_stack()
@@ -262,19 +265,19 @@ void test_bt()
     cout << "Is Empty: "<< tint.is_empty() << endl;
 
     cout << "Pre Order:\n";
-    tint.root()->traverse_DLR(print_node);
+    tint.root()->traverse_DLR(print_node<int>);
     cout << endl;
 
     cout << "In Order:\n";
-    tint.root()->traverse_LDR(print_node);
+    tint.root()->traverse_LDR(print_node<int>);
     cout << endl;
 
     cout << "Post Order:\n";
-    tint.root()->traverse_LRD(print_node);
+    tint.root()->traverse_LRD(print_node<int>);
     cout << endl;
 
     cout << "Layer Order:\n";
-    tint.root()->traverse_LO(print_node);
+    tint.root()->traverse_LO(print_node<int>);
     cout << endl;
 
     dsa::Vector<int> pre;
@@ -288,10 +291,10 @@ void test_bt()
 
     cout << "Size: " << bt.root()->size() << endl;
     cout << "ReConstructed Post Order:\n";
-    bt.root()->traverse_LRD(print_node);
+    bt.root()->traverse_LRD(print_node<int>);
     cout << endl;
     cout << "ReConstructed Layer Order:\n";
-    bt.root()->traverse_LO(print_node);
+    bt.root()->traverse_LO(print_node<int>);
     cout << endl;
 }
 
@@ -363,7 +366,7 @@ void test_bst()
         cout << "Remove nothing\n";
     }
 
-    bst.root()->traverse_LDR(print_node);
+    bst.root()->traverse_LDR(print_node<int>);
 }
 
 void test_avl()
@@ -379,13 +382,13 @@ void test_avl()
     at.insert(-300);
     at.insert(999);
 
-    at.root()->traverse_LDR(print_node);
+    at.root()->traverse_LDR(print_node<int>);
     cout << "\n";
 
     at.remove(-13);
     at.remove(-80);
 
-    at.root()->traverse_LDR(print_node);
+    at.root()->traverse_LDR(print_node<int>);
 }
 
 void test_splay()
@@ -410,7 +413,7 @@ void test_splay()
     cout << st.root()->data << endl;
 
     cout << "中序遍历:" << endl;
-    st.root()->traverse_LDR(print_node);
+    st.root()->traverse_LDR(print_node<int>);
     cout << endl;
     cout << st.root()->data << endl;
 }
@@ -597,7 +600,7 @@ void test_redblack()
 
     cout << "Size: " << rb.size() << endl;
     cout << "LDR: ";
-    rb.root()->traverse_LDR(print_node);
+    rb.root()->traverse_LDR(print_node<int>);
     cout << endl;
 
     // 输出二叉树结构
@@ -653,6 +656,11 @@ void test_maprbt()
     ps = mr.get(20);
     if (ps)
         cout << *ps << endl;
+
+    mr.traverse(print_entry<int, dsa::String>);
+
+    dsa::BinNodePtr<dsa::MapRBT<int, dsa::String>::Pair> pr = mr.root();
+    pr->traverse(print_entry<int, dsa::String>, dsa::TraverseType::LDR);
 }
 
 void test_pq()
@@ -794,7 +802,7 @@ void test_sort()
     for (int k = 0; k < 120; k++)
         vs.push_back(k+1);
     vs.unsort();
-    vs.traverse(print_node);
+    vs.traverse(print_node<int>);
 
     cout << "\nSort: \n";
     //vs.bubble_sort(0, vs.size());
@@ -804,7 +812,7 @@ void test_sort()
     //vs.quick_sort(0, vs.size());
     vs.shell_sort(0, vs.size());
     //dsa::heap_sort(vs, 0, vs.size());
-    vs.traverse(print_node);
+    vs.traverse(print_node<int>);
 
     cout << endl;
     int maj;
@@ -830,7 +838,7 @@ void test_sort_time()
     dsa::Vector<int> vt;
     int num = 100;
     for (int k = 0; k < 3000; k++) vt.push_back(k+1);
-    vt.traverse(print_node);
+    vt.traverse(print_node<int>);
     cout << endl;
 
     std::vector<int> vec;
@@ -945,4 +953,3 @@ void test_kdtree()
     for (int k = 0; k < vd.size(); k ++)
         std::cout << vd[k][0] << " " << vd[k][1] << std::endl;
 }
-

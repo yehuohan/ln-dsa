@@ -72,15 +72,11 @@ private:
 
 public:
     String() : dsa::Vector<char>() {}
-    String(const char* str) : dsa::Vector<char>(str, str_len(str))
-    {
-        if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';
-    }
-    String(const String& str) : dsa::Vector<char>(str.m_array, str.m_size)
-    {
-        if (this->m_cap > this->m_size)
-            this->m_array[this->m_size] = '\0';
-    }
+    String(const char* str) : dsa::Vector<char>(str, str_len(str)) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
+    String(const char* str, int n) : dsa::Vector<char>(str, n) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
+    String(const char* str, int lo, int hi) : dsa::Vector<char>(str, lo, hi) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
+    String(const String& str) : dsa::Vector<char>(str.m_array, str.m_size) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
+    String(const String& str, int lo, int hi) : dsa::Vector<char>(str.m_array, lo, hi) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
 
     /** 重写赋值(=)运算符 */
     String& operator=(const char* str)
@@ -125,9 +121,12 @@ public:
     /** 清空字符串 */
     void    clear() {this->m_size = 0; this->m_array[0] = '\0';}
 
-    //String  substr(int i, int k);
-    //String  prefix(int k);
-    //String  suffix(int k);
+    /** 子串下标范围[i, k) */
+    String  substr(int i, int k) {return String(*this, i, k);}
+    /** 前缀下标范围[0, k) */
+    String  prefix(int k) {return String(*this, 0, k);}
+    /** 后缀下标范围[size-k, size) */
+    String  suffix(int k) {return String(*this, this->size() - k, this->size());};
     //String  join();
     //bool    equal();
 };

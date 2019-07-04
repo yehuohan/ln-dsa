@@ -109,7 +109,7 @@ template <typename T> struct BinNode
     /** 插入右子节点 */
     BinNodePtr<T> insert_right(BinNodePtr<T> n) {return this->right = n; n->parent = this;}
     /** 获取子树节点数量 */
-    int size()
+    int size() const
     {
         int sum = 1;
         if(this->left) sum += this->left->size();

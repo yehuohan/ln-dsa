@@ -29,7 +29,7 @@ template <typename T> struct ListNode;
 template <typename T> class List;
 
 /*!
- * @name 定义类型别名
+ * @name List类型
  * @{
  */
 template <typename T>
@@ -95,7 +95,7 @@ public:
 class Iterator
 {
 public:
-    Iterator(ListNodePtr<T> node = nullptr){this->m_cur = node;}
+    Iterator(ListNodePtr<T> node = nullptr) : m_cur(node) {}
 
     /** 重载*，获取List节点数据 */
     T operator*(){return this->m_cur->data;}
