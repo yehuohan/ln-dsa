@@ -77,5 +77,5 @@ public:
 
 /*! @} */
 
-} /* dsa */ 
+} /* dsa */
 #endif /* ifndef _MAP_RBT_H */

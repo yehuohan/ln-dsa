@@ -79,7 +79,10 @@ public:
     Iterator(BinNodePtr<T> node = nullptr) : m_cur(node) {}
 
     /** 重写*，获取BinNode数据 */
-    T operator*() {return this->m_cur->data;}
+    T& operator*() {return this->m_cur->data;}
+
+    /** 重写= */
+    Iterator& operator= (const Iterator& itr) {this->m_cur = itr.m_cur; return *this;}
 
     /** 重写== */
     bool operator== (const Iterator& itr) const {return this->m_cur == itr.m_cur;}
