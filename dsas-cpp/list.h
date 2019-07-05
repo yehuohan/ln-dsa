@@ -15,6 +15,7 @@
 #define _LIST_H
 
 #include "share/swap.h"
+#include "share/compare.h"
 
 namespace dsa
 {
@@ -26,7 +27,7 @@ namespace dsa
  */
 
 template <typename T> struct ListNode;
-template <typename T> class List;
+template <typename T, typename CMP = dsa::Less<T>> class List;
 
 /*!
  * @name List类型
@@ -35,8 +36,8 @@ template <typename T> class List;
 template <typename T>
 using ListNodePtr = dsa::ListNode<T>*;
 
-template <typename T>
-using ListIterator = typename dsa::List<T>::Iterator;
+template <typename T, typename CMP = dsa::Less<T>>
+using ListIterator = typename dsa::List<T,CMP>::Iterator;
 /*! @} */
 
 
@@ -83,13 +84,13 @@ struct ListNode
  * @brief List class
  *
  */
-template <typename T>
+template <typename T, typename CMP>
 class List
 {
 public:
 
 /*!
- * @brief List<T>::Iterator class
+ * @brief List<T,CMP>::Iterator class
  *
  */
 class Iterator
@@ -101,9 +102,9 @@ public:
     T operator*(){return this->m_cur->data;}
 
     /** 重载== */
-    bool operator== (const Iterator& itr) const {return this->m_cur->data == itr.m_cur->data;}
+    bool operator== (const Iterator& itr) const {return dsa::is_equal(this->m_cur->data, itr.m_cur->data, this->cmp);}
     /** 重载！= */
-    bool operator!= (const Iterator& itr) const {return this->m_cur->data != itr.m_cur->data;}
+    bool operator!= (const Iterator& itr) const {return dsa::is_equal(this->m_cur->data, itr.m_cur->data, this->cmp);}
 
     /** 重载前置++ */
     Iterator operator++() {this->m_cur = this->m_cur->next; return *this;}
@@ -117,6 +118,7 @@ public:
 
 private:
     ListNodePtr<T> m_cur;
+    CMP cmp;
 };
 
 public:
@@ -132,9 +134,9 @@ public:
     T               remove(ListNodePtr<T> p);
     int             remove(int n, ListNodePtr<T> p);
     /** 第一个节点的Iterator */
-    ListIterator<T> begin() {return ListIterator<T>(this->front());}
+    ListIterator<T,CMP> begin() {return ListIterator<T,CMP>(this->front());}
     /** 尾部哨兵节点的Iterator */
-    ListIterator<T> end() {return ListIterator<T>(this->tailer);}
+    ListIterator<T,CMP> end() {return ListIterator<T,CMP>(this->tailer);}
     /** 第一个节点 */
     ListNodePtr<T>  front() {return this->header->next;}
     /** 第一个const节点 */
@@ -191,6 +193,7 @@ protected:
     int             m_size;
     ListNodePtr<T>  header;         /**< 头哨兵节点，不存数据 */
     ListNodePtr<T>  tailer;         /**< 尾哨兵节点，不存数据 */
+    CMP             cmp;
 };
 
 
@@ -204,8 +207,8 @@ protected:
  * @return
  * @retval None
  */
-template <typename T>
-List<T>::List()
+template <typename T, typename CMP>
+List<T,CMP>::List()
 {
     this->header = new ListNode<T>;
     this->tailer = new ListNode<T>;
@@ -225,8 +228,8 @@ List<T>::List()
  * @return 返回被清除的节点数
  * @retval None
  */
-template <typename T>
-int List<T>::clear()
+template <typename T, typename CMP>
+int List<T,CMP>::clear()
 {
     int old_size = this->m_size;
     while(this->m_size > 0)
@@ -241,8 +244,8 @@ int List<T>::clear()
  * @return 返回被删除节点的数据
  * @retval None
  */
-template <typename T>
-T List<T>::remove(ListNodePtr<T> p)
+template <typename T, typename CMP>
+T List<T,CMP>::remove(ListNodePtr<T> p)
 {
     T data = p->data;
     p->next->prev = p->prev;
@@ -262,8 +265,8 @@ T List<T>::remove(ListNodePtr<T> p)
  * @return
  * @retval None
  */
-template <typename T>
-int List<T>::remove(int n, ListNodePtr<T> p)
+template <typename T, typename CMP>
+int List<T,CMP>::remove(int n, ListNodePtr<T> p)
 {
     int cnt = 0;
     ListNodePtr<T> last = p->prev;
@@ -285,8 +288,8 @@ int List<T>::remove(int n, ListNodePtr<T> p)
  * @return 返回节点数据的引用
  * @retval None
  */
-template <typename T>
-T& List<T>::operator[](int index)
+template <typename T, typename CMP>
+T& List<T,CMP>::operator[](int index)
 {
     ListNodePtr<T> p = this->front();
     while(index-- > 0) p = p->next;
@@ -302,8 +305,8 @@ T& List<T>::operator[](int index)
  * @return 返回节点数据的引用
  * @retval None
  */
-template <typename T>
-const T& List<T>::operator[](int index) const
+template <typename T, typename CMP>
+const T& List<T,CMP>::operator[](int index) const
 {
     ListNodePtr<T> p = this->front();
     while(index-- > 0) p = p->next;
@@ -327,13 +330,13 @@ const T& List<T>::operator[](int index) const
  * @return 找到则返回node，未找到则返回nullptr
  * @retval None
  */
-template <typename T>
-ListNodePtr<T> List<T>::find(const T& ele, int n, ListNodePtr<T> p) const
+template <typename T, typename CMP>
+ListNodePtr<T> List<T,CMP>::find(const T& ele, int n, ListNodePtr<T> p) const
 {
     while (n-- > 0)
     {
         p = p->prev;
-        if (ele == p->data)
+        if (dsa::is_equal(ele, p->data, this->cmp))
             return p;
     }
     return nullptr;
@@ -357,13 +360,13 @@ ListNodePtr<T> List<T>::find(const T& ele, int n, ListNodePtr<T> p) const
  * @return 不大于ele的最大元素，可以为header
  * @retval None
  */
-template <typename T>
-ListNodePtr<T> List<T>::search(const T& ele, int n, ListNodePtr<T> p) const
+template <typename T, typename CMP>
+ListNodePtr<T> List<T,CMP>::search(const T& ele, int n, ListNodePtr<T> p) const
 {
     while (n-- >= 0)
     {
         p = p->prev;
-        if (p->data <= ele)
+        if (dsa::less_equal(p->data, ele, this->cmp))
             break;
     }
     return p;
@@ -376,8 +379,8 @@ ListNodePtr<T> List<T>::search(const T& ele, int n, ListNodePtr<T> p) const
  * @return 返回重复的元素总数
  * @retval None
  */
-template <typename T>
-int List<T>::deduplicate()
+template <typename T, typename CMP>
+int List<T,CMP>::deduplicate()
 {
     int old_size = this->m_size;
     int cnt = 0;
@@ -400,15 +403,15 @@ int List<T>::deduplicate()
  * @return 返回重复的元素总数
  * @retval None
  */
-template <typename T>
-int List<T>::uniquify()
+template <typename T, typename CMP>
+int List<T,CMP>::uniquify()
 {
     int old_size = this->m_size;
     ListNodePtr<T> p = this->front();
     int cnt = 0;
     while(p != this->back())
     {
-        if (p->data == p->next->data)
+        if (dsa::is_equal(p->data, p->next->data, this->cmp))
             cnt ++;
         else
         {
@@ -443,8 +446,8 @@ int List<T>::uniquify()
  * @return
  * @retval None
  */
-template <typename T>
-void List<T>::selection_sort(ListNodePtr<T> p, int n)
+template <typename T, typename CMP>
+void List<T,CMP>::selection_sort(ListNodePtr<T> p, int n)
 {
     // 待排序区间(head, tail)
     ListNodePtr<T> head = p->prev;
@@ -475,14 +478,14 @@ void List<T>::selection_sort(ListNodePtr<T> p, int n)
  * @return
  * @retval None
  */
-template <typename T>
-ListNodePtr<T> List<T>::select_max(ListNodePtr<T> p, int n)
+template <typename T, typename CMP>
+ListNodePtr<T> List<T,CMP>::select_max(ListNodePtr<T> p, int n)
 {
     ListNodePtr<T> max = p;
     for( ListNodePtr<T> cur = p; 1 < n; n--)
     {
         cur = cur->next;
-        if (cur->data >= max->data)
+        if (dsa::greater_equal(cur->data, max->data, this->cmp))
             max = cur;
     }
     return max;
@@ -511,8 +514,8 @@ ListNodePtr<T> List<T>::select_max(ListNodePtr<T> p, int n)
  * @return
  * @retval None
  */
-template <typename T>
-void List<T>::insertion_sort(ListNodePtr<T> p , int n)
+template <typename T, typename CMP>
+void List<T,CMP>::insertion_sort(ListNodePtr<T> p , int n)
 {
     for(int r = 0; r < n; r++)
     {
@@ -532,8 +535,8 @@ void List<T>::insertion_sort(ListNodePtr<T> p , int n)
  * @return
  * @retval None
  */
-template <typename T>
-void List<T>::quick_sort(ListNodePtr<T> ns, ListNodePtr<T> ne)
+template <typename T, typename CMP>
+void List<T,CMP>::quick_sort(ListNodePtr<T> ns, ListNodePtr<T> ne)
 {
     if (ns == ne || ns == ne->prev)
         return;
@@ -573,17 +576,17 @@ void List<T>::quick_sort(ListNodePtr<T> ns, ListNodePtr<T> ne)
  * @return
  * @retval None
  */
-template <typename T>
-ListNodePtr<T> List<T>::partition(ListNodePtr<T> ns, ListNodePtr<T> ne)
+template <typename T, typename CMP>
+ListNodePtr<T> List<T,CMP>::partition(ListNodePtr<T> ns, ListNodePtr<T> ne)
 {
 #if(0)
     // 基本形式
     T pivot = ns->data;
     while(ns != ne)
     {
-        while(ns != ne && pivot <= ne->data) ne = ne->prev;
+        while(ns != ne && dsa::less_equal(pivot, ne->data, this->cmp)) ne = ne->prev;
         ns->data = ne->data;
-        while(ns != ne && pivot >= ns->data) ns = ns->next;
+        while(ns != ne && dsa::greater_equal(pivot, ns->data, this-cmp)) ns = ns->next;
         ne->data = ns->data;
     }
     ns->data = pivot;
@@ -595,7 +598,7 @@ ListNodePtr<T> List<T>::partition(ListNodePtr<T> ns, ListNodePtr<T> ne)
     while(s != ne)
     {
         s = s->next;
-        if (s->data < ns->data)
+        if (this->cmp(s->data, ns->data))
         {
             p = p->next;
             dsa::swap(p->data, s->data);
@@ -613,9 +616,9 @@ ListNodePtr<T> List<T>::partition(ListNodePtr<T> ns, ListNodePtr<T> ne)
  * @return
  * @retval None
  */
-template <typename T>
+template <typename T, typename CMP>
 template <typename VST>
-void List<T>::traverse(VST& visit)
+void List<T,CMP>::traverse(VST& visit)
 {
     ListNodePtr<T> s = this->front();
     while(s != this->tailer)
