@@ -27,14 +27,14 @@ namespace dsa
  * @{
  */
 
-struct TrieNode;
-
 /*!
  * @name TrieTree类型
  * @{
  */
+struct TrieNode;
 using TrieNodePtr = struct TrieNode*;
 using TrieNodeData = dsa::MapRBT<char, TrieNodePtr>;
+using TrieNodeIterator = TrieNodeData::Iterator;
 /*! @} */
 
 /*!
@@ -51,16 +51,22 @@ struct TrieNode
 
     TrieNode(TrieNodePtr p = nullptr,
             bool w = false)
-        : parent(p) , next() , word(w) {}
+        : parent(p), next(), word(w) {}
 
+    /** 获取子节点数量 */
+    int     size() const {return this->next.size();}
     /** 插入next节点 */
-    void put_next(char key, TrieNodePtr val) {this->next.put(key, val);}
+    void    put_next(char key, TrieNodePtr val) {this->next.put(key, val);}
     /** 获取next节点 */
     TrieNodePtr get_next(char key)
     {
         TrieNodePtr* p = this->next.get(key);
         return (p) ? (*p) : nullptr;
     }
+    /** 迭代起点 */
+    TrieNodeIterator    begin() {return this->next.begin();}
+    /** 迭代结束 */
+    TrieNodeIterator    end() {return this->next.end();}
 };
 
 /*!
@@ -96,33 +102,57 @@ protected:
     TrieNodePtr     m_root;
     int             m_size;
 
-    static void remove_at(TrieNodeData::Pair& td);
+    static void free_data(TrieNodeData::Pair& td);
 
 public:
     TrieTree() : m_root(new TrieNode()), m_size(0) {}
     ~TrieTree()
     {
-        if (m_root)
-            this->remove(this->m_root);
+        if (this->m_root->size())
+            this->m_root->next.traverse(free_data);
+        else
+            delete this->m_root;
     }
 
     int     size() const {return this->m_size;}
-    void    insert(const dsa::String& word);
-    void    remove(TrieNodePtr root);
+    bool    insert(const dsa::String& word);
+    bool    remove(const dsa::String& word);
     bool    contains(const dsa::String& word);
     bool    is_prefix(const dsa::String& prefix);
+    template <typename VST> void traverse(VST& visit);
 };
 
 /*! @} */
+
+/*!
+ * @brief 释放TrieNodeData::Pair中的value内存
+ *
+ * TrieNodeData是使用一个MapRBT类型，本质是红黑树结构，其节点TrieNodeData::Pair为键值对为Entry<key, TrieNodePtr>。
+ * 其中的TrieNodePtr值由TrieTree申请和释放，而TrieNodeData::Pair由红黑树释放（最终在BinTree释放）。
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+void TrieTree::free_data(TrieNodeData::Pair& td)
+{
+    if (td.value->size())
+        td.value->next.traverse(TrieTree::free_data);
+    else
+    {
+        delete td.value;
+        td.value = nullptr;
+    }
+}
 
 /*!
  * @brief 添加word到字典树中。
  *
  * @param None
  * @return
- * @retval None
+ * @retval 字典树若原本不含word，返回true，否则返回false
  */
-void TrieTree::insert(const dsa::String& word)
+bool TrieTree::insert(const dsa::String& word)
 {
     TrieNodePtr node = this->m_root;
     for (int k = 0; k < word.size(); k ++)
@@ -137,43 +167,22 @@ void TrieTree::insert(const dsa::String& word)
     {
         node->word = true;
         this->m_size ++;
+        return true;
     }
+    return false;
 }
 
 /*!
- * @brief 释放TrieNodeData::Pair中的value内存
- *
- * TrieNodeData是使用一个MapRBT类型，本质是红黑树结构，其节点TrieNodeData::Pair为键值对为Entry<key, TrieNodePtr>。
- * 其中的TrieNodePtr值由TrieTree申请和释放，而TrieNodeData::Pair由红黑树释放（最终在BinTree释放）。
+ * @brief 删除字典树中的word。
  *
  * @param None
  * @return
- * @retval None
+ * @retval 字典树含有word，返回true，否则返回false
  */
-void TrieTree::remove_at(TrieNodeData::Pair& td)
+bool TrieTree::remove(const dsa::String& word)
 {
-    if (td.value->next.size())
-        td.value->next.traverse(TrieTree::remove_at);
-    else
-    {
-        delete td.value;
-        td.value = nullptr;
-    }
-}
-
-/*!
- * @brief 移除以node为根节点的子树。
- *
- * @param None
- * @return
- * @retval None
- */
-void TrieTree::remove(TrieNodePtr node)
-{
-    if (node->next.size())
-        node->next.traverse(remove_at);
-    else
-        delete node;
+    // TODO: 删除一个word
+    return true;
 }
 
 /*!
@@ -216,6 +225,19 @@ bool TrieTree::is_prefix(const dsa::String& prefix)
             return false;
     }
     return true;
+}
+
+/*!
+ * @brief 遍历字典树的所有word
+ *
+ * @param visit: 访问word的函数
+ * @return
+ * @retval None
+ */
+template <typename VST>
+void TrieTree::traverse(VST& visit)
+{
+    // TODO: 单词遍历
 }
 
 } /* dsa */
