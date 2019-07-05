@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "vector.h"
+#include "share/swap.h"
 
 namespace dsa
 {
@@ -68,23 +69,44 @@ int*    build_gs(char*);
  */
 class String : protected dsa::Vector<char>
 {
-private:
+protected:
+    /** 添加字符串结尾标记'\0' */
+    void    addZero()
+    {
+        if(this->m_size >= this->m_cap)
+            this->expand();
+        this->m_array[this->m_size] = '\0';
+    };
 
 public:
     String() : dsa::Vector<char>() {}
-    String(const char* str) : dsa::Vector<char>(str, str_len(str)) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
-    String(const char* str, int n) : dsa::Vector<char>(str, n) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
-    String(const char* str, int lo, int hi) : dsa::Vector<char>(str, lo, hi) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
-    String(const String& str) : dsa::Vector<char>(str.m_array, str.m_size) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
-    String(const String& str, int lo, int hi) : dsa::Vector<char>(str.m_array, lo, hi) {if (this->m_cap > this->m_size) this->m_array[this->m_size] = '\0';}
+    String(const char* str) : dsa::Vector<char>(str, str_len(str)) {this->addZero();}
+    String(const char* str, int n) : dsa::Vector<char>(str, n) {this->addZero();}
+    String(const char* str, int lo, int hi) : dsa::Vector<char>(str, lo, hi) {this->addZero();}
+    String(const String& str) : dsa::Vector<char>(str.m_array, str.m_size) {this->addZero();}
+    String(const String& str, int lo, int hi) : dsa::Vector<char>(str.m_array, lo, hi) {this->addZero();}
 
     /** 重写赋值(=)运算符 */
     String& operator=(const char* str)
     {
         if(this->m_array) delete[] this->m_array;
         this->copy_from(str, 0, str_len(str));
-        if (this->m_cap > this->m_size)
-            this->m_array[this->m_size] = '\0';
+        this->addZero();
+        return *this;
+    }
+    /** 重写赋值(+=)运算符 */
+    String& operator+=(const char c)
+    {
+        this->push_back(c);
+        this->addZero();
+        return *this;
+    }
+    /** 重写赋值(+=)运算符 */
+    String& operator+=(const char* str)
+    {
+        for (int k = 0; k < str_len(str); k ++)
+            this->push_back(str[k]);
+        this->addZero();
         return *this;
     }
     /** 重写输出(<<)运算符 */
@@ -119,7 +141,27 @@ public:
     /** 返回下标为k的char，没有边界检测，不能修改m_array */
     const char& at(int k) const {return this->m_array[k];}
     /** 清空字符串 */
-    void    clear() {this->m_size = 0; this->m_array[0] = '\0';}
+    void    clear() {this->m_size = 0;}
+    /** 反转字符串 */
+    void    reverse()
+    {
+        for (int i = 0, j = this->m_size - 1; i < j; i ++, j --)
+            dsa::swap(this->m_array[i], this->m_array[j]);
+    }
+    /** 字符栈push */
+    void    push(char c) {this->push_back(c); this->addZero();}
+    /** 字符栈pop */
+    char    pop()
+    {
+        char c = '\0';
+        if (this->m_size > 0)
+        {
+            c = this->m_array[this->m_size-1];
+            this->m_size --;
+            this->m_array[this->m_size] = '\0';
+        }
+        return c;
+    }
 
     /** 子串下标范围[i, k) */
     String  substr(int i, int k) {return String(*this, i, k);}

@@ -80,6 +80,7 @@ public:
     /** 重载[]，用于const Vector下标访问，不能修改m_array[index] */
     const T& operator[](int index) const {return this->m_array[index];}
     Vector<T,CMP>& operator=(const Vector<T,CMP>& V);
+    Vector<T,CMP>& operator+=(const Vector<T,CMP>& V);
 
     /** 在整个Vector中查找 */
     int     find(const T& ele) const {return this->find(ele, 0, this->m_size);};
@@ -184,6 +185,21 @@ Vector<T,CMP>& Vector<T,CMP>::operator=(const Vector<T,CMP>& V)
 {
     if(this->m_array) delete[] this->m_array;
     this->copy_from(V.m_array, 0, V.size());
+    return *this;
+}
+
+/*!
+ * @brief 重写operator=+
+ *
+ * @param V: 目标Vector
+ * @return 返回当前Vector的引用
+ * @retval None
+ */
+template <typename T, typename CMP>
+Vector<T,CMP>& Vector<T,CMP>::operator+=(const Vector<T,CMP>& V)
+{
+    for (int k = 0; k < V.size(); k ++)
+        this->push_back(V[k]);
     return *this;
 }
 
