@@ -110,7 +110,7 @@ public:
         return *this;
     }
     /** 重写输出(<<)运算符 */
-    friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {out << str.m_array; return out;}
+    friend std::ostream& operator<< (std::ostream& out, dsa::String& str) {str.addZero(); out << str.m_array; return out;}
     /** 重写输出(<<)运算符 */
     friend std::ostream& operator<< (std::ostream& out, const dsa::String& str) {out << str.m_array; return out;}
     /** 重写[]，没有边界检测，可以修改m_array */
@@ -846,6 +846,52 @@ int* build_gs(char* P)
 
     delete[] ss;
     return gs;
+}
+
+
+/*!
+ * @brief Aho-Corasick多模式串匹配。
+ *
+ * <pre>
+ * AC算法是寻找模式串间相同的前缀关系。
+ *
+ * goto表：
+ *      以模式集合P={he, she, his, hers}，N=4为例，构建自动状态机如下：
+ *       ___
+ *      |   \  h    e    r    s
+ *   ^hs|--->0--->1--->2--->8--->9
+ *           |    |
+ *           |    | i    s
+ *           |    |--->6--->7
+ *           |
+ *           | s    h    e
+ *           |--->3--->4--->5
+ *      状态转移表goto(S,C)中，S为当前状态（共S0至S9），C为转移条件（输入字符）。
+ *      例如：goto(3,'h')=4，当在状态S3输入字符'h'时，转移到状态S4。
+ *
+ * failure表：
+ *      当goto表失配时，跟据failure表来转移状态。
+ *      goto(4,'a')
+ *      fail(4) = 1
+ *
+ *      state   0 1 2 3 4 5 6 7 8 9
+ *      fail    0 0 0 0 1 2 0 3 0 3
+ *
+ * output表：
+ *
+ * </pre>
+ *
+ * @param P: Pattern，模式字符，即待匹配的字符
+ * @param N: Pattern的个数
+ * @param T: Text，文本字符
+ * @param R: Pattern在Text中首次数据的位置，没有包含则为-1
+ * @return
+ * @retval 返回Text中包含Pattern的个数
+ */
+int match_ac(char** P, int N, char* T, int* R)
+{
+    // TODO: 完成AC多字符串匹配算法
+    return 0;
 }
 
 } /* dsa */
