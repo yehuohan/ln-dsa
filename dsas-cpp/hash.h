@@ -78,8 +78,12 @@ template <
     typename CMP=dsa::Less<K> >
 class HashTable : public dsa::Dict<K, V>
 {
+public:
+    using Pair = dsa::Entry<K,V,CMP>;
+    using PairPtr = Pair*;
+
 private:
-    dsa::Entry<K,V,CMP>** m_ht; /**< 散列容量数组，存放词条指针 */
+    PairPtr* m_ht;          /**< 散列容量数组，存放词条指针 */
     int     m_cap;          /**< 散列容量 */
     int     m_size;         /**< 实际插入的键值对元素 */
     dsa::Bitmap* lazy_rm;   /**< 懒惰删除标记，保证查找链不会中断 */
@@ -145,8 +149,12 @@ template <
     typename CMP=dsa::Less<K> >
 class HashTableList : public dsa::Dict<K, V>
 {
+public:
+    using Pair = dsa::Entry<K,V,CMP>;
+    using PairPtr = Pair*;
+
 private:
-    dsa::List<dsa::Entry<K,V,CMP> >* m_ht; /**< 散列容量数组，存放词条指针 */
+    dsa::List<Pair>* m_ht;  /**< 散列容量数组，存放词条指针 */
     int     m_cap;          /**< 散列容量 */
     int     m_size;         /**< 实际插入的键值对元素 */
     HF      hash_func;      /**< 计算Hash的函数 */
@@ -208,7 +216,7 @@ void HashTable<K,V,HF,CMP>::init(int n)
     this->m_cap = dsa::prime_1048576_4k3(n);
 #endif
     this->m_size = 0;
-    this->m_ht = new dsa::Entry<K,V,CMP>*[this->m_cap];
+    this->m_ht = new PairPtr[this->m_cap];
     for (int k = 0; k < this->m_cap; k ++)
         this->m_ht[k] = nullptr;
     this->lazy_rm = new dsa::Bitmap(this->m_cap);
@@ -295,7 +303,7 @@ template <typename K, typename V, typename HF, typename CMP>
 void HashTable<K,V,HF,CMP>::rehash()
 {
     int old_cap = this->m_cap;
-    dsa::Entry<K,V,CMP>** old_ht = this->m_ht;
+    PairPtr* old_ht = this->m_ht;
     // 重新初始化散列单元
     delete this->lazy_rm;
     this->init(2*old_cap);
@@ -424,7 +432,7 @@ HashTableList<K,V,HF,CMP>::HashTableList(int n)
 {
     this->m_cap = dsa::prime_1048576(n);
     this->m_size = 0;
-    this->m_ht = new dsa::List<dsa::Entry<K,V,CMP> >[this->m_cap];
+    this->m_ht = new dsa::List<Pair>[this->m_cap];
 }
 
 /*!
@@ -442,7 +450,7 @@ bool HashTableList<K,V,HF,CMP>::put(K key, V val)
     // 已存在key，放弃插入key-val
     if (m_ht[r].find(key))
         return false;
-    this->m_ht[r].push_back(dsa::Entry<K,V,CMP>(key,val));
+    this->m_ht[r].push_back(Pair(key,val));
     this->m_size ++;
     return true;
 }
@@ -460,7 +468,7 @@ template <typename K, typename V, typename HF, typename CMP>
 V* HashTableList<K,V,HF,CMP>::get(K key)
 {
     int r = this->hash_func(key) % this->m_cap;
-    dsa::ListNodePtr<dsa::Entry<K,V,CMP> > node = this->m_ht[r].find(key);
+    dsa::ListNodePtr<Pair> node = this->m_ht[r].find(key);
     return node ? &(node->data.value) : nullptr;
 }
 
@@ -475,7 +483,7 @@ template <typename K, typename V, typename HF, typename CMP>
 bool HashTableList<K,V,HF,CMP>::remove(K key)
 {
     int r = this->hash_func(key) % this->m_cap;
-    dsa::ListNodePtr<dsa::Entry<K,V,CMP> > node = this->m_ht[r].find(key);
+    dsa::ListNodePtr<Pair> node = this->m_ht[r].find(key);
     // 若不存在key，则放弃删除
     if (!node)
         return false;
