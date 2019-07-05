@@ -25,6 +25,17 @@ namespace dsa
  * @{
  */
 
+
+/*!
+ * @name Entry类型
+ * @{
+ */
+template <typename K, typename V, typename CMP = dsa::Less<K>> struct Entry;
+template <typename K, typename V, typename CMP = dsa::Less<K>>
+using EntryPtr = Entry<K,V,CMP>*;
+
+/*! @} */
+
 /*!
  * @brief 词条类，实现元素的映射
  *
@@ -36,7 +47,7 @@ namespace dsa
  * </pre>
  *
  */
-template <typename K, typename V, typename CMP = dsa::Less<K>>
+template <typename K, typename V, typename CMP>
 struct Entry
 {
     K   key;        /**< 键 */
