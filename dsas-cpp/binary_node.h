@@ -67,7 +67,7 @@ typedef enum
     Black
 }RBColor;
 
-/**< 遍历类型 */
+/** 遍历类型 */
 typedef enum
 {
     DLR = 0,
@@ -116,22 +116,19 @@ template <typename T> struct BinNode
         if(this->right) sum += this->right->size();
         return sum;
     }
-
     BinNodePtr<T> successor();
-
+    BinNodePtr<T> predecessor();
     // 遍历算法
     template <typename VST> void traverse(VST& visit, TraverseType type = DLR);
     template <typename VST> void traverse_DLR(VST& visit);      // 先序
     template <typename VST> void traverse_LDR(VST& visit);      // 中序
     template <typename VST> void traverse_LRD(VST& visit);      // 后序
     template <typename VST> void traverse_LO(VST& visit);       // 层次
-
     // 运算符重写
     bool operator<  (const BinNode& bn) {return this->data < bn.data;}
     bool operator>  (const BinNode& bn) {return bn.data < this->data;}
     bool operator== (const BinNode& bn) {return !(this->data < bn.data || bn.data < this->data);}
     bool operator!= (const BinNode& bn) {return  (this->data < bn.data || bn.data < this->data);}
-
     //BinNodePtr<T> zig();                  // 顺时针旋转
     //BinNodePtr<T> zag();                  // 逆时针旋转
 };
@@ -185,7 +182,36 @@ BinNodePtr<T> BinNode<T>::successor()
     else
     {
         //或者为“将当前节点包含于其左子树中的最低祖先”
-        if (s->parent && s->parent->right == s) s = s->parent;
+        while (s->parent && s->parent->right == s)
+            s = s->parent;
+        s = s->parent;
+    }
+    return s;
+}
+
+/*!
+ * @brief 获取中序遍历下当前节点的直接前趋节点
+ *
+ * 原理过程与successor类似
+ *
+ * @param None
+ * @return 返回直接前趋节点
+ * @retval None
+ */
+template <typename T>
+BinNodePtr<T> BinNode<T>::predecessor()
+{
+    BinNodePtr<T> s = this;
+    if (this->left)
+    {
+        s = this->left;
+        while(s->right) s = s->right;     //为左子树中最靠右（最大）的节点
+    }
+    else
+    {
+        //或者为“将当前节点包含于其右子树中的最低祖先”
+        while (s->parent && s->parent->left == s)
+            s = s->parent;
         s = s->parent;
     }
     return s;

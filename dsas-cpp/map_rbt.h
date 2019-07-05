@@ -30,14 +30,12 @@ namespace dsa
  * @brief 基于红黑树实现Map结构
  *
  */
-template <
-    typename K,
-    typename V,
-    typename CMP=dsa::Less<K> >
+template <typename K, typename V, typename CMP = dsa::Less<K>>
 class MapRBT : public dsa::Dict<K,V>
 {
 public:
     using Pair = dsa::Entry<K,V,CMP>;
+    using Iterator = typename dsa::BinTree<Pair>::Iterator;
 
 private:
     RedBlackTree<Pair>  m_rb;
@@ -45,8 +43,10 @@ private:
 public:
     MapRBT() : m_rb() {};
 
-    /** 获取根节点 */
-    BinNodePtr<Pair>    root() {return this->m_rb.root();}
+    /** 迭代起点 */
+    Iterator    begin() {return this->m_rb.begin();};
+    /** 迭代结束 */
+    Iterator    end() {return this->m_rb.end();}
     /** 遍历Map键值对 */
     template <typename VST> void traverse(VST& visit, dsa::TraverseType type = DLR)
     {

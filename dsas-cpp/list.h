@@ -98,27 +98,26 @@ class Iterator
 public:
     Iterator(ListNodePtr<T> node = nullptr) : m_cur(node) {}
 
-    /** 重载*，获取List节点数据 */
+    /** 重写*，获取List节点数据 */
     T operator*(){return this->m_cur->data;}
 
-    /** 重载== */
-    bool operator== (const Iterator& itr) const {return dsa::is_equal(this->m_cur->data, itr.m_cur->data, this->cmp);}
-    /** 重载！= */
-    bool operator!= (const Iterator& itr) const {return dsa::is_equal(this->m_cur->data, itr.m_cur->data, this->cmp);}
+    /** 重写== */
+    bool operator== (const Iterator& itr) const {return this->m_cur == itr.m_cur;}
+    /** 重写！= */
+    bool operator!= (const Iterator& itr) const {return this->m_cur != itr.m_cur;}
 
-    /** 重载前置++ */
-    Iterator operator++() {this->m_cur = this->m_cur->next; return *this;}
-    /** 重载前置-- */
-    Iterator operator--() {this->m_cur = this->m_cur->prev; return *this;}
+    /** 重写前置++ */
+    Iterator& operator++() {this->m_cur = this->m_cur->next; return *this;}
+    /** 重写前置-- */
+    Iterator& operator--() {this->m_cur = this->m_cur->prev; return *this;}
 
-    /** 重载后置++ */
+    /** 重写后置++ */
     Iterator operator++(int) {Iterator old = *this; this->m_cur = this->m_cur->next; return old;}
-    /** 重载后置-- */
+    /** 重写后置-- */
     Iterator operator--(int) {Iterator old = *this; this->m_cur = this->m_cur->prev; return old;}
 
 private:
     ListNodePtr<T> m_cur;
-    CMP cmp;
 };
 
 public:

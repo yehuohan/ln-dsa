@@ -53,7 +53,7 @@ int main()
     //test_hash();
     //test_bitmap();
     //test_redblack();
-    //test_maprbt();
+    test_maprbt();
     //test_btree();
     //test_splay();
     //test_avl();
@@ -64,7 +64,7 @@ int main()
     //test_stack();
     //test_list();
     //test_vector();
-    test_trie();
+    //test_trie();
 
     return 0;
 }
@@ -140,6 +140,7 @@ void test_list()
     lst_i.push_back(9020);
     lst_i.push_back(20);
     lst_i.push_back(9020);
+    lst_i.push_back(0);
     lst_i.push_back(20);
     lst_i.push_back(9020);
     lst_i.push_back(920);
@@ -154,15 +155,15 @@ void test_list()
     cout << "Sort: \n";
     //lst_i.selection_sort(lst_i.front(), lst_i.size());
     //lst_i.insertion_sort(lst_i.front(), lst_i.size());
-    lst_i.sort();
+    //lst_i.sort();
     lst_i.traverse(print_node<int>);
     cout << endl;
 
     dsa::List<int>::Iterator iter;
     for (iter = lst_i.begin(); iter != lst_i.end(); iter ++)
-    {
-    }
+        cout << *iter << "    ";
 
+    cout << endl;
     dsa::ListNodePtr<int> f = lst_i.find(9020);
     cout << "Find: ";
     lst_i.is_valid(f) ? (cout << f->data) : cout << "nullptr";
@@ -658,6 +659,9 @@ void test_maprbt()
     ps = mr.get(20);
     if (ps)
         cout << *ps << endl;
+
+    for (dsa::MapRBT<int, dsa::String>::Iterator iter = mr.begin(); iter != mr.end(); iter ++)
+        cout << (*iter).key << " & " << (*iter).value << endl;
 
     mr.traverse(print_entry<int, dsa::String>);
 }

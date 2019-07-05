@@ -64,6 +64,56 @@ namespace dsa
 template <typename T>
 class BinTree
 {
+public:
+
+/*!
+ * @brief BinTree的迭代器，迭代顺序为中序遍历
+ *
+ */
+class Iterator
+{
+private:
+    BinNodePtr<T> m_cur;
+
+public:
+    Iterator(BinNodePtr<T> node = nullptr) : m_cur(node) {}
+
+    /** 重写*，获取BinNode数据 */
+    T operator*() {return this->m_cur->data;}
+
+    /** 重写== */
+    bool operator== (const Iterator& itr) const {return this->m_cur == itr.m_cur;}
+    /** 重写！= */
+    bool operator!= (const Iterator& itr) const {return this->m_cur != itr.m_cur;}
+
+    /** 重写前置++ */
+    Iterator& operator++()
+    {
+        this->m_cur = this->m_cur->successor();
+        return *this;
+    }
+    /** 重写后置++ */
+    Iterator operator++(int)
+    {
+        Iterator old = *this;
+        this->m_cur = this->m_cur->successor();
+        return old;
+    }
+    /** 重写前置-- */
+    Iterator& operator--()
+    {
+        this->m_cur = this->m_cur->predecessor();
+        return *this;
+    }
+    /** 重写后置-- */
+    Iterator operator--(int)
+    {
+        Iterator old = *this;
+        this->m_cur = this->m_cur->predecessor();
+        return old;
+    }
+};
+
 protected:
     int             m_size;     /**< 节点数量 */
     BinNodePtr<T>   m_root;     /**< 树根节点 */
@@ -77,6 +127,9 @@ public:
     BinTree() : m_size(0), m_root(nullptr) {}
     BinTree(const T& ele) : m_size(1) {this->m_root = new BinNode<T>(ele, nullptr);}
     ~BinTree() {if (m_root) this->remove(m_root);}
+
+    Iterator begin();
+    Iterator end();
 
     int     size() const {return this->m_size;}
     bool    is_empty() const {return !this->m_root;}
@@ -95,6 +148,35 @@ template <typename T> void construct_bintree(const dsa::Vector<T>& pre, const ds
 
 /*! @} */
 
+
+/*!
+ * @brief BinTree迭代器起始位置
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+template <typename T>
+typename BinTree<T>::Iterator BinTree<T>::begin()
+{
+    BinNodePtr<T> node = this->m_root;
+    while(node && node->left)
+        node = node->left;
+    return BinTree<T>::Iterator(node);
+}
+
+/*!
+ * @brief BinTree迭代器结束位置
+ *
+ * @param None
+ * @return
+ * @retval None
+ */
+template <typename T>
+typename BinTree<T>::Iterator BinTree<T>::end()
+{
+    return BinTree<T>::Iterator(nullptr);
+}
 
 /*!
  * @brief 更新node高度
