@@ -950,7 +950,7 @@ void test_kdtree()
     point[0] = 8; point[1] = 1; vd.push_back(point);
     point[0] = 7; point[1] = 2; vd.push_back(point);
 
-    dsa::KdTree<int, 2> kd(vd);
+    //dsa::KdTree<int, 2> kd(vd);
 
     for (int k = 0; k < vd.size(); k ++)
         std::cout << vd[k][0] << " " << vd[k][1] << std::endl;

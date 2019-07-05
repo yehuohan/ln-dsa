@@ -13,6 +13,7 @@
 #ifndef _KDTREE_H
 #define _KDTREE_H
 
+#include "share/compare.h"
 #include "vector.h"
 #include "array.h"
 
@@ -24,7 +25,6 @@ namespace dsa
  *
  * @{
  */
-
 
 template <typename T, int K> struct KdNode;
 /** kd树节点指针类型 */
@@ -55,12 +55,11 @@ struct KdNode
     KdNodePtr<T,K> insert_right(const KdNodeData<T,K>& e, int d) {return this->right = new KdNode(e, d, this);}
 };
 
-
 /*!
  * @brief kd树类
  * K为维度大小
  */
-template <typename T, int K>
+template <typename T, int K, typename CMP = dsa::Less<T>>
 class KdTree
 {
 protected:
@@ -72,48 +71,11 @@ protected:
 
 public:
     KdTree(): m_k(K), m_size(0),m_root(nullptr) {}
-    KdTree(dsa::Vector<dsa::Vector<T>>& ele);
 
     //void    insert();
     //void    remove();
     //void    search();     // k邻近查找
 };
-
-
-/*!
- * @brief KdNode按维度比较函数
- */
-template <typename T> struct KdNodeLess
-{
-    int i;
-    KdNodeLess(int index) : i(index){}
-    bool operator()(const dsa::Vector<T>& a, const dsa::Vector<T>& b) const {return (a[i] < b[i])? true :false;}
-};
-
-/*!
- * @brief 由数据集构造kd树
- *
- * @param ele: 数据集
- * @return
- * @retval None
- */
-template <typename T, int K>
-KdTree<T,K>::KdTree(dsa::Vector<dsa::Vector<T>>& ele) : m_k(K)
-{
-    int d = 0;
-    int lo = 0, hi = ele.size(), mi;
-
-    // 根节点
-    ele.quick_sort(lo, hi, KdNodeLess<T>(d));
-    mi = (hi - lo)/2;
-    this->m_root = new KdNode<T,K>(KdNodeData<T,K>(ele[mi]), d);
-
-    // 其它节点
-    for (int k = 0; k < ele.size(); k ++)
-    {
-        // ......
-    }
-}
 
 /*! @} */
 
