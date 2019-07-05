@@ -36,8 +36,8 @@ template <typename T, typename CMP = dsa::Less<T>> class List;
 template <typename T>
 using ListNodePtr = dsa::ListNode<T>*;
 
-template <typename T, typename CMP = dsa::Less<T>>
-using ListIterator = typename dsa::List<T,CMP>::Iterator;
+//template <typename T, typename CMP = dsa::Less<T>>
+//using ListIterator = typename dsa::List<T,CMP>::Iterator;
 /*! @} */
 
 
@@ -134,9 +134,11 @@ public:
     T               remove(ListNodePtr<T> p);
     int             remove(int n, ListNodePtr<T> p);
     /** 第一个节点的Iterator */
-    ListIterator<T,CMP> begin() {return ListIterator<T,CMP>(this->front());}
+    Iterator        begin() {return Iterator(this->front());};
+    //ListIterator<T,CMP> begin() {return ListIterator<T,CMP>(this->front());}
     /** 尾部哨兵节点的Iterator */
-    ListIterator<T,CMP> end() {return ListIterator<T,CMP>(this->tailer);}
+    Iterator        end() {return Iterator(this->tailer);}
+    //ListIterator<T,CMP> end() {return ListIterator<T,CMP>(this->tailer);}
     /** 第一个节点 */
     ListNodePtr<T>  front() {return this->header->next;}
     /** 第一个const节点 */

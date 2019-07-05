@@ -158,7 +158,7 @@ void test_list()
     lst_i.traverse(print_node<int>);
     cout << endl;
 
-    dsa::ListIterator<int> iter;
+    dsa::List<int>::Iterator iter;
     for (iter = lst_i.begin(); iter != lst_i.end(); iter ++)
     {
     }
@@ -660,9 +660,6 @@ void test_maprbt()
         cout << *ps << endl;
 
     mr.traverse(print_entry<int, dsa::String>);
-
-    dsa::BinNodePtr<dsa::MapRBT<int, dsa::String>::Pair> pr = mr.root();
-    pr->traverse(print_entry<int, dsa::String>, dsa::TraverseType::LDR);
 }
 
 void test_pq()
