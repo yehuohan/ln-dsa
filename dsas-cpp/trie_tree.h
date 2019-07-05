@@ -14,7 +14,6 @@
 #ifndef _TRIE_TREE_H
 #define _TRIE_TREE_H
 
-#include "trie_node.h"
 #include "map_rbt.h"
 #include "string.h"
 #include "queue.h"
@@ -27,6 +26,42 @@ namespace dsa
  *
  * @{
  */
+
+struct TrieNode;
+
+/*!
+ * @name TrieTree类型
+ * @{
+ */
+using TrieNodePtr = struct TrieNode*;
+using TrieNodeData = dsa::MapRBT<char, TrieNodePtr>;
+/*! @} */
+
+/*!
+ * @brief
+ *
+ * Trie Tree(字典树)节点，使用Map存储节点，用key作为路径字母，value指向下一节点。
+ *
+ */
+struct TrieNode
+{
+    TrieNodePtr     parent;         /**< 父节点 */
+    TrieNodeData    next;           /**< 节点数据 */
+    bool            word;           /**< 单词尾节点标志 */
+
+    TrieNode(TrieNodePtr p = nullptr,
+            bool w = false)
+        : parent(p) , next() , word(w) {}
+
+    /** 插入next节点 */
+    void put_next(char key, TrieNodePtr val) {this->next.put(key, val);}
+    /** 获取next节点 */
+    TrieNodePtr get_next(char key)
+    {
+        TrieNodePtr* p = this->next.get(key);
+        return (p) ? (*p) : nullptr;
+    }
+};
 
 /*!
  * @brief
