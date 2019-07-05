@@ -31,13 +31,14 @@ namespace dsa
 
 #define VECTOR_CAPACITY    50
 
-template <typename T>
+template <typename T, typename CMP = dsa::Less<T>>
 class Vector
 {
 protected:
     int     m_cap;              /** 容量 */
     int     m_size;             /** 元素数量 */
     T*      m_array;            /** 存放数据的数组 */
+    CMP     cmp;
 
 protected:
     void    copy_from (const T* A, int lo, int hi );
@@ -48,8 +49,8 @@ public:
     Vector(int size, int cap, const T& ele);
     Vector(const T* A, int n ) {this->copy_from(A, 0, n);}
     Vector(const T* A, int lo, int hi ) {this->copy_from( A, lo, hi);}
-    Vector(const Vector<T>& V);
-    Vector(const Vector<T>& V, int lo, int hi );
+    Vector(const Vector<T,CMP>& V);
+    Vector(const Vector<T,CMP>& V, int lo, int hi );
     ~Vector() {delete[] this->m_array;}
 
     /** 清空数据 */
@@ -78,7 +79,7 @@ public:
     T& operator[](int index) {return this->m_array[index];}
     /** 重载[]，用于const Vector下标访问，不能修改m_array[index] */
     const T& operator[](int index) const {return this->m_array[index];}
-    Vector<T>& operator=(const Vector<T>& V);
+    Vector<T,CMP>& operator=(const Vector<T,CMP>& V);
 
     /** 在整个Vector中查找 */
     int     find(const T& ele) const {return this->find(ele, 0, this->m_size);};
@@ -102,15 +103,15 @@ public:
     int     select_max(int lo, int hi);
 
     /** 对所有Vector元素排序（可提示比较函数） */
-    template <typename CMP = dsa::Less<T>> void sort(const CMP& cmp = dsa::Less<T>()) {this->quick_sort(0, this->m_size, cmp);}
+    void    sort() {this->quick_sort(0, this->m_size);}
     void    bubble_sort(int lo, int hi);
     int     bubble(int lo, int hi);
     void    merge_sort(int lo, int hi);
     void    merge(int lo, int mi, int hi);
     void    selection_sort(int lo, int hi);
     void    insertion_sort(int lo, int hi);
-    template <typename CMP = dsa::Less<T>> void quick_sort(int lo, int hi, const CMP& cmp = dsa::Less<T>());
-    template <typename CMP> int partition(int lo, int hi, const CMP& cmp);
+    void    quick_sort(int lo, int hi);
+    int     partition(int lo, int hi);
     void    shell_sort(int lo, int hi);
     void    shell_insertion(int w, int lo, int hi);
 
@@ -129,8 +130,8 @@ public:
  * @return
  * @retval None
  */
-template <typename T>
-Vector<T>::Vector(int size, int cap, const T& ele)
+template <typename T, typename CMP>
+Vector<T,CMP>::Vector(int size, int cap, const T& ele)
     : m_size(size)
     , m_cap(cap)
 {
@@ -150,8 +151,8 @@ Vector<T>::Vector(int size, int cap, const T& ele)
  * @return
  * @retval None
  */
-template <typename T>
-Vector<T>::Vector(const Vector<T>& V)
+template <typename T, typename CMP>
+Vector<T,CMP>::Vector(const Vector<T,CMP>& V)
 {
     this->copy_from(V.m_array, 0, V.m_size );
 }
@@ -163,8 +164,8 @@ Vector<T>::Vector(const Vector<T>& V)
  * @return
  * @retval None
  */
-template <typename T>
-Vector<T>::Vector(const Vector<T>& V, int lo, int hi )
+template <typename T, typename CMP>
+Vector<T,CMP>::Vector(const Vector<T,CMP>& V, int lo, int hi )
 {
     this->copy_from(V.m_array, lo, hi);
 }
@@ -178,8 +179,8 @@ Vector<T>::Vector(const Vector<T>& V, int lo, int hi )
  * @return 返回当前Vector的引用
  * @retval None
  */
-template <typename T>
-Vector<T>& Vector<T>::operator=(const Vector<T>& V)
+template <typename T, typename CMP>
+Vector<T,CMP>& Vector<T,CMP>::operator=(const Vector<T,CMP>& V)
 {
     if(this->m_array) delete[] this->m_array;
     this->copy_from(V.m_array, 0, V.size());
@@ -196,8 +197,8 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& V)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::copy_from(T const* A, int lo, int hi )
+template <typename T, typename CMP>
+void Vector<T,CMP>::copy_from(T const* A, int lo, int hi )
 {
     this->m_array = new T[this->m_cap = 2*(hi-lo)];
     this->m_size = 0;
@@ -212,8 +213,8 @@ void Vector<T>::copy_from(T const* A, int lo, int hi )
  * @return 返回新插入元素的下标
  * @retval None
  */
-template <typename T>
-int Vector<T>::push_front(const T& ele)
+template <typename T, typename CMP>
+int Vector<T,CMP>::push_front(const T& ele)
 {
     return this->insert(0, ele);
 }
@@ -225,8 +226,8 @@ int Vector<T>::push_front(const T& ele)
  * @return 返回新插入元素的下标
  * @retval None
  */
-template <typename T>
-int Vector<T>::push_back(const T& ele)
+template <typename T, typename CMP>
+int Vector<T,CMP>::push_back(const T& ele)
 {
     if(this->m_size >= this->m_cap)
         this->expand();
@@ -242,8 +243,8 @@ int Vector<T>::push_back(const T& ele)
  * @return 返回新插入元素的拉置
  * @retval None
  */
-template <typename T>
-int Vector<T>::insert(int index, const T& ele)
+template <typename T, typename CMP>
+int Vector<T,CMP>::insert(int index, const T& ele)
 {
     if(this->m_size >= this->m_cap)
     {
@@ -265,8 +266,8 @@ int Vector<T>::insert(int index, const T& ele)
  * @return 返回被删除的元素
  * @retval None
  */
-template <typename T>
-T Vector<T>::remove(int index)
+template <typename T, typename CMP>
+T Vector<T,CMP>::remove(int index)
 {
     // 删除[r, r+1)即可删除单个元素
     T ele = this->m_array[index];
@@ -288,8 +289,8 @@ T Vector<T>::remove(int index)
  * @return 返回删除的元素总数量
  * @retval None
  */
-template <typename T>
-int Vector<T>::remove(int lo, int hi)
+template <typename T, typename CMP>
+int Vector<T,CMP>::remove(int lo, int hi)
 {
     if(lo == hi) return 0;
     while(hi < this->m_size)
@@ -305,8 +306,8 @@ int Vector<T>::remove(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::expand()
+template <typename T, typename CMP>
+void Vector<T,CMP>::expand()
 {
     T* old_ar = this->m_array;
     this->m_cap *= 2;
@@ -329,10 +330,10 @@ void Vector<T>::expand()
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::find(const T& ele, int lo, int hi) const
+template <typename T, typename CMP>
+int Vector<T,CMP>::find(const T& ele, int lo, int hi) const
 {
-    while((lo < hi--) && (ele != this->m_array[hi]));  // compare ele and m_array[hi] after hi--
+    while((lo < hi--) && (dsa::not_equal(ele, this->m_array[hi], this->cmp)));  // compare ele and m_array[hi] after hi--
     return hi;
 }
 
@@ -347,8 +348,8 @@ int Vector<T>::find(const T& ele, int lo, int hi) const
  * @return 返回不大于ele的元素的下标
  * @retval None
  */
-template <typename T>
-int Vector<T>::bin_search(const T& ele, int lo, int hi) const
+template <typename T, typename CMP>
+int Vector<T,CMP>::bin_search(const T& ele, int lo, int hi) const
 {
     // iteration
 #if(0)
@@ -357,8 +358,8 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
         // 3个分支判断，[lo, mi) or (mi, hi) or mi
         // 没法返回不大于ele的最大元素的下标
         int mi = (lo + hi)/2;
-        if (ele < this->m_array[mi]) hi = mi;
-        else if (this->m_array[mi] < ele) lo = mi + 1;
+        if (this->cmp(ele, this->m_array[mi])) hi = mi;
+        else if (this->cmp(this->m_array[mi], ele)) lo = mi + 1;
         else return mi;
     }
     return -1;
@@ -368,7 +369,7 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
         // 2个分支判断，[lo, mi) or [mi, hi)
         // 没法返回不大于ele的最大元素的下标
         int mi = (lo +hi)/2;
-        ele < this->m_array[mi] ? hi = mi : lo = mi;
+        this->cmp(ele, this->m_array[mi]) ? hi = mi : lo = mi;
     }
     return (ele == this->m_array[lo] ? lo : -1);
 #elif(1)
@@ -380,7 +381,7 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
         // 所以最后返回的是 "--lo"，即返回不大于ele的最大元素的下标，
         // -1表示Vector所有元素不大于ele。
         int mi = (lo + hi)/2;
-        ele < this->m_array[mi] ? hi = mi : lo = mi + 1;
+        this->cmp(ele, this->m_array[mi]) ? hi = mi : lo = mi + 1;
     }
     return --lo;
 #endif
@@ -396,8 +397,8 @@ int Vector<T>::bin_search(const T& ele, int lo, int hi) const
  * @return 返回不大于ele的元素的下标
  * @retval None
  */
-template <typename T>
-int Vector<T>::fib_search(const T& ele, int lo, int hi) const
+template <typename T, typename CMP>
+int Vector<T,CMP>::fib_search(const T& ele, int lo, int hi) const
 {
     return 0;
 }
@@ -409,8 +410,8 @@ int Vector<T>::fib_search(const T& ele, int lo, int hi) const
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::deduplicate()
+template <typename T, typename CMP>
+int Vector<T,CMP>::deduplicate()
 {
     int oldsize = this->m_size;
     int k = 1;
@@ -431,8 +432,8 @@ int Vector<T>::deduplicate()
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::uniquify()
+template <typename T, typename CMP>
+int Vector<T,CMP>::uniquify()
 {
 /* 低效版 */
 #if(0)
@@ -441,7 +442,7 @@ int Vector<T>::uniquify()
     while(k < this->m_size-1)
     {
         // 对于有序向量，连续remove多个相同的element时，有大量的重复移动
-        (this->m_array[k] == this->m_array[k+1]) ? this->remove(k+1) : k++;
+        (dsa::is_equal(this->m_array[k], this->m_array[k+1], this->cmp)) ? this->remove(k+1) : k++;
     }
     return oldsize - this->m_size;
 
@@ -452,7 +453,7 @@ int Vector<T>::uniquify()
     {
         // lo 一直指向已去重向量部分的最后一个元素
         // 相同元素通过 ++hi 跳过，实现覆盖去重
-        if(this->m_array[lo] != this->m_array[hi])
+        if(dsa::not_equal(this->m_array[lo], this->m_array[hi], this->cmp))
             this->m_array[++lo] = this->m_array[hi];
     }
     this->m_size = ++lo;
@@ -469,8 +470,8 @@ int Vector<T>::uniquify()
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::unsort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::unsort(int lo, int hi)
 {
     dsa::rand_init();
     T* v = this->m_array + lo;      // v的下标范围为[0, hi-lo)
@@ -488,8 +489,8 @@ void Vector<T>::unsort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::bubble_sort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::bubble_sort(int lo, int hi)
 {
 #if(0)
     while(!this->bubble(lo, hi--));
@@ -505,7 +506,7 @@ void Vector<T>::bubble_sort(int lo, int hi)
         int first = lo;
         while (++first < hi)
         {
-            if (this->m_array[first-1] > this->m_array[first])
+            if (this->cmp(this->m_array[first], this->m_array[first-1]))
             {
                 last = first;
                 dsa::swap(this->m_array[first-1], this->m_array[first]);
@@ -545,15 +546,15 @@ void Vector<T>::bubble_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::bubble(int lo, int hi)
+template <typename T, typename CMP>
+int Vector<T,CMP>::bubble(int lo, int hi)
 {
 /* 改进版一 */
 #if(0)
     int sorted = 1;
     while(++lo < hi)
     {
-        if(this->m_array[lo] < this->m_array[lo-1])
+        if(this->cmp(this->m_array[lo], this->m_array[lo-1]))
         {
             sorted = 0;
             dsa::swap(this->m_array[lo-1], this->m_array[lo]);
@@ -566,7 +567,7 @@ int Vector<T>::bubble(int lo, int hi)
     int last = lo;
     while(++lo < hi)
     {
-        if(this->m_array[lo] < this->m_array[lo-1])
+        if(this->cmp(this->m_array[lo], this->m_array[lo-1]))
         {
             // last是右侧已排好序区间的左侧下标
             last = lo;
@@ -606,8 +607,8 @@ int Vector<T>::bubble(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::merge_sort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::merge_sort(int lo, int hi)
 {
     if(hi - lo < 2)
         return;     // 只有一个元素
@@ -624,8 +625,8 @@ void Vector<T>::merge_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::merge(int lo, int mi, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::merge(int lo, int mi, int hi)
 {
     T* p = this->m_array + lo;
     int len = mi - lo;
@@ -637,7 +638,7 @@ void Vector<T>::merge(int lo, int mi, int hi)
     int i = 0, j = 0, k = 0;
     while(i < mi-lo && j < hi-mi)
     {
-        if(left[i] <= right[j])
+        if (this->cmp(left[i], right[j]))
             p[k++] = left[i++];
         else
             p[k++] = right[j++];
@@ -664,8 +665,8 @@ void Vector<T>::merge(int lo, int mi, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::selection_sort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::selection_sort(int lo, int hi)
 {
     while(lo < hi--)
         swap(this->m_array[select_max(lo, hi)], this->m_array[hi]);
@@ -680,13 +681,13 @@ void Vector<T>::selection_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-int Vector<T>::select_max(int lo, int hi)
+template <typename T, typename CMP>
+int Vector<T,CMP>::select_max(int lo, int hi)
 {
     int max = hi;
     while(lo < hi--)
     {
-        if (this->m_array[hi] > this->m_array[max])
+        if (this->cmp(this->m_array[max], this->m_array[hi]))
             max = hi;
     }
     return max;
@@ -716,8 +717,8 @@ int Vector<T>::select_max(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::insertion_sort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::insertion_sort(int lo, int hi)
 {
 #if(0)
     // 基本形式：按基本原理实现的算法，最易理解
@@ -734,7 +735,7 @@ void Vector<T>::insertion_sort(int lo, int hi)
         // n 即为W的第一个元素
         int n = k;
         T   tmp = this->m_array[n];
-        while (n > lo && tmp < this->m_array[n-1])
+        while (n > lo && this->cmp(tmp, this->m_array[n-1]))
         {
             this->m_array[n] = this->m_array[n-1];
             n--;
@@ -755,16 +756,15 @@ void Vector<T>::insertion_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T> template <typename CMP>
-void Vector<T>::quick_sort(int lo, int hi, const CMP& cmp)
+template <typename T, typename CMP>
+void Vector<T,CMP>::quick_sort(int lo, int hi)
 {
     // 只有一个元素
     if (hi - lo < 2)
         return;
-    int mi = this->partition(lo, hi-1, cmp);   // 构造轴点
-    this->quick_sort(lo, mi, cmp);
-    this->quick_sort(mi + 1, hi, cmp);
-
+    int mi = this->partition(lo, hi-1);   // 构造轴点
+    this->quick_sort(lo, mi);
+    this->quick_sort(mi + 1, hi);
 }
 
 /*!
@@ -798,8 +798,8 @@ void Vector<T>::quick_sort(int lo, int hi, const CMP& cmp)
  * @return
  * @retval None
  */
-template <typename T> template <typename CMP>
-int Vector<T>::partition(int lo, int hi, const CMP& cmp)
+template <typename T, typename CMP>
+int Vector<T,CMP>::partition(int lo, int hi)
 {
     // 随机交换候选轴点，使轴点的位置均匀分布
     dsa::rand_init();
@@ -810,9 +810,9 @@ int Vector<T>::partition(int lo, int hi, const CMP& cmp)
     // 基本形式
     while(lo < hi)
     {
-        while(lo < hi && this->m_array[hi] >= pivot) hi--;  // 有重复元素时，需要>=
+        while(lo < hi && dsa::greater_equal(this->m_array[hi], pivot, this->cmp)) hi--;  // 有重复元素时，需要>=
         this->m_array[lo] = this->m_array[hi];
-        while(lo < hi && this->m_array[lo] <= pivot) lo++;  // 有重复元素时，需要<=
+        while(lo < hi && dsa::less_equal(this->m_array[lo], pivot, this->cmp)) lo++;  // 有重复元素时，需要<=
         this->m_array[hi] = this->m_array[lo];
     }
     this->m_array[lo] = pivot;        // 最终轴点
@@ -822,7 +822,7 @@ int Vector<T>::partition(int lo, int hi, const CMP& cmp)
     int mi = lo;
     for (int k = lo + 1; k <= hi; k++)
     {
-        if (cmp(this->m_array[k], pivot))   // 在变种形式中使用CMP
+        if (this->cmp(this->m_array[k], pivot))   // 在变种形式中使用CMP
         {
             mi ++;
             dsa::swap(this->m_array[k], this->m_array[mi]);
@@ -882,8 +882,8 @@ int Vector<T>::partition(int lo, int hi, const CMP& cmp)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::shell_sort(int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::shell_sort(int lo, int hi)
 {
     // 步长序列(step sequence)，也即矩阵的列数: min = 1, max < m_size
 #if(0)
@@ -926,8 +926,8 @@ void Vector<T>::shell_sort(int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
-void Vector<T>::shell_insertion(int w, int lo, int hi)
+template <typename T, typename CMP>
+void Vector<T,CMP>::shell_insertion(int w, int lo, int hi)
 {
 #if(1)
     // 每w次循环，完成对所有列的同一行的插入排序
@@ -938,7 +938,7 @@ void Vector<T>::shell_insertion(int w, int lo, int hi)
         // 此部分程序参照insertion_sort
         int n = k;
         T   tmp = this->m_array[n];
-        while (n >= lo+w && tmp < this->m_array[n-w])
+        while (n >= lo+w && this->cmp(tmp, this->m_array[n-w]))
         {
             this->m_array[n] = this->m_array[n-w];
             n -= w;
@@ -958,7 +958,7 @@ void Vector<T>::shell_insertion(int w, int lo, int hi)
             // 此部分程序参照insertion_sort
             int n = s;
             T   tmp = this->m_array[n];
-            while (n > sl && tmp < this->m_array[n-w])
+            while (n > sl && this->cmp(tmp, this->m_array[n-w]))
             {
                 this->m_array[n] = this->m_array[n-w];
                 n -= w;
@@ -977,9 +977,9 @@ void Vector<T>::shell_insertion(int w, int lo, int hi)
  * @return
  * @retval None
  */
-template <typename T>
+template <typename T, typename CMP>
 template <typename VST>
-void Vector<T>::traverse(VST& visit)
+void Vector<T,CMP>::traverse(VST& visit)
 {
     for (int k = 0; k < this->m_size; k ++)
         visit(this->m_array[k]);
