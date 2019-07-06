@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _STRING_H
-#define _STRING_H
+#ifndef DSAS_STRING_H
+#define DSAS_STRING_H
 
 #include <iostream>
 #include "vector.h"
@@ -239,4 +239,4 @@ void str_set(char* str, char ch, int size)
 
 } /* dsa */
 
-#endif /* ifndef _STRING_H */
+#endif /* ifndef DSAS_STRING_H */

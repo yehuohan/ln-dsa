@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _BINARY_SEARCH_TREE_H
-#define _BINARY_SEARCH_TREE_H
+#ifndef DSAS_BINARY_SEARCH_TREE_H
+#define DSAS_BINARY_SEARCH_TREE_H
 
 #include "binary_tree.h"
 #include "share/swap.h"
@@ -319,5 +319,5 @@ BinNodePtr<T> BinSearchTree<T>::rotate_at(BinNodePtr<T> v)
 
 } /* dsa */
 
-#endif /* ifndef _BINARY_SEARCH_TREE_H */
+#endif /* ifndef DSAS_BINARY_SEARCH_TREE_H */
 

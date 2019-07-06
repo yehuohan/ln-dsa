@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _TRIE_TREE_H
-#define _TRIE_TREE_H
+#ifndef DSAS_TRIE_TREE_H
+#define DSAS_TRIE_TREE_H
 
 #include "map_rbt.h"
 #include "string.h"
@@ -242,4 +242,4 @@ void TrieTree::traverse(VST& visit)
 
 } /* dsa */
 
-#endif /* ifndef _TRIE_TREE_H */
+#endif /* ifndef DSAS_TRIE_TREE_H */

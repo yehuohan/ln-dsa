@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _HASH_H
-#define _HASH_H
+#ifndef DSAS_HASH_H
+#define DSAS_HASH_H
 
 #include "share/entry.h"
 #include "share/prime.h"
@@ -494,4 +494,4 @@ bool HashTableList<K,V,HF,CMP>::remove(K key)
 
 } /* dsa */
 
-#endif /* ifndef _HASH_H */
+#endif /* ifndef DSAS_HASH_H */

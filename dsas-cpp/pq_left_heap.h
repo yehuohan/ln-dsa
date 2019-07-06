@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _PQ_LEFT_HEAP
-#define _PQ_LEFT_HEAP
+#ifndef DSAS_PQ_LEFT_HEAP
+#define DSAS_PQ_LEFT_HEAP
 
 #include "priority_queue.h"
 #include "binary_tree.h"
@@ -156,5 +156,5 @@ T PqLeftHeap<T>::del_max()
 }
 
 } /* dsa */
-#endif /* ifndef _PQ_LEFT_HEAP */
+#endif /* ifndef DSAS_PQ_LEFT_HEAP */
 

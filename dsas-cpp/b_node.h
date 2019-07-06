@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _B_NODE_H
-#define _B_NODE_H
+#ifndef DSAS_B_NODE_H
+#define DSAS_B_NODE_H
 
 #include "vector.h"
 
@@ -126,4 +126,4 @@ template <typename T> struct BTNode
 
 } /* dsa */
 
-#endif /* ifndef _B_NODE_H */
+#endif /* ifndef DSAS_B_NODE_H */

@@ -200,8 +200,8 @@ DSAS是数据结构与算法的学习过程。
 //==============================================================================
 
 
-#ifndef _DSAS_H
-#define _DSAS_H
+#ifndef DSAS_DSAS_H
+#define DSAS_DSAS_H
 
 #include "share/macro.h"
 #include "share/entry.h"
@@ -221,7 +221,7 @@ DSAS是数据结构与算法的学习过程。
 #include "pq_list.h"
 #include "pq_complete_heap.h"
 #include "pq_left_heap.h"
-#include "string.h"
+//#include "string.h"
 #include "string_match.h"
 #include "bitmap.h"
 #include "hash.h"
@@ -241,4 +241,4 @@ DSAS是数据结构与算法的学习过程。
 #include "graph.h"
 #include "graph_matrix.h"
 
-#endif /* ifndef _DSAS_H */
+#endif /* ifndef DSAS_DSAS_H */

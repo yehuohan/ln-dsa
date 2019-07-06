@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _BINARY_NODE_H
-#define _BINARY_NODE_H
+#ifndef DSAS_BINARY_NODE_H
+#define DSAS_BINARY_NODE_H
 
 #include "stack.h"
 #include "queue.h"
@@ -542,4 +542,4 @@ void BinNode<T>::traverse_LO(VST& visit)
 
 } /* dsa */
 
-#endif /* ifndef _BINARY_NODE_H */
+#endif /* ifndef DSAS_BINARY_NODE_H */

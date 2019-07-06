@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _BINARY_TREE_H
-#define _BINARY_TREE_H
+#ifndef DSAS_BINARY_TREE_H
+#define DSAS_BINARY_TREE_H
 
 #include "vector.h"
 #include "binary_node.h"
@@ -361,4 +361,4 @@ void construct_bintree(
 
 } /* dsa */
 
-#endif /* ifndef _BINARY_TREE_H */
+#endif /* ifndef DSAS_BINARY_TREE_H */

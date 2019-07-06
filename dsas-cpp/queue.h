@@ -12,8 +12,8 @@
 //==============================================================================
 
 
-#ifndef _QUEUE_H
-#define _QUEUE_H value
+#ifndef DSAS_QUEUE_H
+#define DSAS_QUEUE_H value
 
 #include "list.h"
 
@@ -94,4 +94,4 @@ public:
 
 } /* dsa */
 
-#endif /* ifndef _QUEUE_H */
+#endif /* ifndef DSAS_QUEUE_H */

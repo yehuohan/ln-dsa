@@ -11,8 +11,8 @@
 //==============================================================================
 
 
-#ifndef _LIST_H
-#define _LIST_H
+#ifndef DSAS_LIST_H
+#define DSAS_LIST_H
 
 #include "share/swap.h"
 #include "share/compare.h"
@@ -634,4 +634,4 @@ void List<T,CMP>::traverse(VST& visit)
 
 } /* dsa */
 
-#endif /* ifndef _LIST_H */
+#endif /* ifndef DSAS_LIST_H */

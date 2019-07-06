@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _PRIORITY_QUEUE_H
-#define _PRIORITY_QUEUE_H
+#ifndef DSAS_PRIORITY_QUEUE_H
+#define DSAS_PRIORITY_QUEUE_H
 
 namespace dsa
 {
@@ -40,4 +40,4 @@ public:
     
 } /* dsa */ 
 
-#endif /* ifndef _PRIORITY_QUEUE_H */
+#endif /* ifndef DSAS_PRIORITY_QUEUE_H */

@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _STACK_H
-#define _STACK_H
+#ifndef DSAS_STACK_H
+#define DSAS_STACK_H
 
 #include "vector.h"
 #include "list.h"
@@ -70,4 +70,4 @@ public:
     
 } /* dsa */
 
-#endif /* ifndef _STACK_H */
+#endif /* ifndef DSAS_STACK_H */

@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _MAP_RBT_H
-#define _MAP_RBT_H
+#ifndef DSAS_MAP_RBT_H
+#define DSAS_MAP_RBT_H
 
 #include "redblack_tree.h"
 #include "share/entry.h"
@@ -78,4 +78,4 @@ public:
 /*! @} */
 
 } /* dsa */
-#endif /* ifndef _MAP_RBT_H */
+#endif /* ifndef DSAS_MAP_RBT_H */

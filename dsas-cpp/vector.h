@@ -13,8 +13,8 @@
  */
 //==============================================================================
 
-#ifndef _VECTOR_H
-#define _VECTOR_H
+#ifndef DSAS_VECTOR_H
+#define DSAS_VECTOR_H
 
 #include "share/swap.h"
 #include "share/rand.h"
@@ -1003,4 +1003,4 @@ void Vector<T,CMP>::traverse(VST& visit)
 
 } /* dsa */
 
-#endif /* ifndef _VECTOR_H */
+#endif /* ifndef DSAS_VECTOR_H */

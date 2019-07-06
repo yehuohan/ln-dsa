@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _REDBLACK_TREE_H
-#define _REDBLACK_TREE_H
+#ifndef DSAS_REDBLACK_TREE_H
+#define DSAS_REDBLACK_TREE_H
 
 #include "binary_node.h"
 #include "binary_search_tree.h"
@@ -431,5 +431,5 @@ bool RedBlackTree<T>::remove(const T& e)
 
 } /* dsa */
 
-#endif /* ifndef _REDBLACK_TREE_H */
+#endif /* ifndef DSAS_REDBLACK_TREE_H */
 

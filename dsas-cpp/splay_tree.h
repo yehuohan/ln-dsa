@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _SPLAY_TREE_H
-#define _SPLAY_TREE_H
+#ifndef DSAS_SPLAY_TREE_H
+#define DSAS_SPLAY_TREE_H
 
 #include "binary_search_tree.h"
 #include "share/compare.h"
@@ -350,4 +350,4 @@ BinNodePtr<T> SplayTree<T>::splay(BinNodePtr<T> v)
 
 } /* dsa */
 
-#endif /* ifndef _SPLAY_TREE_H */
+#endif /* ifndef DSAS_SPLAY_TREE_H */

@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _ARRAY_H
-#define _ARRAY_H
+#ifndef DSAS_ARRAY_H
+#define DSAS_ARRAY_H
 
 #include "vector.h"
 
@@ -93,4 +93,4 @@ public:
 /*! @} */
 } /* dsa */
 
-#endif /* ifndef _ARRAY_H */
+#endif /* ifndef DSAS_ARRAY_H */

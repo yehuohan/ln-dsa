@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _B_TREE_H
-#define _B_TREE_H
+#ifndef DSAS_B_TREE_H
+#define DSAS_B_TREE_H
 
 #include "b_node.h"
 #include "share/compare.h"
@@ -418,4 +418,4 @@ bool BTree<T>::remove(const T& e)
 
 } /* dsa */
 
-#endif /* ifndef _B_TREE_H */
+#endif /* ifndef DSAS_B_TREE_H */

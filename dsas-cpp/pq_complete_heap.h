@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _PQ_COMPLETE_HEAP_H
-#define _PQ_COMPLETE_HEAP_H
+#ifndef DSAS_PQ_COMPLETE_HEAP_H
+#define DSAS_PQ_COMPLETE_HEAP_H
 
 #include "vector.h"
 #include "priority_queue.h"
@@ -291,5 +291,5 @@ void heap_sort(dsa::Vector<T>& vec, int lo, int hi)
 
 } /* dsa */
 
-#endif /* ifndef _PQ_COMPLETE_HEAP_H */
+#endif /* ifndef DSAS_PQ_COMPLETE_HEAP_H */
 

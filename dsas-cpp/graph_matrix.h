@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _GRAPH_MATRIX_H
-#define _GRAPH_MATRIX_H
+#ifndef DSAS_GRAPH_MATRIX_H
+#define DSAS_GRAPH_MATRIX_H
 
 #include "vector.h"
 #include "queue.h"
@@ -443,4 +443,4 @@ void GraphMatrix<Tv,Te>::dijkstra(int s)
 
 } /* dsa */
 
-#endif /* ifndef _GRAPH_MATRIX_H */
+#endif /* ifndef DSAS_GRAPH_MATRIX_H */

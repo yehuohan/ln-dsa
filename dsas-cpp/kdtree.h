@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _KDTREE_H
-#define _KDTREE_H
+#ifndef DSAS_KDTREE_H
+#define DSAS_KDTREE_H
 
 #include "share/compare.h"
 #include "vector.h"
@@ -80,4 +80,4 @@ public:
 /*! @} */
 
 } /* dsa */
-#endif /* ifndef _KDTREE_H */
+#endif /* ifndef DSAS_KDTREE_H */

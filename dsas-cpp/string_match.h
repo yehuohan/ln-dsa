@@ -11,8 +11,8 @@
  */
 //==============================================================================
 
-#ifndef _STRING_MATCH_H
-#define _STRING_MATCH_H
+#ifndef DSAS_STRING_MATCH_H
+#define DSAS_STRING_MATCH_H
 
 #include "string.h"
 
@@ -682,4 +682,4 @@ int match_ac(char** P, int N, char* T, int* R)
 }
 
 } /* dsa */
-#endif /* ifndef _STRING_MATCH_H */
+#endif /* ifndef DSAS_STRING_MATCH_H */

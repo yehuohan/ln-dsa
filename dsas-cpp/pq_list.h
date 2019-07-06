@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _PQ_LIST_H
-#define _PQ_LIST_H
+#ifndef DSAS_PQ_LIST_H
+#define DSAS_PQ_LIST_H
 
 #include "priority_queue.h"
 #include "list.h"
@@ -54,4 +54,4 @@ public:
 
 } /* dsa */
 
-#endif /* ifndef _PQ_LIST_H */
+#endif /* ifndef DSAS_PQ_LIST_H */

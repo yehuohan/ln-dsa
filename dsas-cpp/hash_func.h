@@ -10,8 +10,8 @@
  */
 //==============================================================================
 
-#ifndef _HASH_FUNC_H
-#define _HASH_FUNC_H
+#ifndef DSAS_HASH_FUNC_H
+#define DSAS_HASH_FUNC_H
 
 #include "string.h"
 
@@ -101,5 +101,5 @@ template <> struct Hash<double>
 
 } /* dsa */
 
-#endif /* ifndef _HASH_FUNC_H */
+#endif /* ifndef DSAS_HASH_FUNC_H */
 

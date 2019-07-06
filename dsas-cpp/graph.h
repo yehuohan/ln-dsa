@@ -12,8 +12,8 @@
 //==============================================================================
 
 
-#ifndef GRAPH_H
-#define GRAPH_H
+#ifndef DSAS_GRAPH_H
+#define DSAS_GRAPH_H
 
 
 namespace dsa
@@ -144,4 +144,4 @@ public:
 
 } /* dsa */
 
-#endif /* ifndef GRAPH_H */
+#endif /* ifndef DSAS_GRAPH_H */

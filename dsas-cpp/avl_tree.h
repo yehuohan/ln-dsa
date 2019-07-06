@@ -13,8 +13,8 @@
  */
 //==============================================================================
 
-#ifndef _AVL_TREE_H
-#define _AVL_TREE_H
+#ifndef DSAS_AVL_TREE_H
+#define DSAS_AVL_TREE_H
 
 #include "binary_search_tree.h"
 
@@ -219,4 +219,4 @@ bool AvlTree<T>::remove(const T& e)
 
 } /* dsa */
 
-#endif /* ifndef _AVL_TREE_H */
+#endif /* ifndef DSAS_AVL_TREE_H */
