@@ -47,13 +47,13 @@ int main()
     //test_share();
     //test_sort_time();
     //test_sort();
-    //test_string();
+    test_string();
     //test_leftpq();
     //test_pq();
     //test_hash();
     //test_bitmap();
     //test_redblack();
-    test_maprbt();
+    //test_maprbt();
     //test_btree();
     //test_splay();
     //test_avl();
@@ -643,7 +643,6 @@ void test_maprbt()
     mr.put(10, "A");
     mr.put(20, "B");
     mr.put(30, "C");
-
     mr.put(10, "AA");   // 覆盖键值
     ps = mr.get(10);
     if (ps)
@@ -970,4 +969,5 @@ void test_trie()
     cout << tt.contains("my") << endl;
     cout << tt.contains("hi") << endl;
     cout << tt.is_prefix("hi") << endl;
+    //tt.traverse(print_node<dsa::String>);
 }

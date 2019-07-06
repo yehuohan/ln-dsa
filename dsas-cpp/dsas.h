@@ -222,6 +222,7 @@ DSAS是数据结构与算法的学习过程。
 #include "pq_complete_heap.h"
 #include "pq_left_heap.h"
 #include "string.h"
+#include "string_match.h"
 #include "bitmap.h"
 #include "hash.h"
 
