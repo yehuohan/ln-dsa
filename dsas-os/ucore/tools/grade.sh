@@ -35,7 +35,7 @@ sed='sed'
 sym_table='obj/kernel.sym'
 
 ## gdb & gdbopts
-gdb="$(make_print GDB)"
+gdb="$(make_print GCCPREFIX)gdb"
 gdbport='1234'
 
 gdb_in="$(make_print GRADE_GDB_IN)"
@@ -246,13 +246,14 @@ check_regexps() {
 }
 
 run_test() {
-    # usage: run_test [-tag <tag>] [-Ddef...] [-check <check>] checkargs ...
+    # usage: run_test [-tag <tag>] [-prog <prog>] [-Ddef...] [-check <check>] checkargs ...
     tag=
+    prog=
     check=check_regexps
     while true; do
         select=
         case $1 in
-            -tag)
+            -tag|-prog)
                 select=`expr substr $1 2 ${#1}`
                 eval $select='$2'
                 ;;
@@ -274,8 +275,17 @@ run_test() {
         shift
     fi
 
-    $make $makeopts touch > /dev/null 2>&1
-    build_run "$tag" "$defs"
+    if [ -z "$prog" ]; then
+        $make $makeopts touch > /dev/null 2>&1
+        args="$defs"
+    else
+        if [ -z "$tag" ]; then
+            tag="$prog"
+        fi
+        args="build-$prog $defs"
+    fi
+
+    build_run "$tag" "$args"
 
     check_result 'check result' "$check" "$@"
 }
@@ -307,50 +317,92 @@ osimg=$(make_print ucoreimg)
 ## swap image
 swapimg=$(make_print swapimg)
 
+## fs image
+fsimg=$(make_print fsimg)
+fsroot=$(make_print sfsroot)
+
 ## set default qemu-options
-qemuopts="-hda $osimg -drive file=$swapimg,media=disk,cache=writeback"
+qemuopts="-hda $osimg -drive file=$swapimg,media=disk,cache=writeback -drive file=$fsimg,media=disk,cache=writeback"
 
 ## set break-function, default is readline
 brkfun=readline
 
+default_check() {
+    pts=10
+    check_regexps "$@"
+
+    pts=10
+    quick_check 'check output'                                          \
+        'check_alloc_page() succeeded!'                                 \
+        'check_pgdir() succeeded!'                                      \
+        'check_boot_pgdir() succeeded!'                                 \
+        'check_slab() succeeded!'                                       \
+        'check_vma_struct() succeeded!'                                 \
+        'check_pgfault() succeeded!'                                    \
+        'check_vmm() succeeded.'                                        \
+        'check_swap() succeeded.'                                       \
+        'check_mm_swap: step1, mm_map ok.'                              \
+        'check_mm_swap: step2, mm_unmap ok.'                            \
+        'check_mm_swap: step3, exit_mmap ok.'                           \
+        'check_mm_swap: step4, dup_mmap ok.'                            \
+        'check_mm_swap() succeeded.'                                    \
+        'check_mm_shm_swap: step1, share memory ok.'                    \
+        'check_mm_shm_swap: step2, dup_mmap ok.'                        \
+        'check_mm_shm_swap() succeeded.'                                \
+        'vfs: mount disk0.'                                             \
+        '++ setup timer interrupts'
+}
+
 ## check now!!
 
-quick_run 'Check COW'
+pts=30
+timeout=300
 
-pts=5
-quick_check 'check pmm'                                         \
-    'check_alloc_page() succeeded!'                             \
-    'check_pgdir() succeeded!'                                  \
-    'check_boot_pgdir() succeeded!'                             \
-    'check_slab() succeeded!'
+run_test -prog 'sh' -DTESTSCRIPT='/script/test1.sh'                     \
+        'kernel_execve: pid = 3, name = "sh".'                          \
+        'ls'                                                            \
+        'cd test'                                                       \
+        'pwd'                                                           \
+        'ls /testman > xx'                                              \
+        'cat xx'                                                        \
+        'unlink xx'                                                     \
+        'echo test1.sh end.'                                            \
+        'all user-mode processes have quit.'                            \
+        'init check memory pass.'                                       \
+    ! - 'sh error.*'                                                    \
+    ! - 'user panic at .*'
 
-pts=5
-quick_check 'check vmm'                                         \
-    'check_vma_struct() succeeded!'                             \
-    'page fault at 0x00000100: K/W [no page found].'            \
-    'check_pgfault() succeeded!'                                \
-    'check_vmm() succeeded.'                                    \
-    'check_swap() succeeded.'
+run_test -prog 'sh' -DTESTSCRIPT='/script/test2.sh'                     \
+        'kernel_execve: pid = 3, name = "sh".'                          \
+        'cd test'                                                       \
+        'mkdir pp'                                                      \
+        'cd pp'                                                         \
+        'ls /bin | cat > qq'                                            \
+        'link qq pp'                                                    \
+        'ls'                                                            \
+        'cd ..'                                                         \
+        'link pp/pp orz'                                                \
+        'unlink pp/pp pp/qq'                                            \
+        'rename pp qq'                                                  \
+        'unlink qq'                                                     \
+        'unlink orz'                                                    \
+        'echo test2.sh end.'                                            \
+        'all user-mode processes have quit.'                            \
+        'init check memory pass.'                                       \
+    ! - 'sh error.*'                                                    \
+    ! - 'user panic at .*'
 
-pts=5
-quick_check 'check ticks'                                       \
-    '++ setup timer interrupts'                                 \
-    '100 ticks'                                                 \
-    'End of Test.'
-
-pts=15
-quick_check 'check mm_swap'                                     \
-    'check_mm_swap: step1, mm_map ok.'                          \
-    'check_mm_swap: step2, mm_unmap ok.'                        \
-    'check_mm_swap: step3, exit_mmap ok.'                       \
-    'check_mm_swap: step4, dup_mmap ok.'                        \
-    'check_mm_swap() succeeded.'
-
-pts=20
-quick_check 'check mm_shm_swap'                                 \
-    'check_mm_shm_swap: step1, share memory ok.'                \
-    'check_mm_shm_swap: step2, dup_mmap ok.'                    \
-    'check_mm_shm_swap() succeeded.'
+run_test -prog 'sh' -DTESTSCRIPT='/script/test3.sh'                     \
+        'kernel_execve: pid = 3, name = "sh".'                          \
+        'cat script/test2.sh > test/tmp.sh'                             \
+        'ls test'                                                       \
+        'sh < test/tmp.sh'                                              \
+        'unlink test/tmp.sh'                                            \
+        'echo test3.sh end.'                                            \
+        'all user-mode processes have quit.'                            \
+        'init check memory pass.'                                       \
+    ! - 'sh error.*'                                                    \
+    ! - 'user panic at .*'
 
 ## print final-score
 show_final

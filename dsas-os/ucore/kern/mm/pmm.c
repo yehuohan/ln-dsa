@@ -154,11 +154,15 @@ struct Page *
 alloc_pages(size_t n) {
     bool intr_flag;
     struct Page *page;
+try_again:
     local_intr_save(intr_flag);
     {
         page = pmm_manager->alloc_pages(n);
     }
     local_intr_restore(intr_flag);
+    if (page == NULL && try_free_pages(n)) {
+        goto try_again;
+    }
     return page;
 }
 
@@ -321,6 +325,7 @@ pmm_init(void) {
     //temporary map: 
     //virtual_addr 3G~3G+4M = linear_addr 0~4M = linear_addr 3G~3G+4M = phy_addr 0~4M     
     boot_pgdir[0] = boot_pgdir[PDX(KERNBASE)];
+    boot_pgdir[1] = boot_pgdir[PDX(KERNBASE) + 1];
 
     enable_paging();
 
@@ -329,11 +334,8 @@ pmm_init(void) {
     //then set kernel stack(ss:esp) in TSS, setup TSS in gdt, load TSS
     gdt_init();
 
-    //disable the map of virtual_addr 0~4M
-    boot_pgdir[0] = 0;
+    boot_pgdir[0] = boot_pgdir[1] = 0;
 
-    //now the basic virtual memory map(see memalyout.h) is established.
-    //check the correctness of the basic virtual memory map.
     check_boot_pgdir();
 
     print_pgdir();

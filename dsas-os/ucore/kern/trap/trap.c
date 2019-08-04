@@ -5,22 +5,19 @@
 #include <trap.h>
 #include <x86.h>
 #include <stdio.h>
+#include <kdebug.h>
 #include <assert.h>
-#include <console.h>
-#include <vmm.h>
 #include <sync.h>
 #include <monitor.h>
-#include <kdebug.h>
+#include <console.h>
+#include <vmm.h>
+#include <proc.h>
+#include <sched.h>
+#include <unistd.h>
+#include <syscall.h>
+#include <error.h>
 
-#define TICK_NUM 100
-
-static void print_ticks() {
-    cprintf("%d ticks\n",TICK_NUM);
-#ifdef DEBUG_GRADE
-    cprintf("End of Test.\n");
-    panic("EOT: kernel seems ok.");
-#endif
-}
+#define TICK_NUM 30
 
 static struct gatedesc idt[256] = {{0}};
 
@@ -33,8 +30,9 @@ idt_init(void) {
     extern uintptr_t __vectors[];
     int i;
     for (i = 0; i < sizeof(idt) / sizeof(struct gatedesc); i ++) {
-        SETGATE(idt[i], 0, GD_KTEXT, __vectors[i], DPL_KERNEL);
+        SETGATE(idt[i], 1, GD_KTEXT, __vectors[i], DPL_KERNEL);
     }
+    SETGATE(idt[T_SYSCALL], 1, GD_KTEXT, __vectors[T_SYSCALL], DPL_USER);
     lidt(&idt_pd);
 }
 
@@ -65,6 +63,9 @@ trapname(int trapno) {
 
     if (trapno < sizeof(excnames)/sizeof(const char * const)) {
         return excnames[trapno];
+    }
+    if (trapno == T_SYSCALL) {
+        return "System call";
     }
     if (trapno >= IRQ_OFFSET && trapno < IRQ_OFFSET + 16) {
         return "Hardware Interrupt";
@@ -137,11 +138,20 @@ print_pgfault(struct trapframe *tf) {
 static int
 pgfault_handler(struct trapframe *tf) {
     extern struct mm_struct *check_mm_struct;
-    print_pgfault(tf);
+    struct mm_struct *mm;
     if (check_mm_struct != NULL) {
-        return do_pgfault(check_mm_struct, tf->tf_err, rcr2());
+        assert(current == idleproc);
+        mm = check_mm_struct;
     }
-    panic("unhandled page fault.\n");
+    else {
+        if (current == NULL) {
+            print_trapframe(tf);
+            print_pgfault(tf);
+            panic("unhandled page fault.\n");
+        }
+        mm = current->mm;
+    }
+    return do_pgfault(mm, tf->tf_err, rcr2());
 }
 
 static void
@@ -158,14 +168,25 @@ trap_dispatch(struct trapframe *tf) {
     case T_PGFLT:
         if ((ret = pgfault_handler(tf)) != 0) {
             print_trapframe(tf);
-            panic("handle pgfault failed. %e\n", ret);
+            if (current == NULL) {
+                panic("handle pgfault failed. %e\n", ret);
+            }
+            else {
+                if (trap_in_kernel(tf)) {
+                    panic("handle pgfault failed in kernel mode. %e\n", ret);
+                }
+                cprintf("killed by kernel.\n");
+                do_exit(-E_KILLED);
+            }
         }
+        break;
+    case T_SYSCALL:
+        syscall();
         break;
     case IRQ_OFFSET + IRQ_TIMER:
         ticks ++;
-        if (ticks % TICK_NUM == 0) {
-            print_ticks();
-        }
+        assert(current != NULL);
+        run_timer_list();
         break;
     case IRQ_OFFSET + IRQ_COM1:
     case IRQ_OFFSET + IRQ_KBD:
@@ -173,8 +194,8 @@ trap_dispatch(struct trapframe *tf) {
             debug_monitor(tf);
         }
         else {
-            cprintf("%s [%03d] %c\n",
-                    (tf->tf_trapno != IRQ_OFFSET + IRQ_KBD) ? "serial" : "kbd", c, c);
+            extern void dev_stdin_write(char c);
+            dev_stdin_write(c);
         }
         break;
     case IRQ_OFFSET + IRQ_IDE1:
@@ -182,17 +203,37 @@ trap_dispatch(struct trapframe *tf) {
         /* do nothing */
         break;
     default:
-        // in kernel, it must be a mistake
-        if ((tf->tf_cs & 3) == 0) {
-            print_trapframe(tf);
-            panic("unexpected trap in kernel.\n");
+        print_trapframe(tf);
+        if (current != NULL) {
+            cprintf("unhandled trap.\n");
+            do_exit(-E_KILLED);
         }
+        panic("unexpected trap in kernel.\n");
     }
 }
 
 void
 trap(struct trapframe *tf) {
-    // dispatch based on what type of trap occurred
-    trap_dispatch(tf);
+    // used for previous projects
+    if (current == NULL) {
+        trap_dispatch(tf);
+    }
+    else {
+        // keep a trapframe chain in stack
+        struct trapframe *otf = current->tf;
+        current->tf = tf;
+
+        bool in_kernel = trap_in_kernel(tf);
+
+        trap_dispatch(tf);
+
+        current->tf = otf;
+        if (!in_kernel) {
+            may_killed();
+            if (current->need_resched) {
+                schedule();
+            }
+        }
+    }
 }
 

@@ -9,6 +9,8 @@
 #include <x86.h>
 #include <swap.h>
 #include <shmem.h>
+#include <proc.h>
+#include <sem.h>
 
 /* 
   vmm design include two parts: mm_struct (mm) & vma_struct (vma)
@@ -43,6 +45,37 @@ static void check_vmm(void);
 static void check_vma_struct(void);
 static void check_pgfault(void);
 
+void
+lock_mm(struct mm_struct *mm) {
+    if (mm != NULL) {
+        down(&(mm->mm_sem));
+        if (current != NULL) {
+            mm->locked_by = current->pid;
+        }
+    }
+}
+
+void
+unlock_mm(struct mm_struct *mm) {
+    if (mm != NULL) {
+        up(&(mm->mm_sem));
+        mm->locked_by = 0;
+    }
+}
+
+bool
+try_lock_mm(struct mm_struct *mm) {
+    if (mm != NULL) {
+        if (!try_down(&(mm->mm_sem))) {
+            return 0;
+        }
+        if (current != NULL) {
+            mm->locked_by = current->pid;
+        }
+    }
+    return 1;
+}
+
 // mm_create -  alloc a mm_struct & initialize it.
 struct mm_struct *
 mm_create(void) {
@@ -54,6 +87,11 @@ mm_create(void) {
         mm->pgdir = NULL;
         mm->map_count = 0;
         mm->swap_address = 0;
+        set_mm_count(mm, 0);
+        mm->locked_by = 0;
+        mm->brk_start = mm->brk = 0;
+        list_init(&(mm->proc_mm_link));
+        sem_init(&(mm->mm_sem), 1);
     }
     return mm;
 }
@@ -132,6 +170,15 @@ find_vma(struct mm_struct *mm, uintptr_t addr) {
         if (vma != NULL) {
             mm->mmap_cache = vma;
         }
+    }
+    return vma;
+}
+
+struct vma_struct *
+find_vma_intersection(struct mm_struct *mm, uintptr_t start, uintptr_t end) {
+    struct vma_struct *vma = find_vma(mm, start);
+    if (vma != NULL && end <= vma->vm_start) {
+        vma = NULL;
     }
     return vma;
 }
@@ -234,6 +281,7 @@ remove_vma_struct(struct mm_struct *mm, struct vma_struct *vma) {
 // mm_destroy - free mm and mm internal fields
 void
 mm_destroy(struct mm_struct *mm) {
+    assert(mm_count(mm) == 0);
     if (mm->mmap_tree != NULL) {
         rb_tree_destroy(mm->mmap_tree);
     }
@@ -407,7 +455,7 @@ dup_mmap(struct mm_struct *to, struct mm_struct *from) {
 
 void
 exit_mmap(struct mm_struct *mm) {
-    assert(mm != NULL);
+    assert(mm != NULL && mm_count(mm) == 0);
     pde_t *pgdir = mm->pgdir;
     list_entry_t *list = &(mm->mmap_list), *le = list;
     while ((le = list_next(le)) != list) {
@@ -442,6 +490,30 @@ get_unmapped_area(struct mm_struct *mm, size_t len) {
     return (start >= USERBASE) ? start : 0;
 }
 
+int
+mm_brk(struct mm_struct *mm, uintptr_t addr, size_t len) {
+    uintptr_t start = ROUNDDOWN(addr, PGSIZE), end = ROUNDUP(addr + len, PGSIZE);
+    if (!USER_ACCESS(start, end)) {
+        return -E_INVAL;
+    }
+
+    int ret;
+    if ((ret = mm_unmap(mm, start, end - start)) != 0) {
+        return ret;
+    }
+    uint32_t vm_flags = VM_READ | VM_WRITE;
+    struct vma_struct *vma = find_vma(mm, start - 1);
+    if (vma != NULL && vma->vm_end == start && vma->vm_flags == vm_flags) {
+        vma->vm_end = end;
+        return 0;
+    }
+    if ((vma = vma_create(start, end, vm_flags)) == NULL) {
+        return -E_NO_MEM;
+    }
+    insert_vma_struct(mm, vma);
+    return 0;
+}
+
 bool
 user_mem_check(struct mm_struct *mm, uintptr_t addr, size_t len, bool write) {
     if (mm != NULL) {
@@ -467,6 +539,47 @@ user_mem_check(struct mm_struct *mm, uintptr_t addr, size_t len, bool write) {
         return 1;
     }
     return KERN_ACCESS(addr, addr + len);
+}
+
+bool
+copy_from_user(struct mm_struct *mm, void *dst, const void *src, size_t len, bool writable) {
+    if (!user_mem_check(mm, (uintptr_t)src, len, writable)) {
+        return 0;
+    }
+    memcpy(dst, src, len);
+    return 1;
+}
+
+bool
+copy_to_user(struct mm_struct *mm, void *dst, const void *src, size_t len) {
+    if (!user_mem_check(mm, (uintptr_t)dst, len, 1)) {
+        return 0;
+    }
+    memcpy(dst, src, len);
+    return 1;
+}
+
+bool
+copy_string(struct mm_struct *mm, char *dst, const char *src, size_t maxn) {
+    size_t alen, part = ROUNDDOWN((uintptr_t)src + PGSIZE, PGSIZE) - (uintptr_t)src;
+    while (1) {
+        if (part > maxn) {
+            part = maxn;
+        }
+        if (!user_mem_check(mm, (uintptr_t)src, part, 0)) {
+            return 0;
+        }
+        if ((alen = strnlen(src, part)) < part) {
+            memcpy(dst, src, alen + 1);
+            return 1;
+        }
+        if (part == maxn) {
+            return 0;
+        }
+        memcpy(dst, src, part);
+        dst += part, src += part, maxn -= part;
+        part = PGSIZE;
+    }
 }
 
 // check_vmm - check correctness of vmm
@@ -584,6 +697,22 @@ check_pgfault(void) {
 // do_pgfault - interrupt handler to process the page fault execption
 int
 do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
+    if (mm == NULL) {
+        assert(current != NULL);
+        panic("page fault in kernel thread: pid = %d, %d %08x.\n",
+                current->pid, error_code, addr);
+    }
+
+    bool need_unlock = 1;
+    if (!try_lock_mm(mm)) {
+        if (current != NULL && mm->locked_by == current->pid) {
+            need_unlock = 0;
+        }
+        else {
+            lock_mm(mm);
+        }
+    }
+
     int ret = -E_INVAL;
     struct vma_struct *vma = find_vma(mm, addr);
     if (vma == NULL || vma->vm_start > addr) {
@@ -688,6 +817,9 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
     ret = 0;
 
 failed:
+    if (need_unlock) {
+        unlock_mm(mm);
+    }
     return ret;
 }
 
