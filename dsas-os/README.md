@@ -60,14 +60,14 @@ POSIX API用于POSIX-based系统，包括UNIX、Linux等；而Win32 API用于Win
 内存大致包括3部分：
 
 ```
- |-------------------------|
+ ┌-------------------------┐
  |CPU寄存器，L1缓存，L2缓存| : CPU内部内存，速度快，但容量小
  |-------------------------|
  |主存                     |
  |-------------------------|
  |硬盘（虚拟内存）         |
- |-------------------------|
- ```
+ └-------------------------┘
+```
 
 ## 内存地址空间管理
 
@@ -412,3 +412,165 @@ Write: 读写标志位，是否有修改
 
 
 ## 进程调度
+
+### 基本介绍
+
+ - 分类
+
+ 非抢占式： 调度程序必须等待事件结束
+ 抢占式（内核态抢占，用户态抢占）：进程可以被打断
+
+ - 调度评价指标
+
+ CPU使用率：CPU处于忙状态所占时间的百分比
+ 吞吐量：单位时间内完成的进程数量
+ 周转时间：一个进程从初始化到结束，包括所有等待时间所花费的时间
+ 等待时间：进程在就绪队列中的总时间
+ 响应时间：从一个请求被提交到产生第一次相应所花费的总时间
+
+### 调度算法
+
+ - FCFS: 先来先服务
+
+实现简单，但没有考虑抢占调度。
+
+ - SPN(SJF) SRT: 短进程优先（短作业优先）短剩余时间优先
+
+按照预测的完成时间来将任务入队；可以是抢占式或非抢占式的。
+SRT是抢占式的，SPN是非抢式的。
+
+ - HRRN: 最高响应比优比
+
+```
+R = (W+S)/S
+W: Waiting time 等待时间
+S: Service time 服务时间
+选择R值最高的进程（等待时间最长）
+```
+
+在SPN的基础上改进，综合考虑执行时间和等待时间；
+关注进程等待了多长时间，防止无期限推迟；
+非抢占式。
+
+ - Round Robin: 轮循
+
+设置一个时间片，进程挨个轮循执行一个时间片的时间。
+
+ - Multilevel Feedback Queues: 多级反馈队列
+
+进程可以在不同优先级的级列中移动；
+优先级越高，时间片越大；
+任务在当前的时间片中没有完成，则降到下一个优先级。
+
+ - Fair Share Scheduling: 公平共平调度
+
+公平是第一要素；
+控制用户对系统资源的访问，在用户级别实现公平调度。
+
+### 实时调度
+
+ - 强实时系统：需要在保证的时间内完成重要任务，必须完成
+ - 弱实时系统：要求重要的进程的优先级更高，尽量完成，并非必须
+
+ - RM(Rate Monotonic) 速度单调调度
+最佳静态优先级调度，通过周期安排优先级，周期越短优先级越高，执行周期最短的任务。
+
+ - EDF(Earliest Deadline First) 最早期限调度
+最佳的动态优先级调度，Deadline越早优先级越高，执行Dealine最早的任务。
+
+## 同步问题
+
+### Critial Section（临界区）
+
+指进程中的一段需要访问共享资源，且当另一个进程处于相应的代码区域时，便不会被执行的代码区域。
+
+ - 基于硬件中断
+
+没有中断，没有上下文切换，因此没有并发。
+
+进入临界区：禁用中断
+离开临界区：开启中断
+
+ - 基于软件的解决方案
+
+针对两个进程同步的Peterson算法：
+
+```cpp
+int turn;       // 该哪个进程进入临界区
+bool flag[];    // 指示进程是否准备好进入临界区
+
+// Thread a                         // Thread b
+do {                                do {
+  flag[a] = true;                     flag[b] = true;
+  turn = b;                           turn = a;
+  while (flag[b] && turn == b);       while (flag[a] && turn == a);
+  enter_critial_section();            enter_critial_section();
+
+  flag[a] = false;                    flag[b] = false;
+  exit_critial_section();             exit_critial_section();
+} while(true);                      } while(true);
+
+```
+
+ - 更高级的抽象
+
+需要硬件提供原子指令。
+
+Test-and-set（测试和置位）：
+
+```cpp
+// 从内存取值 -> 测试值是否为1（返回真或假）-> 内存值设置为1
+bool TestAndSet(bool *tartget) {
+  bool = rv = *target;
+  *target = true;
+  return rv;
+}
+```
+
+Exchange（交换）：
+
+```cpp
+// 交换两个内存值并返回
+void Exchange(bool *a, bool *b) {
+  bool tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+```
+
+利用原子指令实现Lock（锁）：
+
+```cpp
+class Lock {
+  int value = 0;
+  WaitQueue q;
+}
+
+// 忙等待方式
+Lock::Acquire() {
+  while (TestAndSet(value));
+}
+Lock::Release() {
+  value = 0;
+}
+
+// 无忙等待方式
+Lock::Acquire() {
+  while (TestAndSet(value)) {
+    q.add(current_TCB);
+    schedule();
+  };
+}
+Lock::Release() {
+  value = 0;
+  q.remove(current_TCB);
+  wakeup();
+}
+```
+
+### Mutual Exclusion（互斥）
+当一个进程处理临界区并访问共享资源时，没有其它进程会处于临界区且访问任何相同的共享资源。
+
+### Dead Lock（死锁）
+
+### Starvation（饥饿）
