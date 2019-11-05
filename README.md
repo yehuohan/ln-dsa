@@ -1,18 +1,13 @@
 
+## dsa
 
-## dsas
-Data Struct and Algorithm Study.
-
- - dirs
+Data Struct and Algorithm learning.
 
 ```
 .
-├── dsas-cpp : dsa implementation in c++11
-├── dsas-ma  : mathematics and algorithm
-└── misc
-    ├── lite-c : some lite-implementation of dsa in c
-    ├── usestl : examples of c++stl
-    └── code   : code pratice
+├── dsa-cpp : dsa implementation in c++11
+├── lite-c : some lite-implementation of dsa in c
+└── usestl : examples of dsa of c++stl
 ```
 
  - ref
