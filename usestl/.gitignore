@@ -1,0 +1,11 @@
+
+# .gitignore for dsas
+
+*.swp
+*.exe
+
+/*
+!/.gitignore
+!/*.cpp
+!/*.h
+!/makefile
