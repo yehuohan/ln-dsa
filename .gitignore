@@ -3,15 +3,3 @@
 
 *.swp
 *.exe
-
-/*
-!/.gitignore
-!/*.md
-!/Doxyfile
-!/docs
-
-!/dsas-cpp
-!/dsas-lite-c
-!/dsas-ma
-!/dsas-os
-!/misc
