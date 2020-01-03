@@ -39,5 +39,7 @@ extern void algorithm_heap(void);
 // Thread
 extern void thread_thread(void);
 
+// Atomic
+extern void atomic_atomic(void);
 
 #endif /* ifndef _USE_STL */

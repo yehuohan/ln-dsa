@@ -1,54 +1,72 @@
 
-
 #-------------------------------------------------
 #
-# Project created by Vim 2018-05-27 17:04:51
+# Project created by Vim 2020-01-03 17:28:12
 #
 #-------------------------------------------------
 
 #===============================================================================
-# path 
+# dir
 #===============================================================================
-DIR_INC = ./
-DIR_SRC = ./
-DIR_OBJ = ./obj
-DIR_BIN = ./
-DIR_3RD = ./3party
-DIR_LIB = ./lib
+DIR_INC := ./
+DIR_SRC := ./
+DIR_OBJ := ./obj
+DIR_BIN := .
 
 #===============================================================================
-# setting 
+# settings
 #===============================================================================
-CC = g++
-TARGET = usestl
+define make_dir
+	$(foreach str, \
+		$(addprefix ${DIR_OBJ}/,${DIR_SRC}), \
+		$(shell mkdir -p ${str}))
+endef
+$(call make_dir)
 
-ifeq ($(CC), g++)
-CC_SUF = cpp
+## get src files from dirs with suffixs: (#dirs, #suffixs)
+get_src = $(filter $(addprefix %.,$(2)),$(wildcard $(addsuffix /*,$(1))))
+
+## get suffix files in dir from files: (#dir, #suffix, #files)
+get_suf = $(addprefix $(1)/,$(addsuffix .$(2),$(basename $(3))))
+
+## create obj target: (#obj_dir, #src_files, #cxxflags)
+define do_create_obj_target
+$(1)/$(basename $(2)).o: $(2)
+	$(V)$(CC) -c $$< $(3) -o $$@ -MD -MP -MT $$@ -MT $$*.d -MF $$*.d
+endef
+create_obj_target = $(foreach line,$(2),$(eval $(call do_create_obj_target,$(1),$(line),$(3))))
+
+CC         := g++
+TARGET 	   := usestl
+ifeq (${CC}, g++)
+CC_SUF     := c cc cpp cxx
+else
+CC_SUF     := c cc
 endif
-ifeq ($(CC), gcc)
-CC_SUF = c
-endif
+BIN        := ${DIR_BIN}/${TARGET}
+SRC        := $(call get_src,${DIR_SRC},${CC_SUF})
+OBJ        := $(call get_suf,${DIR_OBJ},o,${SRC})
+DEP        := $(call get_suf,${DIR_OBJ},d,${SRC})
+LIBS       :=
+#-lpthread `pkg-config opencv --libs`
+PKGFLAGS   :=
+#`pkg-config opencv --cflags`
+CXXFLAGS   := -g -Wall
+CXXFLAGS   += $(addprefix -I, $(DIR_INC))
+CXXFLAGS   += ${PKGFLAGS}
+LDFLAGS    := ${LIBS}
 
-SRC = $(wildcard ${DIR_SRC}/*.${CC_SUF})
-OBJ = $(patsubst %.${CC_SUF},${DIR_OBJ}/%.o,$(notdir ${SRC}))
+#===============================================================================
+# target
+#===============================================================================
+${BIN}: ${OBJ}
+	${CC} $^ -o $@ ${CXXFLAGS} ${LDFLAGS}
 
-BIN_TARGET = ${DIR_BIN}/${TARGET}
-LDFLAGS = -L${DIR_LIB}
-LIBS =
-#-lopencv_core -lpthread
-PKGFLAGS =
-#`pkg-config opencv --cflagspkg-config opencv --libs`
-CXXFLAGS = -g -Wall -I${DIR_INC} -I${DIR_SRC} -I${DIR_3RD} ${PKGFLAGS}
+$(call create_obj_target,${DIR_OBJ},${SRC},${CXXFLAGS})
 
+-include ${DEP}
 
-${BIN_TARGET} : ${OBJ}
-	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LIBS)
-
-${DIR_OBJ}/%.o:${DIR_SRC}/%.${CC_SUF}
-	@[ -d ${DIR_OBJ} ] || mkdir -p ${DIR_OBJ}
-	$(CC) $(CXXFLAGS) -c $< -o $@
-
-.phony:clean
+.phony: clean
 clean:
-	rm ${OBJ}
-
+	-rm -r ${DIR_OBJ}
+	-rm ${BIN}
