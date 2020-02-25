@@ -98,26 +98,21 @@ void hs_put_keyval(HashTable* hash, int key, int val)
  */
 int hs_get_val(HashTable* hash, int key, int* val)
 {
-    HashItemPtr n = hash->ht[hs_hash_key(key)];
-    while(n)
+    int index = hs_hash_key(key);
+    if (hash->ht[index])
     {
-        if (n->key == key)
+        HashItemPtr n = hash->ht[index];
+        while(n)
         {
-            *val = n->val;
-            return 1;
+            if (n->key == key)
+            {
+                if (val != NULL)
+                    *val = n->val;
+                return 1;
+            }
+            n = n->next;
         }
-        n = n->next;
     }
-    return 0;
-}
-
-/*!
- * @brief 判断是否存在key
- */
-int hs_contain_val(HashTable* hash, int key)
-{
-    if (hash->ht[hs_hash_key(key)])
-        return 1;
     return 0;
 }
 
