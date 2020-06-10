@@ -19,6 +19,13 @@ typedef struct Queue
     // Front as max
 }Queue;
 
+/*!
+ * @brief mq初始化
+ *
+ * mq的典型应用场景：求一串数据在移动"窗口"中的极值
+ *
+ * @param cap 对于cap中的元素，保持单调性
+ */
 void mq_init(Queue* mq, int cap)
 {
     mq->node = (QueueNode*)malloc(sizeof(QueueNode) * cap);
