@@ -6,8 +6,7 @@ Data Struct and Algorithm learning.
 ```
 .
 ├── dsa-cpp : dsa implementation in c++11
-├── lite-c : some lite-implementation of dsa in c
-└── usestl : examples of dsa of c++stl
+└── lite-c : some lite-implementation of dsa in c
 ```
 
  - ref
